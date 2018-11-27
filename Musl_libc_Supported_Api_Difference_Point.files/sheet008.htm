@@ -1,0 +1,644 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=shift_jis">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File
+href="../Musl_libc_Supported_Api_Difference_Point.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+ruby
+	{ruby-align:left;}
+rt
+	{color:windowtext;
+	font-size:6.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"ＭＳ Ｐゴシック", monospace;
+	mso-font-charset:128;
+	mso-char-type:katakana;
+	display:none;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(7);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../Musl_libc_Supported_Api_Difference_Point.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1190 style='border-collapse:
+ collapse;table-layout:fixed;width:892pt'>
+ <col width=72 style='width:54pt'>
+ <col width=31 style='mso-width-source:userset;mso-width-alt:992;width:23pt'>
+ <col width=296 style='mso-width-source:userset;mso-width-alt:9472;width:222pt'>
+ <col width=415 style='mso-width-source:userset;mso-width-alt:13280;width:311pt'>
+ <col width=376 style='mso-width-source:userset;mso-width-alt:12032;width:282pt'>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 width=72 style='height:14.25pt;width:54pt'></td>
+  <td width=31 style='width:23pt'></td>
+  <td width=296 style='width:222pt'></td>
+  <td width=415 style='width:311pt'></td>
+  <td width=376 style='width:282pt'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 style='height:14.25pt'></td>
+  <td class=xl107 width=31 style='width:23pt'>No</td>
+  <td class=xl108 width=296 style='width:222pt'>Case</td>
+  <td class=xl108 width=415 style='width:311pt'>Behaviour in musl-libc</td>
+  <td class=xl108 width=376 style='width:282pt'>Behaviour in glibc</td>
+ </tr>
+ <tr height=126 style='height:94.5pt'>
+  <td height=126 style='height:94.5pt'></td>
+  <td class=xl188 width=31 style='width:23pt'>1</td>
+  <td class=xl110 width=296 style='border-left:none;width:222pt'>Sending
+  SIGCANCEL signal directly using syscall().</td>
+  <td class=xl110 width=415 style='border-left:none;width:311pt'>When SIGCANCEL
+  signal is sent using syscall()(Ex. Kill(), syscall(SYS_tgkill), etc.) then
+  whole thread group will be terminated instead of target thread.<br>
+    Unlike glibc, musl-libc installs handler for SIGCANCEL after
+  pthread_cancel() is called. So, if SIGCANCEL signal is sent prior to
+  pthread_cancel() invokation, it will result in termination of thread group as
+  default action of SIGCANCEL is terminate.</td>
+  <td class=xl189 width=376 style='border-left:none;width:282pt'>Only target
+  thread will be terminated</td>
+ </tr>
+ <tr height=84 style='mso-height-source:userset;height:63.0pt'>
+  <td height=84 style='height:63.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>2</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>sigtimedwait()/sigwaitinfo()</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>sigtimedwait()/sigwaitinfo()
+  will never fail with EINTR.<br>
+    According to musl-libc implemenation of sigwaitinfo()/sigtimedwait() these
+  wrapper function re-invokes syscall rt_sigtimedwait()<span
+  style='mso-spacerun:yes'>&nbsp; </span>upon failing with EINTR<br>
+    </td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>Fail
+  with EINTR.</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>3</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_sigqueue()</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>compilation
+  error</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>API
+  implemented</td>
+ </tr>
+ <tr height=44 style='mso-height-source:userset;height:33.0pt'>
+  <td height=44 style='height:33.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>4</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>sigaltstack()</td>
+  <td class=xl82 width=415 style='width:311pt'>If new alternate stack “ss”
+  argument of sigaltstack points to an invalid address then sigaltstack() will
+  result in segfault</td>
+  <td class=xl189 width=376 style='border-top:none;width:282pt'>In glibc
+  sigaltstack() process will not terminate with segfault instead it will fails
+  will error EFAULT.</td>
+ </tr>
+ <tr height=60 style='mso-height-source:userset;height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>5</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>sigprocmask()</td>
+  <td class=xl110 width=415 style='border-left:none;width:311pt'><span
+  style='mso-spacerun:yes'>&nbsp;</span>If an attempt is made to update signal
+  mask with invalid &quot;how&quot; and &quot;mask&quot; argument then
+  sigprocmask() will fail with EINVAL.</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>sigprocmask()
+  will fail with EFAULT.</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>6</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>sigtimedwait()</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>if
+  sigtimedwait() invoked with invalid &quot;set&quot; argument then it fails
+  with EFAULT.</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>sigtimedwait()
+  will fail with segmentation fault.</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>7</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>sched_getscheduler</td>
+  <td class=xl89 width=415 style='border-top:none;border-left:none;width:311pt'>API
+  returning ENOSYS</td>
+  <td class=xl91 width=376 style='border-top:none;border-left:none;width:282pt'>API
+  implemented</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>8</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>When
+  a detached thread is tried to join</td>
+  <td class=xl89 width=415 style='border-top:none;border-left:none;width:311pt'>pthread_join
+  results in deadlock.</td>
+  <td class=xl91 width=376 style='border-top:none;border-left:none;width:282pt'>pthread_join
+  returns EINVAL.</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>9</td>
+  <td class=xl89 width=296 style='border-top:none;border-left:none;width:222pt'>When
+  pthread_join is called with an invalid thread id</td>
+  <td class=xl89 width=415 style='border-top:none;border-left:none;width:311pt'>results
+  in segmentation fault.</td>
+  <td class=xl91 width=376 style='border-top:none;border-left:none;width:282pt'>returns
+  ESRCH.</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>10</td>
+  <td class=xl89 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_attr_getaffinity_np
+  &amp; pthread_attr_setaffinity_np</td>
+  <td class=xl89 width=415 style='border-top:none;border-left:none;width:311pt'>compilation
+  error(API’s not implemented).</td>
+  <td class=xl91 width=376 style='border-top:none;border-left:none;width:282pt'>API’s
+  are implemented.</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>11</td>
+  <td class=xl89 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_timedjoin_np,</td>
+  <td class=xl89 width=415 style='border-top:none;border-left:none;width:311pt'>API
+  not implemented(compilation error).</td>
+  <td class=xl91 width=376 style='border-top:none;border-left:none;width:282pt'>API
+  implemented.</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>12</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_tryjoin_np</td>
+  <td class=xl89 width=415 style='border-top:none;border-left:none;width:311pt'>API
+  not implemented(compilation error).</td>
+  <td class=xl91 width=376 style='border-top:none;border-left:none;width:282pt'>API
+  implemented.</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>13</td>
+  <td class=xl89 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_attr_setschedparam,
+  returns EINVAL when invalid param argument is set</td>
+  <td class=xl89 width=415 style='border-top:none;border-left:none;width:311pt'>No
+  error is generated.</td>
+  <td class=xl91 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL
+  is returned.</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>14</td>
+  <td class=xl89 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_attr_setschedpolicy,
+  returns EINVAL when invalid policy argument is set,</td>
+  <td class=xl89 width=415 style='border-top:none;border-left:none;width:311pt'>No
+  error is generated.</td>
+  <td class=xl91 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL
+  is returned.</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>15</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_attr_setguardsize,
+  returns EINVAL when negative guardsize value is used</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>EINVAL
+  is returned</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>No
+  error is returned.</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>16</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_attr_setschedparam,
+  returns EINVAL when negative param argument is used</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>No
+  error is returned.</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL
+  is returned.</td>
+ </tr>
+ <tr height=43 style='mso-height-source:userset;height:32.25pt'>
+  <td height=43 style='height:32.25pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>17</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'><span
+  style='mso-spacerun:yes'>&nbsp;</span>pthread_attr_setstacksize, returns
+  EINVAL when -1 in stacksize argument is used</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>EINVAL
+  is returned.</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>No
+  error is returned.</td>
+ </tr>
+ <tr height=54 style='height:40.5pt'>
+  <td height=54 style='height:40.5pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>18</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_setaffinity_np
+  &amp; pthread_getaffinity_np, returns ESRCH when an invalid thread id is used</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>ESRCH
+  is returned.</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>No
+  error is returned.</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>19</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'><span
+  style='mso-spacerun:yes'>&nbsp;</span>pthread_mutexattr_setprioceiling &amp;
+  pthread_mutexattr_getprioceiling,</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>API
+  not implemented(Compilation error).</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>API
+  implemented.</td>
+ </tr>
+ <tr height=22 style='mso-height-source:userset;height:16.5pt'>
+  <td height=22 style='height:16.5pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>20</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>PTHREAD_MUTEX_ADAPTIVE_NP,<span
+  style='mso-spacerun:yes'>&nbsp;</span></td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>Macro
+  not defined.</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>Macro
+  defined.</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>21</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'><span
+  style='mso-spacerun:yes'>&nbsp;</span>pthread_mutexattr_setprotocol, When
+  protocol argument is some non-zero value</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>API
+  returning ENOTSUP</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>No
+  error is returned</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>22</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_mutex_trylock,
+  returns EINVAL when tries to lock with an unintialised variable</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>No
+  error is returned</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL
+  is returned</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>23</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'><span
+  style='mso-spacerun:yes'>&nbsp;</span>pthread_mutex_unlock, returns EINVAL
+  when tries to lock with an unintialised variable</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>No
+  error is returned</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL
+  is returned</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>24</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_mutex_lock,
+  returns EINVAL when tries to lock with an unintialised variable</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>No
+  error is returned</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL
+  is returned</td>
+ </tr>
+ <tr height=54 style='height:40.5pt'>
+  <td height=54 style='height:40.5pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>25</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'><span
+  style='mso-spacerun:yes'>&nbsp;</span>pthread_cond_destroy, returns EBUSY
+  when trying to destroy conditional variable which is in use</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>No
+  error is returned</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>EBUSY
+  is returned</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>26</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_condattr_setclock,
+  return EINVAL when invalid clock id is set</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>No
+  error is returned</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL
+  is returned</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>27</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_rwlock_rdlock,
+  returns EDEADLK, when lock is already acquired</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>goes
+  into deadlock</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>EDEADLK
+  is returned</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>28</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>PTHREAD_RWLOCK_PREFER_READER_NP,</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>MACRO
+  not implemented</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>MACRO
+  implemented</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>29</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>PTHREAD_RWLOCK_PREFER_WRITER_NP,<span
+  style='mso-spacerun:yes'>&nbsp;</span></td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>MACRO
+  not implemented</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>MACRO
+  implemented</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>30</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_rwlockattr_setkind_np,</td>
+  <td class=xl190>Function not implemented</td>
+  <td class=xl191>Function implemented</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>31</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_rwlockattr_getkind_np,</td>
+  <td class=xl110 width=415 style='border-left:none;width:311pt'>Function not
+  implemented</td>
+  <td class=xl189 width=376 style='border-left:none;width:282pt'>Function
+  implemented</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>32</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>Sem_close,
+  returns EINVAL when invalid semaphore is used</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>segmentation
+  fault</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL
+  is returned</td>
+ </tr>
+ <tr height=54 style='height:40.5pt'>
+  <td height=54 style='height:40.5pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>33</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_barrier_destroy
+  returns EBUSY when made an attempt to destroy a barrier while it<span
+  style='mso-spacerun:yes'>&nbsp; </span>is<span
+  style='mso-spacerun:yes'>&nbsp; </span>in<span
+  style='mso-spacerun:yes'>&nbsp; </span>use</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>No
+  error is generated</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>EBUSY
+  error is returned</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>34</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_barrierattr_setpshared
+  returns EINVAL when barrier attribute is invalid</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>No
+  error is generated</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL
+  is returned</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>35</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>Pthread_cancel
+  returns ESRCH, when no thread with thread ID is found</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>segmentation
+  fault</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>ESRCH
+  is returned</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>36</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'><span
+  style='mso-spacerun:yes'>&nbsp;</span>Pthread_kill returns ESRCH, when no
+  thread with thread ID is found</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>segmentation
+  fault</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>ESRCH
+  is returned</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>37</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>Pthread_setconcurrency</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>EAGAIN
+  is returned(in musl-libc concurrency can be set only to 0)</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>Executed
+  without any failure</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>38</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_getcpuclockid
+  returns ESRCH, when no thread with thread ID is present</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>segmentation
+  fault</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>ESRCH
+  is returned</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>39</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_setschedparam
+  returns ESRCH, when no thread with thread ID is present</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>segmentation
+  fault</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>ESRCH
+  is returned</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>40</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_getschedparam
+  returns ESRCH, when no thread with thread ID is present</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>segmentation
+  fault</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>ESRCH
+  is returned</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>41</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_setschedparam
+  returns EINVAL, when an invalid policy argument is set</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>No
+  error is generated</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL
+  is returned</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>42</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_setschedprio
+  returns ESRCH, when no thread with thread ID is present</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>segmentation
+  fault</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>ESRCH
+  is returned</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>43</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_setspecific
+  returns EINVAL, when an invalid key is used</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>segmentation
+  fault</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL
+  is returned</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>44</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_yield</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>Function
+  not implemented</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>Function
+  implemented</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>45</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_key_delete
+  returns EINVAL, when an invalid key is used</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>segmentation
+  fault</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL
+  is returned</td>
+ </tr>
+ <tr height=72 style='height:54.0pt'>
+  <td height=72 style='height:54.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>46</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>dlcose()
+  receives the address of library as an argument and return 0 (success) when it
+  find the library or return 1 when library is not found.</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>On
+  success, musl-libc do not unload the library.<br>
+    Which means it return 0 but do not free the memory occupied by library.</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>On
+  success, Glibc unloaded the library.</td>
+ </tr>
+ <tr height=144 style='height:108.0pt'>
+  <td height=144 style='height:108.0pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>47</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>write()</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>write(2)
+  system call wrapper of musl-libc does not have checking/validation of buffer
+  size (sizet_count ) passed as an argument .<br>
+    Instead write wrapper of musl libc directly invoke kernel’s write(2) system
+  call. Hence if the user program passes the value of count argument as 0 (
+  zero byte write ), user program will receive<span
+  style='mso-spacerun:yes'>&nbsp; </span>&quot;Bad Address&quot; (-EFAULT) from
+  kernel.<br>
+    </td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>Glibc
+  write(2) system call wrapper perform<span style='mso-spacerun:yes'>&nbsp;
+  </span>validation on buffer size ( size_t count) passed as an argument before
+  invoking the kernel write(2) system call. Hence if the user program pass the
+  value of count argument as 0 ( zero byte), glibc write (2) wrapper will
+  return 0 (success) to the user program .</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>48</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_attr_getstackaddr</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>In
+  musl-libc there is no such api definition</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>Api
+  is present in glibc</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>49</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_attr_setstackaddr</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>In
+  musl-libc there is no such api definition</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>Api
+  is present in glibc</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>50</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>sysconf</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>In
+  musl-libc for value SC_NGROUPS_MAX API returns 32</td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>In
+  glibc for value SC_NGROUPS_MAX API returns 65536</td>
+ </tr>
+ <tr height=57 style='height:42.75pt'>
+  <td height=57 style='height:42.75pt'></td>
+  <td class=xl188 width=31 style='border-top:none;width:23pt'>51</td>
+  <td class=xl110 width=296 style='border-top:none;border-left:none;width:222pt'>recvmsg()</td>
+  <td class=xl110 width=415 style='border-top:none;border-left:none;width:311pt'>When
+  the 2<font class="font19"><sup>nd</sup></font><font class="font0"> argument
+  (struct msghdr) is passed as an invalid address in recvmsg() then it get
+  crashed in case of musl-libc.</font></td>
+  <td class=xl189 width=376 style='border-top:none;border-left:none;width:282pt'>When
+  the 2<font class="font19"><sup>nd</sup></font><font class="font0"> argument
+  (struct msghdr) is passed as an invalid address in recvmsg() then it returns
+  EFAULT in case of glibc.</font></td>
+ </tr>
+ <tr height=109 style='height:81.75pt'>
+  <td height=109 style='height:81.75pt'></td>
+  <td class=xl192 width=31 style='border-top:none;width:23pt'>52</td>
+  <td class=xl193 width=296 style='border-top:none;border-left:none;width:222pt'>Order
+  of dynamic library path searching in glibc and musl-libc</td>
+  <td class=xl193 width=415 style='border-top:none;border-left:none;width:311pt'>In
+  musl-libc, path is searched in below order : <br>
+    1.LD_LIBRARY_PATH (in VE, VE_LD_LIBRATY_PATH) <br>
+    2.DT_RPATH/DT_RUNPATH (as decided by binutils)<br>
+    3 /etc/opt/nec/ve/musl/ld-musl-ve.path<br>
+    4.the standard path in a system (/opt/nec/ve/musl/lib/)<br>
+    </td>
+  <td class=xl194 width=376 style='border-top:none;border-left:none;width:282pt'>In
+  glibc, path is searched in below order:<br>
+    1.DT_RPATH (if DT_RUNPATH doesn't exist) <br>
+    2.LD_LIBRARY_PATH <br>
+    3.DT_RUNPATH <br>
+    4.the standard path in a system(/usr/lib64/)<br>
+    </td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=72 style='width:54pt'></td>
+  <td width=31 style='width:23pt'></td>
+  <td width=296 style='width:222pt'></td>
+  <td width=415 style='width:311pt'></td>
+  <td width=376 style='width:282pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,777 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=shift_jis">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../Difference_Points_GDB.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(0);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../Difference_Points_GDB.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link="#4575FD" vlink="#9E5ECE" class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=892 style='border-collapse:
+ collapse;table-layout:fixed;width:669pt'>
+ <col class=xl66 width=36 style='mso-width-source:userset;mso-width-alt:1024;
+ width:27pt'>
+ <col class=xl66 width=31 style='mso-width-source:userset;mso-width-alt:881;
+ width:23pt'>
+ <col class=xl79 width=29 style='mso-width-source:userset;mso-width-alt:824;
+ width:22pt'>
+ <col class=xl66 width=76 style='mso-width-source:userset;mso-width-alt:2161;
+ width:57pt'>
+ <col class=xl66 width=80 span=9 style='width:60pt'>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl78 colspan=4 width=172 style='height:18.75pt;
+  mso-ignore:colspan;width:129pt'>GDBの相違点</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66 colspan=3 style='mso-ignore:colspan'>Version 1.5</td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66 colspan=2 style='mso-ignore:colspan'>NEC</td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66 colspan=11 style='mso-ignore:colspan'>この資料ではVE(ベクトルエンジン)と一般的なLinuxのGDBの使用法に関する相違点について説明されています。</td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66 colspan=6 style='mso-ignore:colspan'>この資料は次のシートにより構成されています。</td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl101 colspan=2 style='mso-ignore:colspan'><a
+  href="sheet002.htm#RANGE!A1">概要</a></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66 colspan=3 style='mso-ignore:colspan'>VEに対するGDBの相違点の概要</td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl101 colspan=3 style='mso-ignore:colspan'><a
+  href="sheet003.htm#RANGE!A1">VE固有のコマンド</a></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66 colspan=5 style='mso-ignore:colspan'>VE用に準備された新しいGDBコマンドのリスト</td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl101 colspan=2 style='mso-ignore:colspan'><a
+  href="sheet004.htm#RANGE!A1">GDBコマンド</a></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66 colspan=6 style='mso-ignore:colspan'>GDBコマンドリストと各コマンドの現時点におけるサポート状況</td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl101 colspan=2 style='mso-ignore:colspan'><a
+  href="sheet005.htm#RANGE!A1">MIコマンド</a></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66 colspan=6 style='mso-ignore:colspan'>GDB/MIコマンドリストと各コマンドの現時点におけるサポート状況</td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl101 colspan=4 style='mso-ignore:colspan'><a
+  href="sheet006.htm#RANGE!A1">アドバンスオフモードの設定方法</a></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66 colspan=6 style='mso-ignore:colspan'>GDBでVEプログラムをアドバンスオフモードで実行するための説明</td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl101 colspan=2 style='mso-ignore:colspan'><a
+  href="sheet007.htm#RANGE!A1">更新履歴</a></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66 colspan=12 style='mso-ignore:colspan'>各種コマンドの使用方法の詳細につきましてはGNUプロジェクトの「GDBユーザマニュアル」をご参照ください。</td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66 colspan=6 style='mso-ignore:colspan'>GDBはGNUプロジェクトにより開発されました。</td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66 colspan=8 style='mso-ignore:colspan'>GDBのVEへの移植版ははGDB7.11.1に基づきNECにより開発されました。</td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl67></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl67></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl67></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl100></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl71></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl71></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl71></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl71></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl71></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl71></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl71></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl66 style='height:18.75pt'></td>
+  <td class=xl66></td>
+  <td class=xl79></td>
+  <td class=xl71></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+  <td class=xl66></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=36 style='width:27pt'></td>
+  <td width=31 style='width:23pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=76 style='width:57pt'></td>
+  <td width=80 style='width:60pt'></td>
+  <td width=80 style='width:60pt'></td>
+  <td width=80 style='width:60pt'></td>
+  <td width=80 style='width:60pt'></td>
+  <td width=80 style='width:60pt'></td>
+  <td width=80 style='width:60pt'></td>
+  <td width=80 style='width:60pt'></td>
+  <td width=80 style='width:60pt'></td>
+  <td width=80 style='width:60pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

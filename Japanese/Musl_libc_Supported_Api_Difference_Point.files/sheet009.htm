@@ -1,0 +1,123 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=shift_jis">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File
+href="../Musl_libc_Supported_Api_Difference_Point.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+ruby
+	{ruby-align:left;}
+rt
+	{color:windowtext;
+	font-size:6.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"ＭＳ Ｐゴシック", monospace;
+	mso-font-charset:128;
+	mso-char-type:katakana;
+	display:none;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(8);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../Musl_libc_Supported_Api_Difference_Point.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple>
+
+<table border=0 cellpadding=0 cellspacing=0 width=938 style='border-collapse:
+ collapse;table-layout:fixed;width:704pt'>
+ <col width=44 style='mso-width-source:userset;mso-width-alt:1408;width:33pt'>
+ <col width=50 style='mso-width-source:userset;mso-width-alt:1600;width:38pt'>
+ <col width=188 style='mso-width-source:userset;mso-width-alt:6016;width:141pt'>
+ <col class=xl78 width=656 style='mso-width-source:userset;mso-width-alt:20992;
+ width:492pt'>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 width=44 style='height:13.5pt;width:33pt'></td>
+  <td width=50 style='width:38pt'></td>
+  <td width=188 style='width:141pt'></td>
+  <td class=xl78 width=656 style='width:492pt'></td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl137>S.no.</td>
+  <td class=xl137 style='border-left:none'><ruby>環境<span style='display:none'><rt>カンキョウ</rt></span></ruby><ruby>変数<span
+  style='display:none'><rt>ヘンスウ</rt></span></ruby></td>
+  <td class=xl139 style='border-left:none'><ruby>定義<span style='display:none'><rt>テイギ</rt></span></ruby></td>
+ </tr>
+ <tr height=80 style='mso-height-source:userset;height:60.0pt'>
+  <td height=80 style='height:60.0pt'></td>
+  <td class=xl138 align=right style='border-top:none'>1</td>
+  <td class=xl138 style='border-top:none;border-left:none'>VE_LD_LIBRARY_PATH</td>
+  <td class=xl140 width=656 style='border-top:none;border-left:none;width:492pt'><ruby>動的<span
+  style='display:none'><rt>ドウテキ</rt></span></ruby>リンカが<ruby>共有<span
+  style='display:none'><rt>キョウユウ</rt></span></ruby>ライブラリを<ruby>探<span
+  style='display:none'><rt>サガ</rt></span></ruby>すディレクトリを<ruby>指定<span
+  style='display:none'><rt>シテイ</rt></span></ruby>する<ruby>環境<span
+  style='display:none'><rt>カンキョウ</rt></span></ruby><ruby>変数<span
+  style='display:none'><rt>ヘンスウ</rt></span></ruby>。<br>
+    VE の VE_LD_LIBRARY_PATH は x86_64 における LD_LIBRARY_PATH 相当の環境変数です。</td>
+ </tr>
+ <tr height=85 style='mso-height-source:userset;height:63.75pt'>
+  <td height=85 style='height:63.75pt'></td>
+  <td class=xl138 align=right style='border-top:none'>2</td>
+  <td class=xl138 style='border-top:none;border-left:none'>VE_LD_PRELOAD</td>
+  <td class=xl140 width=656 style='border-top:none;border-left:none;width:492pt'>この<ruby>環境<span
+  style='display:none'><rt>カンキョウ</rt></span></ruby><ruby>変数<span
+  style='display:none'><rt>ヘンスウ</rt></span></ruby>は<ruby>動的<span
+  style='display:none'><rt>ドウテキ</rt></span></ruby>リンカにプリロードする<ruby>共有<span
+  style='display:none'><rt>キョウユウ</rt></span></ruby>ライブラリのパスを<ruby>設定<span
+  style='display:none'><rt>セッテイ</rt></span></ruby>します。<ruby>実行<span
+  style='display:none'><rt>ジッコウ</rt></span></ruby>ファイルにロードされるどの<ruby>共有<span
+  style='display:none'><rt>キョウユウ</rt></span></ruby>ライブラリよりも<ruby>先<span
+  style='display:none'><rt>サキ</rt></span></ruby>に、ユーザが<ruby>指定<span
+  style='display:none'><rt>シテイ</rt></span></ruby>するライブラリをロードする<ruby>事<span
+  style='display:none'><rt>コト</rt></span></ruby>が<ruby>可能<span
+  style='display:none'><rt>カノウ</rt></span></ruby>です。<br>
+    VE の VE_LD_PRELOAD は x86_64 における LD_PRELOAD 相当の環境変数です。</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=44 style='width:33pt'></td>
+  <td width=50 style='width:38pt'></td>
+  <td width=188 style='width:141pt'></td>
+  <td width=656 style='width:492pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,226 @@
+VEOS:How to execute VE program
+v1.2.2
+Date:15-Aug-2018
+
+
+First of all, you have to login your target VH which means Linux/x86 machines
+having VEs.
+
+- how many VEs and the CPU cores you can use in the VH?
+
+  $ unset VE_NODE_NUMBER
+  $ /opt/nec/ve/bin/uptime | grep Node
+  VE Node: 1
+  VE Node: 0
+           ^this number means VE Node number
+
+  In this case, you can use two VEs, #0 and #1.
+
+  $ /opt/nec/ve/bin/nproc
+  VE Node: 1
+  8
+  VE Node: 0
+  8
+
+  In this case, you can use the 8 cores on each VE node.
+
+  (NOTE) You can get the best VE performance when you execute any VE program
+         whose number of threads/processes is less than or equal to the number
+         of the VE CPU cores because there is no context switching while
+         executing the VE program.
+
+- how to make the VE program?
+
+  $ vi hello.c
+  $ /opt/nec/ve/bin/ncc hello.c -o hello
+
+
+- how to run the VE program?
+
+  If you want to execute your program on VE Node #0:
+
+   $ /opt/nec/ve/bin/ve_exec -N 0 ./hello
+
+  If you want to execute your program on VE Node #1:
+
+   $ /opt/nec/ve/bin/ve_exec -N 1 ./hello
+
+  Or when you specify the environment variable for the VE Node number, it is
+  not necessary to specify the -N option, such as:
+
+   $ export VE_NODE_NUMBER=1
+   $ /opt/nec/ve/bin/ve_exec ./hello
+
+  When you install VEOS, binfmt for VE is configured. It is possible to
+  execute VE programs without ve_exec. If multiple VE nodes exist, the VE 
+  node which executes VE program is specified by environment variable 
+  (VE_NODE_NUMBER), such as:
+
+   $ export VE_NODE_NUMBER=1
+   $ ./hello
+
+  When you want to change the path which the linker should
+  look in to while linking dynamic libraries/shared libraries,
+  you can use VE_LD_LIBRARY_PATH which is the predefined environment
+  variable in VEOS. For example, if you want to set it to
+  "/path/to/user/lib":
+
+   $ export VE_LD_LIBRARY_PATH=/path/to/usr/lib 
+   $ /opt/nec/ve/bin/ve_exec ./hello
+
+  Please see 'Environment variables' section for more variables.
+
+  When you want to add library search path as the default value,
+  please add the search path to the following configuration file.
+    /etc/opt/nec/ve/musl/ld-musl-ve.path
+  Please see 'Difference Point for Musl-libc' document 
+  (Musl_libc_Supported_Api_Difference_Point.htm) for detail.
+
+
+- how to run ported commands for VEOS?
+
+  If you want to execute your target command, such as ps, on VE Node #0:
+
+   $ export VE_NODE_NUMBER=0
+   $ /opt/nec/ve/bin/ps
+
+  If you want to execute your target command, such as ps, on VE Node #1:
+
+   $ export VE_NODE_NUMBER=1
+   $ /opt/nec/ve/bin/ps
+  
+  VEOS supports the following commands which stored in /opt/nec/ve/bin:
+
+   aclocal
+   aclocal-1.13
+   autoconf
+   autoheader
+   autom4te
+   automake
+   automake-1.13
+   autoreconf
+   autoscan
+   autoupdate
+   free
+   gdb
+   ifnames
+   iostat
+   ipcs
+   ipcrm
+   libtool
+   libtoolize
+   lscpu
+   lslocks
+   mpstat
+   pidstat
+   pmap
+   prlimit
+   prtstat
+   ps
+   sadf
+   sar
+   strace
+   strace-log-merge
+   taskset
+   time
+   tload
+   top
+   uptime
+   ve_exec
+   vmstat
+   w
+
+   - how to debug the VE program
+ 
+     You can use gdb:
+
+     $ export VE_NODE_NUMBER=0
+     $ /opt/nec/ve/bin/gdb ./hello
+     (gdb) run
+
+- Different points between VEOS and Linux
+
+  Please see the following documents:
+
+  - Difference_Point_System_Calls.pdf
+  - Difference_Points_GDB.htm
+  - Difference_Points_Commands.pdf
+  - Musl_libc_Supported_Api_Difference_Point.htm
+
+- VEOS high level design
+
+  Please see the following documents
+
+  - VEOS_high_level_desing.pdf
+
+- When you face VEOS problems
+
+  The following files are necessary for NEC to find the problems:
+
+   /var/opt/nec/ve/veos/*.log.*
+   /var/opt/nec/ve/veos/core.*
+   /var/log/messages*
+
+  And please get the version information with the following commands:
+
+   $ uname -r > veos.version
+   $ rpm -qa --qf '%{VENDOR} %{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n' | grep NEC >> veos.version
+
+  If your facing problem is reproducible, everything by the followings
+  are really helpful for NEC VEOS development.
+
+    Please set the following environment variable to specify the directory
+    and enable log output. 
+
+     $ export LOG4C_RCPATH=/etc/opt/nec/ve/veos
+
+    Please edit the configuration file setting log level to "DEBUG" and
+    layout to "ve_debug" for all components as follows. 
+
+     $ sudo cp /etc/opt/nec/ve/veos/log4crc /etc/opt/nec/ve/veos/log4crc.org
+     $ sudo sed -i -e 's/INFO/DEBUG/g' -e 's/CRIT/DEBUG/g' -e 's/layout="ve"/layout="ve_debug"/g' /etc/opt/nec/ve/veos/log4crc
+
+    And, please reboot VEOS. 
+
+     $ sudo systemctl restart 've-os-launcher@*'
+
+    Then, please reproduce the issue again and you'll find log files of
+    ve_exec at the current directory. 
+
+     ./ve_exec.log.*
+
+    Please gather log files for veos at the following path as default. 
+
+     /var/opt/nec/ve/veos/*.log.*
+     /var/opt/nec/ve/veos/core.*
+     /var/log/messages*
+
+    And please get the version information with the following commands:
+
+     $ uname -r > veos.version
+     $ rpm -qa --qf '%{VENDOR} %{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n' | grep NEC >> veos.version
+
+    Last of all, please restore the original log level and reboot VEOS.
+
+     $ sudo cp /etc/opt/nec/ve/veos/log4crc.org /etc/opt/nec/ve/veos/log4crc
+     $ sudo systemctl restart 've-os-launcher@*'
+     $ unset LOG4C_RCPATH
+
+
+- Environment Variables
+
+  These environment variables can control VE program execution.
+
+  * VE_NODE_NUMBER
+    It specifies VE node number on which a program will be executed. 
+
+  * VE_LD_LIBRARY_PATH
+    This environment variable provides a library path for finding dynamic 
+    libraries in colon separated format.
+
+  * VE_LD_PRELOAD
+    This environment variable sets the pre-loading path for dynamic linker 
+    and that allows to load you specified, shared library before all 
+    other shared libraries which are linked to an executable get loaded.
+    
+

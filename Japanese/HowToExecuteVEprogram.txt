@@ -1,0 +1,215 @@
+VEOS:VEプログラムの実行方法
+v1.2.2
+Date:15-Aug-2018
+
+
+はじめに、対象のVH(VEが接続されるLinux/x86マシン)にログインしてください。
+
+- 対象のVHで何ノードのVEを使用でき、それぞれCPUコアをいくつ使用できるか？
+
+  $ unset VE_NODE_NUMBER
+  $ /opt/nec/ve/bin/uptime | grep Node
+  VE Node: 1
+  VE Node: 0
+           ^この番号はVEノード番号です。
+
+  この場合、2ノード(#0,1)使用可能です。
+
+  $ /opt/nec/ve/bin/nproc
+  VE Node: 1
+  8
+  VE Node: 0
+  8
+
+  この場合、それぞれのVEノードで8コアを使用可能です。
+
+  (注意) 実行するVEプログラムのプロセス/スレッド数がVEのCPUコア数以下の時に
+         VE性能を最大限に引き出せます。これはVEプログラム実行中にコンテキスト
+         スイッチが発生しないからです。
+
+- VEプログラムの作り方
+
+  $ vi hello.c
+  $ /opt/nec/ve/bin/ncc hello.c -o hello
+
+- VEプログラムの実行方法
+
+  VEノード#0でプログラムを実行する場合:
+
+   $ /opt/nec/ve/bin/ve_exec -N 0 ./hello
+
+  VEノード#1でプログラムを実行する場合:
+
+   $ /opt/nec/ve/bin/ve_exec -N 1 ./hello
+
+  あるいは、VEノード番号を意味する環境変数を設定すれば、-Nオプションを指定する
+  必要ありません。例えば:
+
+   $ export VE_NODE_NUMBER=1
+   $ /opt/nec/ve/bin/ve_exec ./hello
+
+  binfmt の設定がインストール時に行われているため、VEプログラムをve_execなしに
+  実行することも可能です。複数のVEが搭載されている場合、VEプログラムを実行する
+  VEノードを環境変数(VE_NODE_NUMBER)で指定します。
+
+   $ export VE_NODE_NUMBER=1
+   $ ./hello
+
+  動的リンカが、動的リンクライブラリ(共有ライブラリ)を検索するパスを変更したい
+  場合、VE の環境変数 VE_LD_LIBRARY_PATH を事前に設定してください。 
+  /path/to/usr/lib を検索させたい場合は、以下の様に指定します。
+
+   $ export VE_LD_LIBRARY_PATH=/path/to/usr/lib
+   $ /opt/nec/ve/bin/ve_exec ./hello
+
+  その他の環境変数については、「環境変数」の節を参照してください。
+
+  規定値として検索パスを追加する場合は、下記の設定ファイルにパスを追加します。
+  /etc/opt/nec/ve/musl/ld-musl-ve.path
+  詳細は、ドキュメント「Musl-libcの相違点」
+  (Musl_libc_Supported_Api_Difference_Point.htm) を参照してください。
+
+
+- VEOSコマンドの実行方法
+
+  例えば、VEノード#0に対するpsコマンドを実行する場合:
+
+   $ export VE_NODE_NUMBER=0
+   $ /opt/nec/ve/bin/ps
+
+  VEノード#1に対するpsコマンドを実行する場合:
+
+   $ export VE_NODE_NUMBER=1
+   $ /opt/nec/ve/bin/ps
+
+  VEOSは/opt/nec/ve/bin/配下にある以下のコマンドをサポートします:
+  
+   aclocal
+   aclocal-1.13
+   autoconf
+   autoheader
+   autom4te
+   automake
+   automake-1.13
+   autoreconf
+   autoscan
+   autoupdate
+   free
+   gdb
+   ifnames
+   iostat
+   ipcs
+   ipcrm
+   libtool
+   libtoolize
+   lscpu
+   lslocks
+   mpstat
+   pidstat
+   pmap
+   prlimit
+   prtstat
+   ps
+   sadf
+   sar
+   strace
+   strace-log-merge
+   taskset
+   time
+   tload
+   top
+   uptime
+   ve_exec
+   vmstat
+   w
+
+   - VEプログラムのデバッグ方法
+
+     GDBを使用可能です:
+ 
+     $ export VE_NODE_NUMBER=0
+     $ /opt/nec/ve/bin/gdb ./hello
+     (gdb) run
+
+- VEOSとLinuxの違いについて
+
+  以下の情報を参照願います:
+
+  - Difference_Point_System_Calls.pdf
+  - Difference_Points_GDB.htm
+  - Difference_Points_Commands.pdf
+  - Musl_libc_Supported_Api_Difference_Point.htm
+
+- VEOS各種仕様について
+
+  以下の情報を参照願います:
+
+  - VEOS_high_level_desing.pdf
+
+- VEOSの問題発生時の情報採取
+
+  解析には以下の情報が必要です:
+
+   /var/opt/nec/ve/veos/*.log.*
+   /var/opt/nec/ve/veos/core.*
+   /var/log/messages*
+
+  さらには各種バージョン情報も必要です:
+
+   $ uname -r > veos.version
+   $ rpm -qa --qf '%{VENDOR} %{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n' | grep NEC >> veos.version
+
+  再現可能なVEOSの問題なら、以下の情報も解析に役立ちます。
+
+    情報採取のために、以下の環境変数を設定願います。
+
+     $ export LOG4C_RCPATH=/etc/opt/nec/ve/veos
+
+    情報採取のレベルをデバッグに変更願います。
+
+     $ sudo cp /etc/opt/nec/ve/veos/log4crc /etc/opt/nec/ve/veos/log4crc.org
+     $ sudo sed -i -e 's/INFO/DEBUG/g' -e 's/CRIT/DEBUG/g' -e 's/layout="ve"/layout="ve_debug"/g' /etc/opt/nec/ve/veos/log4crc
+
+    以上の設定を反映するために、VEOSをリブートしてください。
+
+     $ sudo systemctl restart 've-os-launcher@*'
+
+    ここで、VEOSの問題を再現させてください。この時、ve_execのログファイルが
+    作業ディレクトリに作成されます。
+
+     ./ve_exec.log.*
+
+    なお、以下の情報も忘れずにお願いします。
+
+     /var/opt/nec/ve/veos/*.log.*
+     /var/opt/nec/ve/veos/core.*
+     /var/log/messages*
+
+    さらには各種バージョン情報も必要です:
+
+    $ uname -r > veos.version
+    $ rpm -qa --qf '%{VENDOR} %{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n' | grep NEC >> veos.version
+
+    最後に、ログレベルを元に戻して、VEOSをリブートしてください。
+
+     $ sudo cp /etc/opt/nec/ve/veos/log4crc.org /etc/opt/nec/ve/veos/log4crc
+     $ sudo systemctl restart 've-os-launcher@*'
+     $ unset LOG4C_RCPATH
+
+
+- 環境変数
+
+  以下の環境変数によって、プログラム実行の制御が可能です。
+
+  * VE_NODE_NUMBER
+    プログラムが実行される VEノード番号を指定します。
+
+  * VE_LD_LIBRARY_PATH
+    プログラム実行時に検索するライブラリパスを指定します。VE_LD_LIBRARY_PATH
+    には、コロンで区切った複数のディレクトリを指定できます。
+
+  * VE_LD_PRELOAD
+    この環境変数は動的リンカにプリロードする共有ライブラリのパスを設定します。
+    実行ファイルにロードされるどの共有ライブラリよりも先に、ユーザが指定する
+    ライブラリをロードする事が可能です。
+

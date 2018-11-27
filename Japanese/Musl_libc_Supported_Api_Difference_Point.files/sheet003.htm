@@ -1,0 +1,1161 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=shift_jis">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File
+href="../Musl_libc_Supported_Api_Difference_Point.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+ruby
+	{ruby-align:left;}
+rt
+	{color:windowtext;
+	font-size:6.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"ＭＳ Ｐゴシック", monospace;
+	mso-font-charset:128;
+	mso-char-type:katakana;
+	display:none;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../Musl_libc_Supported_Api_Difference_Point.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1579 style='border-collapse:
+ collapse;table-layout:fixed;width:1186pt'>
+ <col width=46 style='mso-width-source:userset;mso-width-alt:1472;width:35pt'>
+ <col class=xl65 width=73 style='width:55pt'>
+ <col width=306 style='mso-width-source:userset;mso-width-alt:9792;width:230pt'>
+ <col class=xl74 width=73 style='width:55pt'>
+ <col width=414 style='mso-width-source:userset;mso-width-alt:13248;width:311pt'>
+ <col width=667 style='mso-width-source:userset;mso-width-alt:21344;width:500pt'>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 width=46 style='height:13.5pt;width:35pt'></td>
+  <td class=xl65 width=73 style='width:55pt'></td>
+  <td width=306 style='width:230pt'></td>
+  <td class=xl74 width=73 style='width:55pt'></td>
+  <td width=414 style='width:311pt'></td>
+  <td width=667 style='width:500pt'></td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td colspan=5 rowspan=3 class=xl158 width=1533 style='border-right:.5pt solid black;
+  width:1151pt'><ruby>注意<span style='display:none'><rt>チュウイ</rt></span></ruby>:
+  <br>
+    フルサポート (Posix準拠) = APIは open-posix により呼び出されており、すべてのテストケースの実行で成功しています</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 style='height:14.25pt'></td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl108>No</td>
+  <td class=xl109 style='border-left:none'>API<ruby>名<span style='display:none'><rt>メイ</rt></span></ruby></td>
+  <td class=xl105 width=73 style='border-left:none;width:55pt'>サイズ<br>
+    (バイト)</td>
+  <td class=xl109 style='border-left:none'><ruby>備考<span style='display:none'><rt>ビコウ</rt></span></ruby></td>
+  <td class=xl110 style='border-left:none'><ruby>説明<span style='display:none'><rt>セツメイ</rt></span></ruby>(<ruby>必要<span
+  style='display:none'><rt>ヒツヨウ</rt></span></ruby>な<ruby>場合<span
+  style='display:none'><rt>バアイ</rt></span></ruby>)</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188>1</td>
+  <td class=xl82 style='border-left:none'>pthread_attr_destroy</td>
+  <td class=xl115 style='border-left:none'>352</td>
+  <td class=xl82 style='border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>2</td>
+  <td class=xl82 style='border-top:none;border-left:none'>sigemptyset</td>
+  <td class=xl115 style='border-top:none;border-left:none'>392</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>3</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_barrierattr_destroy</td>
+  <td class=xl115 style='border-top:none;border-left:none'>352</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl190 width=667 style='border-top:none;border-left:none;width:500pt'>LTPによると、全てのテストケースはパスしています。
+  失敗はスクリプトによるものです。　　　　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>4</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_mutexattr_destroy</td>
+  <td class=xl115 style='border-top:none;border-left:none'>352</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>5</td>
+  <td class=xl82 style='border-top:none;border-left:none'>sem_destroy</td>
+  <td class=xl115 style='border-top:none;border-left:none'>352</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>6</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_attr_getscope</td>
+  <td class=xl115 style='border-top:none;border-left:none'>384</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。
+  失敗はスクリプトによるものです。　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>7</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_rwlock_destroy</td>
+  <td class=xl115 style='border-top:none;border-left:none'>352</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl190 width=667 style='border-top:none;border-left:none;width:500pt'>LTPによると、全てのテストケースはパスしています。
+  失敗はスクリプトファイルによるものです</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>8</td>
+  <td class=xl82 style='border-top:none;border-left:none'>clock_getres</td>
+  <td class=xl115 style='border-top:none;border-left:none'>520</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。
+  失敗はスクリプトによるものです。　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>9</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_attr_getinheritsched</td>
+  <td class=xl115 style='border-top:none;border-left:none'>408</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。失敗はスクリプトによるものです。　　　　　　　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>10</td>
+  <td class=xl82 style='border-top:none;border-left:none'>__pthread_setcancelstate</td>
+  <td class=xl115 style='border-top:none;border-left:none'>600</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>11</td>
+  <td class=xl82 style='border-top:none;border-left:none'>sigaddset</td>
+  <td class=xl115 style='border-top:none;border-left:none'>840</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=54 style='height:40.5pt'>
+  <td height=54 style='height:40.5pt'></td>
+  <td class=xl188 style='border-top:none'>12</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_attr_getschedpolicy</td>
+  <td class=xl115 style='border-top:none;border-left:none'>408</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl190 width=667 style='border-top:none;border-left:none;width:500pt'>LTPによると、全てのテストケースはパスしています。
+  失敗はスクリプトによるものです。　　　　　　　<br>
+    </td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>13</td>
+  <td class=xl82 style='border-top:none;border-left:none'>__pthread_create</td>
+  <td class=xl115 style='border-top:none;border-left:none'>9728</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>14</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_attr_setscope</td>
+  <td class=xl115 style='border-top:none;border-left:none'>536</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。
+  失敗はスクリプトによるものです。　　　　　　　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>15</td>
+  <td class=xl82 style='border-top:none;border-left:none'>kill</td>
+  <td class=xl115 style='border-top:none;border-left:none'>520</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>16</td>
+  <td class=xl82 style='border-top:none;border-left:none'>ctime</td>
+  <td class=xl115 style='border-top:none;border-left:none'>432</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>17</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_rwlock_timedrdlock</td>
+  <td class=xl115 style='border-top:none;border-left:none'>2248</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。失敗はスクリプトによるものです。　　　　　　　　　　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>18</td>
+  <td class=xl82 style='border-top:none;border-left:none'>sigignore</td>
+  <td class=xl115 style='border-top:none;border-left:none'>560</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>19</td>
+  <td class=xl82 style='border-top:none;border-left:none'>mktime</td>
+  <td class=xl115 style='border-top:none;border-left:none'>1480</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>20</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_barrierattr_init</td>
+  <td class=xl115 style='border-top:none;border-left:none'>488</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。　　　　　　　　　　　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>21</td>
+  <td class=xl82 style='border-top:none;border-left:none'>sem_close</td>
+  <td class=xl115 style='border-top:none;border-left:none'>1392</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>22</td>
+  <td class=xl82 style='border-top:none;border-left:none'>mq_unlink</td>
+  <td class=xl115 style='border-top:none;border-left:none'>736</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 style='border-top:none'>23</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_attr_setstacksize</td>
+  <td class=xl115 style='border-top:none;border-left:none'>568</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl190 width=667 style='border-top:none;border-left:none;width:500pt'>LTPによると、全てのテストケースはパスしています。
+  失敗はスクリプトによるものです。<br>
+    </td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>24</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_rwlockattr_getpshared</td>
+  <td class=xl115 style='border-top:none;border-left:none'>416</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。失敗はスクリプトによるものです。　　　　　　　　　　　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>25</td>
+  <td class=xl82 style='border-top:none;border-left:none'>sigfillset</td>
+  <td class=xl115 style='border-top:none;border-left:none'>408</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>26</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_spin_unlock</td>
+  <td class=xl115 style='border-top:none;border-left:none'>424</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。失敗はスクリプトによるものです。　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>27</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_rwlockattr_init</td>
+  <td class=xl115 style='border-top:none;border-left:none'>600</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。失敗はスクリプトによるものです。　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>28</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_mutexattr_getpshared</td>
+  <td class=xl115 style='border-top:none;border-left:none'>448</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。失敗はスクリプトによるものです。　　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>29</td>
+  <td class=xl82 style='border-top:none;border-left:none'>killpg</td>
+  <td class=xl115 style='border-top:none;border-left:none'>568</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>30</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_condattr_getpshared</td>
+  <td class=xl115 style='border-top:none;border-left:none'>416</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。失敗はスクリプトによるものです。　　　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>31</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_barrier_init</td>
+  <td class=xl115 style='border-top:none;border-left:none'>2000</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。失敗はスクリプトによるものです。　　　　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>32</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_mutexattr_settype</td>
+  <td class=xl115 style='border-top:none;border-left:none'>552</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。失敗はスクリプトによるものです。　　　　　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>33</td>
+  <td class=xl82 style='border-top:none;border-left:none'>sigtimedwait</td>
+  <td class=xl115 style='border-top:none;border-left:none'>776</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>34</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_attr_getdetachstate</td>
+  <td class=xl115 style='border-top:none;border-left:none'>408</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl191 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。失敗はスクリプトによるものです。　　　　　　　　　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>35</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_barrier_wait</td>
+  <td class=xl115 style='border-top:none;border-left:none'>3920</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl191 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。失敗はスクリプトによるものです。　　　　　　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>36</td>
+  <td class=xl82 style='border-top:none;border-left:none'>sem_open</td>
+  <td class=xl115 style='border-top:none;border-left:none'>7184</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl191 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>37</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_rwlock_trywrlock</td>
+  <td class=xl115 style='border-top:none;border-left:none'>560</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl191 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。失敗はスクリプトによるものです　　　　　　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>38</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_rwlock_tryrdlock</td>
+  <td class=xl115 style='border-top:none;border-left:none'>776</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl191 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。失敗はスクリプトによるものです</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>39</td>
+  <td class=xl82 style='border-top:none;border-left:none'>fsync</td>
+  <td class=xl115 style='border-top:none;border-left:none'>576</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 style='border-top:none'>40</td>
+  <td class=xl82 style='border-top:none;border-left:none'>_pthread_cleanup_push</td>
+  <td class=xl115 style='border-top:none;border-left:none'>464</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl190 width=667 style='border-top:none;border-left:none;width:500pt'>LTPによると、全てのテストケースはパスしています。
+  pthread_cleanup_pushはpthread_cleanup_pushを<ruby>使用<span style='display:none'><rt>シヨウ</rt></span></ruby>するマクロです。</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>41</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_mutexattr_init</td>
+  <td class=xl115 style='border-top:none;border-left:none'>488</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>42</td>
+  <td class=xl82 style='border-top:none;border-left:none'>strftime</td>
+  <td class=xl115 style='border-top:none;border-left:none'>552</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>43</td>
+  <td class=xl82 style='border-top:none;border-left:none'>sem_getvalue</td>
+  <td class=xl115 style='border-top:none;border-left:none'>496</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>44</td>
+  <td class=xl82 style='border-top:none;border-left:none'>sigdelset</td>
+  <td class=xl115 style='border-top:none;border-left:none'>848</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>45</td>
+  <td class=xl82 style='border-top:none;border-left:none'>gmtime</td>
+  <td class=xl115 style='border-top:none;border-left:none'>432</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>46</td>
+  <td class=xl82 style='border-top:none;border-left:none'>sigpending</td>
+  <td class=xl115 style='border-top:none;border-left:none'>504</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>47</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_barrierattr_getpshared</td>
+  <td class=xl115 style='border-top:none;border-left:none'>440</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると全てのテストケースはパスしています。失敗はスクリプトによるものです。</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>48</td>
+  <td class=xl82 style='border-top:none;border-left:none'>mq_setattr</td>
+  <td class=xl115 style='border-top:none;border-left:none'>544</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると　全てのテストケースはパスしています。失敗はスクリプトによるものです。</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>49</td>
+  <td class=xl82 style='border-top:none;border-left:none'>timer_delete</td>
+  <td class=xl115 style='border-top:none;border-left:none'>768</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。失敗はスクリプトによるものです。　　　　　　　　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>50</td>
+  <td class=xl80 style='border-top:none;border-left:none'>sigaltstack</td>
+  <td class=xl81 style='border-top:none;border-left:none'>888</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>51</td>
+  <td class=xl80 style='border-top:none;border-left:none'>__pthread_mutex_unlock</td>
+  <td class=xl81 style='border-top:none;border-left:none'>2024</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=234 style='height:175.5pt'>
+  <td height=234 style='height:175.5pt'></td>
+  <td class=xl188 style='border-top:none'>52</td>
+  <td class=xl80 style='border-top:none;border-left:none'>signal</td>
+  <td class=xl81 style='border-top:none;border-left:none'>736</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl190 width=667 style='border-top:none;border-left:none;width:500pt'>シングルAPIは<ruby>成功<span
+  style='display:none'><rt>セイコウ</rt></span></ruby>しています。<br>
+    テストケースは<ruby>以下<span style='display:none'><rt>イカ</rt></span></ruby>の<ruby>問題<span
+  style='display:none'><rt>モンダイ</rt></span></ruby>により<ruby>失敗<span
+  style='display:none'><rt>シッパイ</rt></span></ruby>しています。<br>
+   
+  テストプログラムは、シグナルを送信し、ハンドラコンテキストで更新された変数をすぐにチェックすることによってハンドラが呼び出されたかどうかを確認します。VEでは、アーキテクチャのシグナル配信が遅れてテストケースが失敗する可能性があります。<br>
+    <br>
+    <br>
+    <font class="font17">To make test case pass:</font><font class="font18"><br>
+    <span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>raise(SIGCHLD);<br>
+    +<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>getpid();<br>
+    <br>
+    <span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>if (handler_called != 1) {<br>
+    </font></td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>53</td>
+  <td class=xl80 style='border-top:none;border-left:none'>localtime</td>
+  <td class=xl81 style='border-top:none;border-left:none'>432</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=90 style='height:67.5pt'>
+  <td height=90 style='height:67.5pt'></td>
+  <td class=xl188 style='border-top:none'>54</td>
+  <td class=xl80 style='border-top:none;border-left:none'>clock</td>
+  <td class=xl81 style='border-top:none;border-left:none'>824</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl190 width=667 style='border-top:none;border-left:none;width:500pt'>LTPの<ruby>全<span
+  style='display:none'><rt>スベ</rt></span></ruby>てのテストケースは<ruby>以下<span
+  style='display:none'><rt>イカ</rt></span></ruby>の2つを<ruby>除<span
+  style='display:none'><rt>ノゾ</rt></span></ruby>きパスしています。:<br>
+    1.&gt;4-1.sh はスクリプトです<br>
+    2.&gt;1-1.c はLARGENUMBER(900000)の<ruby>非常<span style='display:none'><rt>ヒジョウ</rt></span></ruby>に<ruby>大<span
+  style='display:none'><rt>オオ</rt></span></ruby>きな<ruby>値<span
+  style='display:none'><rt>アタイ</rt></span></ruby>を<ruby>持<span
+  style='display:none'><rt>モ</rt></span></ruby>ち、タイマー<ruby>値<span
+  style='display:none'><rt>アタイ</rt></span></ruby>は142<ruby>秒<span
+  style='display:none'><rt>ビョウ</rt></span></ruby>より<ruby>非常<span
+  style='display:none'><rt>ヒジョウ</rt></span></ruby>に<ruby>低<span
+  style='display:none'><rt>ヒク</rt></span></ruby>い<ruby>値<span style='display:
+  none'><rt>アタイ</rt></span></ruby>です。プログラムにはより<ruby>長<span style='display:none'><rt>ナガ</rt></span></ruby>く<ruby>時間<span
+  style='display:none'><rt>ジカン</rt></span></ruby>がかかり、hangingの<ruby>状態<span
+  style='display:none'><rt>ジョウタイ</rt></span></ruby>のままになっています。<br>
+    <span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span></td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>55</td>
+  <td class=xl80 style='border-top:none;border-left:none'>clock_nanosleep</td>
+  <td class=xl81 style='border-top:none;border-left:none'>560</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。　失敗はスクリプトによるものです。</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>56</td>
+  <td class=xl80 style='border-top:none;border-left:none'>timer_settime</td>
+  <td class=xl81 style='border-top:none;border-left:none'>688</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。　
+  失敗はスクリプトによるものです。</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>57</td>
+  <td class=xl80 style='border-top:none;border-left:none'>sigwait</td>
+  <td class=xl81 style='border-top:none;border-left:none'>552</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=324 style='height:243.0pt'>
+  <td height=324 style='height:243.0pt'></td>
+  <td class=xl188 style='border-top:none'>58</td>
+  <td class=xl80 style='border-top:none;border-left:none'>raise</td>
+  <td class=xl81 style='border-top:none;border-left:none'>776</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl190 width=667 style='border-top:none;border-left:none;width:500pt'>raise()
+  APIは<ruby>成功<span style='display:none'><rt>セイコウ</rt></span></ruby>しています。<br>
+    テストケースは以下の問題により失敗しています。<br>
+   
+  テストプログラムは、シグナルを送信し、ハンドラコンテキストで更新された変数をすぐにチェックすることによってハンドラが呼び出されたかどうかを確認します。VEでは、アーキテクチャのシグナル配信が遅れてテストケースが失敗する可能性があります。<br>
+    <br>
+    <br>
+    <font class="font19">テストケースをパスさせる</font><ruby><font class="font19">方法</font><span
+  style='display:none'><rt>ホウホウ</rt></span></ruby><font class="font19">:</font><br>
+    <span style='mso-spacerun:yes'>&nbsp;</span>if (raise(SIGTOTEST) != 0)
+  {<br>
+    <span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>printf(&quot;Could not raise signal being tested\n&quot;);<br>
+    <span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>return PTS_FAIL;<br>
+    <span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>}<br>
+    +<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>getpid();<br>
+    <br>
+    <span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>if (INHANDLER == globalStatus || BEFOREHANDLER == globalStatus) {<br>
+    <span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>printf(&quot;Test FAILED\n&quot;);<br>
+    <br>
+    </td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>59</td>
+  <td class=xl86 width=306 style='border-top:none;border-left:none;width:230pt'>timer_gettime</td>
+  <td class=xl86 width=73 style='border-top:none;border-left:none;width:55pt'>632</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。
+  　失敗はスクリプトによるものです。　　</td>
+ </tr>
+ <tr height=486 style='height:364.5pt'>
+  <td height=486 style='height:364.5pt'></td>
+  <td class=xl188 style='border-top:none'>60</td>
+  <td class=xl86 width=306 style='border-top:none;border-left:none;width:230pt'>sigset</td>
+  <td class=xl86 width=73 style='border-top:none;border-left:none;width:55pt'>1760</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl190 width=667 style='border-top:none;border-left:none;width:500pt'><br>
+    sigset() APIは<ruby>成功<span style='display:none'><rt>セイコウ</rt></span></ruby>しています。<br>
+    テストケースは以下の問題により失敗しています。<br>
+   
+  テストプログラムは、シグナルを送信し、ハンドラコンテキストで更新された変数をすぐにチェックすることによってハンドラが呼び出されたかどうかを確認します。VEでは、アーキテクチャのシグナル配信が遅れてテストケースが失敗する可能性があります。<br>
+    <br>
+    <font class="font19">3-1.c</font><br>
+    テストケースをパスさせる<ruby>方法<span style='display:none'><rt>ホウホウ</rt></span></ruby>:<br>
+    <span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+  </span>raise(SIGCHLD);<br>
+    +<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>getpid();<br>
+    <br>
+    <span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>if (handler_called != 1) {<br>
+    <font class="font19"><br>
+    4-1.c<br>
+    </font><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>raise(SIGCHLD);<br>
+    +<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>getpid();<br>
+    <br>
+    <span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>if (signal_blocked != 1) {<br>
+    <br>
+    <font class="font19">7-1.c<br>
+    </font><br>
+    <span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>sigrelse(SIGCHLD);<br>
+    +<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>getpid();<br>
+    <br>
+    <span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>if (!handler_called) {<br>
+    </td>
+ </tr>
+ <tr height=126 style='height:94.5pt'>
+  <td height=126 style='height:94.5pt'></td>
+  <td class=xl188 style='border-top:none'>61</td>
+  <td class=xl80 style='border-top:none;border-left:none'>mq_timedreceive</td>
+  <td class=xl81 style='border-top:none;border-left:none'>600</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl190 width=667 style='border-top:none;border-left:none;width:500pt'>.オープンPosixのテストプログラムが<ruby>誤<span
+  style='display:none'><rt>アヤマ</rt></span></ruby>っていたため、以下の行を修正し、その<ruby>結果<span
+  style='display:none'><rt>ケッカ</rt></span></ruby>テストケースはパスしています。<br>
+    <br>
+    //<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>mqdes = mq_open(mqname, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR,
+  &amp;attr);<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>//
+  Original<br>
+    <span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>mqdes = mq_open(mqname, O_RDWR | O_CREAT, 0777, &amp;attr);<br>
+    LTPの<ruby>結果<span style='display:none'><rt>ケッカ</rt></span></ruby>によると
+  :<br>
+    <ruby>失敗<span style='display:none'><rt>シッパイ</rt></span></ruby>はスクリプトにのみよるものです。その<ruby>他<span
+  style='display:none'><rt>タ</rt></span></ruby><ruby>全<span style='display:
+  none'><rt>スベ</rt></span></ruby>てのケースはパスしています。</td>
+ </tr>
+ <tr height=162 style='height:121.5pt'>
+  <td height=162 style='height:121.5pt'></td>
+  <td class=xl188 style='border-top:none'>62</td>
+  <td class=xl80 style='border-top:none;border-left:none'>shm_open</td>
+  <td class=xl81 style='border-top:none;border-left:none'>888</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl192 width=667 style='border-top:none;border-left:none;width:500pt'>LTPからの<ruby>全<span
+  style='display:none'><rt>スベ</rt></span></ruby>てのテストケースは<ruby>以下<span
+  style='display:none'><rt>イカ</rt></span></ruby>を<ruby>除<span style='display:
+  none'><rt>ノゾ</rt></span></ruby>きパスしています。.<br>
+    1.<font class="font13">shm_open/shm_open_23-1: execution: HUNG</font>
+  (このケースでは1000の<ruby>子<span style='display:none'><rt>コ</rt></span></ruby>プロセスが<ruby>作成<span
+  style='display:none'><rt>サクセイ</rt></span></ruby>されますがVEOSでは、256<ruby>個<span
+  style='display:none'><rt>コ</rt></span></ruby>プロセスのみ<ruby>作成<span
+  style='display:none'><rt>サクセイ</rt></span></ruby>されます。.)<br>
+    2.<font class="font13">shm_open_38-1: execution: HUNG</font>
+  (このテストケースはスクリプトなしで<ruby>実行<span style='display:none'><rt>ジッコウ</rt></span></ruby>される<ruby>場合<span
+  style='display:none'><rt>バアイ</rt></span></ruby>パスします。).<br>
+    3<font class="font13">.shm_open_39-2: execution: UNTESTED (</font><font
+  class="font16">このテストケースが_SC_VERSIONをチェックし、200800Lに等しい場合はテストケースがUNTESTEDになります.sysconf（_SC_VERSION）のmusl-libcから同じ値が返されます)</font><br>
+    </td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>63</td>
+  <td class=xl80 style='border-top:none;border-left:none'>pthread_atfork</td>
+  <td class=xl81 style='border-top:none;border-left:none'>968</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。　
+  失敗はスクリプトによるものです。　　　</td>
+ </tr>
+ <tr height=54 style='height:40.5pt'>
+  <td height=54 style='height:40.5pt'></td>
+  <td class=xl188 style='border-top:none'>64</td>
+  <td class=xl80 style='border-top:none;border-left:none'>pthread_attr_setschedparam</td>
+  <td class=xl81 style='border-top:none;border-left:none'>408</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl190 width=667 style='border-top:none;border-left:none;width:500pt'>このAPIは<ruby>完全<span
+  style='display:none'><rt>カンゼン</rt></span></ruby>にサポートされています。<br>
+    テストケースで使用されているAPIはサポートされていないため、VE環境ではすべてのテストケースが失敗します。</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>65</td>
+  <td class=xl80 style='border-top:none;border-left:none'>pthread_once</td>
+  <td class=xl81 style='border-top:none;border-left:none'>552</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>66</td>
+  <td class=xl80 style='border-top:none;border-left:none'>munmap</td>
+  <td class=xl81 style='border-top:none;border-left:none'>552</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>LTPによると、全てのテストケースはパスしています。
+  失敗はスクリプトによるものです.</td>
+ </tr>
+ <tr height=72 style='height:54.0pt'>
+  <td height=72 style='height:54.0pt'></td>
+  <td class=xl188 style='border-top:none'>67</td>
+  <td class=xl85 style='border-top:none;border-left:none'>pthread_attr_getschedparam</td>
+  <td class=xl81 style='border-top:none;border-left:none'>408</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl89 width=667 style='border-top:none;border-left:none;width:500pt'>このAPIは完全にサポートされています。<br>
+    <br>
+    1. テストケースで使用されるAPI（スケジューラAPI）はサポートされていないため、VE環境ではすべてのテストケースが失敗します。</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>68</td>
+  <td class=xl85 style='border-top:none;border-left:none'>access</td>
+  <td class=xl81 style='border-top:none;border-left:none'>512</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl193 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=54 style='height:40.5pt'>
+  <td height=54 style='height:40.5pt'></td>
+  <td class=xl188 style='border-top:none'>69</td>
+  <td class=xl85 style='border-top:none;border-left:none'>nanosleep</td>
+  <td class=xl81 style='border-top:none;border-left:none'>568</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl89 width=667 style='border-top:none;border-left:none;width:500pt'>スリープサイズを増やした後にパスしています。<br>
+    LTP<ruby>結果<span style='display:none'><rt>ケッカ</rt></span></ruby>によると:<br>
+    <ruby>失敗<span style='display:none'><rt>シッパイ</rt></span></ruby>はスクリプトのみによるもので、その<ruby>他<span
+  style='display:none'><rt>タ</rt></span></ruby><ruby>全<span style='display:
+  none'><rt>スベ</rt></span></ruby>てのケースはパスしています。</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>70</td>
+  <td class=xl85 style='border-top:none;border-left:none'>mq_receive</td>
+  <td class=xl81 style='border-top:none;border-left:none'>480</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl89 width=667 style='border-top:none;border-left:none;width:500pt'>LTPによると全てのテストケースはパスしています。失敗はスクリプトによるものです。　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>71</td>
+  <td class=xl85 style='border-top:none;border-left:none'>mq_getattr</td>
+  <td class=xl81 style='border-top:none;border-left:none'>432</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl89 width=667 style='border-top:none;border-left:none;width:500pt'>LTPによると全てのテストケースはパスしています。失敗はスクリプトによるものです。　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>72</td>
+  <td class=xl85 style='border-top:none;border-left:none'>mq_send</td>
+  <td class=xl81 style='border-top:none;border-left:none'>480</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl194 style='border-top:none;border-left:none'>.x86_64とVE環境において、sudoの権限で実行する必要があります。</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>73</td>
+  <td class=xl85 style='border-top:none;border-left:none'>pthread_cond_init</td>
+  <td class=xl81 style='border-top:none;border-left:none'>4280</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl89 width=667 style='border-top:none;border-left:none;width:500pt'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>74</td>
+  <td class=xl85 style='border-top:none;border-left:none'>mq_open</td>
+  <td class=xl81 style='border-top:none;border-left:none'>848</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl89 width=667 style='border-top:none;border-left:none;width:500pt'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>75</td>
+  <td class=xl85 style='border-top:none;border-left:none'>mq_notify</td>
+  <td class=xl81 style='border-top:none;border-left:none'>4688</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl89 width=667 style='border-top:none;border-left:none;width:500pt'>LTPによると全てのテストケースはパスしています。
+  　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>76</td>
+  <td class=xl85 style='border-top:none;border-left:none'>Pipe</td>
+  <td class=xl81 style='border-top:none;border-left:none'>480</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl89 width=667 style='border-top:none;border-left:none;width:500pt'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>77</td>
+  <td class=xl85 style='border-top:none;border-left:none'>dup</td>
+  <td class=xl81 style='border-top:none;border-left:none'>488</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl89 width=667 style='border-top:none;border-left:none;width:500pt'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>78</td>
+  <td class=xl85 style='border-top:none;border-left:none'>dup2</td>
+  <td class=xl81 style='border-top:none;border-left:none'>736</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl89 width=667 style='border-top:none;border-left:none;width:500pt'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>79</td>
+  <td class=xl85 style='border-top:none;border-left:none'>creat64</td>
+  <td class=xl81 style='border-top:none;border-left:none'>464</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl89 width=667 style='border-top:none;border-left:none;width:500pt'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>80</td>
+  <td class=xl82 style='border-top:none;border-left:none'>time</td>
+  <td class=xl115 style='border-top:none;border-left:none'>480</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>81</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_mutexattr_setpshared</td>
+  <td class=xl115 style='border-top:none;border-left:none'>576</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>82</td>
+  <td class=xl82 style='border-top:none;border-left:none'>sigsuspend</td>
+  <td class=xl115 style='border-top:none;border-left:none'>568</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=54 style='height:40.5pt'>
+  <td height=54 style='height:40.5pt'></td>
+  <td class=xl188 style='border-top:none'>83</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_key_create</td>
+  <td class=xl115 style='border-top:none;border-left:none'>1048</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl190 width=667 style='border-top:none;border-left:none;width:500pt'>このAPIは完全にサポートされています。<br>
+    1. APIが作成されていないアドレスにアクセスしようとしたため、VE環境においてテストケースが失敗しています。</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>84</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_equal</td>
+  <td class=xl115 style='border-top:none;border-left:none'>392</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>85</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_setcancelstate</td>
+  <td class=xl115 style='border-top:none;border-left:none'>600</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>86</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_self</td>
+  <td class=xl115 style='border-top:none;border-left:none'>368</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl189 style='border-top:none;border-left:none'>　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>87</td>
+  <td class=xl82 style='border-top:none;border-left:none'>mq_timedsend</td>
+  <td class=xl115 style='border-top:none;border-left:none'>624</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl89 width=667 style='border-top:none;border-left:none;width:500pt'>x86_64とVE環境において、sudoの権限で実行する必要があります。</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 style='border-top:none'>88</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_attr_getstack</td>
+  <td class=xl115 style='border-top:none;border-left:none'>632</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl195 width=667 style='border-left:none;width:500pt'>PTHREAD_STACK_MIN
+  の<ruby>値<span style='display:none'><rt>アタイ</rt></span></ruby>は 4MB です。<br>
+    </td>
+ </tr>
+ <tr height=27 style='mso-height-source:userset;height:20.25pt'>
+  <td height=27 style='height:20.25pt'></td>
+  <td class=xl188 style='border-top:none'>89</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_getspecific</td>
+  <td class=xl115 style='border-top:none;border-left:none'>456</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl196 width=667 style='border-left:none;width:500pt'>LTPによると全てのテストケースはパスしています。</td>
+ </tr>
+ <tr height=234 style='height:175.5pt'>
+  <td height=234 style='height:175.5pt'></td>
+  <td class=xl188 style='border-top:none'>90</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_attr_setstack</td>
+  <td class=xl115 style='border-top:none;border-left:none'>600</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl195 width=667 style='border-left:none;width:500pt'>1.
+  PTHREAD_STACK_MIN の値は 4MB です。<br>
+    <br>
+    2. スレッドAPI の Manpage に<ruby>定義<span style='display:none'><rt>テイギ</rt></span></ruby>される<ruby>動作<span
+  style='display:none'><rt>ドウサ</rt></span></ruby>は<ruby>以下<span
+  style='display:none'><rt>イカ</rt></span></ruby>の<ruby>通<span style='display:
+  none'><rt>トオ</rt></span></ruby>りです。<br>
+    アプリケーションが pthread_attr_setstack() によってスレッドスタックを<ruby>割<span
+  style='display:none'><rt>ワ</rt></span></ruby>り<ruby>当<span style='display:
+  none'><rt>ア</rt></span></ruby>てるとき、guard size <ruby>属性<span style='display:
+  none'><rt>ゾクセイ</rt></span></ruby>は<ruby>無視<span style='display:none'><rt>ムシ</rt></span></ruby>されます（libcによってガード<ruby>領域<span
+  style='display:none'><rt>リョウイキ</rt></span></ruby>は<ruby>作成<span
+  style='display:none'><rt>サクセイ</rt></span></ruby>されません）。スタックのオーバーフローは（mprotect(2)
+  でスタック用に確保した領域の終端にガード領域を指定するなどして）アプリケーションの<ruby>責任<span style='display:none'><rt>セキニン</rt></span></ruby>で<ruby>対処<span
+  style='display:none'><rt>タイショ</rt></span></ruby>する<ruby>必要<span
+  style='display:none'><rt>ヒツヨウ</rt></span></ruby>があります。<br>
+    VE では<ruby>以下<span style='display:none'><rt>イカ</rt></span></ruby>の<ruby>様<span
+  style='display:none'><rt>ヨウ</rt></span></ruby>に<ruby>動作<span
+  style='display:none'><rt>ドウサ</rt></span></ruby>が<ruby>異<span
+  style='display:none'><rt>コト</rt></span></ruby>なります。<br>
+    ガード<ruby>領域<span style='display:none'><rt>リョウイキ</rt></span></ruby>が（ユーザによって）<ruby>指定<span
+  style='display:none'><rt>シテイ</rt></span></ruby>された<ruby>後<span
+  style='display:none'><rt>アト</rt></span></ruby>であっても、スタックは<ruby>領域<span
+  style='display:none'><rt>リョウイキ</rt></span></ruby>の<ruby>終端<span
+  style='display:none'><rt>シュウタン</rt></span></ruby>を<ruby>超<span
+  style='display:none'><rt>コ</rt></span></ruby>えて<ruby>伸長<span
+  style='display:none'><rt>シンチョウ</rt></span></ruby>し<ruby>続<span
+  style='display:none'><rt>ツヅ</rt></span></ruby>けます。その<ruby>結果<span
+  style='display:none'><rt>ケッカ</rt></span></ruby>は<ruby>不定<span
+  style='display:none'><rt>フテイ</rt></span></ruby>です。そのため、pthread_attr_setstack()
+  は<ruby>使<span style='display:none'><rt>ツカ</rt></span></ruby>うべきではありません。<br>
+    <br>
+    アプリケーションが<ruby>子<span style='display:none'><rt>コ</rt></span></ruby>スレッドのスタックサイズを
+  pthread_attr_setstacksize(3) で<ruby>指定<span style='display:none'><rt>シテイ</rt></span></ruby>した<ruby>場合<span
+  style='display:none'><rt>バアイ</rt></span></ruby>は、この<ruby>問題<span
+  style='display:none'><rt>モンダイ</rt></span></ruby>は<ruby>発生<span
+  style='display:none'><rt>ハッセイ</rt></span></ruby>しません。</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>91</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_attr_getstacksize</td>
+  <td class=xl115 style='border-top:none;border-left:none'>440</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl196 width=667 style='border-left:none;width:500pt'>LTPによると、全てのテストケースはパスしています。<span
+  style='mso-spacerun:yes'>&nbsp;</span></td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>92</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_cleanup_pop</td>
+  <td class=xl115 style='border-top:none;border-left:none'>528</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl196 width=667 style='border-left:none;width:500pt'>LTPによると、全てのテストケースはパスしています。</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 style='border-top:none'>93</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_condattr_getclock</td>
+  <td class=xl115 style='border-top:none;border-left:none'>424</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl196 width=667 style='border-left:none;width:500pt'>LTPによると、全てのテストケースはパスしています。
+  これは、部分的なサポートから<ruby>完全<span style='display:none'><rt>カンゼン</rt></span></ruby>にサポートされたものへ<ruby>移動<span
+  style='display:none'><rt>イドウ</rt></span></ruby>されました。</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>94</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_rwlock_init</td>
+  <td class=xl115 style='border-top:none;border-left:none'>4832</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl196 width=667 style='border-left:none;width:500pt'>LTPによると、全てのテストケースはパスしています。<span
+  style='mso-spacerun:yes'>&nbsp; </span>失敗はスクリプトによるものです。</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>95</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_rwlock_timedwrlock</td>
+  <td class=xl115 style='border-top:none;border-left:none'>2296</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl196 width=667 style='border-left:none;width:500pt'>LTPによると全てのテストケースはパスしています。
+  失敗はスクリプトによるものです。　　　　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>96</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_rwlockattr_destroy</td>
+  <td class=xl115 style='border-top:none;border-left:none'>368</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl196 width=667 style='border-left:none;width:500pt'>LTPによると全てのテストケースはパスしています。
+  失敗はスクリプトによるものです。　　　　　　　</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>97</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_rwlockattr_setpshared</td>
+  <td class=xl115 style='border-top:none;border-left:none'>512</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl196 width=667 style='border-left:none;width:500pt'>LTPによると、全てのテストケースはパスしています。失敗はスクリプトによるものです。</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>98</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_spin_destroy</td>
+  <td class=xl115 style='border-top:none;border-left:none'>368</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl196 width=667 style='border-left:none;width:500pt'>LTPによると、全てのテストケースはパスしています。
+  失敗はスクリプトによるものです。</td>
+ </tr>
+ <tr height=54 style='height:40.5pt'>
+  <td height=54 style='height:40.5pt'></td>
+  <td class=xl188 style='border-top:none'>99</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_spin_init</td>
+  <td class=xl115 style='border-top:none;border-left:none'>400</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl196 width=667 style='border-left:none;width:500pt'>LTPによると、全てのテストケースはパスしています。
+  失敗はスクリプトによるものです。<br>
+    <br>
+    </td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl188 style='border-top:none'>100</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_spin_lock</td>
+  <td class=xl115 style='border-top:none;border-left:none'>840</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl196 width=667 style='border-left:none;width:500pt'>LTPによると、全てのテストケースはパスしています。<span
+  style='mso-spacerun:yes'>&nbsp; </span>失敗はスクリプトによるものです。<br>
+    </td>
+ </tr>
+ <tr height=54 style='height:40.5pt'>
+  <td height=54 style='height:40.5pt'></td>
+  <td class=xl188 style='border-top:none'>101</td>
+  <td class=xl82 style='border-top:none;border-left:none'>pthread_spin_trylock</td>
+  <td class=xl115 style='border-top:none;border-left:none'>464</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl196 width=667 style='border-left:none;width:500pt'>LTPによると、全てのテストケースはパスしています。<span
+  style='mso-spacerun:yes'>&nbsp; </span>失敗はスクリプトによるものです。<br>
+    <br>
+    </td>
+ </tr>
+ <tr height=72 style='height:54.0pt'>
+  <td height=72 style='height:54.0pt'></td>
+  <td class=xl188 style='border-top:none'>102</td>
+  <td class=xl82 style='border-top:none;border-left:none'>clock_gettime</td>
+  <td class=xl115 style='border-top:none;border-left:none'>840</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl196 width=667 style='border-left:none;width:500pt'><ruby>全<span
+  style='display:none'><rt>スベ</rt></span></ruby>てのLTPケースは<ruby>以下<span
+  style='display:none'><rt>イカ</rt></span></ruby>の2つを<ruby>除<span
+  style='display:none'><rt>ノゾ</rt></span></ruby>きパスしています:<br>
+    1.&gt;6-1.shはスクリプトです。<br>
+    2.&gt;4-1.cはLARGENUMBER(900000)の非常に大きな値を<ruby>持<span style='display:none'><rt>モ</rt></span></ruby>ちます。タイマーバリューは142<ruby>秒<span
+  style='display:none'><rt>ビョウ</rt></span></ruby>より<ruby>非常<span
+  style='display:none'><rt>ヒジョウ</rt></span></ruby>に<ruby>低<span
+  style='display:none'><rt>ヒク</rt></span></ruby>い<ruby>値<span style='display:
+  none'><rt>アタイ</rt></span></ruby>となり、プログラムに<ruby>時間<span style='display:none'><rt>ジカン</rt></span></ruby>がかかります。</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl188 style='border-top:none'>103</td>
+  <td class=xl82 style='border-top:none;border-left:none'>difftime</td>
+  <td class=xl115 style='border-top:none;border-left:none'>400</td>
+  <td class=xl82 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl196 width=667 style='border-left:none;width:500pt'>LTPにおける<ruby>全<span
+  style='display:none'><rt>スベ</rt></span></ruby>てのテストケースはパスしており、<ruby>失敗<span
+  style='display:none'><rt>シッパイ</rt></span></ruby>はスクリプトによるものです。</td>
+ </tr>
+ <tr height=73 style='height:54.75pt'>
+  <td height=73 style='height:54.75pt'></td>
+  <td class=xl197 style='border-top:none'>104</td>
+  <td class=xl198 style='border-top:none;border-left:none'>sched_yield</td>
+  <td class=xl199 style='border-top:none;border-left:none'>456</td>
+  <td class=xl198 style='border-top:none;border-left:none'>フルサポート(Posix準拠)</td>
+  <td class=xl200 width=667 style='border-left:none;width:500pt'><br>
+    LTPテストケースによると :<br>
+    サポートされていない1-1.cにおいてsched_setschedulerが呼び出されました。<br>
+    </td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=46 style='width:35pt'></td>
+  <td width=73 style='width:55pt'></td>
+  <td width=306 style='width:230pt'></td>
+  <td width=73 style='width:55pt'></td>
+  <td width=414 style='width:311pt'></td>
+  <td width=667 style='width:500pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

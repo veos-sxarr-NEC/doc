@@ -1,0 +1,1145 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=shift_jis">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File
+href="../Musl_libc_Supported_Api_Difference_Point.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+ruby
+	{ruby-align:left;}
+rt
+	{color:windowtext;
+	font-size:6.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"ＭＳ Ｐゴシック", monospace;
+	mso-font-charset:128;
+	mso-char-type:katakana;
+	display:none;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(4);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../Musl_libc_Supported_Api_Difference_Point.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl81>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1123 style='border-collapse:
+ collapse;table-layout:fixed;width:843pt'>
+ <col class=xl81 width=30 style='mso-width-source:userset;mso-width-alt:960;
+ width:23pt'>
+ <col class=xl81 width=73 style='width:55pt'>
+ <col class=xl81 width=264 style='mso-width-source:userset;mso-width-alt:8448;
+ width:198pt'>
+ <col class=xl81 width=73 style='width:55pt'>
+ <col class=xl81 width=127 style='mso-width-source:userset;mso-width-alt:4064;
+ width:95pt'>
+ <col class=xl81 width=93 style='mso-width-source:userset;mso-width-alt:2976;
+ width:70pt'>
+ <col class=xl82 width=463 style='mso-width-source:userset;mso-width-alt:14816;
+ width:347pt'>
+ <col class=xl81 width=73 span=2 style='width:55pt'>
+ <col class=xl81 width=111 style='mso-width-source:userset;mso-width-alt:3552;
+ width:83pt'>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl81 width=30 style='height:13.5pt;width:23pt'></td>
+  <td class=xl81 width=73 style='width:55pt'></td>
+  <td class=xl81 width=264 style='width:198pt'></td>
+  <td class=xl81 width=73 style='width:55pt'></td>
+  <td class=xl81 width=127 style='width:95pt'></td>
+  <td class=xl81 width=93 style='width:70pt'></td>
+  <td class=xl82 width=463 style='width:347pt'></td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl81 style='height:13.5pt'></td>
+  <td colspan=5 rowspan=2 class=xl182 width=630 style='width:473pt'>Note:<br>
+    Partial Support = Function which are failed partially (meaning some of
+  testcases passed in test program) in open POSIX test suite.<br>
+    The test scenarios are marked as FAD, because the behavior is due to
+  implementation in musl-libc and/or limitation of VE architecture.<br>
+    FAD: Function As designed.</td>
+  <td class=xl82 width=463 style='width:347pt'></td>
+ </tr>
+ <tr height=108 style='mso-height-source:userset;height:81.0pt'>
+  <td height=108 class=xl81 style='height:81.0pt'></td>
+  <td class=xl82 width=463 style='width:347pt'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 class=xl81 style='height:14.25pt'></td>
+  <td class=xl81></td>
+  <td class=xl81></td>
+  <td class=xl81></td>
+  <td class=xl81></td>
+  <td class=xl81></td>
+  <td class=xl82 width=463 style='width:347pt'></td>
+ </tr>
+ <tr height=37 style='height:27.75pt'>
+  <td height=37 class=xl81 style='height:27.75pt'></td>
+  <td class=xl100>No</td>
+  <td class=xl101 style='border-left:none'>API Name</td>
+  <td class=xl102 width=73 style='border-left:none;width:55pt'>Size<br>
+    (bytes)</td>
+  <td class=xl101 style='border-left:none'>Remarks</td>
+  <td class=xl103 style='border-left:none'>status</td>
+  <td class=xl104 width=463 style='border-left:none;width:347pt'>Diff point for
+  musl-libc</td>
+ </tr>
+ <tr height=90 style='height:67.5pt'>
+  <td height=90 class=xl180 style='height:67.5pt'>　</td>
+  <td class=xl179>1</td>
+  <td class=xl105 style='border-left:none'>pthread_mutexattr_getprotocol</td>
+  <td class=xl105 style='border-left:none'>384</td>
+  <td class=xl105 style='border-left:none'>Partial Support</td>
+  <td class=xl105 style='border-left:none'>FAD</td>
+  <td class=xl106 width=463 style='border-left:none;width:347pt'>musl-libc only
+  support PTHREAD_PRIO_NONE,<br>
+    musl-libc does not support these two flags:<br>
+    PTHREAD_PRIO_INHERIT <br>
+    PTHREAD_PRIO_PROTECT<br>
+    </td>
+ </tr>
+ <tr height=234 style='height:175.5pt'>
+  <td height=234 class=xl180 style='height:175.5pt'>　</td>
+  <td class=xl176>2</td>
+  <td class=xl176 style='border-top:none'>sem_unlink</td>
+  <td class=xl88 style='border-top:none;border-left:none'>392</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl89 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>Difference
+  with two scenario<br>
+    1.<br>
+    Test program create a semaphore with sem_open() and do fork().Child process
+  changes its uid and try to unlink the semaphore and should fail with
+  EACCESS.<br>
+    In VE due to musl libc implementation unlink() fails but returns
+  EPERM.<br>
+    <br>
+    2.<br>
+    Test program create a semaphore with a name of size one greater than the
+  NAME_MAX(size 256).<br>
+    Then try to unlink and it should fail with errno ENAMETOOLONG.<br>
+    In VE due to musl libc implementation unlink() is successfully done.<br>
+    </td>
+ </tr>
+ <tr class=xl99 height=162 style='height:121.5pt'>
+  <td height=162 class=xl181 style='height:121.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>3</td>
+  <td class=xl176 style='border-top:none'>aio_return</td>
+  <td class=xl88 style='border-top:none;border-left:none'>360</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl89 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>No
+  conclusion as behaviour of glibc &amp; musl libc is same <br>
+    And man page also does not guarentee return value.<br>
+    <br>
+    Explanation : <br>
+    According to man page , aio_return number of bytes written succesfully.When
+  it is called second time consecutively, then it should return with undefined
+  behaviour.<br>
+    So musl libc and glibc are behaving as expected according to man
+  page.<br>
+    </td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl180 style='height:27.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>4</td>
+  <td class=xl176 style='border-top:none'>pthread_cond_signal</td>
+  <td class=xl88 style='border-top:none;border-left:none'>840</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>FAD
+  (Function As Designed). <br>
+    robust futex and their corresponding system calls are not supported</td>
+ </tr>
+ <tr height=319 style='mso-height-source:userset;height:239.25pt'>
+  <td height=319 class=xl180 style='height:239.25pt'>　</td>
+  <td class=xl176 style='border-top:none'>5</td>
+  <td class=xl176 style='border-top:none'>sigpause</td>
+  <td class=xl88 style='border-top:none;border-left:none'>552</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl92 width=463 style='border-top:none;border-left:none;width:347pt'>This
+  is difference between musl and glibc, glibc applies a check for
+  sigdelset().<br>
+    If signal passed sigdelset is<span style='mso-spacerun:yes'>&nbsp;
+  </span>invalid then it return -1 and set<span style='mso-spacerun:yes'>&nbsp;
+  </span>errno to EINVAL but musl-libc has no such <br>
+    Check for sigdelset()<span style='mso-spacerun:yes'>&nbsp; </span>when
+  called from sigpause() and it directly calls sigsuspend which suspends the
+  execution.<br>
+    This is expected behavior with musl-libc. <br>
+    <br>
+    To make the behavior consistent with glibc, following changes required in
+  musl-libc platform-independent file:<br>
+    <br>
+    File name: ./src/signal/sigpause.c<br>
+    <span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>sigprocmask(0, 0, &amp;mask);<br>
+    -<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>sigdelset(&amp;mask, sig);<br>
+    +<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>if(sigdelset(&amp;mask, sig))<br>
+    +<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>return -1;<br>
+    <br>
+    <br>
+    <br>
+    <span style='mso-spacerun:yes'>&nbsp;</span><br>
+    <br>
+    </td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl180 style='height:13.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>6</td>
+  <td class=xl176 style='border-top:none'>sem_timedwait</td>
+  <td class=xl88 style='border-top:none;border-left:none'>2160</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>musl
+  does not handle EINTR errno in sem_timedwait</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl180 style='height:27.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>7</td>
+  <td class=xl176 style='border-top:none'>__pthread_cond_timedwait</td>
+  <td class=xl88 style='border-top:none;border-left:none'>4912</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>FAD
+  (Function As Designed). <br>
+    robust futex and their corresponding system calls are not supported</td>
+ </tr>
+ <tr height=54 style='height:40.5pt'>
+  <td height=54 class=xl180 style='height:40.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>8</td>
+  <td class=xl176 style='border-top:none'>timer_create</td>
+  <td class=xl88 style='border-top:none;border-left:none'>4840</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl89 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>&quot;CLOCK_THREAD_CPUTIME_ID&quot;
+  is not supported in VE environment.<span style='mso-spacerun:yes'>&nbsp;
+  </span>&quot;timer_create&quot; system call returns EINVAL if invoked with
+  the same clock ID.</td>
+ </tr>
+ <tr class=xl99 height=180 style='height:135.0pt'>
+  <td height=180 class=xl181 style='height:135.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>9</td>
+  <td class=xl176 style='border-top:none'>aio_cancel</td>
+  <td class=xl88 style='border-top:none;border-left:none'>1888</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl89 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>Testcase
+  expects to cancel the ongoing INPROGRESS async read/write aoperation .<br>
+    Analysis :<br>
+    In order to cancel read/write , the operation should be ONGOING, which in
+  case of VE is getting compeleted<br>
+    quiet fast , verified using aio_return.<br>
+    Due to this aio_error is not returning ECANCELLED and thus returning before
+  printing : &quot;PASSED&quot; <br>
+    <br>
+    Conclusion : Async read/write in VE is always successfull.</td>
+ </tr>
+ <tr height=54 style='height:40.5pt'>
+  <td height=54 class=xl180 style='height:40.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>10</td>
+  <td class=xl176 style='border-top:none'>pthread_cancel</td>
+  <td class=xl88 style='border-top:none;border-left:none'>880</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl89 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>musl
+  implementation problem, musl delete the pthread struct after pthread_join
+  call, so segfault in pthread_cancel<br>
+    Expected behaviour.</td>
+ </tr>
+ <tr height=144 style='height:108.0pt'>
+  <td height=144 class=xl180 style='height:108.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>11</td>
+  <td class=xl176 style='border-top:none'>sem_wait</td>
+  <td class=xl88 style='border-top:none;border-left:none'>408</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>Scenario:<br>
+    Child process calls sem_wait() and blocks.<br>
+    Parent process send SIGABRT signal to child and it should returns from
+  sem_wait() with EINTR errno.<br>
+    <br>
+    Understanding:<br>
+    In musl libc sem_wait() internally calls futex() in loop. Even if it is
+  intrrupted by<span style='mso-spacerun:yes'>&nbsp; </span>a signal then it
+  again go into futex wait.</td>
+ </tr>
+ <tr height=54 style='height:40.5pt'>
+  <td height=54 class=xl180 style='height:40.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>12</td>
+  <td class=xl176 style='border-top:none'>sem_post</td>
+  <td class=xl88 style='border-top:none;border-left:none'>1032</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>Test
+  program required<span style='mso-spacerun:yes'>&nbsp;
+  </span>_POSIX_PRIORITY_SCHEDULING flag to be defined. <br>
+    But this flag is not defined in MUSL.</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl180 style='height:27.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>13</td>
+  <td class=xl176 style='border-top:none'>pthread_cond_broadcast</td>
+  <td class=xl88 style='border-top:none;border-left:none'>840</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>FAD
+  (Function As Designed). <br>
+    robust futex and their corresponding system calls are not supported</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl180 style='height:27.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>14</td>
+  <td class=xl176 style='border-top:none'>sigwaitinfo</td>
+  <td class=xl88 style='border-top:none;border-left:none'>432</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>raise()
+  is implemented using tkill which sets si_code to -6. So this expected
+  behaviour.</td>
+ </tr>
+ <tr height=108 style='height:81.0pt'>
+  <td height=108 class=xl180 style='height:81.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>15</td>
+  <td class=xl176 style='border-top:none'>__pthread_join</td>
+  <td class=xl88 style='border-top:none;border-left:none'>1120</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl89 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>musl
+  implementation problem, musl delete the pthread struct after pthread_join
+  call.<br>
+    Some test program are not 100% reproducible.<br>
+    In this scenario, VEOS is getting segmentation fault and the peer socket is
+  closed, because of which<span style='mso-spacerun:yes'>&nbsp; </span>pseudo
+  process receives EOF from VEOS and returns failure</td>
+ </tr>
+ <tr height=90 style='height:67.5pt'>
+  <td height=90 class=xl180 style='height:67.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>16</td>
+  <td class=xl176 style='border-top:none'>pthread_join</td>
+  <td class=xl88 style='border-top:none;border-left:none'>1120</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl89 width=93 style='border-top:none;border-left:none;width:70pt'>　</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>musl
+  implementation problem, musl delete the pthread struct after pthread_join
+  call.<br>
+    <br>
+    For more information, check musl-glibc difference sheet, point no: 8 &amp;
+  9</td>
+ </tr>
+ <tr height=72 style='height:54.0pt'>
+  <td height=72 class=xl180 style='height:54.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>17</td>
+  <td class=xl176 style='border-top:none'>sem_init</td>
+  <td class=xl88 style='border-top:none;border-left:none'>720</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>According
+  to POSIX compliant maximum limit of sem_init is <br>
+    256.<br>
+    But here in musl-libc, sem_init can initialized from more than this limit
+  i.e more than 256</td>
+ </tr>
+ <tr height=54 style='height:40.5pt'>
+  <td height=54 class=xl180 style='height:40.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>18</td>
+  <td class=xl176 style='border-top:none'>pthread_kill</td>
+  <td class=xl88 style='border-top:none;border-left:none'>728</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>musl
+  implementation problem, musl delete the pthread struct after pthread_join
+  call.pthread_kill() made an attempt to access pthread struct hence got
+  segfault.</td>
+ </tr>
+ <tr class=xl99 height=108 style='height:81.0pt'>
+  <td height=108 class=xl181 style='height:81.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>19</td>
+  <td class=xl176 style='border-top:none'>aio_suspend</td>
+  <td class=xl88 style='border-top:none;border-left:none'>3272</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl89 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>To
+  check aio_suspend(), write operation is need to be executed.<br>
+    &quot;aio_error()&quot; checks the write operation is successful or
+  not.<br>
+    If &quot;aio_error()&quot; returns error then &quot;aio_suspend()&quot; is
+  invoked.<br>
+    <br>
+    In VE arch, all writes are successful so &quot;aio_error()&quot; return 0
+  and hence aio_suspend is not invoked.</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl180 style='height:13.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>20</td>
+  <td class=xl176 style='border-top:none'>pthread_rwlock_wrlock</td>
+  <td class=xl88 style='border-top:none;border-left:none'>408</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl89 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>Musl-libc
+  fails to check the lock variable if it is locked already.</td>
+ </tr>
+ <tr class=xl99 height=54 style='height:40.5pt'>
+  <td height=54 class=xl181 style='height:40.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>21</td>
+  <td class=xl176 style='border-top:none'>aio_error</td>
+  <td class=xl88 style='border-top:none;border-left:none'>408</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl89 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>1.Having
+  same behaviour in musl libc and glibc.<br>
+    2. If we invoke aio_error() without aio read/write operation than in that
+  case , we are not getting EINVAL as expected from posix standards.</td>
+ </tr>
+ <tr height=54 style='height:40.5pt'>
+  <td height=54 class=xl180 style='height:40.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>22</td>
+  <td class=xl176 style='border-top:none'>pthread_sigmask</td>
+  <td class=xl88 style='border-top:none;border-left:none'>848</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl89 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>It
+  fails due to difference is signal delivey behavior in linux and VE.<br>
+    In our environment it is possible that sigqueue() can return even before
+  signal is delivered.</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl180 style='height:27.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>23</td>
+  <td class=xl176 style='border-top:none'>fork</td>
+  <td class=xl88 style='border-top:none;border-left:none'>1040</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl89 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>In
+  a scenario,<span style='mso-spacerun:yes'>&nbsp;
+  </span>sched_get_priority_max() is invoked which is not supported in VE
+  architecture.</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl180 style='height:13.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>24</td>
+  <td class=xl176 style='border-top:none'>shm_unlink</td>
+  <td class=xl88 style='border-top:none;border-left:none'>576</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>sem_unlink
+  internally invokes shm_unlink. Please refer S.No 2 for this.</td>
+ </tr>
+ <tr height=90 style='height:67.5pt'>
+  <td height=90 class=xl180 style='height:67.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>25</td>
+  <td class=xl176 style='border-top:none'>sigqueue</td>
+  <td class=xl88 style='border-top:none;border-left:none'>1128</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl89 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>There
+  is a difference in signal delivey behavior between linux and VE.<br>
+    In linux, handler is invoked before updating the return value of
+  sigqueue().<br>
+    In VE, it is possible that return value of sigqueue() is updated before
+  signal is delivered.</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl180 style='height:13.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>26</td>
+  <td class=xl176 style='border-top:none'>sigismember</td>
+  <td class=xl88 style='border-top:none;border-left:none'>664</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>&quot;sigismember&quot;
+  is not handling invalid input</td>
+ </tr>
+ <tr height=216 style='height:162.0pt'>
+  <td height=216 class=xl180 style='height:162.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>27</td>
+  <td class=xl176 style='border-top:none'>timer_getoverrun</td>
+  <td class=xl88 style='border-top:none;border-left:none'>608</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl89 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'><span
+  style='mso-spacerun:yes'>&nbsp;</span>This test program does the
+  following:<br>
+    a. mask SIGCONT signal<br>
+    b. creates a timer to generate SIGCONT signal after timer expiry.<br>
+    c. Set timer to expire after every 1 nanosec.<br>
+    d. Unblocks SIGCONT signal.<br>
+    <br>
+    Now when signal is unblocked it is delivered to pseudo process, pseudo
+  process does signal ipc with veos in meantime, timer expires again. This
+  process keeps on repeating due to this program seems to be hanged.<br>
+    In our environment expiry time of 1 nsec is too small. After upadating
+  expiry time program will work fine.<br>
+    (Synchronization issue)</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl180 style='height:13.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>28</td>
+  <td class=xl176 style='border-top:none'>pthread_setcanceltype</td>
+  <td class=xl88 style='border-top:none;border-left:none'>672</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl89 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>This
+  fails due to limitation in &quot;pthread_cancel()&quot;</td>
+ </tr>
+ <tr height=108 style='height:81.0pt'>
+  <td height=108 class=xl180 style='height:81.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>29</td>
+  <td class=xl177 style='border-top:none'>dlclose()</td>
+  <td class=xl88 style='border-top:none;border-left:none'>432</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>Not
+  Called from open posix test suite.<br>
+    Diff:<br>
+    dlcose() receives the address of library as an argument and return 0
+  (success) when it find the library and return 1 when library is not
+  found.<br>
+    On success, it returns 0 but do not unload the library.</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl180 style='height:27.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>30</td>
+  <td class=xl176 style='border-top:none'>pthread_cond_wait</td>
+  <td class=xl88 style='border-top:none;border-left:none'>432</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>FAD
+  (Function As Designed). <br>
+    robust futex and their corresponding system calls are not supported</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl180 style='height:27.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>31</td>
+  <td class=xl176 style='border-top:none'>pthread_cond_destroy</td>
+  <td class=xl88 style='border-top:none;border-left:none'>1128</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>FAD
+  (Function As Designed). <br>
+    robust futex and their corresponding system calls are not supported</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl180 style='height:27.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>32</td>
+  <td class=xl176 style='border-top:none'>pthread_attr_setschedpolicy</td>
+  <td class=xl88 style='border-top:none;border-left:none'>400</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>Musl-libc
+  does not have error checking in &quot;pthread_attr_setschedpolicy&quot;</td>
+ </tr>
+ <tr height=90 style='height:67.5pt'>
+  <td height=90 class=xl180 style='height:67.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>33</td>
+  <td class=xl176 style='border-top:none'>pthread_mutexattr_setprotocol</td>
+  <td class=xl88 style='border-top:none;border-left:none'>456</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl120 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>musl-libc
+  only support PTHREAD_PRIO_NONE,<br>
+    musl-libc does not support these two flags:<br>
+    PTHREAD_PRIO_INHERIT <br>
+    PTHREAD_PRIO_PROTECT<br>
+    </td>
+ </tr>
+ <tr height=90 style='height:67.5pt'>
+  <td height=90 class=xl180 style='height:67.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>34</td>
+  <td class=xl176 style='border-top:none'>aio_write</td>
+  <td class=xl88 style='border-top:none;border-left:none'>408</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl89 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>aio_write
+  is always successful on VE platform(As explained in aio_cancel).<br>
+    This testcase is then calling aio_return that returns the number of bytes
+  after write and doesn’t return -1 or failure.<br>
+    Thus this print &quot;bad aio_write return value&quot; is observed on VE
+  platform.</td>
+ </tr>
+ <tr class=xl99 height=18 style='height:13.5pt'>
+  <td height=18 class=xl181 style='height:13.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>35</td>
+  <td class=xl176 style='border-top:none'>pthread_attr_setdetachstate</td>
+  <td class=xl88 style='border-top:none;border-left:none'>504</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl89 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>Musl-libc
+  doesn’t check the detach state for a thread.</td>
+ </tr>
+ <tr height=162 style='height:121.5pt'>
+  <td height=162 class=xl180 style='height:121.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>36</td>
+  <td class=xl176 style='border-top:none'>lio_listio</td>
+  <td class=xl88 style='border-top:none;border-left:none'>5744</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl89 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>Difference
+  with two scenarios<br>
+    lio_listio is internally calling aio_read-write async call<br>
+    that again marks same behaviour as explained in aio_cancel<br>
+    where write-read operation is successfull on our PLATFORM VE.<br>
+    <br>
+    though error should be returned as -1 when we are giving invalid args(mode
+  and opcode) but it is not returned as it is not following POSIX compliant as
+  glibc<br>
+    </td>
+ </tr>
+ <tr class=xl99 height=54 style='height:40.5pt'>
+  <td height=54 class=xl181 style='height:40.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>37</td>
+  <td class=xl176 style='border-top:none'>mlockall</td>
+  <td class=xl88 style='border-top:none;border-left:none'>496</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>mlockall()
+  system call will always return success for VE architecture because paging is
+  not supported in VE, but ported application may invoke mlockall() system call</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl180 style='height:27.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>38</td>
+  <td class=xl176 style='border-top:none'>sigprocmask</td>
+  <td class=xl88 style='border-top:none;border-left:none'>624</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'><span
+  style='mso-spacerun:yes'>&nbsp;</span>When a VE process delivers signal to
+  itself afer unblocking signal using sigprocmask, signal handler may execute
+  after execution of system call.</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl180 style='height:27.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>39</td>
+  <td class=xl176 style='border-top:none'>pthread_create</td>
+  <td class=xl88 style='border-top:none;border-left:none'>9728</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>In
+  some cases, pthread_create invokes &quot;sched_get_priority_max&quot; &amp;
+  &quot;pthread_attr_setschedpolicy&quot; which are not supported.</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl180 style='height:27.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>40</td>
+  <td class=xl176 style='border-top:none'>pthread_exit</td>
+  <td class=xl88 style='border-top:none;border-left:none'>3088</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>In
+  some cases, pthread_exit invokes &quot;sched_get_priority_max&quot; &amp;
+  &quot;pthread_attr_setschedpolicy&quot; which are not supported.</td>
+ </tr>
+ <tr height=72 style='height:54.0pt'>
+  <td height=72 class=xl180 style='height:54.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>41</td>
+  <td class=xl176 style='border-top:none'>mmap</td>
+  <td class=xl88 style='border-top:none;border-left:none'>1024</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>Some
+  of the scenario checks for 32 bit arch, which is not supported in VE
+  arch.<br>
+    RLIMIT_MEMLOCK limit is ignored.<br>
+    </td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl180 style='height:27.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>42</td>
+  <td class=xl176 style='border-top:none'>pthread_detach</td>
+  <td class=xl88 style='border-top:none;border-left:none'>672</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>__pthread_detach
+  does not return EINVAL on detaching already detachable thread</td>
+ </tr>
+ <tr height=126 style='height:94.5pt'>
+  <td height=126 class=xl180 style='height:94.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>43</td>
+  <td class=xl176 style='border-top:none'>sigaction</td>
+  <td class=xl88 style='border-top:none;border-left:none'>744</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>Reason
+  for FAD.<br>
+    Unlike Linux, in VE architecture it is possible that a process can resume
+  in main context(when signal is deleivered to it) before going into handler
+  context.. So a check to verify if hadler is invoked<span
+  style='mso-spacerun:yes'>&nbsp; </span>using a variable updated in handler
+  context can fail if check is made just after sending sigal.(kill(), tkill(),
+  tgkill(), pthread_kill(), sigqueue(), etc...).<br>
+    </td>
+ </tr>
+ <tr height=108 style='height:81.0pt'>
+  <td height=108 class=xl180 style='height:81.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>44</td>
+  <td class=xl176 style='border-top:none'>pthread_mutex_trylock</td>
+  <td class=xl88 style='border-top:none;border-left:none'>640</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>FAD
+  (Function As Designed). <br>
+    Even all test cases in LTP open-posix-testsuite are PASS, but mutex is
+  partially supported when it uses robust futex.<br>
+    <br>
+    Because robust futex and their corresponding system calls are not supported
+  in VE environment.</td>
+ </tr>
+ <tr height=90 style='height:67.5pt'>
+  <td height=90 class=xl180 style='height:67.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>45</td>
+  <td class=xl176 style='border-top:none'>sendmsg</td>
+  <td class=xl88 style='border-top:none;border-left:none'>1904</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>Not
+  Called from open posix test suite.<br>
+    Diff :<br>
+    While executing a negative testcase in which an invalid buffer pointer
+  (msg_control)) with valid length is passed.<br>
+    Case is not handle in musl library which results in crash/sigsegv.</td>
+ </tr>
+ <tr height=54 style='height:40.5pt'>
+  <td height=54 class=xl180 style='height:40.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>46</td>
+  <td class=xl176 style='border-top:none'>statfs</td>
+  <td class=xl88 style='border-top:none;border-left:none'>728</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>Not
+  Called from open posix test suite.<br>
+    Diff:<br>
+    Musl libc trying to initialize an invalid address buffer</td>
+ </tr>
+ <tr height=72 style='height:54.0pt'>
+  <td height=72 class=xl180 style='height:54.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>47</td>
+  <td class=xl176 style='border-top:none'>fstatfs</td>
+  <td class=xl88 style='border-top:none;border-left:none'>736</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>Not
+  Called from open posix test suite.<br>
+    Diff:<br>
+    If fstatfs() is invoked with invalid stat buff then Musl is dereferencing
+  it and intializing with local buffer leading to crash.</td>
+ </tr>
+ <tr height=126 style='height:94.5pt'>
+  <td height=126 class=xl180 style='height:94.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>48</td>
+  <td class=xl176 style='border-top:none'>open</td>
+  <td class=xl88 style='border-top:none;border-left:none'>1152</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>Not
+  Called from open posix test suite.<br>
+    Diff:<br>
+    Ideally in glibc If open syscall is used with O_PATH flag then file itself
+  is not opened, and read/write/fchmod file operations fail with the error
+  EBADF. <br>
+    But in case of Musl, with the same flag, i/o operation returns 0 instead of
+  EBADF.</td>
+ </tr>
+ <tr height=144 style='height:108.0pt'>
+  <td height=144 class=xl180 style='height:108.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>49</td>
+  <td class=xl176 style='border-top:none'>getcwd</td>
+  <td class=xl88 style='border-top:none;border-left:none'>992</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>Not
+  Called from open posix test suite.<br>
+    Diff:<br>
+    Musl handling is not correct, <br>
+    In case an invalid address (NON-NULL value) is passed, then<span
+  style='mso-spacerun:yes'>&nbsp; </span>musl-libc allocates a local buffer
+  internally and pass as argument to kernel syscall handler which in turn get
+  passed. But LTP expects EFAULT if invalid non-null address/buffer is
+  passed.<br>
+    </td>
+ </tr>
+ <tr height=72 style='height:54.0pt'>
+  <td height=72 class=xl180 style='height:54.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>50</td>
+  <td class=xl176 style='border-top:none'>epol-ltp</td>
+  <td class=xl88 style='border-top:none;border-left:none'>　</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>This
+  is due to dependency with musl library. <br>
+    Musl-libc &quot;epoll_create()&quot; always invokes epoll_create1() with 0
+  flag. <br>
+    If &quot;epoll_create(-1)&quot; is called then internally it invokes
+  &quot;epoll_create1(0)&quot;.</td>
+ </tr>
+ <tr height=72 style='height:54.0pt'>
+  <td height=72 class=xl180 style='height:54.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>51</td>
+  <td class=xl176 style='border-top:none'>epoll_create</td>
+  <td class=xl88 style='border-top:none;border-left:none'>432</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>This
+  is due to dependency with musl library. <br>
+    Musl-libc &quot;epoll_create()&quot; always invokes epoll_create1() with 0
+  flag. <br>
+    If &quot;epoll_create(-1)&quot; is called then internally it invokes
+  &quot;epoll_create1(0)&quot; due to which it returns value greater than 0.</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl180 style='height:27.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>52</td>
+  <td class=xl176 style='border-top:none'>getdtablesize</td>
+  <td class=xl88 style='border-top:none;border-left:none'>488</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>getdtablesize()
+  systemcall is returning different<br>
+    <span style='mso-spacerun:yes'>&nbsp;</span>value with Musl which returns
+  rlimit_max, while glibc returns rlimit_curr.</td>
+ </tr>
+ <tr height=126 style='height:94.5pt'>
+  <td height=126 class=xl180 style='height:94.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>53</td>
+  <td class=xl176 style='border-top:none'>mprotect</td>
+  <td class=xl88 style='border-top:none;border-left:none'>864</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>Not
+  Called from open posix test suite.<br>
+    Diff:<br>
+    In mprotect() library wrapper if unaligned address is passed, then
+  musl-libc will round down the address to page aligment and size is rounded up
+  to unaligned address plus length received.<br>
+    Expected : <br>
+    When unaligned address is received EINVAL is received from syscall.</td>
+ </tr>
+ <tr height=68 style='mso-height-source:userset;height:51.0pt'>
+  <td height=68 class=xl180 style='height:51.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>54</td>
+  <td class=xl178 style='border-top:none'>Confstr</td>
+  <td class=xl93 style='border-top:none;border-left:none'>960</td>
+  <td class=xl93 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl93 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl94 width=463 style='border-top:none;border-left:none;width:347pt'>&quot;_CS_V7_ENV&quot;
+  is a flag which is passed in confstr to get the value of
+  &quot;POSIXLY_CORRECT&quot;. If its value is 1 it means library is posix
+  compliance.</td>
+ </tr>
+ <tr height=73 style='height:54.75pt'>
+  <td height=73 class=xl180 style='height:54.75pt'>　</td>
+  <td class=xl176 style='border-top:none'>55</td>
+  <td class=xl178>munlockall</td>
+  <td class=xl93 style='border-left:none'>504</td>
+  <td class=xl93 style='border-left:none'>Partial Support</td>
+  <td class=xl93 style='border-left:none'>　</td>
+  <td class=xl94 width=463 style='border-left:none;width:347pt'>This function
+  will always return success because paging is<br>
+    <span style='mso-spacerun:yes'>&nbsp;</span>unsupported but ported
+  application may invoke the munlockall()<span style='mso-spacerun:yes'>&nbsp;
+  </span>system call.<br>
+    </td>
+ </tr>
+ <tr height=343 style='height:257.25pt'>
+  <td height=343 class=xl180 style='height:257.25pt'>　</td>
+  <td class=xl176 style='border-top:none'>56</td>
+  <td class=xl178>aio_read</td>
+  <td class=xl93 style='border-left:none'>448</td>
+  <td class=xl93 style='border-left:none'>Partial Support</td>
+  <td class=xl93 style='border-left:none'>　</td>
+  <td class=xl94 width=463 style='border-left:none;width:347pt'>This API lacks
+  support from musl-side.<br>
+    1.&gt;Variable &quot;aio_reqprio&quot; present in structure aiocb used by
+  this aio_read is not being used in musl-libc side.<br>
+    2.&gt;aio_read returns immediately on our VE and doesnot wait for aio_error
+  to collect status later.<br>
+    As per LTP results :<br>
+    10-1.c fails because musl return -1 for negative fd in struct aiocb code
+  enters aio_read(&amp;aiocb) != 0 and returns FAIL.<br>
+    Also aio_read returns immediately on out VE and doensot wait for aio_error
+  to collect status later.<br>
+    11-2.c aio_reqprio value is not supported in musl-libc,so test-program
+  doesnt make sense.<br>
+    9-1.c testprogram fails with PTS_UNSUPPORTED on glibc as well as
+  musl-libc<br>
+    8-1.c musl initializes this value in sysconf _SC_PRIORITIZED_IO as -1,so
+  testprogram fails with PTS_UNTESTED<br>
+    nothing to do with aio_read.In glibc CONF_IS_DEFINED_SET macro is used in
+  sysconf to return -1 or valid value(200809L)<br>
+    So testcase passes there.</td>
+ </tr>
+ <tr height=127 style='height:95.25pt'>
+  <td height=127 class=xl180 style='height:95.25pt'>　</td>
+  <td class=xl176 style='border-top:none'>57</td>
+  <td class=xl178>pthread_cond_timedwait</td>
+  <td class=xl93 style='border-left:none'>8880</td>
+  <td class=xl93 style='border-left:none'>Partial Support</td>
+  <td class=xl93 style='border-left:none'>　</td>
+  <td class=xl94 width=463 style='border-left:none;width:347pt'>1. Test case
+  2-5.c is trying to create 100 threads, but VE environment supports only 64
+  threads per process.<span style='mso-spacerun:yes'>&nbsp; </span><br>
+    <br>
+    2.Test case 2-6.c will hang as there is<span
+  style='mso-spacerun:yes'>&nbsp; </span>a limitation with pthread_cancel(i.e.,
+  the cancel handler will not be invoked till the syscall is completed). If
+  this to work the test case need to be updated.<br>
+    </td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl180 style='height:27.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>58</td>
+  <td class=xl176>__pthread_key_delete</td>
+  <td class=xl88 style='border-left:none'>432</td>
+  <td class=xl88 style='border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-left:none'>　</td>
+  <td class=xl91 width=463 style='border-left:none;width:347pt'>For more
+  information, please check musl-glibc difference sheet, point num: 47</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl180 style='height:27.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>59</td>
+  <td class=xl176 style='border-top:none'>pthread_key_delete</td>
+  <td class=xl88 style='border-top:none;border-left:none'>448</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>　</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>For
+  more information, please check musl-glibc difference sheet, point num: 47</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl180 style='height:13.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>60</td>
+  <td class=xl176 style='border-top:none'>pthread_attr_setinheritsched</td>
+  <td class=xl88 style='border-top:none;border-left:none'>504</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>　</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>Musl-libc
+  does not support PTHREAD_EXPLICIT_SCHED macro</td>
+ </tr>
+ <tr height=144 style='height:108.0pt'>
+  <td height=144 class=xl180 style='height:108.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>61</td>
+  <td class=xl176 style='border-top:none'>pthread_rwlock_unlock</td>
+  <td class=xl88 style='border-top:none;border-left:none'>1216</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>　</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>In
+  musl-libc, this code will not return any errno on failure.<br>
+    In LTP, <br>
+    1. The<span style='mso-spacerun:yes'>&nbsp; </span>test case 3-1.c is
+  failed because of pthread_setschedparam, which is not supported in VE
+  environment<br>
+    2. Test cases 4-1.c &amp; 4-2.c are returning UNSUPPORTED as the test case
+  internally returns PTS_UNSUPPORTED when __linux__ is defined. <br>
+    <br>
+    </td>
+ </tr>
+ <tr height=90 style='height:67.5pt'>
+  <td height=90 class=xl180 style='height:67.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>62</td>
+  <td class=xl176 style='border-top:none'>pthread_mutex_init</td>
+  <td class=xl88 style='border-top:none;border-left:none'>3584</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>　</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>In
+  musl-libc, this code will not return any errno on failure.<br>
+    In ltp,<br>
+    1. Test cases 1-2.c &amp; 3-2.c will be in hung state as the pthread_cancel
+  is having some limitation(i.e., cancel handler will be invoked only after
+  syscall is completed).</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl180 style='height:27.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>63</td>
+  <td class=xl176 style='border-top:none'>pthread_setspecific</td>
+  <td class=xl88 style='border-top:none;border-left:none'>600</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>　</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>For
+  more information, please check musl-glibc difference sheet, point num: 45</td>
+ </tr>
+ <tr height=144 style='height:108.0pt'>
+  <td height=144 class=xl180 style='height:108.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>64</td>
+  <td class=xl176 style='border-top:none'>pthread_mutex_lock</td>
+  <td class=xl88 style='border-top:none;border-left:none'>736</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>　</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>1.
+  Test case 5-1.c will fail as the LTP script is passing a timeout argument
+  (i.e., t0.val<span style='mso-spacerun:yes'>&nbsp; </span>= 142s appr.) with
+  the binary. Once timeout expires the test case will fail with HUNG.<br>
+    <br>
+    For more information, please check musl-glibc difference sheet, point num:
+  26<br>
+    <br>
+    Also in VE environment, the robust mutex is not supported.</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl180 style='height:13.5pt'>　</td>
+  <td class=xl176 style='border-top:none'>65</td>
+  <td class=xl176 style='border-top:none'>pthread_barrierattr_setpshared</td>
+  <td class=xl88 style='border-top:none;border-left:none'>472</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>　</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>As
+  per LTP all the test cases are PASSED. Failure is due to script</td>
+ </tr>
+ <tr height=72 style='height:54.0pt'>
+  <td height=72 class=xl180 style='height:54.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>66</td>
+  <td class=xl176 style='border-top:none'>pthread_barrier_destroy</td>
+  <td class=xl88 style='border-top:none;border-left:none'>1000</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>　</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>As
+  per LTP all the test cases are PASSED. <br>
+    <br>
+    For more information, please refer to musl-glibc difference sheet, point
+  num: 35</td>
+ </tr>
+ <tr height=72 style='height:54.0pt'>
+  <td height=72 class=xl180 style='height:54.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>67</td>
+  <td class=xl176 style='border-top:none'>pthread_getcpuclockid</td>
+  <td class=xl88 style='border-top:none;border-left:none'>480</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>　</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>As
+  per LTP all the test cases are PASSED. <br>
+    <br>
+    For more information, please refer to musl-glibc difference sheet, point
+  num: 40</td>
+ </tr>
+ <tr height=108 style='height:81.0pt'>
+  <td height=108 class=xl180 style='height:81.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>68</td>
+  <td class=xl176 style='border-top:none'>pthread_rwlock_rdlock</td>
+  <td class=xl88 style='border-top:none;border-left:none'>448</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>　</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>The<span
+  style='mso-spacerun:yes'>&nbsp; </span>test cases(2-1.c &amp; 2-2.c) are
+  failed because of pthread_setschedparam which is not supported in VE
+  environment. All other programs are PASSED<br>
+    <br>
+    For more information, please refer to musl-glibc difference sheet, point
+  num: 29</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl180 style='height:27.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>69</td>
+  <td class=xl176 style='border-top:none'>mlock</td>
+  <td class=xl88 style='border-top:none;border-left:none'>520</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>　</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>VEOS
+  always returns success for mlock().<br>
+    Though internally it doesn't perform any activity,it just returns 0.</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl180 style='height:27.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>70</td>
+  <td class=xl176 style='border-top:none'>munlock</td>
+  <td class=xl88 style='border-top:none;border-left:none'>520</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>　</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>VEOS
+  always returns success for mlock().<br>
+    Though internally it doesn't perform any activity,it just returns 0.</td>
+ </tr>
+ <tr height=72 style='height:54.0pt'>
+  <td height=72 class=xl180 style='height:54.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>71</td>
+  <td class=xl176 style='border-top:none'>aio_fsync</td>
+  <td class=xl88 style='border-top:none;border-left:none'>672</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>　</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>This
+  API lacks support from musl-side.<br>
+    When bad file descriptor is passed then,errno is not set as EBADF.<br>
+    12-1.c in ltp fails on VE as aio_fsync API is not setting errno as EBADF as
+  like glibc.Musl lacks support.</td>
+ </tr>
+ <tr height=180 style='height:135.0pt'>
+  <td height=180 class=xl180 style='height:135.0pt'>　</td>
+  <td class=xl176 style='border-top:none'>72</td>
+  <td class=xl176 style='border-top:none'>clock_getcpuclockid</td>
+  <td class=xl88 style='border-top:none;border-left:none'>688</td>
+  <td class=xl88 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl88 style='border-top:none;border-left:none'>　</td>
+  <td class=xl91 width=463 style='border-top:none;border-left:none;width:347pt'>API
+  clock_getcpuclockid should return EPERM when pid other than getpid() is
+  passed to this API.<br>
+    As per LTP testprograms :<br>
+    1.&gt;1-1.c is having very large value of LARGENUMBER(900000)<br>
+    <span style='mso-spacerun:yes'>&nbsp;</span>and timer value is quiet less
+  142 sec, program takes more time, thus its hung.<br>
+    2.&gt;5-1.c fails on glibc because of pid check used in this api in glibc
+  code leg<br>
+    <font class="font13">if (pid != 0 &amp;&amp; pid != getpid ())<br>
+    <span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>return EPERM;</font></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 class=xl180 style='height:14.25pt'>　</td>
+  <td class=xl178 style='border-top:none'>73</td>
+  <td class=xl178 style='border-top:none'>sbrk</td>
+  <td class=xl93 style='border-top:none;border-left:none'>560</td>
+  <td class=xl93 style='border-top:none;border-left:none'>Partial Support</td>
+  <td class=xl93 style='border-top:none;border-left:none'>　</td>
+  <td class=xl94 width=463 style='border-top:none;border-left:none;width:347pt'>The
+  argument (inc) must be zero. Otherwise, this API return failure.</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=30 style='width:23pt'></td>
+  <td width=73 style='width:55pt'></td>
+  <td width=264 style='width:198pt'></td>
+  <td width=73 style='width:55pt'></td>
+  <td width=127 style='width:95pt'></td>
+  <td width=93 style='width:70pt'></td>
+  <td width=463 style='width:347pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>
