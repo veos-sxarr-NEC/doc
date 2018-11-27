@@ -1,10 +1,9 @@
-<html xmlns:v="urn:schemas-microsoft-com:vml"
-xmlns:o="urn:schemas-microsoft-com:office:office"
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns:x="urn:schemas-microsoft-com:office:excel"
 xmlns="http://www.w3.org/TR/REC-html40">
 
 <head>
-<meta http-equiv=Content-Type content="text/html; charset=shift_jis">
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <meta name=ProgId content=Excel.Sheet>
 <meta name=Generator content="Microsoft Excel 15">
 <link id=Main-File rel=Main-File href="../Difference_Points_GDB.htm">
@@ -57,7 +56,7 @@ else
  <col width=115 style='mso-width-source:userset;mso-width-alt:3271;width:86pt'>
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl82 colspan=5 width=701 style='height:18.75pt;
-  mso-ignore:colspan;width:526pt'><a name="RANGE!A1">�u�A�h�o���X�I�t�v���[�h�̐ݒ�̎d��</a></td>
+  mso-ignore:colspan;width:526pt'><a name="RANGE!A1">「アドバンスオフ」モードの設定の仕方</a></td>
   <td width=80 style='width:60pt'></td>
   <td width=115 style='width:86pt'></td>
  </tr>
@@ -69,16 +68,16 @@ else
  </tr>
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl82 style='height:18.75pt'></td>
-  <td colspan=6 style='mso-ignore:colspan'>���̃V�[�g�ł́AGDB���g�p���āAVE�v���O�������A�h�o���X�I�t���[�h�Ŏ��s���邽�߂̐���������Ă��܂��B</td>
+  <td colspan=6 style='mso-ignore:colspan'>このシートでは、GDBを使用して、VEプログラムをアドバンスオフモードで実行するための説明がされています。</td>
  </tr>
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl82 style='height:18.75pt'></td>
-  <td colspan=4 style='mso-ignore:colspan'>���̃��[�h�ł͑O��̖��߂���������܂Ŗ��ߎ��s���ۗ�����܂��B</td>
+  <td colspan=4 style='mso-ignore:colspan'>このモードでは前回の命令が完了するまで命令実行が保留されます。</td>
   <td colspan=2 style='mso-ignore:colspan'></td>
  </tr>
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl82 style='height:18.75pt'></td>
-  <td colspan=4 style='mso-ignore:colspan'>���̌��ʁAGDB��HW��O��������Ƃ��̐��m�ȏ�Ԃ������܂��B</td>
+  <td colspan=4 style='mso-ignore:colspan'>その結果、GDBはHW例外が生じるときの正確な状態を示します。</td>
   <td colspan=2 style='mso-ignore:colspan'></td>
  </tr>
  <tr height=25 style='height:18.75pt'>
@@ -89,28 +88,28 @@ else
  </tr>
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl81 style='height:18.75pt'></td>
-  <td colspan=4 style='mso-ignore:colspan'>�u�A�h�o���X�I�t�v���[�h��GDB�ł͉��L�̎菇�ɂ��ݒ肳��܂��B</td>
+  <td colspan=4 style='mso-ignore:colspan'>「アドバンスオフ」モードはGDBでは下記の手順により設定されます。</td>
   <td colspan=2 style='mso-ignore:colspan'></td>
  </tr>
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl81 style='height:18.75pt'></td>
   <td></td>
   <td class=xl105>1.</td>
-  <td colspan=2 style='mso-ignore:colspan'>�u���C�N�|�C���g�����C��()�t�@���N�V�����ɐݒ肵�܂��B</td>
+  <td colspan=2 style='mso-ignore:colspan'>ブレイクポイントをメイン()ファンクションに設定します。</td>
   <td colspan=2 style='mso-ignore:colspan'></td>
  </tr>
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl81 style='height:18.75pt'></td>
   <td></td>
   <td class=xl104>2.</td>
-  <td class=xl81 colspan=2 style='mso-ignore:colspan'>VE�v���O���������s���܂��BVE�v���O�����̓��C��()�t�@���N�V�����Œ�~���܂��B</td>
+  <td class=xl81 colspan=2 style='mso-ignore:colspan'>VEプログラムを実行します。VEプログラムはメイン()ファンクションで停止します。</td>
   <td colspan=2 style='mso-ignore:colspan'></td>
  </tr>
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl81 style='height:18.75pt'></td>
   <td></td>
   <td class=xl104>3.</td>
-  <td class=xl81 colspan=2 style='mso-ignore:colspan'>PSW���W�X�^�̃A�h�o���X�I�t���[�h�r�b�g��ݒ肵�܂��B</td>
+  <td class=xl81 colspan=2 style='mso-ignore:colspan'>PSWレジスタのアドバンスオフモードビットを設定します。</td>
   <td colspan=2 style='mso-ignore:colspan'></td>
  </tr>
  <tr height=25 style='height:18.75pt'>
@@ -125,7 +124,7 @@ else
   <td height=25 class=xl81 style='height:18.75pt'></td>
   <td></td>
   <td class=xl104>4.</td>
-  <td class=xl81 colspan=2 style='mso-ignore:colspan'>VE�v���O�������p�����܂��B</td>
+  <td class=xl81 colspan=2 style='mso-ignore:colspan'>VEプログラムを継続します。</td>
   <td colspan=2 style='mso-ignore:colspan'></td>
  </tr>
  <tr height=25 style='height:18.75pt'>
@@ -142,7 +141,7 @@ else
  </tr>
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl81 style='height:18.75pt'></td>
-  <td class=xl81>��:</td>
+  <td class=xl81>例:</td>
   <td class=xl104></td>
   <td colspan=4 style='mso-ignore:colspan'></td>
  </tr>
@@ -151,8 +150,8 @@ else
   <td></td>
   <td class=xl104></td>
   <td></td>
-  <td class=xl81 colspan=2 style='mso-ignore:colspan'>(����)
-  �@&quot;segfaut_g&quot;�̓Z�O�����e�[�V�����t�H���g�������N����VE�v���O�����ł�</td>
+  <td class=xl81 colspan=2 style='mso-ignore:colspan'>(注意)
+  　&quot;segfaut_g&quot;はセグメンテーションフォルトを引き起こすVEプログラムです</td>
   <td></td>
  </tr>
  <tr height=25 style='height:18.75pt'>
@@ -214,7 +213,7 @@ else
   <td class=xl104></td>
   <td></td>
   <td class=xl108>There is NO WARRANTY, to the extent permitted by law.<span
-  style='mso-spacerun:yes'>&nbsp; </span>Type &quot;show copying&quot;</td>
+  style='mso-spacerun:yes'>  </span>Type &quot;show copying&quot;</td>
   <td></td>
   <td class=xl104></td>
  </tr>
@@ -345,7 +344,7 @@ else
   <td class=xl104></td>
   <td></td>
   <td class=xl108>Starting program: /opt/nec/ve/bin/ve_exec --traceme<span
-  style='mso-spacerun:yes'>&nbsp; </span>-- /home/veuser/segfault_g</td>
+  style='mso-spacerun:yes'>  </span>-- /home/veuser/segfault_g</td>
   <td></td>
   <td class=xl104></td>
  </tr>
@@ -372,8 +371,7 @@ else
   <td></td>
   <td class=xl104></td>
   <td></td>
-  <td class=xl108>6<span
-  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{</td>
+  <td class=xl108>6<span style='mso-spacerun:yes'>       </span>{</td>
   <td></td>
   <td class=xl104></td>
  </tr>
@@ -445,8 +443,7 @@ else
   <td></td>
   <td class=xl104></td>
   <td></td>
-  <td class=xl108>22<span
-  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <td class=xl108>22<span style='mso-spacerun:yes'>             
   </span>printf(&quot;val3 %d\n&quot;, val3);</td>
   <td></td>
   <td class=xl104></td>
@@ -465,9 +462,8 @@ else
   <td></td>
   <td class=xl104></td>
   <td></td>
-  <td class=xl108>17<span
-  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span>val2 = 3;</td>
+  <td class=xl108>17<span style='mso-spacerun:yes'>              </span>val2 =
+  3;</td>
   <td></td>
   <td class=xl104></td>
  </tr>
@@ -476,9 +472,8 @@ else
   <td></td>
   <td class=xl104></td>
   <td></td>
-  <td class=xl108>18<span
-  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span>val3 = val2 + val1;</td>
+  <td class=xl108>18<span style='mso-spacerun:yes'>              </span>val3 =
+  val2 + val1;</td>
   <td></td>
   <td class=xl104></td>
  </tr>
@@ -487,9 +482,8 @@ else
   <td></td>
   <td class=xl104></td>
   <td></td>
-  <td class=xl108>19<span
-  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span>val4p = NULL;</td>
+  <td class=xl108>19<span style='mso-spacerun:yes'>              </span>val4p =
+  NULL;</td>
   <td></td>
   <td class=xl104></td>
  </tr>
@@ -498,9 +492,8 @@ else
   <td></td>
   <td class=xl104></td>
   <td></td>
-  <td class=xl108>20<span
-  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span>*val4p = val3;</td>
+  <td class=xl108>20<span style='mso-spacerun:yes'>              </span>*val4p
+  = val3;</td>
   <td></td>
   <td class=xl104></td>
  </tr>
@@ -518,8 +511,7 @@ else
   <td></td>
   <td class=xl104></td>
   <td></td>
-  <td class=xl108>22<span
-  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <td class=xl108>22<span style='mso-spacerun:yes'>             
   </span>printf(&quot;val3 %d\n&quot;, val3);</td>
   <td></td>
   <td class=xl104></td>
@@ -529,9 +521,8 @@ else
   <td></td>
   <td class=xl104></td>
   <td></td>
-  <td class=xl108>23<span
-  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span>return 0;</td>
+  <td class=xl108>23<span style='mso-spacerun:yes'>              </span>return
+  0;</td>
   <td></td>
   <td class=xl104></td>
  </tr>
@@ -540,8 +531,7 @@ else
   <td></td>
   <td class=xl104></td>
   <td></td>
-  <td class=xl110>24<span
-  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}</td>
+  <td class=xl110>24<span style='mso-spacerun:yes'>      </span>}</td>
   <td></td>
   <td class=xl104></td>
  </tr>

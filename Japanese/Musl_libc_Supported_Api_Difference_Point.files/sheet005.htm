@@ -4,7 +4,7 @@ xmlns:x="urn:schemas-microsoft-com:office:excel"
 xmlns="http://www.w3.org/TR/REC-html40">
 
 <head>
-<meta http-equiv=Content-Type content="text/html; charset=shift_jis">
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <meta name=ProgId content=Excel.Sheet>
 <meta name=Generator content="Microsoft Excel 15">
 <link id=Main-File rel=Main-File
@@ -19,18 +19,6 @@ href="../Musl_libc_Supported_Api_Difference_Point.htm">
 	{margin:.75in .7in .75in .7in;
 	mso-header-margin:.3in;
 	mso-footer-margin:.3in;}
-ruby
-	{ruby-align:left;}
-rt
-	{color:windowtext;
-	font-size:6.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"�l�r �o�S�V�b�N", monospace;
-	mso-font-charset:128;
-	mso-char-type:katakana;
-	display:none;}
 -->
 </style>
 <![if !supportTabStrip]><script language="JavaScript">
@@ -57,969 +45,1007 @@ else
 
 <body link=blue vlink=purple class=xl78>
 
-<table border=0 cellpadding=0 cellspacing=0 width=1123 style='border-collapse:
- collapse;table-layout:fixed;width:843pt'>
- <col class=xl78 width=30 style='mso-width-source:userset;mso-width-alt:960;
- width:23pt'>
- <col class=xl78 width=73 style='width:55pt'>
- <col class=xl78 width=264 style='mso-width-source:userset;mso-width-alt:8448;
- width:198pt'>
- <col class=xl78 width=73 style='width:55pt'>
- <col class=xl78 width=127 style='mso-width-source:userset;mso-width-alt:4064;
- width:95pt'>
- <col class=xl78 width=93 style='mso-width-source:userset;mso-width-alt:2976;
- width:70pt'>
- <col class=xl79 width=463 style='mso-width-source:userset;mso-width-alt:14816;
- width:347pt'>
- <col class=xl78 width=73 span=2 style='width:55pt'>
- <col class=xl78 width=111 style='mso-width-source:userset;mso-width-alt:3552;
+<table border=0 cellpadding=0 cellspacing=0 width=982 style='border-collapse:
+ collapse;table-layout:fixed;width:737pt'>
+ <col class=xl78 width=26 style='mso-width-source:userset;mso-width-alt:950;
+ width:20pt'>
+ <col class=xl78 width=64 style='width:48pt'>
+ <col class=xl78 width=231 style='mso-width-source:userset;mso-width-alt:8448;
+ width:173pt'>
+ <col class=xl78 width=64 style='width:48pt'>
+ <col class=xl78 width=111 style='mso-width-source:userset;mso-width-alt:4059;
  width:83pt'>
- <tr height=18 style='height:13.5pt'>
-  <td height=18 class=xl78 width=30 style='height:13.5pt;width:23pt'></td>
-  <td class=xl78 width=73 style='width:55pt'></td>
-  <td class=xl78 width=264 style='width:198pt'></td>
-  <td class=xl78 width=73 style='width:55pt'></td>
-  <td class=xl78 width=127 style='width:95pt'></td>
-  <td class=xl78 width=93 style='width:70pt'></td>
-  <td class=xl79 width=463 style='width:347pt'></td>
+ <col class=xl78 width=81 style='mso-width-source:userset;mso-width-alt:2962;
+ width:61pt'>
+ <col class=xl79 width=405 style='mso-width-source:userset;mso-width-alt:14811;
+ width:304pt'>
+ <col class=xl78 width=64 span=2 style='width:48pt'>
+ <col class=xl78 width=97 style='mso-width-source:userset;mso-width-alt:3547;
+ width:73pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=26 style='height:15.0pt;width:20pt'></td>
+  <td class=xl78 width=64 style='width:48pt'></td>
+  <td class=xl78 width=231 style='width:173pt'></td>
+  <td class=xl78 width=64 style='width:48pt'></td>
+  <td class=xl78 width=111 style='width:83pt'></td>
+  <td class=xl78 width=81 style='width:61pt'></td>
+  <td class=xl79 width=405 style='width:304pt'></td>
  </tr>
- <tr height=18 style='height:13.5pt'>
-  <td height=18 class=xl78 style='height:13.5pt'></td>
-  <td colspan=5 rowspan=2 class=xl174 width=630 style='border-right:.5pt solid black;
-  border-bottom:.5pt solid black;width:473pt'>����:<br>
-    �����I�ȃT�|�[�g = �I�[�v��POSIX�e�X�g�X�C�[�g�ŕ����I�Ɏ��s�����@�\�i�e�X�g�v���O�����Ńe�X�g�P�[�X�̈ꕔ�̓p�X���܂����j�B<br>
-    ���삪musl-libc�ł̎��������/�܂���VE�A�[�L�e�N�`���̐����ɂ����̂ł��邽�߁A�e�X�g�V�i���I��FAD�ƋL�ڂ���Ă��܂��B<br>
-    FAD: Function As designed�i�@�\�݌v�ʂ�j</td>
-  <td class=xl79 width=463 style='width:347pt'></td>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td colspan=5 rowspan=2 class=xl215 width=551 style='border-right:.5pt solid black;
+  border-bottom:.5pt solid black;width:413pt'>注意:<br>
+    部分的なサポート = オープンPOSIXテストスイートで部分的に失敗した機能（テストプログラムでテストケースの一部はパスしました）。<br>
+    動作がmusl-libcでの実装および/またはVEアーキテクチャの制限によるものであるため、テストシナリオはFADと記載されています。<br>
+    FAD: Function As designed（機能設計通り）</td>
+  <td class=xl79 width=405 style='width:304pt'></td>
  </tr>
  <tr height=109 style='mso-height-source:userset;height:81.75pt'>
   <td height=109 class=xl78 style='height:81.75pt'></td>
-  <td class=xl79 width=463 style='width:347pt'></td>
+  <td class=xl79 width=405 style='width:304pt'></td>
  </tr>
- <tr height=19 style='height:14.25pt'>
-  <td height=19 class=xl78 style='height:14.25pt'></td>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 class=xl78 style='height:15.75pt'></td>
   <td class=xl78></td>
   <td class=xl78></td>
   <td class=xl78></td>
   <td class=xl78></td>
   <td class=xl78></td>
-  <td class=xl79 width=463 style='width:347pt'></td>
+  <td class=xl79 width=405 style='width:304pt'></td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 class=xl78 style='height:27.0pt'></td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl78 style='height:45.0pt'></td>
   <td class=xl94>No</td>
-  <td class=xl95 style='border-left:none'>API<ruby>��<span style='display:none'><rt>���C</rt></span></ruby></td>
-  <td class=xl96 width=73 style='border-left:none;width:55pt'>�T�C�Y<br>
-    (�o�C�g)</td>
-  <td class=xl95 style='border-left:none'><ruby>���l<span style='display:none'><rt>�r�R�E</rt></span></ruby></td>
-  <td class=xl97 style='border-left:none'><ruby>���<span style='display:none'><rt>�W���E�^�C</rt></span></ruby></td>
-  <td class=xl98 width=463 style='border-left:none;width:347pt'>musl-libc�Ƃ̑���_</td>
+  <td class=xl95 style='border-left:none'>API名</td>
+  <td class=xl96 width=64 style='border-left:none;width:48pt'>サイズ<br>
+    (バイト)</td>
+  <td class=xl95 style='border-left:none'>備考</td>
+  <td class=xl97 style='border-left:none'>状態</td>
+  <td class=xl98 width=405 style='border-left:none;width:304pt'>musl-libcとの相違点</td>
  </tr>
- <tr height=90 style='height:67.5pt'>
-  <td height=90 class=xl78 style='height:67.5pt'></td>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl78 style='height:105.0pt'></td>
   <td class=xl88>1</td>
   <td class=xl85 style='border-left:none'>pthread_mutexattr_getprotocol</td>
   <td class=xl85 style='border-left:none'>384</td>
-  <td class=xl85 style='border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-left:none'>部分的なサポ<span style='display:none'>ート</span></td>
   <td class=xl85 style='border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-left:none;width:347pt'>musl-libc��PTHREAD_PRIO_NONE�̂݃T�|�[�g���Ă��܂��B<br>
-    musl-libc�͈ȉ���2�̃t���O�̓T�|�[�g���Ă��܂���:<br>
+  <td class=xl89 width=405 style='border-left:none;width:304pt'>musl-libcはPTHREAD_PRIO_NONEのみサポートしています。<br>
+    musl-libcは以下の2つのフラグはサポートしていません:<br>
     PTHREAD_PRIO_INHERIT <br>
     PTHREAD_PRIO_PROTECT<br>
     </td>
  </tr>
- <tr height=252 style='height:189.0pt'>
-  <td height=252 class=xl78 style='height:189.0pt'></td>
+ <tr height=340 style='height:255.0pt'>
+  <td height=340 class=xl78 style='height:255.0pt'></td>
   <td class=xl88 style='border-top:none'>2</td>
   <td class=xl85 style='border-top:none;border-left:none'>sem_unlink</td>
   <td class=xl85 style='border-top:none;border-left:none'>392</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl86 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>2�̃V�i���I�̑���_<br>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl86 width=81 style='border-top:none;border-left:none;width:61pt'>FAD</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>2つのシナリオの相違点<br>
     1.<br>
    
-  �e�X�g�v���O������sem_open()�ŃZ�}�t�H���쐬��fork()�����s���܂��B�q�v���Z�X�͂���uid��ύX���ăZ�}�t�H�̃����N���������悤�Ƃ��܂����AEACCESS��<ruby>���s<span
-  style='display:none'><rt>�V�b�p�C</rt></span></ruby>���܂��B<br>
-    VE�ł�musl libc�̎����ɂ��unlink�i�j�͎��s���܂����AEPERM�����^�[�����܂��B<br>
+  テストプログラムはsem_open()でセマフォを作成しfork()を実行します。子プロセスはそのuidを変更してセマフォのリンクを解除しようとしますが、EACCESSで失敗します。<br>
+    VEではmusl libcの実装によりunlink（）は失敗しますが、EPERMをリターンします。<br>
     <br>
     2.<br>
-    �e�X�g�v���O������NAME_MAX(�T�C�Y256)���傫�ȃT�C�Y���ŃZ�}�t�H���쐬���܂��B.<br>
-    ���Ƀ����N���������悤�Ƃ���ƁAerrno ENAMETOOLONG�Ŏ��s���܂��B<br>
-    VE�ł�musl libc�̎����ɂ��unlink()�͐������܂��B<br>
+    テストプログラムはNAME_MAX(サイズ256)より大きなサイズ名でセマフォを作成します。.<br>
+    次にリンクを解除しようとすると、errno ENAMETOOLONGで失敗します。<br>
+    VEではmusl libcの実装によりunlink()は成功します。<br>
     </td>
  </tr>
- <tr class=xl93 height=180 style='height:135.0pt'>
-  <td height=180 class=xl93 style='height:135.0pt'>�@</td>
+ <tr class=xl93 height=260 style='height:195.0pt'>
+  <td height=260 class=xl93 style='height:195.0pt'>&nbsp;</td>
   <td class=xl88 style='border-top:none'>3</td>
   <td class=xl85 style='border-top:none;border-left:none'>aio_return</td>
   <td class=xl85 style='border-top:none;border-left:none'>360</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl86 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>glibc��musl
-  libc�̓��삪�����ł���Ƃ������_�͏o�Ă��܂���B<br>
-    �܂��A�}�j���A���y�[�W�ł͖߂�l���ۏ؂���Ă��܂���B<br>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl86 width=81 style='border-top:none;border-left:none;width:61pt'>FAD</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>glibcとmusl
+  libcの動作が同じであるという結論は出ていません。<br>
+    また、マニュアルページでは戻り値が保証されていません。<br>
     <br>
-    ���� : <br>
-    �}�j���A���y�[�W�ɂ��ƁAaio_return�o�C�g���͐���ɏ������܂�Ă��܂��B<br>
-    �A������2��Ăяo�����ƁA����`�̓���Ƌ��Ƀ��^�[������܂��B<br>
-    ����ă}�j���A���y�[�W�ɂ���musl libc��glibc�͗\�z���ꂽ�Ƃ���ɓ��삵�܂��B<br>
+    説明 : <br>
+    マニュアルページによると、aio_returnバイト数は正常に書き込まれています。<br>
+    連続して2回呼び出されると、未定義の動作と共にリターンされます。<br>
+    よってマニュアルページによるとmusl libcとglibcは予想されたとおりに動作します。<br>
     </td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 class=xl78 style='height:40.5pt'></td>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl78 style='height:60.0pt'></td>
   <td class=xl88 style='border-top:none'>4</td>
   <td class=xl85 style='border-top:none;border-left:none'>pthread_cond_signal</td>
   <td class=xl85 style='border-top:none;border-left:none'>840</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>FAD<br>
-    Robust futex�Ƃ���ɑΉ�����V�X�e���R�[����FCS�ł̓T�|�[�g����Ă��܂���B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>FAD<br>
+    Robust futexとそれに対応するシステムコールはFCSではサポートされていません。</td>
  </tr>
  <tr height=319 style='mso-height-source:userset;height:239.25pt'>
   <td height=319 class=xl78 style='height:239.25pt'></td>
   <td class=xl88 style='border-top:none'>5</td>
   <td class=xl85 style='border-top:none;border-left:none'>sigpause</td>
   <td class=xl85 style='border-top:none;border-left:none'>552</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl90 width=463 style='border-top:none;border-left:none;width:347pt'>�����musl��glibc�̈Ⴂ�ł���glibc��sigdelset().�ɑ΂��`�F�b�N��K�p���܂��B�V�O�i�����p�X����ꍇsigdelset�͖����ł��邽��-1�����^�[����errno��EINVAL�ɃZ�b�g���܂��Bmusl-libc�ł�sigpause()����Ăяo���ꂽ�ꍇ���̂悤�ȃ`�F�b�N��sigdelset()�ɖ����A���s����������sigsuspend�𒼐ڌĂяo���܂��B�����musl-libc�ł͗\�z���ꂽ����ƂȂ�܂��B<br>
+  <td class=xl90 width=405 style='border-top:none;border-left:none;width:304pt'>これはmuslとglibcの違いでありglibcはsigdelset().に対しチェックを適用します。シグナルがパスする場合sigdelsetは無効であるため-1をリターンしerrnoをEINVALにセットします。musl-libcではsigpause()から呼び出された場合そのようなチェックはsigdelset()に無く、実行を延期したsigsuspendを直接呼び出します。これはmusl-libcでは予想された動作となります。<br>
     <br>
-    �����glibc�ƈ�v�����邽�߂ɁA�ȉ��̕ύX�� musl-libc platform-independent�t�@�C���ŕK�v�ƂȂ�܂��B<br>
+    動作をglibcと一致させるために、以下の変更が musl-libc platform-independentファイルで必要となります。<br>
     <br>
     File name: ./src/signal/sigpause.c<br>
-    <span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span>sigprocmask(0, 0, &amp;mask);<br>
-    -<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span>sigdelset(&amp;mask, sig);<br>
-    +<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span>if(sigdelset(&amp;mask, sig))<br>
-    +<span
-  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span>return -1;<br>
+    <span style='mso-spacerun:yes'>        </span>sigprocmask(0, 0,
+  &amp;mask);<br>
+    -<span style='mso-spacerun:yes'>       </span>sigdelset(&amp;mask,
+  sig);<br>
+    +<span style='mso-spacerun:yes'>       </span>if(sigdelset(&amp;mask,
+  sig))<br>
+    +<span style='mso-spacerun:yes'>               </span>return -1;<br>
     <br>
-    <span style='mso-spacerun:yes'>&nbsp;</span><br>
+    <span style='mso-spacerun:yes'> </span><br>
     <br>
     </td>
  </tr>
- <tr height=18 style='height:13.5pt'>
-  <td height=18 class=xl78 style='height:13.5pt'></td>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl78 style='height:30.0pt'></td>
   <td class=xl88 style='border-top:none'>6</td>
   <td class=xl85 style='border-top:none;border-left:none'>sem_timedwait</td>
   <td class=xl85 style='border-top:none;border-left:none'>2160</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>musl��sem_timedwait�ɂ�����EINTR��errno���������܂���B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>muslはsem_timedwaitにおいてEINTRのerrnoを処理しません。</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 class=xl78 style='height:40.5pt'></td>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl78 style='height:60.0pt'></td>
   <td class=xl88 style='border-top:none'>7</td>
   <td class=xl85 style='border-top:none;border-left:none'>__pthread_cond_timedwait</td>
   <td class=xl85 style='border-top:none;border-left:none'>4912</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>FAD
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>FAD
   (Function As Designed). <br>
-    Robust futex�Ƃ���ɑΉ�����V�X�e���R�[���̓T�|�[�g����Ă��܂���B</td>
+    Robust futexとそれに対応するシステムコールはサポートされていません。</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 class=xl78 style='height:40.5pt'></td>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl78 style='height:75.0pt'></td>
   <td class=xl88 style='border-top:none'>8</td>
   <td class=xl85 style='border-top:none;border-left:none'>timer_create</td>
   <td class=xl85 style='border-top:none;border-left:none'>4840</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl86 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>VE���ł́A
-  &quot;CLOCK_THREAD_CPUTIME_ID&quot;�̓T�|�[�g����Ă��܂���B
-  &quot;timer_create&quot;�V�X�e���R�[���́A�����N���b�NID�ŌĂяo���ꂽ�ꍇEINVAL�����^�[�����܂��B</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl86 width=81 style='border-top:none;border-left:none;width:61pt'>FAD</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>VE環境では、
+  &quot;CLOCK_THREAD_CPUTIME_ID&quot;はサポートされていません。
+  &quot;timer_create&quot;システムコールは、同じクロックIDで呼び出された場合EINVALをリターンします。</td>
  </tr>
- <tr class=xl93 height=180 style='height:135.0pt'>
-  <td height=180 class=xl93 style='height:135.0pt'>�@</td>
+ <tr class=xl93 height=240 style='height:180.0pt'>
+  <td height=240 class=xl93 style='height:180.0pt'>&nbsp;</td>
   <td class=xl88 style='border-top:none'>9</td>
   <td class=xl85 style='border-top:none;border-left:none'>aio_cancel</td>
   <td class=xl85 style='border-top:none;border-left:none'>1888</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl86 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>�e�X�g�P�[�X�͐i�s����IN
-  PROGRESS�񓯊��ǂݎ��/�������ݑ�������������Ƃ��\�z����Ă��܂��B<br>
-    ���� :<br>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl86 width=81 style='border-top:none;border-left:none;width:61pt'>FAD</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>テストケースは進行中のIN
+  PROGRESS非同期読み取り/書き込み操作を取り消すことが予想されています。<br>
+    分析 :<br>
    
-  �ǂݎ��/�������݂��������ɂ́A�����ONGOING�łȂ���΂Ȃ�܂���BVE�̏ꍇ�ł͔��ɑ����������邱�Ƃ�aio_return���g�p���Č��؂���Ă��܂��B<br>
-    ���̂��߁Aaio_error��ECANCELLED�����^�[�������A&quot;PASSED&quot;���v�����g����O�ɖ߂�܂��B <br>
+  読み取り/書き込みを取り消すには、操作はONGOINGでなければなりません。VEの場合では非常に速く完了することがaio_returnを使用して検証されています。<br>
+    このため、aio_errorはECANCELLEDをリターンせず、&quot;PASSED&quot;をプリントする前に戻ります。 <br>
     <br>
-    ���_ :VE�ɂ����Ă̔񓯊��ǂݏ����͏�ɐ������܂��B</td>
+    結論 :VEにおいての非同期読み書きは常に成功します。</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 class=xl78 style='height:40.5pt'></td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl78 style='height:45.0pt'></td>
   <td class=xl88 style='border-top:none'>10</td>
   <td class=xl85 style='border-top:none;border-left:none'>pthread_cancel</td>
   <td class=xl85 style='border-top:none;border-left:none'>880</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl86 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>musl�����̖��Amusl��pthread_join�̌Ăяo����pthread�\���̂��폜���܂��B���������āApthread�̃Z�O�t�H���g�͗\�z����铮����L�����Z�����܂��B</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl86 width=81 style='border-top:none;border-left:none;width:61pt'>FAD</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>musl実装の問題、muslはpthread_joinの呼び出し後pthread構造体を削除します。したがって、pthreadのセグフォルトは予想される動作をキャンセルします。</td>
  </tr>
- <tr height=144 style='height:108.0pt'>
-  <td height=144 class=xl78 style='height:108.0pt'></td>
+ <tr height=220 style='height:165.0pt'>
+  <td height=220 class=xl78 style='height:165.0pt'></td>
   <td class=xl88 style='border-top:none'>11</td>
   <td class=xl85 style='border-top:none;border-left:none'>sem_wait</td>
   <td class=xl85 style='border-top:none;border-left:none'>408</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>�V�i���I:<br>
-    �q�v���Z�X��sem_wait�i�j���Ăяo���u���b�N���܂��B<br>
-    �e�v���Z�X��SIGABRT�V�O�i�����q�v���Z�X�ɑ���Asem_wait�i�j����EINTR errno�Ƌ��Ƀ��^�[������܂��B<br>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>シナリオ:<br>
+    子プロセスはsem_wait（）を呼び出しブロックします。<br>
+    親プロセスはSIGABRTシグナルを子プロセスに送り、sem_wait（）からEINTR errnoと共にリターンされます。<br>
     <br>
-    ����:<br>
+    理解:<br>
     musl
-  libc�ɂ�����sem_wait�i�j�̓��[�v���œ����I��futex�i�j���Ăяo���܂��B�M���ɂ���Ē��f���ꂽ�Ƃ��Ă��A�Ă�futex�ҋ@�ɓ���܂��B</td>
+  libcにおいてsem_wait（）はループ内で内部的にfutex（）を呼び出します。信号によって中断されたとしても、再びfutex待機に入ります。</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 class=xl78 style='height:40.5pt'></td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl78 style='height:45.0pt'></td>
   <td class=xl88 style='border-top:none'>12</td>
   <td class=xl85 style='border-top:none;border-left:none'>sem_post</td>
   <td class=xl85 style='border-top:none;border-left:none'>1032</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>�e�X�g�v���O������_POSIX_PRIORITY_SCHEDULING�t���O���`����K�v������܂��B<br>
-    ���̃t���O��musl�ł͒�`����Ă��܂���B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>テストプログラムで_POSIX_PRIORITY_SCHEDULINGフラグを定義する必要があります。<br>
+    このフラグはmuslでは定義されていません。</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 class=xl78 style='height:40.5pt'></td>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl78 style='height:60.0pt'></td>
   <td class=xl88 style='border-top:none'>13</td>
   <td class=xl85 style='border-top:none;border-left:none'>pthread_cond_broadcast</td>
   <td class=xl85 style='border-top:none;border-left:none'>840</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>FAD<br>
-    Robust futex�Ƃ���ɑΉ�����V�X�e���R�[���̓T�|�[�g����Ă��܂���B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>FAD<br>
+    Robust futexとそれに対応するシステムコールはサポートされていません。</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 class=xl78 style='height:27.0pt'></td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl78 style='height:45.0pt'></td>
   <td class=xl88 style='border-top:none'>14</td>
   <td class=xl85 style='border-top:none;border-left:none'>sigwaitinfo</td>
   <td class=xl85 style='border-top:none;border-left:none'>432</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>raise�i�j��si_code��-6�ɐݒ肷��tkill���g���Ď�������Ă��܂��B
-  ���������Ă���͗\�z���ꂽ����ƂȂ�܂��B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>raise（）はsi_codeを-6に設定するtkillを使って実装されています。
+  したがってこれは予想された動作となります。</td>
  </tr>
- <tr height=108 style='height:81.0pt'>
-  <td height=108 class=xl78 style='height:81.0pt'></td>
+ <tr height=180 style='height:135.0pt'>
+  <td height=180 class=xl78 style='height:135.0pt'></td>
   <td class=xl88 style='border-top:none'>15</td>
   <td class=xl85 style='border-top:none;border-left:none'>__pthread_join</td>
   <td class=xl85 style='border-top:none;border-left:none'>1120</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl86 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>musl�����̖��Amusl��
-  pthread_join�̌Ăяo�����pthread�\���̂��폜���܂��B<br>
-    �������̃e�X�g�v���O�����ɂ����Ă�100���Č��\�ł͂���܂���B<br>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl86 width=81 style='border-top:none;border-left:none;width:61pt'>FAD</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>musl実装の問題、muslは
+  pthread_joinの呼び出し後にpthread構造体を削除します。<br>
+    いくつかのテストプログラムにおいては100％再現可能ではありません。<br>
    
-  ���̃V�i���I�ł́AVEOS�̓Z�O�����e�[�V�����E�t�H���g���擾���A�s�A�E�\�P�b�g�̓N���[�Y����܂��B���̂��߁A�^���v���Z�X��VEOS����EOF���󂯎��Afail�����^�[�����܂��B</td>
+  このシナリオでは、VEOSはセグメンテーション・フォルトを取得し、ピア・ソケットはクローズされます。そのため、疑似プロセスはVEOSからEOFを受け取り、failをリターンします。</td>
  </tr>
- <tr height=72 style='height:54.0pt'>
-  <td height=72 class=xl78 style='height:54.0pt'></td>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl78 style='height:90.0pt'></td>
   <td class=xl88 style='border-top:none'>16</td>
   <td class=xl85 style='border-top:none;border-left:none'>pthread_join</td>
   <td class=xl85 style='border-top:none;border-left:none'>1120</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl86 width=93 style='border-top:none;border-left:none;width:70pt'>�@</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>musl�����̖��Amusl��
-  pthread_join�̌Ăяo�����pthread�\���̂��폜���܂��B<br>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl86 width=81 style='border-top:none;border-left:none;width:61pt'>&nbsp;</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>musl実装の問題、muslは
+  pthread_joinの呼び出し後にpthread構造体を削除します。<br>
     <br>
-    ���<ruby>�ڍ�<span style='display:none'><rt>�V���E�T�C</rt></span></ruby>��<ruby>���<span
-  style='display:none'><rt>�W���E�z�E</rt></span></ruby>�́Amusl-glibc<ruby>����_<span
-  style='display:none'><rt>�\�E�C�e��</rt></span></ruby>�V�[�gNo.8&amp;9����<ruby>�Q��<span
-  style='display:none'><rt>�T���V���E</rt></span></ruby>���������B</td>
+    より詳細の情報は、musl-glibc相違点シートNo.8&amp;9をご参照ください。</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 class=xl78 style='height:40.5pt'></td>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl78 style='height:60.0pt'></td>
   <td class=xl88 style='border-top:none'>17</td>
   <td class=xl85 style='border-top:none;border-left:none'>sem_init</td>
   <td class=xl85 style='border-top:none;border-left:none'>720</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>POSIX�����ɂ���sem_init�̍ő吧����256�ł��B<br>
-    musl-libc�ł́Asem_init�͂��̐����i256�j�𒴂��ď��������s�����Ƃ��ł��܂��B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>POSIX準拠によるとsem_initの最大制限は256です。<br>
+    musl-libcでは、sem_initはこの制限（256）を超えて初期化を行うことができます。</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 class=xl78 style='height:40.5pt'></td>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl78 style='height:60.0pt'></td>
   <td class=xl88 style='border-top:none'>18</td>
   <td class=xl85 style='border-top:none;border-left:none'>pthread_kill</td>
   <td class=xl85 style='border-top:none;border-left:none'>728</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl117 width=463 style='border-top:none;border-left:none;width:347pt'>musl�̎����̖��@musl
-  pthread_join�̌��pthread�\���̂��폜����call.pthread_kill�i�j��pthread�\���̂ɃA�N�Z�X���悤�Ƃ������߁Asegfault���擾���܂����B</td>
+  <td class=xl117 width=405 style='border-top:none;border-left:none;width:304pt'>muslの実装の問題　musl
+  pthread_joinの後にpthread構造体を削除するcall.pthread_kill（）がpthread構造体にアクセスしようとしたため、segfaultを取得しました。</td>
  </tr>
- <tr class=xl93 height=144 style='height:108.0pt'>
-  <td height=144 class=xl93 style='height:108.0pt'>�@</td>
+ <tr class=xl93 height=220 style='height:165.0pt'>
+  <td height=220 class=xl93 style='height:165.0pt'>&nbsp;</td>
   <td class=xl88 style='border-top:none'>19</td>
   <td class=xl85 style='border-top:none;border-left:none'>aio_suspend</td>
   <td class=xl85 style='border-top:none;border-left:none'>3272</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl86 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>aio_suspend�i�j���m�F����ɂ́A�������ݑ�������s����K�v������܂��B<br>
-    &quot;aio_error�i�j&quot;�́A�������ݑ��삪�����������ǂ������`�F�b�N���܂��B<br>
-    &quot;aio_error�i�j&quot;���G���[�����^�[�������ꍇ�A
-  &quot;aio_suspend�i�j&quot;���Ăяo����܂��B<br>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl86 width=81 style='border-top:none;border-left:none;width:61pt'>FAD</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>aio_suspend（）を確認するには、書き込み操作を実行する必要があります。<br>
+    &quot;aio_error（）&quot;は、書き込み操作が成功したかどうかをチェックします。<br>
+    &quot;aio_error（）&quot;がエラーをリターンした場合、
+  &quot;aio_suspend（）&quot;が呼び出されます。<br>
     <br>
-    VE�A�[�L�e�N�`���ł͂��ׂĂ̏������݂��������邽�߁A &quot;aio_error�i�j&quot;��0�����^�[����aio_suspend�͌Ăяo����܂���B</td>
+    VEアーキテクチャではすべての書き込みが成功するため、 &quot;aio_error（）&quot;は0をリターンしaio_suspendは呼び出されません。</td>
  </tr>
- <tr height=18 style='height:13.5pt'>
-  <td height=18 class=xl78 style='height:13.5pt'></td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl78 style='height:45.0pt'></td>
   <td class=xl88 style='border-top:none'>20</td>
   <td class=xl85 style='border-top:none;border-left:none'>pthread_rwlock_wrlock</td>
   <td class=xl85 style='border-top:none;border-left:none'>408</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl86 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>Musl-libc�͊��Ƀ��b�N����Ă���ꍇ�A���b�N�ϐ��̊m�F�Ɏ��s���܂��B</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl86 width=81 style='border-top:none;border-left:none;width:61pt'>FAD</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>Musl-libcは既にロックされている場合、ロック変数の確認に失敗します。</td>
  </tr>
- <tr class=xl93 height=54 style='height:40.5pt'>
-  <td height=54 class=xl93 style='height:40.5pt'>�@</td>
+ <tr class=xl93 height=60 style='height:45.0pt'>
+  <td height=60 class=xl93 style='height:45.0pt'>&nbsp;</td>
   <td class=xl88 style='border-top:none'>21</td>
   <td class=xl85 style='border-top:none;border-left:none'>aio_error</td>
   <td class=xl85 style='border-top:none;border-left:none'>408</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl86 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>1.musl
-  libc��glibc�œ�����������܂��B<br>
-    2.aio�̓ǂݏ�������Ȃ���aio_error�i�j���Ăяo���ƁAposix�W������\�z���ꂽEINVAL�͓����܂���B</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl86 width=81 style='border-top:none;border-left:none;width:61pt'>FAD</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>1.musl
+  libcとglibcで同じ動作をします。<br>
+    2.aioの読み書き操作なしでaio_error（）を呼び出すと、posix標準から予想されたEINVALは得られません。</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 class=xl78 style='height:40.5pt'></td>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl78 style='height:60.0pt'></td>
   <td class=xl88 style='border-top:none'>22</td>
   <td class=xl85 style='border-top:none;border-left:none'>pthread_sigmask</td>
   <td class=xl85 style='border-top:none;border-left:none'>848</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl86 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>Linux��VE�ł̃V�O�i���z�M���삪�قȂ邽�ߎ��s���܂��B<br>
-    ���̊��ł́A�V�O�i�����n�����O��sigqueue�i�j�����^�[�������\��������܂��B</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl86 width=81 style='border-top:none;border-left:none;width:61pt'>FAD</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>LinuxとVEでのシグナル配信動作が異なるため失敗します。<br>
+    この環境では、シグナルが渡される前にsigqueue（）がリターンされる可能性があります。</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 class=xl78 style='height:27.0pt'></td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl78 style='height:45.0pt'></td>
   <td class=xl88 style='border-top:none'>23</td>
   <td class=xl85 style='border-top:none;border-left:none'>fork</td>
   <td class=xl85 style='border-top:none;border-left:none'>1040</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl86 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>���̃V�i���I�ł́Asched_get_priority_max�i�j���Ăяo���ꂱ���VE�A�[�L�e�N�`���ł̓T�|�[�g����Ă��܂���B</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl86 width=81 style='border-top:none;border-left:none;width:61pt'>FAD</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>このシナリオでは、sched_get_priority_max（）が呼び出されこれはVEアーキテクチャではサポートされていません。</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 class=xl78 style='height:27.0pt'></td>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl78 style='height:30.0pt'></td>
   <td class=xl88 style='border-top:none'>24</td>
   <td class=xl85 style='border-top:none;border-left:none'>shm_unlink</td>
   <td class=xl85 style='border-top:none;border-left:none'>576</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>sem_unlink��shm_unlink������ŌĂяo���܂��B
-  ����ɂ��ẮANo.2���Q�Ƃ��Ă��������B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>sem_unlinkはshm_unlinkを内部で呼び出します。
+  これについては、No.2を参照してください。</td>
  </tr>
- <tr height=90 style='height:67.5pt'>
-  <td height=90 class=xl78 style='height:67.5pt'></td>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl78 style='height:90.0pt'></td>
   <td class=xl88 style='border-top:none'>25</td>
   <td class=xl85 style='border-top:none;border-left:none'>sigqueue</td>
   <td class=xl85 style='border-top:none;border-left:none'>1128</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl86 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>linux��VE�̊ԂŃV�O�i���z�M�̓���ɈႢ������܂��B<br>
-    Linux�ł́Asigqueue�i�j�̖߂�l���X�V����O��handler���Ăяo����܂��B<br>
-    VE�ł́A�V�O�i����������O��sigqueue�i�j�̖߂�l���X�V�����\��������܂��B</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl86 width=81 style='border-top:none;border-left:none;width:61pt'>FAD</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>linuxとVEの間でシグナル配信の動作に違いがあります。<br>
+    Linuxでは、sigqueue（）の戻り値を更新する前にhandlerが呼び出されます。<br>
+    VEでは、シグナルが送られる前にsigqueue（）の戻り値が更新される可能性があります。</td>
  </tr>
- <tr height=18 style='height:13.5pt'>
-  <td height=18 class=xl78 style='height:13.5pt'></td>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
   <td class=xl88 style='border-top:none'>26</td>
   <td class=xl85 style='border-top:none;border-left:none'>sigismember</td>
   <td class=xl85 style='border-top:none;border-left:none'>664</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>&quot;sigismember&quot;�͖����ȓ��͂��������܂���B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>&quot;sigismember&quot;は無効な入力を処理しません。</td>
  </tr>
- <tr height=234 style='height:175.5pt'>
-  <td height=234 class=xl78 style='height:175.5pt'></td>
+ <tr height=300 style='height:225.0pt'>
+  <td height=300 class=xl78 style='height:225.0pt'></td>
   <td class=xl88 style='border-top:none'>27</td>
   <td class=xl85 style='border-top:none;border-left:none'>timer_getoverrun</td>
   <td class=xl85 style='border-top:none;border-left:none'>608</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl86 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>���̃e�X�g�v���O�����͈ȉ������s���܂��F:<br>
-    a.SIGCONT�V�O�i���̃}�X�N<br>
-    b.�^�C�}�[���I��������ASIGCONT�V�O�i���𐶐����邽�߃^�C�}�[���쐬����<br>
-    c.�^�C�}�[��1�i�m�b���ƂɏI������悤�ɐݒ�B<br>
-    d.SIGCONT�V�O�i�����u���b�N�����B<br>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl86 width=81 style='border-top:none;border-left:none;width:61pt'>FAD</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>このテストプログラムは以下を実行します：:<br>
+    a.SIGCONTシグナルのマスク<br>
+    b.タイマーが終了した後、SIGCONTシグナルを生成するためタイマーを作成する<br>
+    c.タイマーを1ナノ秒ごとに終了するように設定。<br>
+    d.SIGCONTシグナルをブロック解除。<br>
     <br>
    
-  �M���̓u���b�N���������Ƃ��ɋ[���v���Z�X�ɑ����A�[���v���Z�X�����̊Ԃ�veos�Ƌ���ipc�V�O�i�������s���A�^�C�}�[���ĂяI�����܂��B���̃v���O�������n���O�A�b�v���Ă��邽�߁A���̃v���Z�X���J��Ԃ��ꑱ���邱�ƂɂȂ�܂��B<br>
-    ���̊��ł́A1nsec�̏I�����Ԃ͒Z�����܂��B �I�����Ԃ��߂�����A�v���O�����͐���ɓ��삵�܂��B�i�����̖��j</td>
+  信号はブロック解除されるときに擬似プロセスに送られ、擬似プロセスがその間にveosと共にipcシグナルを実行し、タイマーが再び終了します。このプログラムがハングアップしているため、このプロセスが繰り返され続けることになります。<br>
+    この環境では、1nsecの終了時間は短すぎます。 終了時間を過ぎた後、プログラムは正常に動作します。（同期の問題）</td>
  </tr>
- <tr height=18 style='height:13.5pt'>
-  <td height=18 class=xl78 style='height:13.5pt'></td>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
   <td class=xl88 style='border-top:none'>28</td>
   <td class=xl85 style='border-top:none;border-left:none'>pthread_setcanceltype</td>
   <td class=xl85 style='border-top:none;border-left:none'>672</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl86 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>&quot;pthread_cancel�i�j&quot;�̐����ɂ��fail���܂��B</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl86 width=81 style='border-top:none;border-left:none;width:61pt'>FAD</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>&quot;pthread_cancel（）&quot;の制限によりfailします。</td>
  </tr>
- <tr height=90 style='height:67.5pt'>
-  <td height=90 class=xl78 style='height:67.5pt'></td>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl78 style='height:105.0pt'></td>
   <td class=xl88 style='border-top:none'>29</td>
   <td class=xl111 style='border-top:none;border-left:none'>dlclose()</td>
   <td class=xl85 style='border-top:none;border-left:none'>432</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>open
-  posix�e�X�g�X�C�[�g����Ăяo����Ȃ�<br>
-    ����_�F<br>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>open
+  posixテストスイートから呼び出されない<br>
+    相違点：<br>
    
-  dlcose�i�j�͈����Ƃ��ă��C�u�����̃A�h���X���󂯎��A���C�u�������������0�i�����j��Ԃ��A���C�u������������Ȃ����1��Ԃ��܂��B<br>
-    ���������0��Ԃ��܂����A���C�u�����̃A�����[�h�͍s���܂���B</td>
+  dlcose（）は引数としてライブラリのアドレスを受け取り、ライブラリが見つかると0（成功）を返し、ライブラリが見つからなければ1を返します。<br>
+    成功すると0を返しますが、ライブラリのアンロードは行いません。</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 class=xl78 style='height:40.5pt'></td>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl78 style='height:60.0pt'></td>
   <td class=xl88 style='border-top:none'>30</td>
   <td class=xl85 style='border-top:none;border-left:none'>pthread_cond_wait</td>
   <td class=xl85 style='border-top:none;border-left:none'>432</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>FAD
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>FAD
   <br>
-    Robust futex�Ƃ���ɑΉ�����V�X�e���R�[���̓T�|�[�g����Ă��܂���B</td>
+    Robust futexとそれに対応するシステムコールはサポートされていません。</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 class=xl78 style='height:40.5pt'></td>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl78 style='height:60.0pt'></td>
   <td class=xl88 style='border-top:none'>31</td>
   <td class=xl85 style='border-top:none;border-left:none'>pthread_cond_destroy</td>
   <td class=xl85 style='border-top:none;border-left:none'>1128</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>FAD
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>FAD
   <br>
-    Robust futex�Ƃ���ɑΉ�����V�X�e���R�[���̓T�|�[�g����Ă��܂���B</td>
+    Robust futexとそれに対応するシステムコールはサポートされていません。</td>
  </tr>
- <tr height=18 style='height:13.5pt'>
-  <td height=18 class=xl78 style='height:13.5pt'></td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl78 style='height:45.0pt'></td>
   <td class=xl88 style='border-top:none'>32</td>
   <td class=xl85 style='border-top:none;border-left:none'>pthread_attr_setschedpolicy</td>
   <td class=xl85 style='border-top:none;border-left:none'>400</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>Musl-libc��
-  &quot;pthread_attr_setschedpolicy&quot;�ŃG���[�`�F�b�N�����܂���B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>Musl-libcは
+  &quot;pthread_attr_setschedpolicy&quot;でエラーチェックをしません。</td>
  </tr>
- <tr height=90 style='height:67.5pt'>
-  <td height=90 class=xl78 style='height:67.5pt'></td>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl78 style='height:105.0pt'></td>
   <td class=xl88 style='border-top:none'>33</td>
   <td class=xl85 style='border-top:none;border-left:none'>pthread_mutexattr_setprotocol</td>
   <td class=xl85 style='border-top:none;border-left:none'>456</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl213 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>musl-libc��PTHREAD_PRIO_NONE�̂݃T�|�[�g���Ă��܂��B<br>
-    musl-libc�͈ȉ��̓�̃t���O�̓T�|�[�g���Ă��܂���B<br>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl175 style='border-top:none;border-left:none'>FAD</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>musl-libcはPTHREAD_PRIO_NONEのみサポートしています。<br>
+    musl-libcは以下の二つのフラグはサポートしていません。<br>
     PTHREAD_PRIO_INHERIT <br>
     PTHREAD_PRIO_PROTECT<br>
     </td>
  </tr>
- <tr height=108 style='height:81.0pt'>
-  <td height=108 class=xl78 style='height:81.0pt'></td>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl78 style='height:105.0pt'></td>
   <td class=xl88 style='border-top:none'>34</td>
   <td class=xl85 style='border-top:none;border-left:none'>aio_write</td>
   <td class=xl85 style='border-top:none;border-left:none'>408</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl86 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>aio_write�́AVE�v���b�g�t�H�[���ł͏�ɐ������܂��iaio_cancel�Ő�������Ă��܂��j�B<br>
-    ���̃e�X�g�P�[�X�́A�������݌�Ƀo�C�g����Ԃ�aio_return���Ăяo���A-1�܂���fail�͕Ԃ��܂���B<br>
-    ���������āA���� &quot;bad aio_write return value&quot;�Ƃ����v�����g���AVE�v���b�g�t�H�[����Ŋm�F����܂��B</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl86 width=81 style='border-top:none;border-left:none;width:61pt'>FAD</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>aio_writeは、VEプラットフォームでは常に成功します（aio_cancelで説明されています）。<br>
+    このテストケースは、書き込み後にバイト数を返すaio_returnを呼び出し、-1またはfailは返しません。<br>
+    したがって、この &quot;bad aio_write return value&quot;というプリントが、VEプラットフォーム上で確認されます。</td>
  </tr>
- <tr class=xl93 height=18 style='height:13.5pt'>
-  <td height=18 class=xl93 style='height:13.5pt'>�@</td>
+ <tr class=xl93 height=40 style='height:30.0pt'>
+  <td height=40 class=xl93 style='height:30.0pt'>&nbsp;</td>
   <td class=xl88 style='border-top:none'>35</td>
   <td class=xl85 style='border-top:none;border-left:none'>pthread_attr_setdetachstate</td>
   <td class=xl85 style='border-top:none;border-left:none'>504</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl86 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>Musl-libc�̓X���b�h�̃f�^�b�`��Ԃ��`�F�b�N���܂���B</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl86 width=81 style='border-top:none;border-left:none;width:61pt'>FAD</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>Musl-libcはスレッドのデタッチ状態をチェックしません。</td>
  </tr>
- <tr height=180 style='height:135.0pt'>
-  <td height=180 class=xl78 style='height:135.0pt'></td>
+ <tr height=260 style='height:195.0pt'>
+  <td height=260 class=xl78 style='height:195.0pt'></td>
   <td class=xl88 style='border-top:none'>36</td>
   <td class=xl85 style='border-top:none;border-left:none'>lio_listio</td>
   <td class=xl85 style='border-top:none;border-left:none'>5744</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl86 width=93 style='border-top:none;border-left:none;width:70pt'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>2�̃V�i���I�̑���_<br>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl86 width=81 style='border-top:none;border-left:none;width:61pt'>FAD</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>2つのシナリオの相違点<br>
     <br>
-    lio_listio��aio_read-write�񓯊��R�[��������ŌĂяo���Ă��܂�<br>
-    aio_cancel�Ő������ꂽ���̂Ɠ�����������܂�<br>
-    PLATFORM VE��Ń��C�g�E���[�h���삪�������Ă��܂��B<br>
+    lio_listioはaio_read-write非同期コールを内部で呼び出しています<br>
+    aio_cancelで説明されたものと同じ動作をします<br>
+    PLATFORM VE上でライト・リード操作が成功しています。<br>
     <br>
    
-  �����Ȉ����i���[�h�ƃI�y�R�[�h�j��^�����ꍇ�G���[��-1�Ƃ��ĕԂ����ׂ��ł����Aglibc�Ƃ���POSIX�ɏ������Ă��Ȃ����߃G���[�͕Ԃ���܂���B<br>
+  無効な引数（モードとオペコード）を与えた場合エラーが-1として返されるべきですが、glibcとしてPOSIXに準拠していないためエラーは返されません。<br>
     </td>
  </tr>
- <tr class=xl93 height=54 style='height:40.5pt'>
-  <td height=54 class=xl93 style='height:40.5pt'>�@</td>
+ <tr class=xl93 height=100 style='height:75.0pt'>
+  <td height=100 class=xl93 style='height:75.0pt'>&nbsp;</td>
   <td class=xl88 style='border-top:none'>37</td>
   <td class=xl85 style='border-top:none;border-left:none'>mlockall</td>
   <td class=xl85 style='border-top:none;border-left:none'>496</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>mlockall�i�j�V�X�e���R�[���́AVE�Ńy�[�W���O���T�|�[�g����Ă��Ȃ�����VE�A�[�L�e�N�`���ł͏�ɐ�����Ԃ��܂����A�ڐA���ꂽ�A�v���P�[�V������mlockall�i�j�V�X�e���R�[�����Ăяo���\��������܂��B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>mlockall（）システムコールは、VEでページングがサポートされていないためVEアーキテクチャでは常に成功を返しますが、移植されたアプリケーションはmlockall（）システムコールを呼び出す可能性があります。</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 class=xl78 style='height:40.5pt'></td>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl78 style='height:60.0pt'></td>
   <td class=xl88 style='border-top:none'>38</td>
   <td class=xl85 style='border-top:none;border-left:none'>sigprocmask</td>
   <td class=xl85 style='border-top:none;border-left:none'>624</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>VE�v���Z�X��sigprocmask���g�p���ăV�O�i�����A�����b�N������Ɏ��g�ɃV�O�i���������n���ƁA�V�X�e���R�[���̎��s��ɃV�O�i���n���h�������s�����\��������܂��B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>VEプロセスがsigprocmaskを使用してシグナルをアンロックした後に自身にシグナルを引き渡すと、システムコールの実行後にシグナルハンドラが実行される可能性があります。</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 class=xl78 style='height:40.5pt'></td>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl78 style='height:60.0pt'></td>
   <td class=xl88 style='border-top:none'>39</td>
   <td class=xl85 style='border-top:none;border-left:none'>pthread_create</td>
   <td class=xl85 style='border-top:none;border-left:none'>9728</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>�������̏ꍇ�Apthread_create��
-  &quot;sched_get_priority_max&quot;��
-  &quot;pthread_attr_setschedpolicy&quot;���Ăяo���A����̓T�|�[�g����Ă��܂���B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>いくつかの場合、pthread_createが
+  &quot;sched_get_priority_max&quot;＆
+  &quot;pthread_attr_setschedpolicy&quot;を呼び出し、これはサポートされていません。</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 class=xl78 style='height:40.5pt'></td>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl78 style='height:60.0pt'></td>
   <td class=xl88 style='border-top:none'>40</td>
   <td class=xl85 style='border-top:none;border-left:none'>pthread_exit</td>
   <td class=xl85 style='border-top:none;border-left:none'>3088</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>�������̏ꍇ�Apthread_exit��&quot;sched_get_priority_max&quot;��
-  &quot;pthread_attr_setschedpolicy&quot;���Ăяo���A����̓T�|�[�g����Ă��܂���B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>いくつかの場合、pthread_exitが&quot;sched_get_priority_max&quot;＆
+  &quot;pthread_attr_setschedpolicy&quot;を呼び出し、これはサポートされていません。</td>
  </tr>
- <tr height=72 style='height:54.0pt'>
-  <td height=72 class=xl78 style='height:54.0pt'></td>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl78 style='height:75.0pt'></td>
   <td class=xl88 style='border-top:none'>41</td>
   <td class=xl85 style='border-top:none;border-left:none'>mmap</td>
   <td class=xl85 style='border-top:none;border-left:none'>1024</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>�V�i���I�̒��ɂ́A32�r�b�g�A�[�`���`�F�b�N������̂�����AVE�A�[�L�e�N�`���ł̓T�|�[�g����Ă��܂���B<br>
-    RLIMIT_MEMLOCK�̐����͖�������܂��B<br>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>シナリオの中には、32ビットアーチをチェックするものがあり、VEアーキテクチャではサポートされていません。<br>
+    RLIMIT_MEMLOCKの制限は無視されます。<br>
     </td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 class=xl78 style='height:27.0pt'></td>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl78 style='height:30.0pt'></td>
   <td class=xl88 style='border-top:none'>42</td>
   <td class=xl85 style='border-top:none;border-left:none'>pthread_detach</td>
   <td class=xl85 style='border-top:none;border-left:none'>672</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>__pthread_detach�́A���łɎ��O���\�ȃX���b�h�����O���ۂ�EINVAL��Ԃ��܂���B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>__pthread_detachは、すでに取り外し可能なスレッドを取り外す際にEINVALを返しません。</td>
  </tr>
- <tr height=162 style='height:121.5pt'>
-  <td height=162 class=xl78 style='height:121.5pt'></td>
+ <tr height=220 style='height:165.0pt'>
+  <td height=220 class=xl78 style='height:165.0pt'></td>
   <td class=xl88 style='border-top:none'>43</td>
   <td class=xl85 style='border-top:none;border-left:none'>sigaction</td>
   <td class=xl85 style='border-top:none;border-left:none'>744</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>FAD�̗��R<br>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>FADの理由<br>
    
-  Linux�Ƃ͈قȂ�AVE�A�[�L�e�N�`���[�ł́A�n���h���[�R���e�L�X�g�ɓ���O�ɁA���C���R���e�L�X�g�i�V�O�i�����n���ꂽ�Ƃ��j�Ńv���Z�X���ĊJ�ł���\��������܂��B���������āA�V�O�i���ikill�i�j�Atkill�i�j�Atgkill�i�j�Apthread_kill�i�j�j���M��Ƀ`���b�N���s��ꂽ�ꍇ�A�n���h���R���e�L�X�g�ōX�V���ꂽ�ϐ����g�p���ăn���h�����Ăяo���ꂽ���ǂ������m�F����`�F�b�N��<ruby>���s<span
-  style='display:none'><rt>�V�b�p�C</rt></span></ruby>����<ruby>�\��<span
-  style='display:none'><rt>�J�m�E�Z�C</rt></span></ruby>������܂��B�B<br>
+  Linuxとは異なり、VEアーキテクチャーでは、ハンドラーコンテキストに入る前に、メインコンテキスト（シグナルが渡されたとき）でプロセスを再開できる可能性があります。したがって、シグナル（kill（）、tkill（）、tgkill（）、pthread_kill（））送信後にチャックが行われた場合、ハンドラコンテキストで更新された変数を使用してハンドラが呼び出されたかどうかを確認するチェックは失敗する可能性があります。。<br>
     <br>
     </td>
  </tr>
- <tr height=108 style='height:81.0pt'>
-  <td height=108 class=xl78 style='height:81.0pt'></td>
+ <tr height=200 style='height:150.0pt'>
+  <td height=200 class=xl78 style='height:150.0pt'></td>
   <td class=xl88 style='border-top:none'>44</td>
   <td class=xl85 style='border-top:none;border-left:none'>pthread_mutex_trylock</td>
   <td class=xl85 style='border-top:none;border-left:none'>640</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>FAD
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>FAD
   (Function As Designed). <br>
-    LTP open-posix-testsuite�̂��ׂẴe�X�g�P�[�X��PASS���Ă��܂����Arobust
-  futex���g�p�����mutex�͕����I�ɃT�|�[�g����܂��B<br>
+    LTP open-posix-testsuiteのすべてのテストケースはPASSしていますが、robust
+  futexを使用するとmutexは部分的にサポートされます。<br>
     <br>
-    Robust futex�Ƃ���ɑΉ�����V�X�e���R�[���́AVE���ł̓T�|�[�g����Ă��Ȃ����߂ł��B</td>
+    Robust futexとそれに対応するシステムコールは、VE環境ではサポートされていないためです。</td>
  </tr>
- <tr height=108 style='height:81.0pt'>
-  <td height=108 class=xl78 style='height:81.0pt'></td>
+ <tr height=160 style='height:120.0pt'>
+  <td height=160 class=xl78 style='height:120.0pt'></td>
   <td class=xl88 style='border-top:none'>45</td>
   <td class=xl85 style='border-top:none;border-left:none'>sendmsg</td>
   <td class=xl85 style='border-top:none;border-left:none'>1904</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>open
-  posix�e�X�g�X�C�[�g����Ăяo����Ȃ�<br>
-    ����_�F<br>
-    �L���Ȓ����ƂƂ��ɖ����ȃo�b�t�@�|�C���^�imsg_control�j���n���ꂽ�l�K�e�B�u�e�X�g�P�[�X�����s���Ă���ԁB<br>
-    crash / sigsegv�Ƃ������ʂɂȂ郉�C�u�����̏ꍇ��musl�ł͈����܂���B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>open
+  posixテストスイートから呼び出されない<br>
+    相違点：<br>
+    有効な長さとともに無効なバッファポインタ（msg_control）が渡されたネガティブテストケースを実行している間。<br>
+    crash / sigsegvという結果になるライブラリの場合はmuslでは扱われません。</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 class=xl78 style='height:40.5pt'></td>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl78 style='height:60.0pt'></td>
   <td class=xl88 style='border-top:none'>46</td>
   <td class=xl85 style='border-top:none;border-left:none'>statfs</td>
   <td class=xl85 style='border-top:none;border-left:none'>728</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>open
-  posix�e�X�g�X�C�[�g����Ăяo����Ȃ�<br>
-    ����_�F<br>
-    �s���ȃA�h���X�o�b�t�@�����������悤�Ƃ���Musl libc</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>open
+  posixテストスイートから呼び出されない<br>
+    相違点：<br>
+    不正なアドレスバッファを初期化しようとするMusl libc</td>
  </tr>
- <tr height=72 style='height:54.0pt'>
-  <td height=72 class=xl78 style='height:54.0pt'></td>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl78 style='height:90.0pt'></td>
   <td class=xl88 style='border-top:none'>47</td>
   <td class=xl85 style='border-top:none;border-left:none'>fstatfs</td>
   <td class=xl85 style='border-top:none;border-left:none'>736</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>open
-  posix�e�X�g�X�C�[�g����Ăяo����Ȃ�<br>
-    ����_�F<br>
-    status�i�j��������stat buff���w�肵�ČĂяo���ꂽ�ꍇ�AMusl�͂�����t�Q�Ƃ��A�N���b�V�����郍�[�J���o�b�t�@�ŏ��������܂��B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>open
+  posixテストスイートから呼び出されない<br>
+    相違点：<br>
+    status（）が無効なstat buffを指定して呼び出された場合、Muslはそれを逆参照し、クラッシュするローカルバッファで初期化します。</td>
  </tr>
- <tr height=126 style='height:94.5pt'>
-  <td height=126 class=xl78 style='height:94.5pt'></td>
+ <tr height=160 style='height:120.0pt'>
+  <td height=160 class=xl78 style='height:120.0pt'></td>
   <td class=xl88 style='border-top:none'>48</td>
   <td class=xl85 style='border-top:none;border-left:none'>open</td>
   <td class=xl85 style='border-top:none;border-left:none'>1152</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>open
-  posix�e�X�g�X�C�[�g����Ăяo����Ȃ�<br>
-    ����_�F<br>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>open
+  posixテストスイートから呼び出されない<br>
+    相違点：<br>
    
-  ���z�I�ɂ�glibc�ɂ����ẮA�I�[�v��syscall��O_PATH�t���O�ƂƂ��Ɏg�p����ƁA�t�@�C�����̂̓I�[�v�����ꂸ�Aread/write/fchmod�t�@�C������̓G���[EBADF�Ŏ��s���܂��B<br>
-    ������musl�̏ꍇ�����t���O�ŁA���o�͑����EBADF�̑����0��Ԃ��܂��B</td>
+  理想的にはglibcにおいては、オープンsyscallをO_PATHフラグとともに使用すると、ファイル自体はオープンされず、read/write/fchmodファイル操作はエラーEBADFで失敗します。<br>
+    しかしmuslの場合同じフラグで、入出力操作はEBADFの代わりに0を返します。</td>
  </tr>
- <tr height=144 style='height:108.0pt'>
-  <td height=144 class=xl78 style='height:108.0pt'></td>
+ <tr height=200 style='height:150.0pt'>
+  <td height=200 class=xl78 style='height:150.0pt'></td>
   <td class=xl88 style='border-top:none'>49</td>
   <td class=xl85 style='border-top:none;border-left:none'>getcwd</td>
   <td class=xl85 style='border-top:none;border-left:none'>992</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>open
-  posix�e�X�g�X�C�[�g����Ăяo����Ȃ�.<br>
-    ����_:<br>
-    Musl�ɂ�鏈��������������܂���B<br>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>open
+  posixテストスイートから呼び出されない.<br>
+    相違点:<br>
+    Muslによる処理が正しくありません。<br>
    
-  �����ȃA�h���X�iNON-NULL�l�j���n���ꂽ�ꍇ�Amusl-libc�̓��[�J���o�b�t�@������Ŋ��蓖�āA�J�[�l���̃V�X�e���R�[���n���h���Ɉ����Ƃ��ēn���܂��B������������non-null�A�h���X/�o�b�t�@���n���ꂽ�ꍇ�ALTP�ł�EFAULT���\�z����܂��B<br>
+  無効なアドレス（NON-NULL値）が渡された場合、musl-libcはローカルバッファを内部で割り当て、カーネルのシステムコールハンドラに引数として渡します。しかし無効なnon-nullアドレス/バッファが渡された場合、LTPではEFAULTが予想されます。<br>
     </td>
  </tr>
- <tr height=90 style='height:67.5pt'>
-  <td height=90 class=xl78 style='height:67.5pt'></td>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl78 style='height:90.0pt'></td>
   <td class=xl88 style='border-top:none'>50</td>
   <td class=xl85 style='border-top:none;border-left:none'>epol-ltp</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�@</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>�����musl���C�u�����Ƃ̈ˑ��֌W�ɂ����̂ł��B<br>
-    Musl-libc &quot;epoll_create�i�j&quot;�͏��0�̃t���O��epoll_create1�i�j���Ăяo���܂��B<br>
-    &quot;epoll_create�i-1�j&quot;���Ăяo���ꂽ�ꍇ�A������
-  &quot;epoll_create1�i0�j&quot;���Ăяo����܂��B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>これはmuslライブラリとの依存関係によるものです。<br>
+    Musl-libc &quot;epoll_create（）&quot;は常に0のフラグでepoll_create1（）を呼び出します。<br>
+    &quot;epoll_create（-1）&quot;が呼び出された場合、内部で
+  &quot;epoll_create1（0）&quot;が呼び出されます。</td>
  </tr>
- <tr height=90 style='height:67.5pt'>
-  <td height=90 class=xl78 style='height:67.5pt'></td>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl78 style='height:105.0pt'></td>
   <td class=xl88 style='border-top:none'>51</td>
   <td class=xl85 style='border-top:none;border-left:none'>epoll_create</td>
   <td class=xl85 style='border-top:none;border-left:none'>432</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>�����musl���C�u�����Ƃ̈ˑ��֌W�ɂ����̂ł��B<br>
-    Musl-libc &quot;epoll_create�i�j&quot;�͏��0�̃t���O��epoll_create1�i�j���Ăяo���܂��B<br>
-    &quot;epoll_create�i-1�j&quot;���Ăяo���ꂽ�ꍇ�A�����I�ɂ�
-  &quot;epoll_create1�i0�j&quot;���Ăяo����A����ɂ��0���傫���l���Ԃ���܂��B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>これはmuslライブラリとの依存関係によるものです。<br>
+    Musl-libc &quot;epoll_create（）&quot;は常に0のフラグでepoll_create1（）を呼び出します。<br>
+    &quot;epoll_create（-1）&quot;が呼び出された場合、内部的には
+  &quot;epoll_create1（0）&quot;が呼び出され、これにより0より大きい値が返されます。</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 class=xl78 style='height:27.0pt'></td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl78 style='height:45.0pt'></td>
   <td class=xl88 style='border-top:none'>52</td>
   <td class=xl85 style='border-top:none;border-left:none'>getdtablesize</td>
   <td class=xl85 style='border-top:none;border-left:none'>488</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>getdtablesize�i�jsystemcall��rlimit_max��Ԃ�Musl�Ƃ͈قȂ�l��Ԃ��܂��B���glibc��rlimit_curr��Ԃ��܂��B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>getdtablesize（）systemcallはrlimit_maxを返すMuslとは異なる値を返します。一方glibcはrlimit_currを返します。</td>
  </tr>
- <tr height=144 style='height:108.0pt'>
-  <td height=144 class=xl78 style='height:108.0pt'></td>
+ <tr height=200 style='height:150.0pt'>
+  <td height=200 class=xl78 style='height:150.0pt'></td>
   <td class=xl88 style='border-top:none'>53</td>
   <td class=xl85 style='border-top:none;border-left:none'>mprotect</td>
   <td class=xl85 style='border-top:none;border-left:none'>864</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>open
-  posix�e�X�g�X�C�[�g����Ăяo����Ȃ�<br>
-    ����_:<br>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>open
+  posixテストスイートから呼び出されない<br>
+    相違点:<br>
    
-  mprotect�i�j���C�u�������b�p�[�ł́A�A���C�����g����Ă��Ȃ��A�h���X���n���ꂽ�ꍇ�Amusl-libc�̓A�h���X���y�[�W�A���C�����g�Ő؂�̂āA�T�C�Y�̓A���C�����g����Ă��Ȃ��A�h���X�Ǝ󂯎���������ɐ؂�グ���܂��B<br>
-    �\�z : �@<br>
-    �A���C������Ă��Ȃ��A�h���X����M�����ƁAEINVAL���V�X�e���R�[�������M����܂��B</td>
+  mprotect（）ライブラリラッパーでは、アライメントされていないアドレスが渡された場合、musl-libcはアドレスをページアライメントで切り捨て、サイズはアライメントされていないアドレスと受け取った長さに切り上げられます。<br>
+    予想 : 　<br>
+    アラインされていないアドレスが受信されると、EINVALがシステムコールから受信されます。</td>
  </tr>
  <tr height=68 style='mso-height-source:userset;height:51.0pt'>
   <td height=68 class=xl78 style='height:51.0pt'></td>
   <td class=xl88 style='border-top:none'>54</td>
   <td class=xl85 style='border-top:none;border-left:none'>Confstr</td>
   <td class=xl85 style='border-top:none;border-left:none'>960</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
   <td class=xl85 style='border-top:none;border-left:none'>FAD</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>&quot;_CS_V7_ENV&quot;�́A
-  &quot;POSIXLY_CORRECT&quot;�̒l���擾���邽�߂�confstr�ɓn�����t���O�ł��B�l��1�̏ꍇ�A���C�u������posix�����ł��邱�Ƃ��Ӗ����܂��B</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>&quot;_CS_V7_ENV&quot;は、
+  &quot;POSIXLY_CORRECT&quot;の値を取得するためにconfstrに渡されるフラグです。値が1の場合、ライブラリがposix準拠であることを意味します。</td>
  </tr>
- <tr height=72 style='height:54.0pt'>
-  <td height=72 class=xl78 style='height:54.0pt'></td>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl78 style='height:75.0pt'></td>
   <td class=xl88 style='border-top:none'>55</td>
   <td class=xl85 style='border-top:none;border-left:none'>munlockall</td>
   <td class=xl85 style='border-top:none;border-left:none'>504</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�@</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>���̊֐��́A�y�[�W���O���T�|�[�g����Ă��Ȃ��̂ŁA��ɐ�����Ԃ��܂����A�ڐA���ꂽ�A�v���P�[�V������munlockall�i�j�V�X�e���R�[�����Ăяo���\��������܂��B<br>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl85 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>この関数は、ページングがサポートされていないので、常に成功を返しますが、移植されたアプリケーションはmunlockall（）システムコールを呼び出す可能性があります。<br>
     </td>
  </tr>
- <tr height=342 style='height:256.5pt'>
-  <td height=342 class=xl78 style='height:256.5pt'></td>
+ <tr height=520 style='height:390.0pt'>
+  <td height=520 class=xl78 style='height:390.0pt'></td>
   <td class=xl88 style='border-top:none'>56</td>
-  <td class=xl86 width=264 style='border-top:none;border-left:none;width:198pt'>aio_read<br>
+  <td class=xl86 width=231 style='border-top:none;border-left:none;width:173pt'>aio_read<br>
     </td>
   <td class=xl85 style='border-top:none;border-left:none'>448</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�@</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>����API�́Amusl-side�ŃT�|�[�g����Ă��܂���B<br>
-    1.&gt;����aio_read�ɂ���Ďg�p�����\����aiocb�ɑ��݂���ϐ�
-  &quot;aio_reqprio&quot;��musl-libc���ł͎g�p����Ă��܂���B<br>
-    2.&gt; aio_read��VE�ł͒����Ƀ��^�[�����Aaio_error���X�e�[�^�X�����W����̂�҂��܂���B<br>
-    LTP�̌��ʁF<br>
-    struct aiocb�R�[�h�̕���fd�ɑ΂���musl��-1�����^�[�����Aaio_read�i��aiocb�j�I= 0��<ruby>����<span
-  style='display:none'><rt>�j���E�����N</rt></span></ruby>���AFAIL��Ԃ�����10-1.c��<ruby>���s<span
-  style='display:none'><rt>�V�b�p�C</rt></span></ruby>���܂��B<br>
-    �܂��Aaio_read�͒�����VE��Ԃ��Aaio_error����ŃX�e�[�^�X�����W����̂�<ruby>��<span style='display:
-  none'><rt>�}</rt></span></ruby>���܂���B<br>
-    11-2.c aio_reqprio�̒l��musl-libc�ŃT�|�[�g����Ă��Ȃ��̂ŁAtest-program�ɂ͈Ӗ�������܂���B<br>
-    9-1.c glibc��musl-libc��PTS_UNSUPPORTED�Ńe�X�g�v���O���������s���܂��B<br>
-    8-1.c musl��sysconf
-  _SC_PRIORITIZED_IO�̂��̒l��-1�Ƃ��ď��������܂��B���������āAtestprogram��PTS_UNTESTED�Ŏ��s���܂��B<br>
-    glibc CONF_IS_DEFINED_SET�}�N���́Asysconf��-1�܂��͗L���Ȓl�i200809L�j��Ԃ����߂Ɏg�p����܂��B<br>
-    ���������ăe�X�g�P�[�X�̓p�X���܂��B</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl85 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>このAPIは、musl-sideでサポートされていません。<br>
+    1.&gt;このaio_readによって使用される構造体aiocbに存在する変数
+  &quot;aio_reqprio&quot;はmusl-libc側では使用されていません。<br>
+    2.&gt; aio_readはVEでは直ちにリターンし、aio_errorがステータスを収集するのを待ちません。<br>
+    LTPの結果：<br>
+    struct aiocbコードの負のfdに対してmuslが-1をリターンし、aio_read（＆aiocb）！=
+  0を入力し、FAILを返すため10-1.cは失敗します。<br>
+    また、aio_readは直ちにVEを返し、aio_errorが後でステータスを収集するのを待ちません。<br>
+    11-2.c aio_reqprioの値はmusl-libcでサポートされていないので、test-programには意味がありません。<br>
+    9-1.c glibcとmusl-libcはPTS_UNSUPPORTEDでテストプログラムが失敗します。<br>
+    8-1.c muslはsysconf
+  _SC_PRIORITIZED_IOのこの値を-1として初期化します。したがって、testprogramはPTS_UNTESTEDで失敗します。<br>
+    glibc CONF_IS_DEFINED_SETマクロは、sysconfで-1または有効な値（200809L）を返すために使用されます。<br>
+    したがってテストケースはパスします。</td>
  </tr>
- <tr height=126 style='height:94.5pt'>
-  <td height=126 class=xl78 style='height:94.5pt'></td>
+ <tr height=240 style='height:180.0pt'>
+  <td height=240 class=xl78 style='height:180.0pt'></td>
   <td class=xl88 style='border-top:none'>57</td>
   <td class=xl85 style='border-top:none;border-left:none'>pthread_cond_timedwait</td>
   <td class=xl85 style='border-top:none;border-left:none'>8880</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�@</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>1.�e�X�g�P�[�X2-5.c��100�̃X���b�h���쐬���悤�Ƃ��Ă��܂����AVE���ł̓v���Z�X������64�̃X���b�h�����T�|�[�g����Ă��܂���B<br>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl85 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>1.テストケース2-5.cが100個のスレッドを作成しようとしていますが、VE環境ではプロセスあたり64個のスレッドしかサポートされていません。<br>
     <br>
    
-  2.�e�X�g�P�[�X2-6.c�́Apthread_cancel�ɐ��������邽�߃n���O���܂��i�܂�Asyscall����������܂ŃL�����Z���n���h���͌Ăяo����܂���j�B
-  ���ꂪ���삷��ɂ́A�e�X�g�P�[�X���X�V����K�v������܂��B<br>
+  2.テストケース2-6.cは、pthread_cancelに制限があるためハングします（つまり、syscallが完了するまでキャンセルハンドラは呼び出されません）。
+  これが動作するには、テストケースを更新する必要があります。<br>
     </td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 class=xl78 style='height:27.0pt'></td>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl78 style='height:30.0pt'></td>
   <td class=xl88 style='border-top:none'>58</td>
   <td class=xl85 style='border-top:none;border-left:none'>__pthread_key_delete</td>
   <td class=xl85 style='border-top:none;border-left:none'>432</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl85 style='border-top:none;border-left:none'>�@</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>�ڍׂɂ��ẮAmusl-glibc��<ruby>����_<span
-  style='display:none'><rt>�\�E�C�e��</rt></span></ruby> �V�[�g�A�|�C���gNo.47�����m�F���������B</td>
+  <td class=xl85 style='border-top:none;border-left:none'>部分的なサポ<span
+  style='display:none'>ート</span></td>
+  <td class=xl85 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>詳細については、musl-glibcの相違点
+  シート、ポイントNo.47をご確認ください。</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 class=xl78 style='height:27.0pt'></td>
-  <td class=xl210>59</td>
-  <td class=xl211>pthread_key_delete</td>
-  <td class=xl212 style='border-left:none'>448</td>
-  <td class=xl145>�����I�ȃT�|�[�g</td>
-  <td class=xl211>�@</td>
-  <td class=xl196 width=463 style='border-left:none;width:347pt'>�ڍׂɂ��ẮAmusl-glibc�̑���_
-  �V�[�g�A�|�C���gNo.47�����m�F���������B</td>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl78 style='height:30.0pt'></td>
+  <td class=xl172>59</td>
+  <td class=xl173>pthread_key_delete</td>
+  <td class=xl174 style='border-left:none'>448</td>
+  <td class=xl145>部分的なサポ<span style='display:none'>ート</span></td>
+  <td class=xl173>&nbsp;</td>
+  <td class=xl158 width=405 style='border-left:none;width:304pt'>詳細については、musl-glibcの相違点
+  シート、ポイントNo.47をご確認ください。</td>
  </tr>
- <tr height=18 style='height:13.5pt'>
-  <td height=18 class=xl78 style='height:13.5pt'></td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl78 style='height:45.0pt'></td>
   <td class=xl88 style='border-top:none'>60</td>
   <td class=xl143 style='border-top:none'>pthread_attr_setinheritsched</td>
   <td class=xl141 style='border-top:none;border-left:none'>504</td>
-  <td class=xl85 style='border-top:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl143 style='border-top:none'>�@</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>Musl-libc��PTHREAD_EXPLICIT_SCHED�}�N�����T�|�[�g���Ă��܂���B</td>
+  <td class=xl85 style='border-top:none'>部分的なサポ<span style='display:none'>ート</span></td>
+  <td class=xl143 style='border-top:none'>&nbsp;</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>Musl-libcはPTHREAD_EXPLICIT_SCHEDマクロをサポートしていません。</td>
  </tr>
- <tr height=162 style='height:121.5pt'>
-  <td height=162 class=xl78 style='height:121.5pt'></td>
+ <tr height=260 style='height:195.0pt'>
+  <td height=260 class=xl78 style='height:195.0pt'></td>
   <td class=xl88 style='border-top:none'>61</td>
   <td class=xl143 style='border-top:none'>pthread_rwlock_unlock</td>
   <td class=xl141 style='border-top:none;border-left:none'>1216</td>
-  <td class=xl85 style='border-top:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl143 style='border-top:none'>�@</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>musl-libc�ł́A���̃R�[�h�͎��s���Ă�rrno�����^�[�����܂���B<br>
-    LTP�ɂ����āA<br>
-    1.�e�X�g�P�[�X3-1.c�́AVE���ŃT�|�[�g����Ă��Ȃ�pthread_setschedparam�̂��߂Ɏ��s���܂����B<br>
-    2.�e�X�g�P�[�X4-1.c�����4-2.c�́A�e�X�g�P�[�X��__linux__����`����Ă���<ruby>��<span
-  style='display:none'><rt>�T�C</rt></span></ruby>�ɁAPTS_UNSUPPORTED������Ń��^�[�����邽�߁AUNSUPPORTED��Ԃ��܂��B<br>
+  <td class=xl85 style='border-top:none'>部分的なサポ<span style='display:none'>ート</span></td>
+  <td class=xl143 style='border-top:none'>&nbsp;</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>musl-libcでは、このコードは失敗してもrrnoをリターンしません。<br>
+    LTPにおいて、<br>
+    1.テストケース3-1.cは、VE環境でサポートされていないpthread_setschedparamのために失敗しました。<br>
+   
+  2.テストケース4-1.cおよび4-2.cは、テストケースが__linux__が定義されている際に、PTS_UNSUPPORTEDを内部でリターンするため、UNSUPPORTEDを返します。<br>
     <br>
     </td>
  </tr>
- <tr height=108 style='height:81.0pt'>
-  <td height=108 class=xl78 style='height:81.0pt'></td>
+ <tr height=180 style='height:135.0pt'>
+  <td height=180 class=xl78 style='height:135.0pt'></td>
   <td class=xl88 style='border-top:none'>62</td>
   <td class=xl143 style='border-top:none'>pthread_mutex_init</td>
   <td class=xl141 style='border-top:none;border-left:none'>3584</td>
-  <td class=xl85 style='border-top:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl143 style='border-top:none'>�@</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'><br>
-    musl-libc�ł́A���̃R�[�h��<ruby>���s<span style='display:none'><rt>�V�b�p�C</rt></span></ruby>���Ă�errno�����^�[�����܂���B<br>
-    ltp�ł́A<br>
+  <td class=xl85 style='border-top:none'>部分的なサポ<span style='display:none'>ート</span></td>
+  <td class=xl143 style='border-top:none'>&nbsp;</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'><br>
+    musl-libcでは、このコードは失敗してもerrnoをリターンしません。<br>
+    ltpでは、<br>
    
-  1.�e�X�g�P�[�X1-2.c�����3-2.c�́Apthread_cancel�ɂ��鐧�������邽�߁A�n���O��ԂɂȂ�܂��i�܂�A�L�����Z���n���h����syscall�̊�����ɂ̂݌Ăяo����܂��j�B</td>
+  1.テストケース1-2.cおよび3-2.cは、pthread_cancelにある制限があるため、ハング状態になります（つまり、キャンセルハンドラはsyscallの完了後にのみ呼び出されます）。</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 class=xl78 style='height:27.0pt'></td>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl78 style='height:30.0pt'></td>
   <td class=xl88 style='border-top:none'>63</td>
   <td class=xl143 style='border-top:none'>pthread_setspecific</td>
   <td class=xl141 style='border-top:none;border-left:none'>600</td>
-  <td class=xl85 style='border-top:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl143 style='border-top:none'>�@</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>�ڍׂɂ��ẮAmusl-glibc�̑���_
-  �V�[�g�A�|�C���gNo.45�����m�F���������B</td>
+  <td class=xl85 style='border-top:none'>部分的なサポ<span style='display:none'>ート</span></td>
+  <td class=xl143 style='border-top:none'>&nbsp;</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>詳細については、musl-glibcの相違点
+  シート、ポイントNo.45をご確認ください。</td>
  </tr>
- <tr height=144 style='height:108.0pt'>
-  <td height=144 class=xl78 style='height:108.0pt'></td>
+ <tr height=240 style='height:180.0pt'>
+  <td height=240 class=xl78 style='height:180.0pt'></td>
   <td class=xl88 style='border-top:none'>64</td>
   <td class=xl143 style='border-top:none'>pthread_mutex_lock</td>
   <td class=xl141 style='border-top:none;border-left:none'>736</td>
-  <td class=xl85 style='border-top:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl143 style='border-top:none'>�@</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'><br>
-    1.�e�X�g�E�P�[�X5-1.c�́ALTP�X�N���v�g���o�C�i���ƂƂ��Ƀ^�C���A�E�g�����it0.val = 142s appr�j��n�����ߎ��s���܂��B
-  �^�C���A�E�g���I������ƁA�e�X�g�P�[�X��HUNG�Ŏ��s���܂��B<br>
+  <td class=xl85 style='border-top:none'>部分的なサポ<span style='display:none'>ート</span></td>
+  <td class=xl143 style='border-top:none'>&nbsp;</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'><br>
+    1.テスト・ケース5-1.cは、LTPスクリプトがバイナリとともにタイムアウト引数（t0.val = 142s appr）を渡すため失敗します。
+  タイムアウトが終了すると、テストケースはHUNGで失敗します。<br>
     <br>
-    �ڍׂ́ANo.26��musl-glibc<ruby>����_<span style='display:none'><rt>�\�E�C�e��</rt></span></ruby>�V�[�g���`�F�b�N���Ă��������B<br>
+    詳細は、No.26のmusl-glibc相違点シートをチェックしてください。<br>
     <br>
-    �܂��AVE���ł́Arobust mutex�̓T�|�[�g����Ă��܂���B</td>
+    また、VE環境では、robust mutexはサポートされていません。</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 class=xl78 style='height:27.0pt'></td>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl78 style='height:30.0pt'></td>
   <td class=xl88 style='border-top:none'>65</td>
   <td class=xl143 style='border-top:none'>pthread_barrierattr_setpshared</td>
   <td class=xl141 style='border-top:none;border-left:none'>472</td>
-  <td class=xl85 style='border-top:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl143 style='border-top:none'>�@</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>LTP�ɂ��ƁA���ׂẴe�X�g�P�[�X���p�X���Ă��܂��B
-  ���s�̓X�N���v�g�ɂ����̂ł�</td>
+  <td class=xl85 style='border-top:none'>部分的なサポ<span style='display:none'>ート</span></td>
+  <td class=xl143 style='border-top:none'>&nbsp;</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>LTPによると、すべてのテストケースがパスしています。
+  失敗はスクリプトによるものです</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 class=xl78 style='height:40.5pt'></td>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl78 style='height:75.0pt'></td>
   <td class=xl88 style='border-top:none'>66</td>
   <td class=xl143 style='border-top:none'>pthread_barrier_destroy</td>
   <td class=xl141 style='border-top:none;border-left:none'>1000</td>
-  <td class=xl85 style='border-top:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl143 style='border-top:none'>�@</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>LTP�ɂ��ƁA���ׂẴe�X�g�P�[�X���p�X���Ă��܂��B<br>
+  <td class=xl85 style='border-top:none'>部分的なサポ<span style='display:none'>ート</span></td>
+  <td class=xl143 style='border-top:none'>&nbsp;</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>LTPによると、すべてのテストケースがパスしています。<br>
     <br>
-    �ڍׂ́ANo.26��musl-glibc����_�V�[�g���`�F�b�N���Ă��������B</td>
+    詳細は、No.26のmusl-glibc相違点シートをチェックしてください。</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 class=xl78 style='height:40.5pt'></td>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl78 style='height:75.0pt'></td>
   <td class=xl88 style='border-top:none'>67</td>
   <td class=xl143 style='border-top:none'>pthread_getcpuclockid</td>
   <td class=xl141 style='border-top:none;border-left:none'>480</td>
-  <td class=xl85 style='border-top:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl143 style='border-top:none'>�@</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>LTP�ɂ��ƁA���ׂẴe�X�g�P�[�X���p�X���Ă��܂��B<br>
+  <td class=xl85 style='border-top:none'>部分的なサポ<span style='display:none'>ート</span></td>
+  <td class=xl143 style='border-top:none'>&nbsp;</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>LTPによると、すべてのテストケースがパスしています。<br>
     <br>
-    �ڍׂ́ANo.40��musl-glibc����_�V�[�g���`�F�b�N���Ă��������B</td>
+    詳細は、No.40のmusl-glibc相違点シートをチェックしてください。</td>
  </tr>
- <tr height=90 style='height:67.5pt'>
-  <td height=90 class=xl78 style='height:67.5pt'></td>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl78 style='height:105.0pt'></td>
   <td class=xl88 style='border-top:none'>68</td>
   <td class=xl143 style='border-top:none'>pthread_rwlock_rdlock</td>
   <td class=xl141 style='border-top:none;border-left:none'>448</td>
-  <td class=xl85 style='border-top:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl143 style='border-top:none'>�@</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>pthread_setschedparam��VE<ruby>��<span
-  style='display:none'><rt>�J���L���E</rt></span></ruby>�ŃT�|�[�g����Ă��Ȃ����߁A�e�X�g�P�[�X (2-1.c
-  &amp; 2-2.c)��<ruby>���s<span style='display:none'><rt>�V�b�p�C</rt></span></ruby>���Ă��܂��B����<ruby>��<span
-  style='display:none'><rt>�^</rt></span></ruby><ruby>�S<span style='display:
-  none'><rt>�X�x</rt></span></ruby>�Ẵv���O������Pass���Ă��܂��B<br>
+  <td class=xl85 style='border-top:none'>部分的なサポ<span style='display:none'>ート</span></td>
+  <td class=xl143 style='border-top:none'>&nbsp;</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>pthread_setschedparamがVE環境でサポートされていないため、テストケース
+  (2-1.c &amp; 2-2.c)は失敗しています。その他全てのプログラムはPassしています。<br>
     <br>
-    �ڍׂ́ANo.29��musl-glibc����_�V�[�g���`�F�b�N���Ă��������B</td>
+    詳細は、No.29のmusl-glibc相違点シートをチェックしてください。</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 class=xl78 style='height:27.0pt'></td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl78 style='height:45.0pt'></td>
   <td class=xl88 style='border-top:none'>69</td>
   <td class=xl143 style='border-top:none'>mlock</td>
   <td class=xl141 style='border-top:none;border-left:none'>520</td>
-  <td class=xl85 style='border-top:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl143 style='border-top:none'>�@</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>VEOS��mlock()��<ruby>��<span
-  style='display:none'><rt>�^�C</rt></span></ruby>����<ruby>��<span
-  style='display:none'><rt>�c�l</rt></span></ruby>��<ruby>����<span
-  style='display:none'><rt>�Z�C�R�E</rt></span></ruby>��<ruby>��<span
-  style='display:none'><rt>�J�G</rt></span></ruby>���܂��B<br>
-    <ruby>�����I<span style='display:none'><rt>�i�C�u�e�L</rt></span></ruby>�ɃA�N�e�B�r�e�B�͎��s����܂��񂪁A0���Ԃ���܂��B</td>
+  <td class=xl85 style='border-top:none'>部分的なサポ<span style='display:none'>ート</span></td>
+  <td class=xl143 style='border-top:none'>&nbsp;</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>VEOSはmlock()に対して常に成功を返します。<br>
+    内部的にアクティビティは実行されませんが、0が返されます。</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 class=xl78 style='height:27.0pt'></td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl78 style='height:45.0pt'></td>
   <td class=xl88 style='border-top:none'>70</td>
   <td class=xl143 style='border-top:none'>munlock</td>
   <td class=xl141 style='border-top:none;border-left:none'>520</td>
-  <td class=xl85 style='border-top:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl143 style='border-top:none'>�@</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>VEOS��mlock()�ɑ΂��ď�ɐ�����Ԃ��܂��B<br>
-    �����I�ɃA�N�e�B�r�e�B�͎��s����܂��񂪁A0���Ԃ���܂��B</td>
+  <td class=xl85 style='border-top:none'>部分的なサポ<span style='display:none'>ート</span></td>
+  <td class=xl143 style='border-top:none'>&nbsp;</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>VEOSはmlock()に対して常に成功を返します。<br>
+    内部的にアクティビティは実行されませんが、0が返されます。</td>
  </tr>
- <tr height=90 style='height:67.5pt'>
-  <td height=90 class=xl78 style='height:67.5pt'></td>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl78 style='height:105.0pt'></td>
   <td class=xl88 style='border-top:none'>71</td>
   <td class=xl143 style='border-top:none'>aio_fsync</td>
   <td class=xl141 style='border-top:none;border-left:none'>672</td>
-  <td class=xl85 style='border-top:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl143 style='border-top:none'>�@</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>����API�ɂ�musl-side����̃T�|�[�g�͂���܂���B<br>
-    �s���ȃt�@�C���L�q�q���n�����ƁAerrno��EBADF�Ƃ��Đݒ肳��܂���B<br>
+  <td class=xl85 style='border-top:none'>部分的なサポ<span style='display:none'>ート</span></td>
+  <td class=xl143 style='border-top:none'>&nbsp;</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>このAPIにはmusl-sideからのサポートはありません。<br>
+    不正なファイル記述子が渡されると、errnoはEBADFとして設定されません。<br>
     aio_fsync
-  API��errno��EBADF�ɐݒ肵�Ă��Ȃ��̂ŁAltib��12-1.c��VE�ɂ����Ď��s���܂��Bglibc.Musl�ɂ̓T�|�[�g������܂���B</td>
+  APIがerrnoをEBADFに設定していないので、ltibの12-1.cはVEにおいて失敗します。glibc.Muslにはサポートがありません。</td>
  </tr>
- <tr height=234 style='height:175.5pt'>
-  <td height=234 class=xl78 style='height:175.5pt'></td>
+ <tr height=340 style='height:255.0pt'>
+  <td height=340 class=xl78 style='height:255.0pt'></td>
   <td class=xl88 style='border-top:none'>72</td>
   <td class=xl143 style='border-top:none'>clock_getcpuclockid</td>
   <td class=xl141 style='border-top:none;border-left:none'>688</td>
-  <td class=xl85 style='border-top:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl143 style='border-top:none'>�@</td>
-  <td class=xl89 width=463 style='border-top:none;border-left:none;width:347pt'>API
-  clock_getcpuclockid�́Agetpid�i�j�ȊO��pid������API�ɓn���ꂽ�Ƃ���EPERM��Ԃ��K�v������܂��B<br>
-    LTP�e�X�g�v���O�����ɂ��ƁF<br>
-    1.&gt; 1-1.c��LARGENUMBER�i900000�j�Ƃ������ɑ傫�Ȓl�������Ă��܂��B<br>
-    &nbsp; �^�C�}�[�l��142�b�ȉ��ł����A�v���O�����ɂ͎��Ԃ������邽�߁A�n���O���܂��B<br>
-    2. glibc�R�[�h���O�ɂ����Ă���api�Ŏg�p����Ă���pid�`�F�b�N�̂��߁A5-1.c��glibc�Ŏ��s���܂��B<br>
+  <td class=xl85 style='border-top:none'>部分的なサポ<span style='display:none'>ート</span></td>
+  <td class=xl143 style='border-top:none'>&nbsp;</td>
+  <td class=xl89 width=405 style='border-top:none;border-left:none;width:304pt'>API
+  clock_getcpuclockidは、getpid（）以外のpidがこのAPIに渡されたときにEPERMを返す必要があります。<br>
+    LTPテストプログラムによると：<br>
+    1.&gt; 1-1.cはLARGENUMBER（900000）という非常に大きな値を持っています。<br>
+    &nbsp; タイマー値は142秒以下ですが、プログラムには時間がかかるため、ハングします。<br>
+    2. glibcコードログにおいてこのapiで使用されているpidチェックのため、5-1.cがglibcで失敗します。<br>
     <br>
     <font class="font13">if (pid != 0 &amp;&amp; pid != getpid ())<br>
-    <span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span>return EPERM;<br>
+    <span style='mso-spacerun:yes'>        </span>return EPERM;<br>
     </font></td>
  </tr>
- <tr height=37 style='height:27.75pt'>
-  <td height=37 class=xl78 style='height:27.75pt'></td>
-  <td class=xl209 style='border-top:none'>73</td>
+ <tr height=41 style='height:30.75pt'>
+  <td height=41 class=xl78 style='height:30.75pt'></td>
+  <td class=xl171 style='border-top:none'>73</td>
   <td class=xl144 style='border-top:none'>sbrk</td>
   <td class=xl142 style='border-top:none;border-left:none'>560</td>
-  <td class=xl91 style='border-top:none'>�����I�ȃT�|�[�g</td>
-  <td class=xl144 style='border-top:none'>�@</td>
-  <td class=xl92 width=463 style='border-top:none;border-left:none;width:347pt'><ruby>����<span
-  style='display:none'><rt>�q�L�X�E</rt></span></ruby> (inc)�̓[���ł���<ruby>�K�v<span
-  style='display:none'><rt>�q�c���E</rt></span></ruby>������܂��B ����ȊO�̏ꍇ�A����API�͎��s���܂��B</td>
+  <td class=xl91 style='border-top:none'>部分的なサポ<span style='display:none'>ート</span></td>
+  <td class=xl144 style='border-top:none'>&nbsp;</td>
+  <td class=xl92 width=405 style='border-top:none;border-left:none;width:304pt'>引数
+  (inc)はゼロである必要があります。 それ以外の場合、このAPIは失敗します。</td>
  </tr>
  <![if supportMisalignedColumns]>
  <tr height=0 style='display:none'>
-  <td width=30 style='width:23pt'></td>
-  <td width=73 style='width:55pt'></td>
-  <td width=264 style='width:198pt'></td>
-  <td width=73 style='width:55pt'></td>
-  <td width=127 style='width:95pt'></td>
-  <td width=93 style='width:70pt'></td>
-  <td width=463 style='width:347pt'></td>
+  <td width=26 style='width:20pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=231 style='width:173pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=111 style='width:83pt'></td>
+  <td width=81 style='width:61pt'></td>
+  <td width=405 style='width:304pt'></td>
  </tr>
  <![endif]>
 </table>

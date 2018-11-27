@@ -4,7 +4,7 @@ xmlns:x="urn:schemas-microsoft-com:office:excel"
 xmlns="http://www.w3.org/TR/REC-html40">
 
 <head>
-<meta http-equiv=Content-Type content="text/html; charset=shift_jis">
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <meta name=ProgId content=Excel.Sheet>
 <meta name=Generator content="Microsoft Excel 15">
 <link id=Main-File rel=Main-File
@@ -19,18 +19,6 @@ href="../Musl_libc_Supported_Api_Difference_Point.htm">
 	{margin:.75in .7in .75in .7in;
 	mso-header-margin:.3in;
 	mso-footer-margin:.3in;}
-ruby
-	{ruby-align:left;}
-rt
-	{color:windowtext;
-	font-size:6.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"‚l‚r ‚oƒSƒVƒbƒN", monospace;
-	mso-font-charset:128;
-	mso-char-type:katakana;
-	display:none;}
 -->
 </style>
 <![if !supportTabStrip]><script language="JavaScript">
@@ -57,463 +45,431 @@ else
 
 <body link=blue vlink=purple>
 
-<table border=0 cellpadding=0 cellspacing=0 width=1190 style='border-collapse:
- collapse;table-layout:fixed;width:892pt'>
- <col width=72 style='width:54pt'>
- <col width=31 style='mso-width-source:userset;mso-width-alt:992;width:23pt'>
- <col width=296 style='mso-width-source:userset;mso-width-alt:9472;width:222pt'>
- <col width=415 style='mso-width-source:userset;mso-width-alt:13280;width:311pt'>
- <col width=376 style='mso-width-source:userset;mso-width-alt:12032;width:282pt'>
- <tr height=19 style='height:14.25pt'>
-  <td height=19 width=72 style='height:14.25pt;width:54pt'></td>
-  <td width=31 style='width:23pt'></td>
-  <td width=296 style='width:222pt'></td>
-  <td width=415 style='width:311pt'></td>
-  <td width=376 style='width:282pt'></td>
+<table border=0 cellpadding=0 cellspacing=0 width=1042 style='border-collapse:
+ collapse;table-layout:fixed;width:781pt'>
+ <col width=64 style='width:48pt'>
+ <col width=27 style='mso-width-source:userset;mso-width-alt:987;width:20pt'>
+ <col width=259 style='mso-width-source:userset;mso-width-alt:9472;width:194pt'>
+ <col width=363 style='mso-width-source:userset;mso-width-alt:13275;width:272pt'>
+ <col width=329 style='mso-width-source:userset;mso-width-alt:12032;width:247pt'>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 width=64 style='height:15.75pt;width:48pt'></td>
+  <td width=27 style='width:20pt'></td>
+  <td width=259 style='width:194pt'></td>
+  <td width=363 style='width:272pt'></td>
+  <td width=329 style='width:247pt'></td>
  </tr>
- <tr height=19 style='height:14.25pt'>
-  <td height=19 style='height:14.25pt'></td>
-  <td class=xl99 width=31 style='width:23pt'>No</td>
-  <td class=xl100 width=296 style='width:222pt'><ruby>Ž–—á<span style='display:
-  none'><rt>ƒWƒŒƒC</rt></span></ruby></td>
-  <td class=xl100 width=415 style='width:311pt'>musl-libc‚Å‚Ì<ruby>“®ì<span
-  style='display:none'><rt>ƒhƒEƒT</rt></span></ruby></td>
-  <td class=xl100 width=376 style='width:282pt'><span
-  style='mso-spacerun:yes'>&nbsp;</span>glibc‚Å‚Ì<ruby>“®ì<span style='display:
-  none'><rt>ƒhƒEƒT</rt></span></ruby></td>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 style='height:15.75pt'></td>
+  <td class=xl99 width=27 style='width:20pt'>No</td>
+  <td class=xl100 width=259 style='width:194pt'>äº‹ä¾‹</td>
+  <td class=xl100 width=363 style='width:272pt'>musl-libcã§ã®å‹•ä½œ</td>
+  <td class=xl100 width=329 style='width:247pt'><span
+  style='mso-spacerun:yes'>Â </span>glibcã§ã®å‹•ä½œ</td>
  </tr>
- <tr height=144 style='height:108.0pt'>
-  <td height=144 style='height:108.0pt'></td>
-  <td class=xl218 width=31 style='width:23pt'>1</td>
-  <td class=xl102 width=296 style='border-left:none;width:222pt'>syscallij‚ðŽg‚Á‚ÄSIGCANCELƒVƒOƒiƒ‹‚ð’¼Ú‘—M</td>
-  <td class=xl102 width=415 style='border-left:none;width:311pt'>syscalliji—áFKillijAsyscalliSYS_tgkillj‚È‚Çj‚ðŽg—p‚µ‚ÄSIGCANCELƒVƒOƒiƒ‹‚ð‘—M‚·‚é‚ÆAƒXƒŒƒbƒh‘S‘Ì‚ªƒ^[ƒQƒbƒgƒXƒŒƒbƒh‚Ì‘ã‚í‚è‚ÉI—¹‚µ‚Ü‚·Bglibc‚Æ‚ÍˆÙ‚È‚èAmusl-libc‚Ípthread_cancelij‚ªŒÄ‚Ño‚³‚ê‚½Œã‚ÉSIGCANCEL‚Ìƒnƒ“ƒhƒ‰‚ðƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B‚µ‚½‚ª‚Á‚ÄASIGCANCELƒVƒOƒiƒ‹‚ªpthread_cancelijŒÄ‚Ño‚µ‚Ì‘O‚É‘—M‚³‚ê‚é‚ÆASIGCANCEL‚ÌƒfƒtƒHƒ‹ƒgƒAƒNƒVƒ‡ƒ“‚ªI—¹‚·‚é‚½‚ßAƒXƒŒƒbƒhƒOƒ‹[ƒv‚ªI—¹‚µ‚Ü‚·B</td>
-  <td class=xl219 width=376 style='border-left:none;width:282pt'>ƒ^[ƒQƒbƒgƒXƒŒƒbƒh‚Ì‚ÝI—¹‚µ‚Ü‚·B</td>
+ <tr height=200 style='height:150.0pt'>
+  <td height=200 style='height:150.0pt'></td>
+  <td class=xl180 width=27 style='width:20pt'>1</td>
+  <td class=xl102 width=259 style='border-left:none;width:194pt'>syscallï¼ˆï¼‰ã‚’ä½¿ã£ã¦SIGCANCELã‚·ã‚°ãƒŠãƒ«ã‚’ç›´æŽ¥é€ä¿¡</td>
+  <td class=xl102 width=363 style='border-left:none;width:272pt'>syscallï¼ˆï¼‰ï¼ˆä¾‹ï¼šKillï¼ˆï¼‰ã€syscallï¼ˆSYS_tgkillï¼‰ãªã©ï¼‰ã‚’ä½¿ç”¨ã—ã¦SIGCANCELã‚·ã‚°ãƒŠãƒ«ã‚’é€ä¿¡ã™ã‚‹ã¨ã€ã‚¹ãƒ¬ãƒƒãƒ‰å…¨ä½“ãŒã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚¹ãƒ¬ãƒƒãƒ‰ã®ä»£ã‚ã‚Šã«çµ‚äº†ã—ã¾ã™ã€‚glibcã¨ã¯ç•°ãªã‚Šã€musl-libcã¯pthread_cancelï¼ˆï¼‰ãŒå‘¼ã³å‡ºã•ã‚ŒãŸå¾Œã«SIGCANCELã®ãƒãƒ³ãƒ‰ãƒ©ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚ã—ãŸãŒã£ã¦ã€SIGCANCELã‚·ã‚°ãƒŠãƒ«ãŒpthread_cancelï¼ˆï¼‰å‘¼ã³å‡ºã—ã®å‰ã«é€ä¿¡ã•ã‚Œã‚‹ã¨ã€SIGCANCELã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚¢ã‚¯ã‚·ãƒ§ãƒ³ãŒçµ‚äº†ã™ã‚‹ãŸã‚ã€ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ãŒçµ‚äº†ã—ã¾ã™ã€‚</td>
+  <td class=xl181 width=329 style='border-left:none;width:247pt'>ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚¹ãƒ¬ãƒƒãƒ‰ã®ã¿çµ‚äº†ã—ã¾ã™ã€‚</td>
  </tr>
  <tr height=117 style='mso-height-source:userset;height:87.75pt'>
   <td height=117 style='height:87.75pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>2</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>sigtimedwait()/sigwaitinfo()</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>sigtimedwaitij/
-  sigwaitinfoij‚ÍEINTR‚ÅŽ¸”s‚·‚é‚±‚Æ‚Í‚ ‚è‚Ü‚¹‚ñBsigwaitinfoij/
-  sigtimedwaitij‚Ìmusl-libc‚ÌŽÀ‘•‚É‚æ‚ê‚ÎA‚±‚ê‚ç‚Ìƒ‰ƒbƒp[ŠÖ”‚Ísyscall rt_sigtimedwaitij‚ð<ruby>Ä“x<span
-  style='display:none'><rt>ƒTƒCƒh</rt></span></ruby><ruby>ŒÄ<span style='display:
-  none'><rt>ƒˆ</rt></span></ruby>‚Ñ<ruby>o<span style='display:none'><rt>ƒ_</rt></span></ruby>‚µEINTR‚ÅŽ¸”s‚µ‚Ü‚·B</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EINTR‚ÅFail‚µ‚Ü‚·B</td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>2</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>sigtimedwait()/sigwaitinfo()</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>sigtimedwaitï¼ˆï¼‰/
+  sigwaitinfoï¼ˆï¼‰ã¯EINTRã§å¤±æ•—ã™ã‚‹ã“ã¨ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚sigwaitinfoï¼ˆï¼‰/
+  sigtimedwaitï¼ˆï¼‰ã®musl-libcã®å®Ÿè£…ã«ã‚ˆã‚Œã°ã€ã“ã‚Œã‚‰ã®ãƒ©ãƒƒãƒ‘ãƒ¼é–¢æ•°ã¯syscall
+  rt_sigtimedwaitï¼ˆï¼‰ã‚’å†åº¦å‘¼ã³å‡ºã—EINTRã§å¤±æ•—ã—ã¾ã™ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EINTRã§Failã—ã¾ã™ã€‚</td>
  </tr>
  <tr height=24 style='mso-height-source:userset;height:18.0pt'>
   <td height=24 style='height:18.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>3</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_sigqueue()</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒRƒ“ƒpƒCƒ‹ƒGƒ‰[</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>API‚ª<ruby>ŽÀ‘•<span
-  style='display:none'><rt>ƒWƒbƒ\ƒE</rt></span></ruby>‚³‚ê‚Ü‚·B</td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>3</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_sigqueue()</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã‚¨ãƒ©ãƒ¼</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>APIãŒå®Ÿè£…ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>4</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>sigaltstack()</td>
-  <td class=xl79 width=415 style='width:311pt'>sigaltstack‚ÌV‚µ‚¢‘ã‘ÖƒXƒ^ƒbƒN
-  &quot;ss&quot;ˆø”‚ª–³Œø‚ÈƒAƒhƒŒƒX‚ðŽw‚·ê‡Asigaltstackij‚Ísegfault‚Æ‚È‚è‚Ü‚·</td>
-  <td class=xl219 width=376 style='border-top:none;width:282pt'>glibc@sigaltstackij‚Å‚ÍAƒvƒƒZƒX‚Ísegfault‚ÅI—¹‚¹‚¸AƒGƒ‰[EFAULT‚Åfail‚Æ‚È‚è‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>4</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>sigaltstack()</td>
+  <td class=xl79 width=363 style='width:272pt'>sigaltstackã®æ–°ã—ã„ä»£æ›¿ã‚¹ã‚¿ãƒƒã‚¯
+  &quot;ss&quot;å¼•æ•°ãŒç„¡åŠ¹ãªã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’æŒ‡ã™å ´åˆã€sigaltstackï¼ˆï¼‰ã¯segfaultã¨ãªã‚Šã¾ã™</td>
+  <td class=xl181 width=329 style='border-top:none;width:247pt'>glibcã€€sigaltstackï¼ˆï¼‰ã§ã¯ã€ãƒ—ãƒ­ã‚»ã‚¹ã¯segfaultã§çµ‚äº†ã›ãšã€ã‚¨ãƒ©ãƒ¼EFAULTã§failã¨ãªã‚Šã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>5</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>sigprocmask()</td>
-  <td class=xl102 width=415 style='border-left:none;width:311pt'>–³Œø‚È
-  &quot;how&quot;‚Æ
-  &quot;mask&quot;ˆø”‚ÅƒVƒOƒiƒ‹ƒ}ƒXƒN‚ðXV‚µ‚æ‚¤‚Æ‚·‚é‚ÆAsigprocmaskij‚ÍEINVAL‚ÅŽ¸”s‚µ‚Ü‚·B</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>sigprocmask()‚ÍEFAULT‚Åfail‚µ‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>5</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>sigprocmask()</td>
+  <td class=xl102 width=363 style='border-left:none;width:272pt'>ç„¡åŠ¹ãª
+  &quot;how&quot;ã¨
+  &quot;mask&quot;å¼•æ•°ã§ã‚·ã‚°ãƒŠãƒ«ãƒžã‚¹ã‚¯ã‚’æ›´æ–°ã—ã‚ˆã†ã¨ã™ã‚‹ã¨ã€sigprocmaskï¼ˆï¼‰ã¯EINVALã§å¤±æ•—ã—ã¾ã™ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>sigprocmask()ã¯EFAULTã§failã—ã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>6</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>sigtimedwait()</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>–³Œø‚È
-  &quot;set&quot;ˆø”‚ðŽw’è‚µ‚Äsigtimedwaitij‚ðŒÄ‚Ño‚·‚ÆAEFAULT‚ÅŽ¸”s‚µ‚Ü‚·B</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>sigtimedwait()‚ÍƒZƒOƒƒ“ƒe[ƒVƒ‡ƒ“ƒtƒHƒ‹ƒg‚Åfail‚µ‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>6</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>sigtimedwait()</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ç„¡åŠ¹ãª
+  &quot;set&quot;å¼•æ•°ã‚’æŒ‡å®šã—ã¦sigtimedwaitï¼ˆï¼‰ã‚’å‘¼ã³å‡ºã™ã¨ã€EFAULTã§å¤±æ•—ã—ã¾ã™ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>sigtimedwait()ã¯ã‚»ã‚°ãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãƒ•ã‚©ãƒ«ãƒˆã§failã—ã¾ã™ã€‚</td>
  </tr>
  <tr height=26 style='mso-height-source:userset;height:19.5pt'>
   <td height=26 style='height:19.5pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>7</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>sched_getscheduler</td>
-  <td class=xl86 width=415 style='border-top:none;border-left:none;width:311pt'>API‚ÍENOSYS‚ð<ruby>•Ô<span
-  style='display:none'><rt>ƒJƒG</rt></span></ruby>‚µ‚Ü‚·B</td>
-  <td class=xl89 width=376 style='border-top:none;border-left:none;width:282pt'>API‚ªŽÀ‘•‚³‚ê‚Ü‚·B</td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>7</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>sched_getscheduler</td>
+  <td class=xl86 width=363 style='border-top:none;border-left:none;width:272pt'>APIã¯ENOSYSã‚’è¿”ã—ã¾ã™ã€‚</td>
+  <td class=xl89 width=329 style='border-top:none;border-left:none;width:247pt'>APIãŒå®Ÿè£…ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
  <tr height=27 style='mso-height-source:userset;height:20.25pt'>
   <td height=27 style='height:20.25pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>8</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>•ª—£‚³‚ê‚½ƒXƒŒƒbƒh‚ªŒ‹‡‚µ‚æ‚¤‚Æ‚·‚é‚Æ‚«</td>
-  <td class=xl86 width=415 style='border-top:none;border-left:none;width:311pt'>pthread_join‚ð‚·‚é‚ÆƒfƒbƒhƒƒbƒN‚É‚È‚è‚Ü‚·B</td>
-  <td class=xl89 width=376 style='border-top:none;border-left:none;width:282pt'>pthread_join‚ð‚·‚é‚ÆEINVAL‚ðƒŠƒ^[ƒ“‚µ‚Ü‚·B</td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>8</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>åˆ†é›¢ã•ã‚ŒãŸã‚¹ãƒ¬ãƒƒãƒ‰ãŒçµåˆã—ã‚ˆã†ã¨ã™ã‚‹ã¨ã</td>
+  <td class=xl86 width=363 style='border-top:none;border-left:none;width:272pt'>pthread_joinã‚’ã™ã‚‹ã¨ãƒ‡ãƒƒãƒ‰ãƒ­ãƒƒã‚¯ã«ãªã‚Šã¾ã™ã€‚</td>
+  <td class=xl89 width=329 style='border-top:none;border-left:none;width:247pt'>pthread_joinã‚’ã™ã‚‹ã¨EINVALã‚’ãƒªã‚¿ãƒ¼ãƒ³ã—ã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>9</td>
-  <td class=xl86 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_join‚ª–³Œø‚ÈƒXƒŒƒbƒhID‚ÅŒÄ‚Ño‚³‚ê‚½‚Æ‚«</td>
-  <td class=xl86 width=415 style='border-top:none;border-left:none;width:311pt'>ƒZƒOƒƒ“ƒe[ƒVƒ‡ƒ“ƒtƒHƒ‹ƒg‚ª”­¶‚µ‚Ü‚·B</td>
-  <td class=xl89 width=376 style='border-top:none;border-left:none;width:282pt'>ESRCH‚ðƒŠƒ^[ƒ“‚µ‚Ü‚·B</td>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 style='height:30.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>9</td>
+  <td class=xl86 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_joinãŒç„¡åŠ¹ãªã‚¹ãƒ¬ãƒƒãƒ‰IDã§å‘¼ã³å‡ºã•ã‚ŒãŸã¨ã</td>
+  <td class=xl86 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚»ã‚°ãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãƒ•ã‚©ãƒ«ãƒˆãŒç™ºç”Ÿã—ã¾ã™ã€‚</td>
+  <td class=xl89 width=329 style='border-top:none;border-left:none;width:247pt'>ESRCHã‚’ãƒªã‚¿ãƒ¼ãƒ³ã—ã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>10</td>
-  <td class=xl86 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_attr_getaffinity_np
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 style='height:30.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>10</td>
+  <td class=xl86 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_attr_getaffinity_np
   &amp; pthread_attr_setaffinity_np</td>
-  <td class=xl86 width=415 style='border-top:none;border-left:none;width:311pt'>ƒRƒ“ƒpƒCƒ‹ƒGƒ‰[(APIfs‚ÍŽÀ‘•‚³‚ê‚Ü‚¹‚ñ)</td>
-  <td class=xl89 width=376 style='border-top:none;border-left:none;width:282pt'>API‚ªŽÀ‘•‚³‚ê‚Ü‚·B</td>
+  <td class=xl86 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã‚¨ãƒ©ãƒ¼(APIâ€™sã¯å®Ÿè£…ã•ã‚Œã¾ã›ã‚“)</td>
+  <td class=xl89 width=329 style='border-top:none;border-left:none;width:247pt'>APIãŒå®Ÿè£…ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=18 style='height:13.5pt'>
-  <td height=18 style='height:13.5pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>11</td>
-  <td class=xl86 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_timedjoin_np,</td>
-  <td class=xl86 width=415 style='border-top:none;border-left:none;width:311pt'>API‚ÍŽÀ‘•‚³‚ê‚Ü‚¹‚ñB(ƒRƒ“ƒpƒCƒ‹ƒGƒ‰[)</td>
-  <td class=xl89 width=376 style='border-top:none;border-left:none;width:282pt'>API‚ªŽÀ‘•‚³‚ê‚Ü‚·B</td>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 style='height:15.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>11</td>
+  <td class=xl86 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_timedjoin_np,</td>
+  <td class=xl86 width=363 style='border-top:none;border-left:none;width:272pt'>APIã¯å®Ÿè£…ã•ã‚Œã¾ã›ã‚“ã€‚(ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã‚¨ãƒ©ãƒ¼)</td>
+  <td class=xl89 width=329 style='border-top:none;border-left:none;width:247pt'>APIãŒå®Ÿè£…ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=18 style='height:13.5pt'>
-  <td height=18 style='height:13.5pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>12</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_tryjoin_np</td>
-  <td class=xl86 width=415 style='border-top:none;border-left:none;width:311pt'>API‚ÍŽÀ‘•‚³‚ê‚Ü‚¹‚ñB(ƒRƒ“ƒpƒCƒ‹ƒGƒ‰[)</td>
-  <td class=xl89 width=376 style='border-top:none;border-left:none;width:282pt'>API‚ªŽÀ‘•‚³‚ê‚Ü‚·B</td>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 style='height:15.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>12</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_tryjoin_np</td>
+  <td class=xl86 width=363 style='border-top:none;border-left:none;width:272pt'>APIã¯å®Ÿè£…ã•ã‚Œã¾ã›ã‚“ã€‚(ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã‚¨ãƒ©ãƒ¼)</td>
+  <td class=xl89 width=329 style='border-top:none;border-left:none;width:247pt'>APIãŒå®Ÿè£…ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 style='height:40.5pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>13</td>
-  <td class=xl86 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_attr_setschedparam‚ÍA–³Œø‚Èparamˆø”‚ªÝ’è‚³‚ê‚Ä‚¢‚éê‡‚ÉEINVAL‚ð•Ô‚µ‚Ü‚·</td>
-  <td class=xl86 width=415 style='border-top:none;border-left:none;width:311pt'>ƒGƒ‰[‚Íì¬‚³‚ê‚Ü‚¹‚ñB</td>
-  <td class=xl89 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>13</td>
+  <td class=xl86 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_attr_setschedparamã¯ã€ç„¡åŠ¹ãªparamå¼•æ•°ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã«EINVALã‚’è¿”ã—ã¾ã™</td>
+  <td class=xl86 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚¨ãƒ©ãƒ¼ã¯ä½œæˆã•ã‚Œã¾ã›ã‚“ã€‚</td>
+  <td class=xl89 width=329 style='border-top:none;border-left:none;width:247pt'>EINVALãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 style='height:40.5pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>14</td>
-  <td class=xl86 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_attr_setschedpolicy‚ÍA–³Œø‚Èƒ|ƒŠƒV[ˆø”‚ªÝ’è‚³‚ê‚Ä‚¢‚éê‡‚ÍEINVAL‚ð•Ô‚µ‚Ü‚·</td>
-  <td class=xl86 width=415 style='border-top:none;border-left:none;width:311pt'>ƒGƒ‰[‚Íì¬‚³‚ê‚Ü‚¹‚ñB</td>
-  <td class=xl89 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>14</td>
+  <td class=xl86 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_attr_setschedpolicyã¯ã€ç„¡åŠ¹ãªãƒãƒªã‚·ãƒ¼å¼•æ•°ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯EINVALã‚’è¿”ã—ã¾ã™</td>
+  <td class=xl86 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚¨ãƒ©ãƒ¼ã¯ä½œæˆã•ã‚Œã¾ã›ã‚“ã€‚</td>
+  <td class=xl89 width=329 style='border-top:none;border-left:none;width:247pt'>EINVALãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>15</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_attr_setguardsize‚ÍA•‰‚Ìguardsize’l‚ªŽg—p‚³‚ê‚½‚Æ‚«‚ÉEINVAL‚ð•Ô‚µ‚Ü‚·B</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>EINVAL‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>ƒGƒ‰[‚ÍƒŠƒ^[ƒ“‚³‚ê‚Ü‚¹‚ñB</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>15</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_attr_setguardsizeã¯ã€è² ã®guardsizeå€¤ãŒä½¿ç”¨ã•ã‚ŒãŸã¨ãã«EINVALã‚’è¿”ã—ã¾ã™ã€‚</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>EINVALãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>ã‚¨ãƒ©ãƒ¼ã¯ãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã›ã‚“ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>16</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_attr_setschedparam‚ÍA•‰‚Ìparamˆø”‚ªŽg—p‚³‚ê‚½‚Æ‚«‚ÉEINVAL‚ð•Ô‚µ‚Ü‚·B</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒGƒ‰[‚ÍƒŠƒ^[ƒ“‚³‚ê‚Ü‚¹‚ñB</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>16</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_attr_setschedparamã¯ã€è² ã®paramå¼•æ•°ãŒä½¿ç”¨ã•ã‚ŒãŸã¨ãã«EINVALã‚’è¿”ã—ã¾ã™ã€‚</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚¨ãƒ©ãƒ¼ã¯ãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã›ã‚“ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EINVALãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>17</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_attr_setstacksize‚ÍAstacksizeˆø”‚É-1‚ªŽw’è‚³‚ê‚½‚Æ‚«‚ÉEINVAL‚ð•Ô‚µ‚Ü‚·B</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>EINVAL‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>ƒGƒ‰[‚ÍƒŠƒ^[ƒ“‚³‚ê‚Ü‚¹‚ñB</td>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 style='height:60.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>17</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_attr_setstacksizeã¯ã€stacksizeå¼•æ•°ã«-1ãŒæŒ‡å®šã•ã‚ŒãŸã¨ãã«EINVALã‚’è¿”ã—ã¾ã™ã€‚</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>EINVALãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>ã‚¨ãƒ©ãƒ¼ã¯ãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã›ã‚“ã€‚</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 style='height:40.5pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>18</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_setaffinity_np•pthread_getaffinity_np‚ÍA–³Œø‚ÈƒXƒŒƒbƒhID‚ªŽg—p‚³‚ê‚½‚Æ‚«‚ÉESRCH‚ð•Ô‚µ‚Ü‚·B</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ESRCH‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>ƒGƒ‰[‚ÍƒŠƒ^[ƒ“‚³‚ê‚Ü‚¹‚ñB</td>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 style='height:60.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>18</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_setaffinity_npï¼†pthread_getaffinity_npã¯ã€ç„¡åŠ¹ãªã‚¹ãƒ¬ãƒƒãƒ‰IDãŒä½¿ç”¨ã•ã‚ŒãŸã¨ãã«ESRCHã‚’è¿”ã—ã¾ã™ã€‚</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ESRCHãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>ã‚¨ãƒ©ãƒ¼ã¯ãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã›ã‚“ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>19</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'><span
-  style='mso-spacerun:yes'>&nbsp;</span>pthread_mutexattr_setprioceiling &amp;
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 style='height:30.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>19</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'><span
+  style='mso-spacerun:yes'>Â </span>pthread_mutexattr_setprioceiling &amp;
   pthread_mutexattr_getprioceiling,</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>API‚ÍŽÀ‘•‚³‚ê‚Ü‚¹‚ñB(ƒRƒ“ƒpƒCƒ‹ƒGƒ‰[)</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>API‚ªŽÀ‘•‚³‚ê‚Ü‚·B</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>APIã¯å®Ÿè£…ã•ã‚Œã¾ã›ã‚“ã€‚(ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã‚¨ãƒ©ãƒ¼)</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>APIãŒå®Ÿè£…ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=18 style='height:13.5pt'>
-  <td height=18 style='height:13.5pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>20</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>PTHREAD_MUTEX_ADAPTIVE_NP,<span
-  style='mso-spacerun:yes'>&nbsp;</span></td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>Macro‚Í’è‹`‚³‚ê‚Ü‚¹‚ñB</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>Macro‚ª’è‹`‚³‚ê‚Ü‚·B</td>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 style='height:15.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>20</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>PTHREAD_MUTEX_ADAPTIVE_NP,<span
+  style='mso-spacerun:yes'>Â </span></td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>Macroã¯å®šç¾©ã•ã‚Œã¾ã›ã‚“ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>MacroãŒå®šç¾©ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>21</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_mutexattr_setprotocolAƒvƒƒgƒRƒ‹ˆø”‚ª‰½‚ç‚©‚Ìƒ[ƒ‚Å‚Í‚È‚¢ê‡B</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>API‚ÍENOTSUP‚ðƒŠƒ^[ƒ“‚µ‚Ü‚·B</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>ƒGƒ‰[‚ÍƒŠƒ^[ƒ“‚³‚ê‚Ü‚¹‚ñB</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>21</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_mutexattr_setprotocolã€ãƒ—ãƒ­ãƒˆã‚³ãƒ«å¼•æ•°ãŒä½•ã‚‰ã‹ã®ã‚¼ãƒ­ã§ã¯ãªã„å ´åˆã€‚</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>APIã¯ENOTSUPã‚’ãƒªã‚¿ãƒ¼ãƒ³ã—ã¾ã™ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>ã‚¨ãƒ©ãƒ¼ã¯ãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã›ã‚“ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>22</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_mutex_lock‚ÍA‰Šú‰»‚³‚ê‚Ä‚¢‚È‚¢•Ï”‚ÅƒƒbƒN‚µ‚æ‚¤‚Æ‚·‚é‚ÆEINVAL‚ð•Ô‚µ‚Ü‚·</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒGƒ‰[‚ÍƒŠƒ^[ƒ“‚³‚ê‚Ü‚¹‚ñB</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>22</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_mutex_lockã¯ã€åˆæœŸåŒ–ã•ã‚Œã¦ã„ãªã„å¤‰æ•°ã§ãƒ­ãƒƒã‚¯ã—ã‚ˆã†ã¨ã™ã‚‹ã¨EINVALã‚’è¿”ã—ã¾ã™</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚¨ãƒ©ãƒ¼ã¯ãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã›ã‚“ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EINVALãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>23</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_mutex_lock‚ÍA‰Šú‰»‚³‚ê‚Ä‚¢‚È‚¢•Ï”‚ÅƒƒbƒN‚µ‚æ‚¤‚Æ‚·‚é‚ÆEINVAL‚ð•Ô‚µ‚Ü‚·</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒGƒ‰[‚ÍƒŠƒ^[ƒ“‚³‚ê‚Ü‚¹‚ñB</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>23</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_mutex_lockã¯ã€åˆæœŸåŒ–ã•ã‚Œã¦ã„ãªã„å¤‰æ•°ã§ãƒ­ãƒƒã‚¯ã—ã‚ˆã†ã¨ã™ã‚‹ã¨EINVALã‚’è¿”ã—ã¾ã™</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚¨ãƒ©ãƒ¼ã¯ãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã›ã‚“ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EINVALãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>24</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_mutex_lock‚ÍA‰Šú‰»‚³‚ê‚Ä‚¢‚È‚¢•Ï”‚ÅƒƒbƒN‚µ‚æ‚¤‚Æ‚·‚é‚ÆEINVAL‚ð•Ô‚µ‚Ü‚·</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒGƒ‰[‚ÍƒŠƒ^[ƒ“‚³‚ê‚Ü‚¹‚ñB</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>24</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_mutex_lockã¯ã€åˆæœŸåŒ–ã•ã‚Œã¦ã„ãªã„å¤‰æ•°ã§ãƒ­ãƒƒã‚¯ã—ã‚ˆã†ã¨ã™ã‚‹ã¨EINVALã‚’è¿”ã—ã¾ã™</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚¨ãƒ©ãƒ¼ã¯ãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã›ã‚“ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EINVALãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>25</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_cond_destroy‚ÍAŽg—p’†‚ÌðŒ•Ï”‚ð”jŠü‚µ‚æ‚¤‚Æ‚·‚é‚ÆEBUSY‚ð•Ô‚µ‚Ü‚·</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒGƒ‰[‚ÍƒŠƒ^[ƒ“‚³‚ê‚Ü‚¹‚ñB</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EBUSY‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>25</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_cond_destroyã¯ã€ä½¿ç”¨ä¸­ã®æ¡ä»¶å¤‰æ•°ã‚’ç ´æ£„ã—ã‚ˆã†ã¨ã™ã‚‹ã¨EBUSYã‚’è¿”ã—ã¾ã™</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚¨ãƒ©ãƒ¼ã¯ãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã›ã‚“ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EBUSYãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>26</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_condattr_setclockA–³Œø‚ÈƒNƒƒbƒNID‚ªÝ’è‚³‚ê‚Ä‚¢‚éê‡‚ÍEINVAL‚ð•Ô‚µ‚Ü‚·</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒGƒ‰[‚ÍƒŠƒ^[ƒ“‚³‚ê‚Ü‚¹‚ñB</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>26</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_condattr_setclockã€ç„¡åŠ¹ãªã‚¯ãƒ­ãƒƒã‚¯IDãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯EINVALã‚’è¿”ã—ã¾ã™</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚¨ãƒ©ãƒ¼ã¯ãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã›ã‚“ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EINVALãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>27</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_rwlock_rdlock‚ÍAƒƒbƒN‚ª‚·‚Å‚ÉŽæ“¾‚³‚ê‚Ä‚¢‚é‚Æ‚«‚ÉEDEADLK‚ð•Ô‚µ‚Ü‚·B</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒfƒbƒhƒƒbƒN‚Æ‚È‚è‚Ü‚·B</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EDEADLK‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>27</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_rwlock_rdlockã¯ã€ãƒ­ãƒƒã‚¯ãŒã™ã§ã«å–å¾—ã•ã‚Œã¦ã„ã‚‹ã¨ãã«EDEADLKã‚’è¿”ã—ã¾ã™ã€‚</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ãƒ‡ãƒƒãƒ‰ãƒ­ãƒƒã‚¯ã¨ãªã‚Šã¾ã™ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EDEADLKãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=18 style='height:13.5pt'>
-  <td height=18 style='height:13.5pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>28</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>PTHREAD_RWLOCK_PREFER_READER_NP,</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>MACRO‚ÍŽÀ‘•‚³‚ê‚Ü‚¹‚ñB</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>MACRO‚ªŽÀ‘•‚³‚ê‚Ü‚·B</td>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 style='height:30.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>28</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>PTHREAD_RWLOCK_PREFER_READER_NP,</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>MACROã¯å®Ÿè£…ã•ã‚Œã¾ã›ã‚“ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>MACROãŒå®Ÿè£…ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=18 style='height:13.5pt'>
-  <td height=18 style='height:13.5pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>29</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>PTHREAD_RWLOCK_PREFER_WRITER_NP,<span
-  style='mso-spacerun:yes'>&nbsp;</span></td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>MACRO‚ÍŽÀ‘•‚³‚ê‚Ü‚¹‚ñB</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>MACRO‚ªŽÀ‘•‚³‚ê‚Ü‚·B</td>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 style='height:30.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>29</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>PTHREAD_RWLOCK_PREFER_WRITER_NP,<span
+  style='mso-spacerun:yes'>Â </span></td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>MACROã¯å®Ÿè£…ã•ã‚Œã¾ã›ã‚“ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>MACROãŒå®Ÿè£…ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=19 style='height:14.25pt'>
-  <td height=19 style='height:14.25pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>30</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_rwlockattr_setkind_np,</td>
-  <td class=xl116 style='border-top:none;border-left:none'>ŠÖ”‚ÍŽÀ‘•‚³‚ê‚Ü‚¹‚ñB</td>
-  <td class=xl220 style='border-top:none;border-left:none'>ŠÖ”‚ªŽÀ‘•‚³‚ê‚Ü‚·B</td>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 style='height:15.75pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>30</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_rwlockattr_setkind_np,</td>
+  <td class=xl116 style='border-top:none;border-left:none'>é–¢æ•°ã¯å®Ÿè£…ã•ã‚Œã¾ã›ã‚“ã€‚</td>
+  <td class=xl182 style='border-top:none;border-left:none'>é–¢æ•°ãŒå®Ÿè£…ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=19 style='height:14.25pt'>
-  <td height=19 style='height:14.25pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>31</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_rwlockattr_getkind_np,</td>
-  <td class=xl221>ŠÖ”‚ÍŽÀ‘•‚³‚ê‚Ü‚¹‚ñB</td>
-  <td class=xl219 width=376 style='border-top:none;width:282pt'>ŠÖ”‚ªŽÀ‘•‚³‚ê‚Ü‚·B</td>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 style='height:15.75pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>31</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_rwlockattr_getkind_np,</td>
+  <td class=xl183>é–¢æ•°ã¯å®Ÿè£…ã•ã‚Œã¾ã›ã‚“ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;width:247pt'>é–¢æ•°ãŒå®Ÿè£…ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>32</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>Sem_close‚ÍA–³Œø‚ÈƒZƒ}ƒtƒH‚ªŽg—p‚³‚ê‚½‚Æ‚«‚ÉEINVAL‚ð•Ô‚µ‚Ü‚·B</td>
-  <td class=xl102 width=415 style='border-left:none;width:311pt'>ƒZƒOƒƒ“ƒe[ƒVƒ‡ƒ“ˆá”½B</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>32</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>Sem_closeã¯ã€ç„¡åŠ¹ãªã‚»ãƒžãƒ•ã‚©ãŒä½¿ç”¨ã•ã‚ŒãŸã¨ãã«EINVALã‚’è¿”ã—ã¾ã™ã€‚</td>
+  <td class=xl102 width=363 style='border-left:none;width:272pt'>ã‚»ã‚°ãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³é•åã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EINVALãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>33</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>ƒoƒŠƒA‚ªŽg—p’†‚É”jŠü‚³‚ê‚é‚ÆApthread_barrier_destroy‚ÍEBUSY‚ð•Ô‚µ‚Ü‚·</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒGƒ‰[‚Íì¬‚³‚ê‚Ü‚¹‚ñB</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EBUSY‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>33</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>ãƒãƒªã‚¢ãŒä½¿ç”¨ä¸­ã«ç ´æ£„ã•ã‚Œã‚‹ã¨ã€pthread_barrier_destroyã¯EBUSYã‚’è¿”ã—ã¾ã™</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚¨ãƒ©ãƒ¼ã¯ä½œæˆã•ã‚Œã¾ã›ã‚“ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EBUSYãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>34</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_barrierattr_setpshared‚ÍAbarrier‘®«‚ª–³Œø‚Èê‡‚ÉEINVAL‚ð•Ô‚µ‚Ü‚·B</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒGƒ‰[‚Íì¬‚³‚ê‚Ü‚¹‚ñB</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>34</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_barrierattr_setpsharedã¯ã€barrierå±žæ€§ãŒç„¡åŠ¹ãªå ´åˆã«EINVALã‚’è¿”ã—ã¾ã™ã€‚</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚¨ãƒ©ãƒ¼ã¯ä½œæˆã•ã‚Œã¾ã›ã‚“ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EINVALãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>35</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>ƒXƒŒƒbƒhID‚ðŽ‚ÂƒXƒŒƒbƒh‚ªŒ©‚Â‚©‚ç‚È‚¢ê‡APthread_cancel‚ÍESRCH‚ð•Ô‚µ‚Ü‚·B</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒZƒOƒƒ“ƒe[ƒVƒ‡ƒ“ˆá”½</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EBUSY‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>35</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>ã‚¹ãƒ¬ãƒƒãƒ‰IDã‚’æŒã¤ã‚¹ãƒ¬ãƒƒãƒ‰ãŒè¦‹ã¤ã‹ã‚‰ãªã„å ´åˆã€Pthread_cancelã¯ESRCHã‚’è¿”ã—ã¾ã™ã€‚</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚»ã‚°ãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³é•å</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EBUSYãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>36</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>ƒXƒŒƒbƒhID‚ðŽ‚ÂƒXƒŒƒbƒh‚ªŒ©‚Â‚©‚ç‚È‚¢ê‡APthread_kill‚ÍESRCH‚ð•Ô‚µ‚Ü‚·B</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒZƒOƒƒ“ƒe[ƒVƒ‡ƒ“ˆá”½</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EBUSY‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>36</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>ã‚¹ãƒ¬ãƒƒãƒ‰IDã‚’æŒã¤ã‚¹ãƒ¬ãƒƒãƒ‰ãŒè¦‹ã¤ã‹ã‚‰ãªã„å ´åˆã€Pthread_killã¯ESRCHã‚’è¿”ã—ã¾ã™ã€‚</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚»ã‚°ãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³é•å</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EBUSYãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>37</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>Pthread_setconcurrency</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>EAGAIN‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·(musl-libc‚Ì“¯ŽžŽÀs«‚Í0‚É‚µ‚©Ý’è‚Å‚«‚Ü‚¹‚ñ)</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>fail‚Í<ruby>‹N<span
-  style='display:none'><rt>ƒI</rt></span></ruby>‚«‚¸‚É<ruby>ŽÀs<span
-  style='display:none'><rt>ƒWƒbƒRƒE</rt></span></ruby>‚³‚ê‚Ü‚·</td>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 style='height:30.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>37</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>Pthread_setconcurrency</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>EAGAINãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™(musl-libcã®åŒæ™‚å®Ÿè¡Œæ€§ã¯0ã«ã—ã‹è¨­å®šã§ãã¾ã›ã‚“)</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>failã¯èµ·ããšã«å®Ÿè¡Œã•ã‚Œã¾ã™</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>38</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>ƒXƒŒƒbƒhID‚ðŽ‚ÂƒXƒŒƒbƒh‚ª‘¶Ý‚µ‚È‚¢ê‡Apthread_getcpuclockid‚ÍESRCH‚ð•Ô‚µ‚Ü‚·</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒZƒOƒƒ“ƒe[ƒVƒ‡ƒ“ˆá”½</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EBUSY‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>38</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>ã‚¹ãƒ¬ãƒƒãƒ‰IDã‚’æŒã¤ã‚¹ãƒ¬ãƒƒãƒ‰ãŒå­˜åœ¨ã—ãªã„å ´åˆã€pthread_getcpuclockidã¯ESRCHã‚’è¿”ã—ã¾ã™</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚»ã‚°ãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³é•å</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EBUSYãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>39</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>ƒXƒŒƒbƒhID‚ðŽ‚ÂƒXƒŒƒbƒh‚ª‘¶Ý‚µ‚È‚¢ê‡Apthread_setschedparam‚ÍESRCH‚ð•Ô‚µ‚Ü‚·B</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒZƒOƒƒ“ƒe[ƒVƒ‡ƒ“ˆá”½</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EBUSY‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>39</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>ã‚¹ãƒ¬ãƒƒãƒ‰IDã‚’æŒã¤ã‚¹ãƒ¬ãƒƒãƒ‰ãŒå­˜åœ¨ã—ãªã„å ´åˆã€pthread_setschedparamã¯ESRCHã‚’è¿”ã—ã¾ã™ã€‚</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚»ã‚°ãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³é•å</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EBUSYãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>40</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>ƒXƒŒƒbƒhID‚ðŽ‚ÂƒXƒŒƒbƒh‚ª‘¶Ý‚µ‚È‚¢ê‡Apthread_getschedparam‚ÍESRCH‚ð•Ô‚µ‚Ü‚·B</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒZƒOƒƒ“ƒe[ƒVƒ‡ƒ“ˆá”½</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EBUSY‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>40</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>ã‚¹ãƒ¬ãƒƒãƒ‰IDã‚’æŒã¤ã‚¹ãƒ¬ãƒƒãƒ‰ãŒå­˜åœ¨ã—ãªã„å ´åˆã€pthread_getschedparamã¯ESRCHã‚’è¿”ã—ã¾ã™ã€‚</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚»ã‚°ãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³é•å</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EBUSYãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>41</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>–³Œø‚Èƒ|ƒŠƒV[ˆø”‚ªÝ’è‚³‚ê‚Ä‚¢‚éê‡Apthread_setschedparam‚ÍEINVAL‚ð•Ô‚µ‚Ü‚·B</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒGƒ‰[‚Íì¬‚³‚ê‚Ü‚¹‚ñB</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>41</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>ç„¡åŠ¹ãªãƒãƒªã‚·ãƒ¼å¼•æ•°ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã€pthread_setschedparamã¯EINVALã‚’è¿”ã—ã¾ã™ã€‚</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚¨ãƒ©ãƒ¼ã¯ä½œæˆã•ã‚Œã¾ã›ã‚“ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EINVALãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>42</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>ƒXƒŒƒbƒhID‚ðŽ‚ÂƒXƒŒƒbƒh‚ª‘¶Ý‚µ‚È‚¢ê‡Apthread_setschedprio‚ÍESRCH‚ð•Ô‚µ‚Ü‚·B</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒZƒOƒƒ“ƒe[ƒVƒ‡ƒ“ˆá”½</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>ESRCH‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>42</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>ã‚¹ãƒ¬ãƒƒãƒ‰IDã‚’æŒã¤ã‚¹ãƒ¬ãƒƒãƒ‰ãŒå­˜åœ¨ã—ãªã„å ´åˆã€pthread_setschedprioã¯ESRCHã‚’è¿”ã—ã¾ã™ã€‚</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚»ã‚°ãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³é•å</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>ESRCHãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>43</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_setspecific‚ÍA–³Œø‚ÈƒL[‚ªŽg—p‚³‚ê‚½‚Æ‚«‚ÉEINVAL‚ð•Ô‚µ‚Ü‚·B</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒZƒOƒƒ“ƒe[ƒVƒ‡ƒ“ˆá”½</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>43</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_setspecificã¯ã€ç„¡åŠ¹ãªã‚­ãƒ¼ãŒä½¿ç”¨ã•ã‚ŒãŸã¨ãã«EINVALã‚’è¿”ã—ã¾ã™ã€‚</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚»ã‚°ãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³é•å</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EINVALãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=18 style='height:13.5pt'>
-  <td height=18 style='height:13.5pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>44</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_yield</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ŠÖ”‚ÍŽÀ‘•‚³‚ê‚Ü‚¹‚ñ</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>ŠÖ”‚ªŽÀ‘•‚³‚ê‚Ü‚·B</td>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 style='height:15.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>44</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_yield</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>é–¢æ•°ã¯å®Ÿè£…ã•ã‚Œã¾ã›ã‚“</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>é–¢æ•°ãŒå®Ÿè£…ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>45</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_key_delete‚ÍA–³Œø‚ÈƒL[‚ªŽg—p‚³‚ê‚½‚Æ‚«‚ÉEINVAL‚ð•Ô‚µ‚Ü‚·B</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>ƒZƒOƒƒ“ƒe[ƒVƒ‡ƒ“ˆá”½</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>EINVAL‚ªƒŠƒ^[ƒ“‚³‚ê‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>45</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_key_deleteã¯ã€ç„¡åŠ¹ãªã‚­ãƒ¼ãŒä½¿ç”¨ã•ã‚ŒãŸã¨ãã«EINVALã‚’è¿”ã—ã¾ã™ã€‚</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>ã‚»ã‚°ãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³é•å</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>EINVALãŒãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã¾ã™ã€‚</td>
  </tr>
- <tr height=72 style='height:54.0pt'>
-  <td height=72 style='height:54.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>46</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>dlcoseij‚ÍAˆø”‚Æ‚µ‚Äƒ‰ƒCƒuƒ‰ƒŠ‚ÌƒAƒhƒŒƒX‚ðŽó‚¯Žæ‚è‚Ü‚·Bƒ‰ƒCƒuƒ‰ƒŠ‚ªŒ©‚Â‚©‚é‚Æ0i¬Œ÷j‚ð•Ô‚µAƒ‰ƒCƒuƒ‰ƒŠ‚ªŒ©‚Â‚©‚ç‚È‚¢ê‡‚Í1‚ð•Ô‚µ‚Ü‚·B</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>.¬Œ÷‚·‚é‚ÆAmusl-libc‚Íƒ‰ƒCƒuƒ‰ƒŠ‚ðƒAƒ“ƒ[ƒh‚µ‚Ü‚¹‚ñB‚Â‚Ü‚èA0‚ð•Ô‚µ‚Ü‚·‚ªAƒ‰ƒCƒuƒ‰ƒŠ‚ªè—L‚·‚éƒƒ‚ƒŠ‚Í‰ð•ú‚µ‚Ü‚¹‚ñB</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>¬Œ÷‚·‚é‚ÆGlibc‚Íƒ‰ƒCƒuƒ‰ƒŠ‚ðƒAƒ“ƒ[ƒh‚µ‚Ü‚·</td>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 style='height:75.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>46</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>dlcoseï¼ˆï¼‰ã¯ã€å¼•æ•°ã¨ã—ã¦ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’å—ã‘å–ã‚Šã¾ã™ã€‚ãƒ©ã‚¤ãƒ–ãƒ©ãƒªãŒè¦‹ã¤ã‹ã‚‹ã¨0ï¼ˆæˆåŠŸï¼‰ã‚’è¿”ã—ã€ãƒ©ã‚¤ãƒ–ãƒ©ãƒªãŒè¦‹ã¤ã‹ã‚‰ãªã„å ´åˆã¯1ã‚’è¿”ã—ã¾ã™ã€‚</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>.æˆåŠŸã™ã‚‹ã¨ã€musl-libcã¯ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚’ã‚¢ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¾ã›ã‚“ã€‚ã¤ã¾ã‚Šã€0ã‚’è¿”ã—ã¾ã™ãŒã€ãƒ©ã‚¤ãƒ–ãƒ©ãƒªãŒå æœ‰ã™ã‚‹ãƒ¡ãƒ¢ãƒªã¯è§£æ”¾ã—ã¾ã›ã‚“ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>æˆåŠŸã™ã‚‹ã¨Glibcã¯ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚’ã‚¢ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¾ã™</td>
  </tr>
- <tr height=126 style='height:94.5pt'>
-  <td height=126 style='height:94.5pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>47</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>write()</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>writei2jmusl-libc‚ÌƒVƒXƒeƒ€ƒR[ƒ‹ƒ‰ƒbƒp[‚ÍAˆø”‚Æ‚µ‚Ä“n‚³‚ê‚½ƒoƒbƒtƒ@ƒTƒCƒYisizet_countj‚Ìƒ`ƒFƒbƒN/ŒŸØ‚ðŽ‚¿‚Ü‚¹‚ñB<br>
-    ‘ã‚í‚è‚ÉAmusl libc‚Ìƒ‰ƒbƒp[‚ÍA’¼ÚƒJ[ƒlƒ‹‚Ìwritei2jƒVƒXƒeƒ€ƒR[ƒ‹‚ðŒÄ‚Ño‚µ‚Ü‚·B
-  ‚µ‚½‚ª‚Á‚ÄAƒ†[ƒUƒvƒƒOƒ‰ƒ€‚ªcountˆø”‚Ì’l‚ð0iƒ[ƒƒoƒCƒgƒ‰ƒCƒgj‚Æ‚µ‚Ä“n‚·‚ÆAƒ†[ƒUƒvƒƒOƒ‰ƒ€‚ÍƒJ[ƒlƒ‹‚©‚ç &quot;Bad
-  Address&quot;i-EFAULTj‚ðŽóM‚µ‚Ü‚·B<br>
+ <tr height=240 style='height:180.0pt'>
+  <td height=240 style='height:180.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>47</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>write()</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>writeï¼ˆ2ï¼‰musl-libcã®ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ¼ãƒ«ãƒ©ãƒƒãƒ‘ãƒ¼ã¯ã€å¼•æ•°ã¨ã—ã¦æ¸¡ã•ã‚ŒãŸãƒãƒƒãƒ•ã‚¡ã‚µã‚¤ã‚ºï¼ˆsizet_countï¼‰ã®ãƒã‚§ãƒƒã‚¯/æ¤œè¨¼ã‚’æŒã¡ã¾ã›ã‚“ã€‚<br>
+    ä»£ã‚ã‚Šã«ã€musl libcã®ãƒ©ãƒƒãƒ‘ãƒ¼ã¯ã€ç›´æŽ¥ã‚«ãƒ¼ãƒãƒ«ã®writeï¼ˆ2ï¼‰ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ¼ãƒ«ã‚’å‘¼ã³å‡ºã—ã¾ã™ã€‚
+  ã—ãŸãŒã£ã¦ã€ãƒ¦ãƒ¼ã‚¶ãƒ—ãƒ­ã‚°ãƒ©ãƒ ãŒcountå¼•æ•°ã®å€¤ã‚’0ï¼ˆã‚¼ãƒ­ãƒã‚¤ãƒˆãƒ©ã‚¤ãƒˆï¼‰ã¨ã—ã¦æ¸¡ã™ã¨ã€ãƒ¦ãƒ¼ã‚¶ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã¯ã‚«ãƒ¼ãƒãƒ«ã‹ã‚‰ &quot;Bad
+  Address&quot;ï¼ˆ-EFAULTï¼‰ã‚’å—ä¿¡ã—ã¾ã™ã€‚<br>
     </td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>Glibc
-  writei2jƒVƒXƒeƒ€ƒR[ƒ‹ƒ‰ƒbƒp[‚ÍAƒJ[ƒlƒ‹writei2jƒVƒXƒeƒ€ƒR[ƒ‹‚ðŒÄ‚Ño‚·‘O‚Éˆø”‚Æ‚µ‚Ä“n‚³‚ê‚½ƒoƒbƒtƒ@ƒTƒCƒYisize_t
-  countj‚ÌŒŸØ‚ð<ruby>s<span style='display:none'><rt>ƒIƒRƒi</rt></span></ruby>‚¢‚Ü‚·B
-  ‚µ‚½‚ª‚Á‚ÄAƒ†[ƒUƒvƒƒOƒ‰ƒ€‚ªcountˆø”‚Ì’l‚ð0iƒ[ƒƒoƒCƒgj‚Æ‚µ‚Ä“n‚·‚ÆAglibc
-  writei2jƒ‰ƒbƒp[‚Í0i¬Œ÷j‚ðƒ†[ƒUƒvƒƒOƒ‰ƒ€‚É•Ô‚µ‚Ü‚·B</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>Glibc
+  writeï¼ˆ2ï¼‰ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ¼ãƒ«ãƒ©ãƒƒãƒ‘ãƒ¼ã¯ã€ã‚«ãƒ¼ãƒãƒ«writeï¼ˆ2ï¼‰ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ¼ãƒ«ã‚’å‘¼ã³å‡ºã™å‰ã«å¼•æ•°ã¨ã—ã¦æ¸¡ã•ã‚ŒãŸãƒãƒƒãƒ•ã‚¡ã‚µã‚¤ã‚ºï¼ˆsize_t
+  countï¼‰ã®æ¤œè¨¼ã‚’è¡Œã„ã¾ã™ã€‚ ã—ãŸãŒã£ã¦ã€ãƒ¦ãƒ¼ã‚¶ãƒ—ãƒ­ã‚°ãƒ©ãƒ ãŒcountå¼•æ•°ã®å€¤ã‚’0ï¼ˆã‚¼ãƒ­ãƒã‚¤ãƒˆï¼‰ã¨ã—ã¦æ¸¡ã™ã¨ã€glibc
+  writeï¼ˆ2ï¼‰ãƒ©ãƒƒãƒ‘ãƒ¼ã¯0ï¼ˆæˆåŠŸï¼‰ã‚’ãƒ¦ãƒ¼ã‚¶ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã«è¿”ã—ã¾ã™ã€‚</td>
  </tr>
- <tr height=18 style='height:13.5pt'>
-  <td height=18 style='height:13.5pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>48</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_attr_getstackaddr</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>musl-libc‚É‚Í‚±‚Ì‚æ‚¤‚ÈAPI‚Ì’è‹`‚Í‚ ‚è‚Ü‚¹‚ñ</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>Api‚Ì<ruby>’è‹`<span
-  style='display:none'><rt>ƒeƒCƒM</rt></span></ruby>‚ªglibc‚É‘¶Ý‚µ‚Ü‚·B</td>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 style='height:15.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>48</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_attr_getstackaddr</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>musl-libcã«ã¯ã“ã®ã‚ˆã†ãªAPIã®å®šç¾©ã¯ã‚ã‚Šã¾ã›ã‚“</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>Apiã®å®šç¾©ãŒglibcã«å­˜åœ¨ã—ã¾ã™ã€‚</td>
  </tr>
- <tr height=18 style='height:13.5pt'>
-  <td height=18 style='height:13.5pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>49</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>pthread_attr_setstackaddr</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>musl-libc‚É‚Í‚±‚Ì‚æ‚¤‚ÈAPI‚Ì’è‹`‚Í‚ ‚è‚Ü‚¹‚ñ</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>Api‚Ì<ruby>’è‹`<span
-  style='display:none'><rt>ƒeƒCƒM</rt></span></ruby>‚ªglibc‚É‘¶Ý‚µ‚Ü‚·B</td>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 style='height:15.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>49</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>pthread_attr_setstackaddr</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>musl-libcã«ã¯ã“ã®ã‚ˆã†ãªAPIã®å®šç¾©ã¯ã‚ã‚Šã¾ã›ã‚“</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>Apiã®å®šç¾©ãŒglibcã«å­˜åœ¨ã—ã¾ã™ã€‚</td>
  </tr>
- <tr height=18 style='height:13.5pt'>
-  <td height=18 style='height:13.5pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>50</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>sysconf</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>_SC_NGROUPS_MAX<span
-  style='mso-spacerun:yes'>&nbsp;</span><ruby>Žw’è<span style='display:none'><rt>ƒVƒeƒC</rt></span></ruby><ruby>Žž<span
-  style='display:none'><rt>ƒW</rt></span></ruby>AAPI‚Í32‚ð•Ô‚µ‚Ü‚·</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>_SC_NGROUPS_MAX<span
-  style='mso-spacerun:yes'>&nbsp;</span><ruby>Žw’è<span style='display:none'><rt>ƒVƒeƒC</rt></span></ruby><ruby>Žž<span
-  style='display:none'><rt>ƒW</rt></span></ruby>AAPI‚Í65536‚ð•Ô‚µ‚Ü‚·</td>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 style='height:30.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>50</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>sysconf</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>_SC_NGROUPS_MAX
+  æŒ‡å®šæ™‚ã€APIã¯32ã‚’è¿”ã—ã¾ã™</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>_SC_NGROUPS_MAX
+  æŒ‡å®šæ™‚ã€APIã¯65536ã‚’è¿”ã—ã¾ã™</td>
  </tr>
- <tr height=36 style='height:27.0pt'>
-  <td height=36 style='height:27.0pt'></td>
-  <td class=xl218 width=31 style='border-top:none;width:23pt'>51</td>
-  <td class=xl102 width=296 style='border-top:none;border-left:none;width:222pt'>recvmsg()</td>
-  <td class=xl102 width=415 style='border-top:none;border-left:none;width:311pt'>recvmsg()‚Ì<ruby>‘æ“ñ<span
-  style='display:none'><rt>ƒ_ƒCƒj</rt></span></ruby><ruby>ˆø”<span
-  style='display:none'><rt>ƒqƒLƒXƒE</rt></span></ruby>(struct msghdr)‚Æ‚µ‚Ä<ruby>•s³<span
-  style='display:none'><rt>ƒtƒZƒC</rt></span></ruby>‚ÈƒAƒhƒŒƒX‚ª<ruby>“n<span
-  style='display:none'><rt>ƒƒ^</rt></span></ruby>‚³‚ê‚½<ruby>ê‡<span
-  style='display:none'><rt>ƒoƒAƒC</rt></span></ruby>Amusl-libc‚Í<ruby>ˆÙí<span
-  style='display:none'><rt>ƒCƒWƒ‡ƒE</rt></span></ruby><ruby>I—¹<span
-  style='display:none'><rt>ƒVƒ…ƒEƒŠƒ‡ƒE</rt></span></ruby>‚µ‚Ü‚·B</td>
-  <td class=xl219 width=376 style='border-top:none;border-left:none;width:282pt'>recvmsg()‚Ì‘æ“ñˆø”(struct
-  msghdr)‚Æ‚µ‚Ä•s³‚ÈƒAƒhƒŒƒX‚ª“n‚³‚ê‚½ê‡Aglibc‚ÍEFAULT‚ð<ruby>•Ô‹p<span style='display:none'><rt>ƒwƒ“ƒLƒƒƒN</rt></span></ruby>‚µ‚Ü‚·B</td>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 style='height:45.0pt'></td>
+  <td class=xl180 width=27 style='border-top:none;width:20pt'>51</td>
+  <td class=xl102 width=259 style='border-top:none;border-left:none;width:194pt'>recvmsg()</td>
+  <td class=xl102 width=363 style='border-top:none;border-left:none;width:272pt'>recvmsg()ã®ç¬¬äºŒå¼•æ•°(struct
+  msghdr)ã¨ã—ã¦ä¸æ­£ãªã‚¢ãƒ‰ãƒ¬ã‚¹ãŒæ¸¡ã•ã‚ŒãŸå ´åˆã€musl-libcã¯ç•°å¸¸çµ‚äº†ã—ã¾ã™ã€‚</td>
+  <td class=xl181 width=329 style='border-top:none;border-left:none;width:247pt'>recvmsg()ã®ç¬¬äºŒå¼•æ•°(struct
+  msghdr)ã¨ã—ã¦ä¸æ­£ãªã‚¢ãƒ‰ãƒ¬ã‚¹ãŒæ¸¡ã•ã‚ŒãŸå ´åˆã€glibcã¯EFAULTã‚’è¿”å´ã—ã¾ã™ã€‚</td>
  </tr>
- <tr height=109 style='height:81.75pt'>
-  <td height=109 style='height:81.75pt'></td>
-  <td class=xl222 width=31 style='border-top:none;width:23pt'>52</td>
-  <td class=xl223 width=296 style='border-top:none;border-left:none;width:222pt'>ƒ_ƒCƒiƒ~ƒbƒNƒ‰ƒCƒuƒ‰ƒŠƒpƒX‚Ì<ruby>ŒŸõ<span
-  style='display:none'><rt>ƒPƒ“ƒTƒN</rt></span></ruby><ruby>‡˜<span
-  style='display:none'><rt>ƒWƒ…ƒ“ƒWƒ‡</rt></span></ruby></td>
-  <td class=xl223 width=415 style='border-top:none;border-left:none;width:311pt'>musl-libc‚É‚¨‚¯‚é<ruby>ŒŸõ<span
-  style='display:none'><rt>ƒPƒ“ƒTƒN</rt></span></ruby><ruby>‡˜<span
-  style='display:none'><rt>ƒWƒ…ƒ“ƒWƒ‡</rt></span></ruby>‚Í<ruby>ˆÈ‰º<span
-  style='display:none'><rt>ƒCƒJ</rt></span></ruby>‚Ì<ruby>’Ê<span style='display:
-  none'><rt>ƒgƒI</rt></span></ruby>‚èB<br>
+ <tr height=141 style='height:105.75pt'>
+  <td height=141 style='height:105.75pt'></td>
+  <td class=xl184 width=27 style='border-top:none;width:20pt'>52</td>
+  <td class=xl185 width=259 style='border-top:none;border-left:none;width:194pt'>ãƒ€ã‚¤ãƒŠãƒŸãƒƒã‚¯ãƒ©ã‚¤ãƒ–ãƒ©ãƒªãƒ‘ã‚¹ã®æ¤œç´¢é †åº</td>
+  <td class=xl185 width=363 style='border-top:none;border-left:none;width:272pt'>musl-libcã«ãŠã‘ã‚‹æ¤œç´¢é †åºã¯ä»¥ä¸‹ã®é€šã‚Šã€‚<br>
     1.VE_LD_LIBRATY_PATH <br>
-    2.DT_RPATH/DT_RUNPATH (binutils‚ª<ruby>Œˆ’è<span style='display:none'><rt>ƒPƒbƒeƒC</rt></span></ruby>)
-  <br>
+    2.DT_RPATH/DT_RUNPATH (binutilsãŒæ±ºå®š) <br>
     3. /etc/opt/nec/ve/musl/ld-musl-ve.path<br>
-    4.<ruby>•W€<span style='display:none'><rt>ƒqƒ‡ƒEƒWƒ…ƒ“</rt></span></ruby>ƒpƒX
-  (/opt/nec/ve/musl/lib/ld-musl-ve.so.1)</td>
-  <td class=xl224 width=376 style='border-top:none;border-left:none;width:282pt'>glibc‚É‚¨‚¯‚é<ruby>ŒŸõ<span
-  style='display:none'><rt>ƒPƒ“ƒTƒN</rt></span></ruby><ruby>‡˜<span
-  style='display:none'><rt>ƒWƒ…ƒ“ƒWƒ‡</rt></span></ruby>‚Í<ruby>ˆÈ‰º<span
-  style='display:none'><rt>ƒCƒJ</rt></span></ruby>‚Ì<ruby>’Ê<span style='display:
-  none'><rt>ƒgƒI</rt></span></ruby>‚èB<br>
-    1.DT_RPATH (DT_RUNPATH‚ª<ruby>’è‹`<span style='display:none'><rt>ƒeƒCƒM</rt></span></ruby>‚³‚ê‚Ä‚¢‚È‚¢<ruby>ê‡<span
-  style='display:none'><rt>ƒoƒAƒC</rt></span></ruby>) <br>
+    4.æ¨™æº–ãƒ‘ã‚¹ (/opt/nec/ve/musl/lib/ld-musl-ve.so.1)</td>
+  <td class=xl186 width=329 style='border-top:none;border-left:none;width:247pt'>glibcã«ãŠã‘ã‚‹æ¤œç´¢é †åºã¯ä»¥ä¸‹ã®é€šã‚Šã€‚<br>
+    1.DT_RPATH (DT_RUNPATHãŒå®šç¾©ã•ã‚Œã¦ã„ãªã„å ´åˆ) <br>
     2.LD_LIBRARY_PATH <br>
     3.DT_RUNPATH <br>
-    4.<ruby>•W€<span style='display:none'><rt>ƒqƒ‡ƒEƒWƒ…ƒ“</rt></span></ruby>ƒpƒX(/usr/lib64/)<br>
+    4.æ¨™æº–ãƒ‘ã‚¹(/usr/lib64/)<br>
     </td>
  </tr>
  <![if supportMisalignedColumns]>
  <tr height=0 style='display:none'>
-  <td width=72 style='width:54pt'></td>
-  <td width=31 style='width:23pt'></td>
-  <td width=296 style='width:222pt'></td>
-  <td width=415 style='width:311pt'></td>
-  <td width=376 style='width:282pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=27 style='width:20pt'></td>
+  <td width=259 style='width:194pt'></td>
+  <td width=363 style='width:272pt'></td>
+  <td width=329 style='width:247pt'></td>
  </tr>
  <![endif]>
 </table>

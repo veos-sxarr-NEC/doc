@@ -4,7 +4,7 @@ xmlns:x="urn:schemas-microsoft-com:office:excel"
 xmlns="http://www.w3.org/TR/REC-html40">
 
 <head>
-<meta http-equiv=Content-Type content="text/html; charset=shift_jis">
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <meta name=ProgId content=Excel.Sheet>
 <meta name=Generator content="Microsoft Excel 15">
 <link id=Main-File rel=Main-File
@@ -19,18 +19,6 @@ href="../Musl_libc_Supported_Api_Difference_Point.htm">
 	{margin:.75in .7in .75in .7in;
 	mso-header-margin:.3in;
 	mso-footer-margin:.3in;}
-ruby
-	{ruby-align:left;}
-rt
-	{color:windowtext;
-	font-size:6.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"�l�r �o�S�V�b�N", monospace;
-	mso-font-charset:128;
-	mso-char-type:katakana;
-	display:none;}
 -->
 </style>
 <![if !supportTabStrip]><script language="JavaScript">
@@ -57,129 +45,112 @@ else
 
 <body link=blue vlink=purple>
 
-<table border=0 cellpadding=0 cellspacing=0 width=1231 style='border-collapse:
- collapse;table-layout:fixed;width:923pt'>
- <col width=39 style='mso-width-source:userset;mso-width-alt:1248;width:29pt'>
- <col class=xl65 width=31 style='mso-width-source:userset;mso-width-alt:992;
- width:23pt'>
- <col width=240 style='mso-width-source:userset;mso-width-alt:7680;width:180pt'>
- <col width=417 style='mso-width-source:userset;mso-width-alt:13344;width:313pt'>
- <col width=504 style='mso-width-source:userset;mso-width-alt:16128;width:378pt'>
- <tr height=19 style='height:14.25pt'>
-  <td height=19 width=39 style='height:14.25pt;width:29pt'></td>
-  <td class=xl65 width=31 style='width:23pt'></td>
-  <td width=240 style='width:180pt'></td>
-  <td width=417 style='width:313pt'></td>
-  <td width=504 style='width:378pt'></td>
+<table border=0 cellpadding=0 cellspacing=0 width=1077 style='border-collapse:
+ collapse;table-layout:fixed;width:809pt'>
+ <col width=34 style='mso-width-source:userset;mso-width-alt:1243;width:26pt'>
+ <col class=xl65 width=27 style='mso-width-source:userset;mso-width-alt:987;
+ width:20pt'>
+ <col width=210 style='mso-width-source:userset;mso-width-alt:7680;width:158pt'>
+ <col width=365 style='mso-width-source:userset;mso-width-alt:13348;width:274pt'>
+ <col width=441 style='mso-width-source:userset;mso-width-alt:16128;width:331pt'>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 width=34 style='height:15.75pt;width:26pt'></td>
+  <td class=xl65 width=27 style='width:20pt'></td>
+  <td width=210 style='width:158pt'></td>
+  <td width=365 style='width:274pt'></td>
+  <td width=441 style='width:331pt'></td>
  </tr>
- <tr height=20 style='height:15.0pt'>
-  <td height=20 style='height:15.0pt'></td>
-  <td class=xl71 width=31 style='width:23pt'>No</td>
-  <td class=xl72 width=240 style='width:180pt'>�P�[�X</td>
-  <td class=xl72 width=417 style='width:313pt'><ruby>����_<span style='display:
-  none'><rt>�\�E�C�e��</rt></span></ruby></td>
-  <td class=xl72 width=504 style='width:378pt'><ruby>���R<span style='display:
-  none'><rt>�����E</rt></span></ruby></td>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 style='height:16.5pt'></td>
+  <td class=xl71 width=27 style='width:20pt'>No</td>
+  <td class=xl72 width=210 style='width:158pt'>ケース</td>
+  <td class=xl72 width=365 style='width:274pt'>相違点</td>
+  <td class=xl72 width=441 style='width:331pt'>理由</td>
  </tr>
  <tr height=47 style='mso-height-source:userset;height:35.25pt'>
   <td height=47 style='height:35.25pt'></td>
-  <td class=xl70 width=31 style='width:23pt'>1</td>
-  <td class=xl68 width=240 style='width:180pt'>���������_��O</td>
-  <td class=xl68 width=417 style='width:313pt'>VE�A�[�L�e�N�`���[�ɂ�镂�������_��O�́Ax86�A�[�L�e�N�`���[�Ƃ͈قȂ�ꍇ������܂��B</td>
-  <td class=xl68 width=504 style='width:378pt'>VE�ɂ͔񐳋K�����ɑΉ�����n�[�h�E�F�A������܂���B</td>
+  <td class=xl70 width=27 style='width:20pt'>1</td>
+  <td class=xl68 width=210 style='width:158pt'>浮動小数点例外</td>
+  <td class=xl68 width=365 style='width:274pt'>VEアーキテクチャーによる浮動小数点例外は、x86アーキテクチャーとは異なる場合があります。</td>
+  <td class=xl68 width=441 style='width:331pt'>VEには非正規化数に対応するハードウェアがありません。</td>
  </tr>
  <tr height=40 style='mso-height-source:userset;height:30.0pt'>
   <td height=40 style='height:30.0pt'></td>
-  <td rowspan=2 class=xl120 width=31 style='border-bottom:1.0pt solid black;
-  border-top:none;width:23pt'>2</td>
-  <td rowspan=2 class=xl119 width=240 style='border-bottom:1.0pt solid black;
-  border-top:none;width:180pt'>open �V�X�e���R�[��</td>
-  <td class=xl69 width=417 style='width:313pt'>VE�ł́A���[�U�[�v���O�����ɂ��open�i�j�̍ŏ��̌Ăяo���ł�8���Ԃ���܂��B</td>
-  <td rowspan=2 class=xl119 width=504 style='border-bottom:1.0pt solid black;
-  border-top:none;width:378pt'>�h���C�o�Eveos�ȂǂƂ̒ʐM�̂悤�ȓ����I�Ȏg�p�̂��߂ɁA�[���v���Z�X�ɂ����fd��<ruby>�g�p<span
-  style='display:none'><rt>�V���E</rt></span></ruby>����Ă��܂��B</td>
+  <td rowspan=2 class=xl120 width=27 style='border-bottom:1.0pt solid black;
+  border-top:none;width:20pt'>2</td>
+  <td rowspan=2 class=xl119 width=210 style='border-bottom:1.0pt solid black;
+  border-top:none;width:158pt'>open システムコール</td>
+  <td class=xl69 width=365 style='width:274pt'>VEでは、ユーザープログラムによるopen（）の最初の呼び出しでは8が返されます。</td>
+  <td rowspan=2 class=xl119 width=441 style='border-bottom:1.0pt solid black;
+  border-top:none;width:331pt'>ドライバ・veosなどとの通信のような内部的な使用のために、擬似プロセスによってfdが使用されています。</td>
  </tr>
  <tr height=51 style='mso-height-source:userset;height:38.25pt'>
   <td height=51 style='height:38.25pt'></td>
-  <td class=xl68 width=417 style='width:313pt'>Linux�ł́A���[�U�[�v���O�����ɂ��open�i�j�̌Ăяo���ł�3���Ԃ���܂��B</td>
+  <td class=xl68 width=365 style='width:274pt'>Linuxでは、ユーザープログラムによるopen（）の呼び出しでは3が返されます。</td>
  </tr>
  <tr height=27 style='mso-height-source:userset;height:20.25pt'>
   <td height=27 style='height:20.25pt'></td>
-  <td rowspan=2 class=xl120 width=31 style='border-bottom:1.0pt solid black;
-  border-top:none;width:23pt'>3</td>
-  <td rowspan=2 class=xl119 width=240 style='border-bottom:1.0pt solid black;
-  border-top:none;width:180pt'>�X���b�h�̍ŏ��X�^�b�N�T�C�Y( PTHREAD_STACK_MIN)</td>
-  <td class=xl69 width=417 style='width:313pt'>VE�ł͍ŏ��̃X�^�b�N�T�C�Y��4MB�ł��B</td>
-  <td rowspan=2 class=xl119 width=504 style='border-bottom:1.0pt solid black;
-  border-top:none;width:378pt'>VE�A�[�L�e�N�`���̂��߃J�X�^�}�C�Y����Ă��܂��B</td>
+  <td rowspan=2 class=xl120 width=27 style='border-bottom:1.0pt solid black;
+  border-top:none;width:20pt'>3</td>
+  <td rowspan=2 class=xl119 width=210 style='border-bottom:1.0pt solid black;
+  border-top:none;width:158pt'>スレッドの最小スタックサイズ( PTHREAD_STACK_MIN)</td>
+  <td class=xl69 width=365 style='width:274pt'>VEでは最小のスタックサイズは4MBです。</td>
+  <td rowspan=2 class=xl119 width=441 style='border-bottom:1.0pt solid black;
+  border-top:none;width:331pt'>VEアーキテクチャのためカスタマイズされています。</td>
  </tr>
- <tr height=37 style='height:27.75pt'>
-  <td height=37 style='height:27.75pt'></td>
-  <td class=xl68 width=417 style='width:313pt'>x86�A�[�L�e�N�`���ɑ΂��Aglibc�ł�16KB�Amusl-libc�ł�2KB�ƂȂ��Ă��܂��B</td>
+ <tr height=41 style='height:30.75pt'>
+  <td height=41 style='height:30.75pt'></td>
+  <td class=xl68 width=365 style='width:274pt'>x86アーキテクチャに対し、glibcでは16KB、musl-libcでは2KBとなっています。</td>
  </tr>
  <tr height=109 style='mso-height-source:userset;height:81.75pt'>
-  <td height=109 class=xl122 style='height:81.75pt'>�@</td>
-  <td class=xl120 width=31 style='border-top:none;border-left:none;width:23pt'>4</td>
-  <td class=xl119 width=240 style='border-top:none;border-left:none;width:180pt'>syscall()���g�p����SIGCANCEL�V�O�i���𒼐ڑ��M</td>
-  <td class=xl123 width=417 style='border-top:none;border-left:none;width:313pt'>syscall�i�j�i��FKill�i�j�Asyscall�iSYS_tgkill�j�Ȃǁj���g�p����SIGCANCEL�V�O�i�������M�����ƁA�X���b�h�O���[�v�S�̂��^�[�Q�b�g�X���b�h�̑���ɏI�����܂��B</td>
-  <td class=xl124 width=504 style='border-top:none;border-left:none;width:378pt'><br>
+  <td height=109 class=xl122 style='height:81.75pt'>&nbsp;</td>
+  <td class=xl120 width=27 style='border-top:none;border-left:none;width:20pt'>4</td>
+  <td class=xl119 width=210 style='border-top:none;border-left:none;width:158pt'>syscall()を使用してSIGCANCELシグナルを直接送信</td>
+  <td class=xl123 width=365 style='border-top:none;border-left:none;width:274pt'>syscall（）（例：Kill（）、syscall（SYS_tgkill）など）を使用してSIGCANCELシグナルが送信されると、スレッドグループ全体がターゲットスレッドの代わりに終了します。</td>
+  <td class=xl124 width=441 style='border-top:none;border-left:none;width:331pt'><br>
    
-  glibc�Ƃ͈قȂ�Amusl-libc��pthread_cancel�i�j���Ăяo���ꂽ���SIGCANCEL�̃n���h�����C���X�g�[�����܂��B���������āASIGCANCEL�V�O�i����pthread_cancel�i�j�̌Ăяo���̑O�ɑ��M�����ƁASIGCANCEL�̃f�t�H���g�A�N�V�������I�����邽�߁A�X���b�h�O���[�v�͏I�����܂��B</td>
+  glibcとは異なり、musl-libcはpthread_cancel（）が呼び出された後にSIGCANCELのハンドラをインストールします。したがって、SIGCANCELシグナルがpthread_cancel（）の呼び出しの前に送信されると、SIGCANCELのデフォルトアクションが終了するため、スレッドグループは終了します。</td>
  </tr>
- <tr height=235 style='height:176.25pt'>
-  <td height=235 style='height:176.25pt'></td>
+ <tr height=361 style='height:270.75pt'>
+  <td height=361 style='height:270.75pt'></td>
   <td class=xl130>5</td>
-  <td class=xl127 width=240 style='width:180pt'>pthread_attr_setstack() �ɂ��X���b�h<ruby>�p<span
-  style='display:none'><rt>���E</rt></span></ruby>�X�^�b�N�T�C�Y��<ruby>�w��<span
-  style='display:none'><rt>�V�e�C</rt></span></ruby></td>
-  <td class=xl125 width=417 style='width:313pt'>pthread_attr_setstack() API
-  �ŃX���b�h<ruby>����<span style='display:none'><rt>�]�N�Z�C</rt></span></ruby>�I�u�W�F�N�g�̃X�^�b�N�T�C�Y<ruby>����<span
-  style='display:none'><rt>�]�N�Z�C</rt></span></ruby>��<ruby>�w��<span
-  style='display:none'><rt>�V�e�C</rt></span></ruby>���ăX���b�h��<ruby>����<span
-  style='display:none'><rt>�Z�C�Z�C</rt></span></ruby>����<ruby>�ꍇ<span
-  style='display:none'><rt>�o�A�C</rt></span></ruby>�A�X�^�b�N�I�[�o�[�t���[�ɂ��G���[��<ruby>����<span
-  style='display:none'><rt>�n�b�Z�C</rt></span></ruby>���܂���B</td>
-  <td class=xl126 width=504 style='width:378pt'>�X���b�hAPI �� Manpage
-  �ɒ�`����铮��͈ȉ��̒ʂ�ł��B<br>
-    �A�v���P�[�V������ pthread_attr_setstack() �ɂ���ăX���b�h�X�^�b�N�����蓖�Ă�Ƃ��Aguard size
-  �����͖�������܂��ilibc�ɂ���ăK�[�h�̈�͍쐬����܂���j�B�X�^�b�N�̃I�[�o�[�t���[�́improtect(2)
-  �ŃX�^�b�N�p�Ɋm�ۂ����̈�̏I�[�ɃK�[�h�̈���w�肷��Ȃǂ��āj�A�v���P�[�V�����̐ӔC�őΏ�����K�v������܂��B<br>
-    VE �ł͈ȉ��̗l�ɓ��삪�قȂ�܂��B<br>
+  <td class=xl127 width=210 style='width:158pt'>pthread_attr_setstack()
+  によるスレッド用スタックサイズの指定</td>
+  <td class=xl125 width=365 style='width:274pt'>pthread_attr_setstack() API
+  でスレッド属性オブジェクトのスタックサイズ属性を指定してスレッドを生成した場合、スタックオーバーフローによるエラーが発生しません。</td>
+  <td class=xl126 width=441 style='width:331pt'>スレッドAPI の Manpage
+  に定義される動作は以下の通りです。<br>
+    アプリケーションが pthread_attr_setstack() によってスレッドスタックを割り当てるとき、guard size
+  属性は無視されます（libcによってガード領域は作成されません）。スタックのオーバーフローは（mprotect(2)
+  でスタック用に確保した領域の終端にガード領域を指定するなどして）アプリケーションの責任で対処する必要があります。<br>
+    VE では以下の様に動作が異なります。<br>
    
-  �K�[�h�̈悪�i���[�U�ɂ���āj�w�肳�ꂽ��ł����Ă��A�X�^�b�N�͗̈�̏I�[�𒴂��ĐL���������܂��B���̌��ʂ͕s��ł��B���̂��߁Apthread_attr_setstack()
-  �͎g���ׂ��ł͂���܂���B<br>
+  ガード領域が（ユーザによって）指定された後であっても、スタックは領域の終端を超えて伸長し続けます。その結果は不定です。そのため、pthread_attr_setstack()
+  は使うべきではありません。<br>
     <br>
-    �A�v���P�[�V�������q�X���b�h�̃X�^�b�N�T�C�Y�� pthread_attr_setstacksize(3) �Ŏw�肵���ꍇ�́A���̖��͔������܂���B</td>
+    アプリケーションが子スレッドのスタックサイズを pthread_attr_setstacksize(3) で指定した場合は、この問題は発生しません。</td>
  </tr>
- <tr height=91 style='height:68.25pt'>
-  <td height=91 style='height:68.25pt'></td>
+ <tr height=101 style='height:75.75pt'>
+  <td height=101 style='height:75.75pt'></td>
   <td class=xl130 style='border-top:none'>6</td>
-  <td class=xl127 width=240 style='border-top:none;width:180pt'>/etc/opt/nec/ve/musl/ld-musl-ve.path<span
-  style='mso-spacerun:yes'>&nbsp;</span></td>
-  <td class=xl125 width=417 style='border-top:none;width:313pt'>VE �ɂ����āA
-  &quot;ld-musl-ve.path&quot; ��<span style='mso-spacerun:yes'>&nbsp;</span><ruby>���I<span
-  style='display:none'><rt>�h�E�e�L</rt></span></ruby>���C�u������<ruby>����<span
-  style='display:none'><rt>�P���T�N</rt></span></ruby>�E���[�h����p�X��<ruby>�w��<span
-  style='display:none'><rt>�V�e�C</rt></span></ruby>��<ruby>�g�p<span
-  style='display:none'><rt>�V���E</rt></span></ruby>����܂��B</td>
-  <td class=xl126 width=504 style='border-top:none;width:378pt'>musl-libc
-  �ɂ�����p�X��<ruby>����<span style='display:none'><rt>�P���T�N</rt></span></ruby><ruby>����<span
-  style='display:none'><rt>�W�����W��</rt></span></ruby>��<ruby>��<span
-  style='display:none'><rt>�c�M</rt></span></ruby>��<ruby>��<span style='display:
-  none'><rt>�g�I</rt></span></ruby>��ł��B<br>
+  <td class=xl127 width=210 style='border-top:none;width:158pt'>/etc/opt/nec/ve/musl/ld-musl-ve.path<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl125 width=365 style='border-top:none;width:274pt'>VE において、
+  &quot;ld-musl-ve.path&quot; は 動的ライブラリを検索・ロードするパスの指定に使用されます。</td>
+  <td class=xl126 width=441 style='border-top:none;width:331pt'>musl-libc
+  におけるパスの検索順序は次の通りです。<br>
     1. VE_LD_LIBRARY_PATH<br>
     2. DT_RPATH/DT_RUNPATH (binutils )<br>
     3. /etc/opt/nec/ve/musl/ld-musl-ve.path<br>
-    4. <ruby>�W��<span style='display:none'><rt>�q���E�W����</rt></span></ruby>�p�X
-  (/opt/nec/ve/musl/lib/)</td>
+    4. 標準パス (/opt/nec/ve/musl/lib/)</td>
  </tr>
  <![if supportMisalignedColumns]>
  <tr height=0 style='display:none'>
-  <td width=39 style='width:29pt'></td>
-  <td width=31 style='width:23pt'></td>
-  <td width=240 style='width:180pt'></td>
-  <td width=417 style='width:313pt'></td>
-  <td width=504 style='width:378pt'></td>
+  <td width=34 style='width:26pt'></td>
+  <td width=27 style='width:20pt'></td>
+  <td width=210 style='width:158pt'></td>
+  <td width=365 style='width:274pt'></td>
+  <td width=441 style='width:331pt'></td>
  </tr>
  <![endif]>
 </table>
