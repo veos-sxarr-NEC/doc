@@ -1,0 +1,389 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../Difference_Points_glibc.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+ruby
+	{ruby-align:left;}
+rt
+	{color:windowtext;
+	font-size:6.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"ＭＳ Ｐゴシック", monospace;
+	mso-font-charset:128;
+	mso-char-type:katakana;
+	display:none;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../Difference_Points_glibc.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1349 style='border-collapse:
+ collapse;table-layout:fixed;width:1011pt'>
+ <col width=39 style='mso-width-source:userset;mso-width-alt:1248;width:29pt'>
+ <col class=xl65 width=31 style='mso-width-source:userset;mso-width-alt:992;
+ width:23pt'>
+ <col width=240 style='mso-width-source:userset;mso-width-alt:7680;width:180pt'>
+ <col width=512 style='mso-width-source:userset;mso-width-alt:16384;width:384pt'>
+ <col width=527 style='mso-width-source:userset;mso-width-alt:16864;width:395pt'>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 width=39 style='height:14.25pt;width:29pt'></td>
+  <td class=xl65 width=31 style='width:23pt'></td>
+  <td width=240 style='width:180pt'></td>
+  <td width=512 style='width:384pt'></td>
+  <td width=527 style='width:395pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 style='height:15.0pt'></td>
+  <td class=xl84 width=31 style='width:23pt'>No</td>
+  <td class=xl85 width=240 style='border-left:none;width:180pt'>Case</td>
+  <td class=xl85 width=512 style='border-left:none;width:384pt'>Difference
+  Point</td>
+  <td class=xl86 width=527 style='border-left:none;width:395pt'>Reason</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 style='height:27.0pt'></td>
+  <td class=xl82 width=31 style='width:23pt'>1</td>
+  <td class=xl83 width=240 style='border-left:none;width:180pt'>Floating point
+  exceptions.</td>
+  <td class=xl89 width=512 style='border-left:none;width:384pt'>Floating-point
+  exceptions related to sub-normal numbers could not be raised by VE
+  architecture but x86 architecture supports it well.</td>
+  <td class=xl91 width=527 style='border-left:none;width:395pt'>VE Architecture
+  does not support sub-normal numbers.</td>
+ </tr>
+ <tr height=19 style='mso-height-source:userset;height:14.25pt'>
+  <td height=19 style='height:14.25pt'></td>
+  <td rowspan=2 class=xl77 width=31 style='border-top:none;width:23pt'>2</td>
+  <td rowspan=2 class=xl88 width=240 style='border-top:none;width:180pt'>Minimum
+  stack size for thread, i.e. PTHREAD_STACK_MIN</td>
+  <td rowspan=2 class=xl75 width=512 style='border-top:none;width:384pt'>In VE,
+  minimum stack size for thread is 4MB. So in VE-glibc the corresponding macro
+  value is updated,<br>
+    While it is 16KB in glibc for x86 architecture.</td>
+  <td rowspan=2 class=xl105 width=527 style='border-top:none;width:395pt'>Customized
+  for VE architecture.</td>
+ </tr>
+ <tr height=66 style='mso-height-source:userset;height:49.5pt'>
+  <td height=66 style='height:49.5pt'></td>
+ </tr>
+ <tr height=234 style='height:175.5pt'>
+  <td height=234 style='height:175.5pt'></td>
+  <td class=xl78 style='border-top:none'>3</td>
+  <td class=xl88 width=240 style='border-top:none;border-left:none;width:180pt'>Specifying
+  user-defined<span style='mso-spacerun:yes'>  </span>thread stack with
+  pthread_attr_setstack()</td>
+  <td class=xl76 width=512 style='border-top:none;border-left:none;width:384pt'>If
+  user creates a thread using user-defined thread stack with
+  pthread_attr_setstack() API, stack overflow cannot be detected.<br>
+    So it is strongly recommended not to use pthread_attr_setstack(). The user
+  can use pthread_attr_setstacksize() to specify stack size of child thread.
+  The use of pthread_attr_setstacksize() will not cause above stated issue.</td>
+  <td class=xl87 width=527 style='border-top:none;border-left:none;width:395pt'>As
+  per the threading APIs man-pages, following is the behaviour:<br>
+    <span style='mso-spacerun:yes'> </span>When the user allocates the thread
+  stack using pthread_attr_setstack(), then the guard size attribute is ignored
+  (i.e. no guard area is created by the library). It is the application's
+  responsibility to handle stack overflow (perhaps by using mprotect(2) to
+  manually define a guard area at the end of the stack that it has allocated).
+  <br>
+    <span style='mso-spacerun:yes'> </span>In VEOS, the behaviour is different.
+  Even after providing a guard area (user provided guard), the stack would
+  continue to grow beyond the end of stack and would result in undesirable
+  behaviour. Hence the API pthread_attr_setstack() should not be used.<br>
+    <br>
+    When a user specify stack size of child threads, use
+  pthread_attr_setstacksize(3). pthread_attr_setstacksize() doesn't cause above
+  mentioned issue</td>
+ </tr>
+ <tr height=162 style='height:121.5pt'>
+  <td height=162 style='height:121.5pt'></td>
+  <td class=xl77 width=31 style='border-top:none;width:23pt'>4</td>
+  <td class=xl88 width=240 style='border-top:none;border-left:none;width:180pt'>Variable
+  $ORIGIN</td>
+  <td class=xl76 width=512 style='border-top:none;border-left:none;width:384pt'>In
+  VE(libc),<span style='mso-spacerun:yes'>  </span>if the user program has
+  reference to the variable &quot;$ORIGIN&quot; eg. dlopen
+  (&quot;$ORIGIN/XXX.so&quot;, RTLD_LAZY) then its value will be fetched from
+  the environment variable &quot;VE_LD_ORIGIN_PATH&quot; whereas X86 will fill
+  its value from &quot;readlink&quot; system call<br>
+    <br>
+    Note:-<br>
+    The users are requested to set environment variable
+  &quot;VE_LD_ORIGIN_PATH&quot; before running their program if they intend to
+  specify the directory containing the library (or program) through the use of
+  $ORIGIN variable in their program.</td>
+  <td class=xl87 width=527 style='border-top:none;border-left:none;width:395pt'>Readlink
+  system call gives the path of ve_exec instead of VE binary when
+  &quot;/proc/self/exe&quot; is passed as an argument.</td>
+ </tr>
+ <tr height=54 style='height:40.5pt'>
+  <td height=54 style='height:40.5pt'></td>
+  <td class=xl77 width=31 style='border-top:none;width:23pt'>5</td>
+  <td class=xl88 width=240 style='border-top:none;border-left:none;width:180pt'>Loading
+  &quot;ld-linux-ve.so.1&quot; directly from &quot;ve_exec&quot; or
+  &quot;execve()&quot;</td>
+  <td class=xl76 width=512 style='border-top:none;border-left:none;width:384pt'>We
+  cannot explicitly load VE binary through dynamic linker<span
+  style='mso-spacerun:yes'>  </span>whereas X86 dynamic linker
+  &quot;ld-linux-x86-64.so.2&quot; could load X86 binary when given as
+  argument.</td>
+  <td class=xl87 width=527 style='border-top:none;border-left:none;width:395pt'>Current
+  loader implementation in VEOS does not support loading of shared library.</td>
+ </tr>
+ <tr height=54 style='height:40.5pt'>
+  <td height=54 style='height:40.5pt'></td>
+  <td class=xl78 style='border-top:none'>6</td>
+  <td class=xl88 width=240 style='border-top:none;border-left:none;width:180pt'><span
+  style='mso-spacerun:yes'> </span>&quot;ldd&quot; command</td>
+  <td class=xl76 width=512 style='border-top:none;border-left:none;width:384pt'>For
+  VE, &quot;ldd&quot; command is not supported.<br>
+    For VE, The library dependencies can be checked through the
+  &quot;nreadelf&quot; command inspecting DT_NEEDED section instead of
+  &quot;ldd&quot; command.</td>
+  <td class=xl87 width=527 style='border-top:none;border-left:none;width:395pt'>This
+  internally invokes dynamic linker &quot;ld-linux-ve.so.1&quot; which again is
+  not supported in VE (ref #5)</td>
+ </tr>
+ <tr height=114 style='mso-height-source:userset;height:85.5pt'>
+  <td height=114 style='height:85.5pt'></td>
+  <td rowspan=4 class=xl78 style='border-top:none'>7</td>
+  <td rowspan=4 class=xl88 width=240 style='border-top:none;width:180pt'>Improvement
+  of memory allocation by malloc()<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl76 width=512 style='border-top:none;border-left:none;width:384pt'>a)
+  For VE, DEFAULT_MMAP_THRESHOLD_MAX macro set to 1GB, while it<span
+  style='mso-spacerun:yes'>  </span>is 32MB for x86 architecture in
+  Glibc.<br>
+    <br>
+    </td>
+  <td rowspan=2 class=xl87 width=527 style='border-top:none;width:395pt'>malloc()
+  allocates memory using sbrk() or mmap(), depending on size. If malloc()
+  request<span style='mso-spacerun:yes'>  </span>is below
+  &quot;mmap_threshold&quot; memory is allocated using sbrk(), else it is
+  allocated using mmap().<br>
+    <br>
+    But VE has very large page size (2MB and 64MB), and there is more memory
+  wastage when memory is allocated using mmp() system call for malloc() request
+  size above &quot;mmap_threshold&quot;.<span style='mso-spacerun:yes'> 
+  </span>Because size is always aligned to page size.<br>
+    To avoid this DEFAULT_MMAP_THRESHOLD is set to 1GB,<span
+  style='mso-spacerun:yes'>  </span>So that for all malloc() requests below
+  1GB, memory will be allocated using sbrk() only.<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=120 style='mso-height-source:userset;height:90.0pt'>
+  <td height=120 style='height:90.0pt'></td>
+  <td class=xl75 width=512 style='border-top:none;border-left:none;width:384pt'>b)
+  for VE, DEFAULT_MMAP_THRESHOLD macro set to 1GB, while it is 128 KB for x86
+  architecture in Glibc</td>
+ </tr>
+ <tr height=224 style='mso-height-source:userset;height:168.0pt'>
+  <td height=224 style='height:168.0pt'></td>
+  <td class=xl75 width=512 style='border-top:none;border-left:none;width:384pt'>c)
+  For VE, Maximum number of arena created by glibc malloc() for any
+  process<span style='mso-spacerun:yes'>  </span>is set to 1, while it multiple
+  of number of available cores for<span style='mso-spacerun:yes'>  </span>x86
+  architecture in glibc.</td>
+  <td class=xl87 width=527 style='border-top:none;border-left:none;width:395pt'>For
+  VE HEAP_MAX_SIZE is set to 2GB and therefore per thread arena size is also
+  2GB (Glibc malloc() maintains separate heap for each thread, we called it as
+  per thread Arena).<br>
+    <br>
+    In multithreaded application whenever<span style='mso-spacerun:yes'> 
+  </span>thread request small amount of memory using malloc () for first time
+  per thread arena of size 2GB is created, which results in memory wastage if
+  there are multiple threads (each thread will block 2GB of memory physical
+  memory). <br>
+    <br>
+    To avoid the memory wastage number of maximum arena<span
+  style='mso-spacerun:yes'>  </span>created by glibc malloc() for any process
+  is set to one. So that only on arena will be used by all threads. This
+  difference can be observed by user in pmap output of VE process.<br>
+    <br>
+    Using mallopt() user can change M_MMAP_THRESHOLD between 0 to 1GB for VE
+  architecture, while on x86 Architecture it can be change between 0 to
+  32MB.<br>
+    <br>
+    </td>
+ </tr>
+ <tr height=57 style='mso-height-source:userset;height:42.75pt'>
+  <td height=57 style='height:42.75pt'></td>
+  <td class=xl75 width=512 style='border-top:none;border-left:none;width:384pt'>d)
+  For VE, HEAP_MAX_SIZE macro value changed to 2GB. while it is 64MB for x86
+  architecture in Glibc.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl87 width=527 style='border-top:none;border-left:none;width:395pt'>In
+  Glibc<span style='mso-spacerun:yes'>  </span>HEAP_MAX_SIZE is twice of
+  DEFAULT_MMAP_THRESHOLD_MAX).<br>
+    This difference can be observed by user in pmap output of VE process.</td>
+ </tr>
+ <tr height=278 style='mso-height-source:userset;height:208.5pt'>
+  <td height=278 style='height:208.5pt'></td>
+  <td rowspan=4 class=xl104 style='border-top:none'>8</td>
+  <td rowspan=4 class=xl88 width=240 style='border-top:none;width:180pt'>(VE_)
+  prefix in glibc's environment variables<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl75 width=512 style='border-top:none;border-left:none;width:384pt'>a)
+  Environment variables related to glibc mallopt() (MALLOC_xxx) are started
+  with &quot;VE&quot; prefix. e.g.<span style='mso-spacerun:yes'> 
+  </span>MALLOC_ARENA_TEST variable for VE architecture will become
+  VE_MALLOC_ARENA_TEST, while in x86 it is use without any prefix. <br>
+    The Environment variabales used by VE process with VE-Glibc are.<br>
+    VE_MALLOC_ARENA_MAX<br>
+    VE_MALLOC_ARENA_TEST<br>
+    VE_MALLOC_CHECK_<br>
+    VE_MALLOC_MMAP_MAX_<br>
+    VE_MALLOC_MMAP_THRESHOLD_<br>
+    VE_MALLOC_PERTURB_<br>
+    VE_MALLOC_TRIM_THRESHOLD_<br>
+    VE_MALLOC_TOP_PAD_</td>
+  <td rowspan=4 class=xl87 width=527 style='border-top:none;width:395pt'>VEOS
+  runs on VH (x86) and if same name is used for environment variables related
+  to malloc() and memusage. <br>
+    then variable exported for VH process will also affect the behaviour of VE
+  process or vice versa. To avoid this environment variables name for VE
+  processes should start with &quot;VE&quot; prefix.<span
+  style='mso-spacerun:yes'>  </span><br>
+    </td>
+ </tr>
+ <tr height=233 style='mso-height-source:userset;height:174.75pt'>
+  <td height=233 style='height:174.75pt'></td>
+  <td class=xl75 width=512 style='border-top:none;border-left:none;width:384pt'>b)
+  Environment variables related to memusage command (MEMUSAGE_xxx)<span
+  style='mso-spacerun:yes'>  </span>are started with &quot;VE&quot; prefix.
+  e.g. MEMUSAGE_OUTPUT variable for VE architecture will become <br>
+    VE_MEMUSAGE_OUTPUT, while in x86 it is use without any prefix.<br>
+    The Environment variabales used by VE process with VE-Glibc are.<br>
+    VE_MEMUSAGE_PROG_NAME<br>
+    VE_MEMUSAGE_OUTPUT<br>
+    VE_MEMUSAGE_BUFFER_SIZE<br>
+    VE_MEMUSAGE_NO_TIMER<br>
+    VE_MEMUSAGE_TRACE_MMAP</td>
+ </tr>
+ <tr height=546 style='mso-height-source:userset;height:409.5pt'>
+  <td height=546 style='height:409.5pt'></td>
+  <td rowspan=2 class=xl106 width=512 style='border-bottom:.5pt solid black;
+  border-top:none;width:384pt'>c)Other environment variables used by Ve-Glibc
+  programs are as under:<br>
+    VE_LD_WARN<br>
+    VE_LD_DEBUG<br>
+    VE_LD_AUDIT<br>
+    VE_LD_VERBOSE<br>
+    VE_LD_PRELOAD<br>
+    VE_LD_PROFILE<br>
+    VE_LD_BIND_NOW<br>
+    VE_LD_BIND_NOT<br>
+    VE_LD_SHOW_AUXV<br>
+    VE_LD_HWCAP_MASK<br>
+    VE_LD_ORIGIN_PATH<br>
+    VE_LD_LIBRARY_PATH<br>
+    VE_LD_DEBUG_OUTPUT<br>
+    VE_LD_DYNAMIC_WEAK<br>
+    VE_LD_USE_LOAD_BIAS<br>
+    VE_LD_POINTER_GUARD<br>
+    VE_LD_PROFILE_OUTPUT<br>
+    VE_LD_TRACE_PRELINKING<br>
+    VE_LD_TRACE_LOADED_OBJECTS<br>
+    VE_GCONV_PATH<br>
+    VE_GETTEXT_LOG_UNTRANSLATED<br>
+    VE_LANGUAGE<br>
+    VE_OUTPUT_CHARSET<br>
+    VE_LOCPATH<br>
+    VE_I18NPATH<br>
+    VE_GETCONF_DIR<br>
+    VE_SOTRUSS_FROMLIST<br>
+    VE_SOTRUSS_EXIT<br>
+    VE_SOTRUSS_WHICH<br>
+    VE_SOTRUSS_OUTNAME<br>
+    VE_SOTRUSS_TOLIST<br>
+    VE_MALLOC_TRACE<br>
+    VE_MALLOC_CHECK_<br>
+    Whereas X86 programs recognize these variables without &quot;VE_&quot;
+  prefix</td>
+ </tr>
+ <tr height=89 style='mso-height-source:userset;height:66.75pt'>
+  <td height=89 style='height:66.75pt'></td>
+ </tr>
+ <tr height=109 style='height:81.75pt'>
+  <td height=109 style='height:81.75pt'></td>
+  <td class=xl79 style='border-top:none'>9</td>
+  <td class=xl90 width=240 style='border-top:none;border-left:none;width:180pt'>Profiling
+  for VE</td>
+  <td class=xl80 width=512 style='border-top:none;border-left:none;width:384pt'>1.
+  Time value is not correct especially when context switch occurs in VE<br>
+    2. User cannot use SIGALRM in application along with gprof in VE</td>
+  <td class=xl81 width=527 style='border-top:none;border-left:none;width:395pt'>In
+  glibc(x86_64)<span style='mso-spacerun:yes'>  </span>,&quot;setitimer()&quot;
+  uses<span style='mso-spacerun:yes'>  </span>&quot;ITIMER_PROF&quot; flag for
+  profiling , but in glibc(VE) , &quot;setitimer()&quot; uses
+  &quot;ITIMER_REAL&quot; flag for profiling , as in VE architecture
+  &quot;ITIMER_PROF&quot; flag is not supported.<br>
+    <br>
+    #For more details regarding setitimer() please refer &quot;3. Partially
+  Supported System Calls &quot; in &quot;Difference Point for system
+  calls&quot; document.</td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl65></td>
+  <td>Note:-</td>
+  <td colspan=2 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 style='height:13.5pt'></td>
+  <td class=xl65></td>
+  <td colspan=3 style='mso-ignore:colspan'>The Difference point regarding
+  System calls of VEOS and Linux is already captured in &quot;Difference Point
+  for system calls&quot; document.</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=39 style='width:29pt'></td>
+  <td width=31 style='width:23pt'></td>
+  <td width=240 style='width:180pt'></td>
+  <td width=512 style='width:384pt'></td>
+  <td width=527 style='width:395pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

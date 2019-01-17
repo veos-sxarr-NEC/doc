@@ -1,4 +1,5 @@
-<html xmlns:o="urn:schemas-microsoft-com:office:office"
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns:x="urn:schemas-microsoft-com:office:excel"
 xmlns="http://www.w3.org/TR/REC-html40">
 
@@ -18,6 +19,18 @@ href="../Musl_libc_Supported_Api_Difference_Point.htm">
 	{margin:.75in .7in .75in .7in;
 	mso-header-margin:.3in;
 	mso-footer-margin:.3in;}
+ruby
+	{ruby-align:left;}
+rt
+	{color:windowtext;
+	font-size:6.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"ＭＳ Ｐゴシック", monospace;
+	mso-font-charset:128;
+	mso-char-type:katakana;
+	display:none;}
 -->
 </style>
 <![if !supportTabStrip]><script language="JavaScript">
@@ -44,94 +57,94 @@ else
 
 <body link=blue vlink=purple>
 
-<table border=0 cellpadding=0 cellspacing=0 width=1077 style='border-collapse:
- collapse;table-layout:fixed;width:809pt'>
- <col width=34 style='mso-width-source:userset;mso-width-alt:1243;width:26pt'>
- <col class=xl65 width=27 style='mso-width-source:userset;mso-width-alt:987;
- width:20pt'>
- <col width=210 style='mso-width-source:userset;mso-width-alt:7680;width:158pt'>
- <col width=365 style='mso-width-source:userset;mso-width-alt:13348;width:274pt'>
- <col width=441 style='mso-width-source:userset;mso-width-alt:16128;width:331pt'>
- <tr height=21 style='height:15.75pt'>
-  <td height=21 width=34 style='height:15.75pt;width:26pt'></td>
-  <td class=xl65 width=27 style='width:20pt'></td>
-  <td width=210 style='width:158pt'></td>
-  <td width=365 style='width:274pt'></td>
-  <td width=441 style='width:331pt'></td>
+<table border=0 cellpadding=0 cellspacing=0 width=1231 style='border-collapse:
+ collapse;table-layout:fixed;width:923pt'>
+ <col width=39 style='mso-width-source:userset;mso-width-alt:1248;width:29pt'>
+ <col class=xl65 width=31 style='mso-width-source:userset;mso-width-alt:992;
+ width:23pt'>
+ <col width=240 style='mso-width-source:userset;mso-width-alt:7680;width:180pt'>
+ <col width=417 style='mso-width-source:userset;mso-width-alt:13344;width:313pt'>
+ <col width=504 style='mso-width-source:userset;mso-width-alt:16128;width:378pt'>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 width=39 style='height:14.25pt;width:29pt'></td>
+  <td class=xl65 width=31 style='width:23pt'></td>
+  <td width=240 style='width:180pt'></td>
+  <td width=417 style='width:313pt'></td>
+  <td width=504 style='width:378pt'></td>
  </tr>
- <tr height=22 style='height:16.5pt'>
-  <td height=22 style='height:16.5pt'></td>
-  <td class=xl71 width=27 style='width:20pt'>No</td>
-  <td class=xl72 width=210 style='width:158pt'>Case</td>
-  <td class=xl72 width=365 style='width:274pt'>Difference Point</td>
-  <td class=xl72 width=441 style='width:331pt'>Reason</td>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 style='height:15.0pt'></td>
+  <td class=xl71 width=31 style='width:23pt'>No</td>
+  <td class=xl72 width=240 style='width:180pt'>Case</td>
+  <td class=xl72 width=417 style='width:313pt'>Difference Point</td>
+  <td class=xl72 width=504 style='width:378pt'>Reason</td>
  </tr>
  <tr height=46 style='mso-height-source:userset;height:34.5pt'>
   <td height=46 style='height:34.5pt'></td>
-  <td class=xl70 width=27 style='width:20pt'>1</td>
-  <td class=xl68 width=210 style='width:158pt'>Floating point exceptions.</td>
-  <td class=xl68 width=365 style='width:274pt'>Floating-point exceptions raised
+  <td class=xl70 width=31 style='width:23pt'>1</td>
+  <td class=xl68 width=240 style='width:180pt'>Floating point exceptions.</td>
+  <td class=xl68 width=417 style='width:313pt'>Floating-point exceptions raised
   by VE architecture could be different from x86 architecture.</td>
-  <td class=xl68 width=441 style='width:331pt'>VE doesn't have the
+  <td class=xl68 width=504 style='width:378pt'>VE doesn't have the
   corresponding hardware for de-normal number.</td>
  </tr>
  <tr height=22 style='mso-height-source:userset;height:16.5pt'>
   <td height=22 style='height:16.5pt'></td>
-  <td rowspan=2 class=xl196 width=27 style='border-bottom:1.0pt solid black;
-  border-top:none;width:20pt'>2</td>
-  <td rowspan=2 class=xl197 width=210 style='border-bottom:1.0pt solid black;
-  border-top:none;width:158pt'>open syscall</td>
-  <td class=xl69 width=365 style='width:274pt'>In VE, first call to open() in a
+  <td rowspan=2 class=xl193 width=31 style='border-bottom:1.0pt solid black;
+  border-top:none;width:23pt'>2</td>
+  <td rowspan=2 class=xl194 width=240 style='border-bottom:1.0pt solid black;
+  border-top:none;width:180pt'>open syscall</td>
+  <td class=xl69 width=417 style='width:313pt'>In VE, first call to open() in a
   user program returns 8.</td>
-  <td rowspan=2 class=xl197 width=441 style='border-bottom:1.0pt solid black;
-  border-top:none;width:331pt'>Prior fds are already used up by the pseudo
+  <td rowspan=2 class=xl194 width=504 style='border-bottom:1.0pt solid black;
+  border-top:none;width:378pt'>Prior fds are already used up by the pseudo
   process for internal uses like communication with driver, veos, etc</td>
  </tr>
  <tr height=32 style='mso-height-source:userset;height:24.0pt'>
   <td height=32 style='height:24.0pt'></td>
-  <td class=xl68 width=365 style='width:274pt'>While in Linux, first call to
+  <td class=xl68 width=417 style='width:313pt'>While in Linux, first call to
   open() in a user program returns 3.</td>
  </tr>
  <tr height=19 style='mso-height-source:userset;height:14.25pt'>
   <td height=19 style='height:14.25pt'></td>
-  <td rowspan=2 class=xl196 width=27 style='border-bottom:1.0pt solid black;
-  border-top:none;width:20pt'>3</td>
-  <td rowspan=2 class=xl197 width=210 style='border-bottom:1.0pt solid black;
-  border-top:none;width:158pt'>Minimum stack size for thread, i.e.
+  <td rowspan=2 class=xl193 width=31 style='border-bottom:1.0pt solid black;
+  border-top:none;width:23pt'>3</td>
+  <td rowspan=2 class=xl194 width=240 style='border-bottom:1.0pt solid black;
+  border-top:none;width:180pt'>Minimum stack size for thread, i.e.
   PTHREAD_STACK_MIN</td>
-  <td class=xl69 width=365 style='width:274pt'>In VE, minimum stack size for
+  <td class=xl69 width=417 style='width:313pt'>In VE, minimum stack size for
   thread is 4MB.</td>
-  <td rowspan=2 class=xl197 width=441 style='border-bottom:1.0pt solid black;
-  border-top:none;width:331pt'>Customized for VE architecture.</td>
+  <td rowspan=2 class=xl194 width=504 style='border-bottom:1.0pt solid black;
+  border-top:none;width:378pt'>Customized for VE architecture.</td>
  </tr>
  <tr height=44 style='mso-height-source:userset;height:33.0pt'>
   <td height=44 style='height:33.0pt'></td>
-  <td class=xl68 width=365 style='width:274pt'>While it is 16KB in glibc &amp;
+  <td class=xl68 width=417 style='width:313pt'>While it is 16KB in glibc &amp;
   2KB in musl-libc for x86 architecture.</td>
  </tr>
  <tr height=109 style='mso-height-source:userset;height:81.75pt'>
-  <td height=109 class=xl95 style='height:81.75pt'>&nbsp;</td>
-  <td class=xl96 align=right width=27 style='border-top:none;width:20pt'>4</td>
-  <td class=xl96 width=210 style='border-top:none;border-left:none;width:158pt'>Sending
+  <td height=109 class=xl95 style='height:81.75pt'>　</td>
+  <td class=xl96 align=right width=31 style='border-top:none;width:23pt'>4</td>
+  <td class=xl96 width=240 style='border-top:none;border-left:none;width:180pt'>Sending
   SIGCANCEL signal directly using syscall().</td>
-  <td class=xl97 width=365 style='border-top:none;border-left:none;width:274pt'>When
+  <td class=xl97 width=417 style='border-top:none;border-left:none;width:313pt'>When
   SIGCANCEL signal is sent using syscall()(Ex. Kill(), syscall(SYS_tgkill),
   etc.) then whole thread group will be terminated instead of target thread.</td>
-  <td class=xl98 width=441 style='border-top:none;border-left:none;width:331pt'>Unlike
+  <td class=xl98 width=504 style='border-top:none;border-left:none;width:378pt'>Unlike
   glibc, musl-libc installs handler for SIGCANCEL after pthread_cancel() is
   called. So, if SIGCANCEL signal is sent prior to pthread_cancel() invokation,
   it will result in termination of thread group as default action of SIGCANCEL
   is terminate.</td>
  </tr>
- <tr height=301 style='height:225.75pt'>
-  <td height=301 style='height:225.75pt'></td>
+ <tr height=253 style='height:189.75pt'>
+  <td height=253 style='height:189.75pt'></td>
   <td class=xl134 align=right style='border-top:none'>5</td>
-  <td class=xl135 width=210 style='width:158pt'>Specifying user-defined<span
+  <td class=xl135 width=240 style='width:180pt'>Specifying user-defined<span
   style='mso-spacerun:yes'>  </span>thread stack with pthread_attr_setstack()</td>
-  <td class=xl141 width=365 style='border-left:none;width:274pt'>If user
+  <td class=xl141 width=417 style='border-left:none;width:313pt'>If user
   creates a thread using user-defined thread stack with pthread_attr_setstack()
   API, stack overflow condition will not occur at the end of stack area.</td>
-  <td class=xl136 width=441 style='border-left:none;width:331pt'>As per the
+  <td class=xl136 width=504 style='border-left:none;width:378pt'>As per the
   threading APIs man-pages, following is the behavior:<br>
     <span style='mso-spacerun:yes'> </span>When the user allocates the thread
   stack using pthread_attr_setstack(), then the guard size attribute is ignored
@@ -151,13 +164,13 @@ else
  <tr height=99 style='mso-height-source:userset;height:74.25pt'>
   <td height=99 style='height:74.25pt'></td>
   <td class=xl134 align=right>6</td>
-  <td class=xl135 width=210 style='border-top:none;width:158pt'>Usage of
+  <td class=xl135 width=240 style='border-top:none;width:180pt'>Usage of
   /etc/opt/nec/ve/musl/ld-musl-ve.path.</td>
-  <td class=xl141 width=365 style='border-top:none;border-left:none;width:274pt'>In
+  <td class=xl141 width=417 style='border-top:none;border-left:none;width:313pt'>In
   VE,<span style='mso-spacerun:yes'>  </span>&quot;ld-musl-ve.path&quot; is the
   file used to fetch dynamic library path to search and load the
   libraries.<span style='mso-spacerun:yes'> </span></td>
-  <td class=xl136 width=441 style='border-top:none;border-left:none;width:331pt'>Order
+  <td class=xl136 width=504 style='border-top:none;border-left:none;width:378pt'>Order
   of searching in musl-libc:<br>
     1.VE_LD_LIBRATY_PATH<br>
     2.DT_RPATH/DT_RUNPATH (as decided by binutils)<br>
@@ -166,11 +179,11 @@ else
  </tr>
  <![if supportMisalignedColumns]>
  <tr height=0 style='display:none'>
-  <td width=34 style='width:26pt'></td>
-  <td width=27 style='width:20pt'></td>
-  <td width=210 style='width:158pt'></td>
-  <td width=365 style='width:274pt'></td>
-  <td width=441 style='width:331pt'></td>
+  <td width=39 style='width:29pt'></td>
+  <td width=31 style='width:23pt'></td>
+  <td width=240 style='width:180pt'></td>
+  <td width=417 style='width:313pt'></td>
+  <td width=504 style='width:378pt'></td>
  </tr>
  <![endif]>
 </table>

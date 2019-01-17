@@ -1,9 +1,13 @@
 tr
-	{mso-height-source:auto;}
+	{mso-height-source:auto;
+	mso-ruby-visibility:none;}
 col
-	{mso-width-source:auto;}
+	{mso-width-source:auto;
+	mso-ruby-visibility:none;}
 br
 	{mso-data-placement:same-cell;}
+ruby
+	{ruby-align:left;}
 .style17
 	{color:#4575FD;
 	font-size:11.0pt;
@@ -11,7 +15,7 @@ br
 	font-style:normal;
 	text-decoration:underline;
 	text-underline-style:single;
-	font-family:メイリオ, sans-serif;
+	font-family:メイリオ, monospace;
 	mso-font-charset:128;
 	mso-style-name:ハイパーリンク;
 	mso-style-id:8;}
@@ -22,7 +26,7 @@ a:link
 	font-style:normal;
 	text-decoration:underline;
 	text-underline-style:single;
-	font-family:メイリオ, sans-serif;
+	font-family:メイリオ, monospace;
 	mso-font-charset:128;}
 a:visited
 	{color:#9E5ECE;
@@ -31,7 +35,7 @@ a:visited
 	font-style:normal;
 	text-decoration:underline;
 	text-underline-style:single;
-	font-family:メイリオ, sans-serif;
+	font-family:メイリオ, monospace;
 	mso-font-charset:128;}
 .style0
 	{mso-number-format:General;
@@ -46,7 +50,7 @@ a:visited
 	font-weight:400;
 	font-style:normal;
 	text-decoration:none;
-	font-family:メイリオ, sans-serif;
+	font-family:メイリオ, monospace;
 	mso-font-charset:128;
 	border:none;
 	mso-protection:locked visible;
@@ -65,8 +69,8 @@ a:visited
 	font-weight:400;
 	font-style:normal;
 	text-decoration:none;
-	font-family:メイリオ, sans-serif;
-	mso-font-charset:0;
+	font-family:メイリオ, monospace;
+	mso-font-charset:128;
 	border:none;
 	mso-protection:locked visible;
 	mso-style-name:"標準 2";}
@@ -76,8 +80,8 @@ a:visited
 	font-weight:400;
 	font-style:normal;
 	text-decoration:none;
-	font-family:メイリオ, sans-serif;
-	mso-font-charset:0;}
+	font-family:メイリオ, monospace;
+	mso-font-charset:128;}
 .font13
 	{color:black;
 	font-size:11.0pt;
@@ -97,7 +101,7 @@ td
 	font-weight:400;
 	font-style:normal;
 	text-decoration:none;
-	font-family:メイリオ, sans-serif;
+	font-family:メイリオ, monospace;
 	mso-font-charset:128;
 	mso-number-format:General;
 	text-align:general;
@@ -110,27 +114,19 @@ td
 	mso-rotate:0;}
 .xl66
 	{mso-style-parent:style16;
-	font-family:メイリオ, sans-serif;
-	mso-font-charset:0;
 	vertical-align:bottom;}
 .xl67
 	{mso-style-parent:style16;
-	font-family:メイリオ, sans-serif;
-	mso-font-charset:0;
 	mso-number-format:"Medium Date";
 	vertical-align:bottom;}
 .xl68
 	{mso-style-parent:style16;
-	font-family:メイリオ, sans-serif;
-	mso-font-charset:0;
 	text-align:center;
 	vertical-align:bottom;}
 .xl69
 	{mso-style-parent:style16;
 	color:windowtext;
 	font-weight:700;
-	font-family:メイリオ, sans-serif;
-	mso-font-charset:0;
 	text-align:center;
 	vertical-align:bottom;
 	border:.5pt solid windowtext;
@@ -140,28 +136,20 @@ td
 	{mso-style-parent:style16;
 	color:windowtext;
 	font-weight:700;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
 	vertical-align:bottom;}
 .xl71
 	{mso-style-parent:style16;
 	color:windowtext;
-	font-family:メイリオ, sans-serif;
-	mso-font-charset:0;
 	text-align:left;
 	vertical-align:bottom;}
 .xl72
 	{mso-style-parent:style16;
 	color:windowtext;
-	font-family:メイリオ, sans-serif;
-	mso-font-charset:0;
 	vertical-align:bottom;}
 .xl73
 	{mso-style-parent:style16;
 	color:windowtext;
 	font-weight:700;
-	font-family:メイリオ, sans-serif;
-	mso-font-charset:0;
 	vertical-align:bottom;
 	border:.5pt solid windowtext;
 	background:yellow;
@@ -169,27 +157,19 @@ td
 .xl74
 	{mso-style-parent:style16;
 	color:windowtext;
-	font-family:メイリオ, sans-serif;
-	mso-font-charset:0;
 	text-align:center;
 	vertical-align:bottom;}
 .xl75
 	{mso-style-parent:style16;
 	font-weight:700;
-	font-family:メイリオ, sans-serif;
-	mso-font-charset:0;
 	vertical-align:bottom;}
 .xl76
 	{mso-style-parent:style16;
-	font-family:メイリオ, sans-serif;
-	mso-font-charset:0;
 	mso-number-format:"\@";
 	vertical-align:bottom;}
 .xl77
 	{mso-style-parent:style16;
 	color:windowtext;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
 	vertical-align:bottom;
 	border-top:.5pt solid windowtext;
 	border-right:.5pt solid windowtext;
@@ -197,43 +177,23 @@ td
 	border-left:none;}
 .xl78
 	{mso-style-parent:style16;
-	font-weight:700;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
 	vertical-align:bottom;}
 .xl79
 	{mso-style-parent:style16;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
-	vertical-align:bottom;}
-.xl80
-	{mso-style-parent:style16;
 	color:windowtext;
 	font-weight:700;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
 	text-align:left;
 	vertical-align:bottom;}
+.xl80
+	{mso-style-parent:style0;
+	text-align:left;}
 .xl81
 	{mso-style-parent:style0;
+	font-weight:700;
 	text-align:left;}
 .xl82
-	{mso-style-parent:style0;
-	font-weight:700;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
-	text-align:left;}
-.xl83
 	{mso-style-parent:style16;
 	color:windowtext;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
-	vertical-align:bottom;}
-.xl84
-	{mso-style-parent:style16;
-	color:windowtext;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
 	text-align:left;
 	vertical-align:bottom;
 	border-top:.5pt solid windowtext;
@@ -241,27 +201,38 @@ td
 	border-bottom:.5pt solid windowtext;
 	border-left:none;
 	white-space:normal;}
+.xl83
+	{mso-style-parent:style16;
+	color:windowtext;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;}
+.xl84
+	{mso-style-parent:style16;
+	color:windowtext;
+	font-weight:700;
+	text-align:left;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;
+	background:yellow;
+	mso-pattern:black none;}
 .xl85
 	{mso-style-parent:style16;
 	color:windowtext;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
-	text-align:left;
-	vertical-align:bottom;}
+	text-align:center;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;}
 .xl86
 	{mso-style-parent:style16;
 	color:windowtext;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
+	text-align:left;
 	vertical-align:bottom;
 	border:.5pt solid windowtext;}
 .xl87
 	{mso-style-parent:style16;
 	color:windowtext;
 	font-weight:700;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
-	text-align:left;
+	mso-number-format:"\@";
+	text-align:center;
 	vertical-align:bottom;
 	border:.5pt solid windowtext;
 	background:yellow;
@@ -269,138 +240,73 @@ td
 .xl88
 	{mso-style-parent:style16;
 	color:windowtext;
-	font-weight:700;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
-	text-align:center;
+	mso-number-format:"\@";
 	vertical-align:bottom;
-	border:.5pt solid windowtext;
-	background:yellow;
-	mso-pattern:black none;}
+	border:.5pt solid windowtext;}
 .xl89
 	{mso-style-parent:style16;
 	color:windowtext;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
-	text-align:center;
 	vertical-align:bottom;
-	border:.5pt solid windowtext;}
+	border:.5pt solid windowtext;
+	white-space:normal;}
 .xl90
 	{mso-style-parent:style16;
 	color:windowtext;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
-	text-align:left;
+	mso-number-format:"\@";
 	vertical-align:bottom;
-	border:.5pt solid windowtext;}
+	border:.5pt solid windowtext;
+	white-space:normal;}
 .xl91
 	{mso-style-parent:style16;
 	color:windowtext;
-	font-weight:700;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
+	mso-number-format:"\@";
+	text-align:left;
 	vertical-align:bottom;
 	border:.5pt solid windowtext;
-	background:yellow;
-	mso-pattern:black none;}
+	white-space:normal;}
 .xl92
-	{mso-style-parent:style16;
-	color:windowtext;
-	font-weight:700;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
-	mso-number-format:"\@";
-	text-align:center;
-	vertical-align:bottom;
-	border:.5pt solid windowtext;
-	background:yellow;
-	mso-pattern:black none;}
+	{mso-style-parent:style0;
+	font-weight:700;}
 .xl93
-	{mso-style-parent:style16;
-	color:windowtext;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
-	mso-number-format:"\@";
-	vertical-align:bottom;
+	{mso-style-parent:style0;
 	border:.5pt solid windowtext;}
 .xl94
-	{mso-style-parent:style16;
-	color:windowtext;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
-	vertical-align:bottom;
+	{mso-style-parent:style0;
 	border:.5pt solid windowtext;
 	white-space:normal;}
 .xl95
 	{mso-style-parent:style16;
-	color:windowtext;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
-	mso-number-format:"\@";
-	vertical-align:bottom;
-	border:.5pt solid windowtext;
-	white-space:normal;}
-.xl96
-	{mso-style-parent:style16;
-	color:windowtext;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
-	mso-number-format:"\@";
-	text-align:left;
-	vertical-align:bottom;
-	border:.5pt solid windowtext;
-	white-space:normal;}
-.xl97
-	{mso-style-parent:style0;
-	font-weight:700;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;}
-.xl98
-	{mso-style-parent:style0;
-	border:.5pt solid windowtext;}
-.xl99
-	{mso-style-parent:style0;
-	border:.5pt solid windowtext;
-	white-space:normal;}
-.xl100
-	{mso-style-parent:style16;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
 	text-align:left;
 	vertical-align:bottom;}
-.xl101
+.xl96
 	{mso-style-parent:style17;
 	color:#4575FD;
 	text-decoration:underline;
 	text-underline-style:single;
 	vertical-align:bottom;}
-.xl102
+.xl97
 	{mso-style-parent:style16;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
 	mso-number-format:"\@";
 	vertical-align:bottom;}
-.xl103
+.xl98
 	{mso-style-parent:style16;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
 	mso-number-format:"\@";
 	text-align:left;
 	vertical-align:bottom;}
-.xl104
+.xl99
 	{mso-style-parent:style0;
 	mso-number-format:"\@";}
-.xl105
+.xl100
 	{mso-style-parent:style0;
 	mso-number-format:"\@";
 	text-align:left;}
-.xl106
+.xl101
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-family:"Arial Unicode MS", monospace;
 	mso-font-charset:128;
 	border:.5pt solid windowtext;}
-.xl107
+.xl102
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-family:"Arial Unicode MS", monospace;
@@ -410,7 +316,7 @@ td
 	border-right:.5pt solid windowtext;
 	border-bottom:none;
 	border-left:.5pt solid windowtext;}
-.xl108
+.xl103
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-family:"Arial Unicode MS", monospace;
@@ -420,14 +326,14 @@ td
 	border-right:.5pt solid windowtext;
 	border-bottom:none;
 	border-left:.5pt solid windowtext;}
-.xl109
+.xl104
 	{mso-style-parent:style0;
 	text-align:left;
 	border-top:none;
 	border-right:.5pt solid windowtext;
 	border-bottom:none;
 	border-left:.5pt solid windowtext;}
-.xl110
+.xl105
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-family:"Arial Unicode MS", monospace;
@@ -437,48 +343,49 @@ td
 	border-right:.5pt solid windowtext;
 	border-bottom:.5pt solid windowtext;
 	border-left:.5pt solid windowtext;}
-.xl111
+.xl106
 	{mso-style-parent:style16;
-	font-family:メイリオ, sans-serif;
-	mso-font-charset:0;
 	vertical-align:bottom;
 	border:.5pt solid windowtext;}
-.xl112
+.xl107
 	{mso-style-parent:style16;
-	font-family:メイリオ, sans-serif;
-	mso-font-charset:0;
 	vertical-align:bottom;
 	border:.5pt solid windowtext;
 	white-space:normal;}
-.xl113
+.xl108
 	{mso-style-parent:style16;
 	font-weight:700;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
 	vertical-align:bottom;
 	border:.5pt solid windowtext;
 	background:yellow;
 	mso-pattern:black none;}
-.xl114
+.xl109
+	{mso-style-parent:style0;
+	mso-number-format:"0\.0_ ";
+	border:.5pt solid windowtext;}
+.xl110
+	{mso-style-parent:style16;
+	vertical-align:bottom;
+	white-space:normal;}
+.xl111
+	{mso-style-parent:style0;
+	vertical-align:bottom;}
+.xl112
 	{mso-style-parent:style16;
 	font-weight:700;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
 	mso-number-format:"\@";
 	vertical-align:bottom;
 	border:.5pt solid windowtext;
 	background:yellow;
 	mso-pattern:black none;}
-.xl115
+.xl113
 	{mso-style-parent:style0;
 	font-weight:700;
-	font-family:メイリオ, monospace;
-	mso-font-charset:128;
 	vertical-align:bottom;
 	border:.5pt solid windowtext;
 	background:yellow;
 	mso-pattern:black none;}
-.xl116
+.xl114
 	{mso-style-parent:style0;
 	vertical-align:bottom;
 	border:.5pt solid windowtext;}

@@ -1,4 +1,57 @@
 
+2.0.1
+
+Summary : Support of glibc for VE
+Type    : enhancement
+Detail  : glibc for VE is available. Please see VEOS document 
+          "How to execute VE program" and "Difference Point for Glibc-libc"
+          for additional information.
+
+Summary : Support of Accelerated I/O
+Type    : enhancement
+Detail  : "Accelerated I/O" improves I/O performance by efficient data transfer 
+          between VE and VH.This feature is implemented in 'libveaccio'.
+          Accelerated I/O is enabled when this library is loaded at runtime.
+          Please see VEOS document "How to execute VE program" for usage.
+
+Summary : Support of NON-ATOMIC-IO on VE architecture
+Type    : enhancement
+Detail  : All read/write family and send/recv family system call handlers 
+          (except send/recv using struct msghdr and mmsghdr) have been enhanced 
+          to support I/O operations in non atomic mode. In non atomic mode I/O
+          if the requested I/O size is greater than 64MB, the I/O operation will
+          be broken into multiple fix I/O each of size 64MB. This non atomic I/O 
+          feature will reduce the memory footprint at VH side.
+
+Summary : Fix of issue where ve_exec may terminate abnormally with SIGSEGV
+Type    : bugfix
+Detail  : When VE process is running in multithreading environment and a VE 
+          thread invokes exit_group(), exit_group() procedure unmaps a memory 
+          region, used for tracing status of VE task in ve_exec process.
+          If at the same time another thread tries to access the mapped region,
+          segmentation fault will occur.
+
+Summary : Fix of the issue where VE process hangs during ve_get_regvals()
+Type    : bugfix
+Detail  : VE task is never scheduled on VE core due to some wrong VE task 
+          handling at VEOS while serving ve_get_regvals(). As a result VE 
+          process seems to be hanged.
+
+Summary : Fix of the issue where redundant entries are added to external
+	  variable "environ" when execve() syscall is invoked.
+Type    : bugfix
+Detail  : When VE program invokes execve() recursively to load VE binary,
+	  redundant entries of some environment variables like LOG4C_RCPATH,
+	  VE_EXEC_PATH etc. gets added to global extern variable "environ".
+	  This may lead to failure of execve() syscall when the total number
+	  of environment variable becomes large.
+
+Summary : Fix the issue where VE 'sadc' command do not exit.
+Type    : bugfix
+Detail  : VE 'sadc' command hangs due to incorrect HW data file parsing.
+	  Therefore, 'sadc' processes executed through cron job at
+	  intervals run indefinitely.
+
 1.3.2
 
 Summary : Performance improvement in write() family syscall.

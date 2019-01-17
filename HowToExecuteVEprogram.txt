@@ -1,12 +1,12 @@
 VEOS:How to execute VE program
-v1.2.2
-Date:15-Aug-2018
+v2.0
+Date:11-Dec-2018
 
 
 First of all, you have to login your target VH which means Linux/x86 machines
 having VEs.
 
-- how many VEs and the CPU cores you can use in the VH?
+- How to check the number of VE nodes and cores
 
   $ unset VE_NODE_NUMBER
   $ /opt/nec/ve/bin/uptime | grep Node
@@ -29,13 +29,14 @@ having VEs.
          of the VE CPU cores because there is no context switching while
          executing the VE program.
 
-- how to make the VE program?
+
+- How to make a VE program
 
   $ vi hello.c
   $ /opt/nec/ve/bin/ncc hello.c -o hello
 
 
-- how to run the VE program?
+- How to run a VE program
 
   If you want to execute your program on VE Node #0:
 
@@ -70,14 +71,95 @@ having VEs.
 
   Please see 'Environment variables' section for more variables.
 
-  When you want to add library search path as the default value,
-  please add the search path to the following configuration file.
+
+- How to add path to the default library search path
+  In case you use glibc:
+  Please put a configuration file to specify additional search path into
+  "/etc/opt/nec/ve/ld.so.conf.d" directory and then run the following command.
+  $ sudo /opt/nec/ve/glibc/sbin/ldconfig
+  The name of the configuration file should be end with ".conf" and the list of
+  additional search path should be written in it.
+
+  In case you use musl-libc:
+  Please add the search path to the following configuration file.
     /etc/opt/nec/ve/musl/ld-musl-ve.path
   Please see 'Difference Point for Musl-libc' document 
   (Musl_libc_Supported_Api_Difference_Point.htm) for detail.
 
 
-- how to run ported commands for VEOS?
+- How to enable accelerated I/O
+
+  "Accelerated I/O" is a feature which improves I/O performance by
+  efficient data transfer between VE and VH.
+
+  The throughput and the latency of the below read/write family system
+  calls will be improved.
+
+      read     write
+      pread    pwrite
+      readv    writev
+      preadv   pwritev
+
+  This feature uses huge pages as buffers, and the same I/O path which
+  is used when data is transferred via InfiniBand. Because of this,
+  this feature can be enabled when the below requirements are met.
+
+   * The kernel parameter "vm.nr_hugepages" is more than or equal to
+     256/per VE (Please see sysctl(8) man page to set the kernel
+     parameter)
+   * VH isn't connected to the other VH by InfiniBand
+   * VH doesn't use ScaTeFS
+
+  "Accelerated I/O" is enabled when 'libveaccio' is loaded at
+  runtime. Please set environment variable VE_LD_PRELOAD to load it.
+
+   $ export VE_LD_PRELOAD=libveaccio.so.1
+   $ ./hello
+
+  Please note data is transferred every 8MB when "Accelerated I/O" is
+  enabled. So, read/write family system calls will not be atomic when
+  the size is more than 8MB.
+
+
+- Environment Variables
+
+  These environment variables can control VE program execution.
+
+  * VE_NODE_NUMBER
+    It specifies VE node number on which a program will be executed. 
+
+  * VE_LD_LIBRARY_PATH
+    This environment variable provides a library path for finding dynamic 
+    libraries in colon separated format.
+
+  * VE_LD_PRELOAD
+    This environment variable sets the pre-loading path for dynamic linker 
+    and that allows to load you specified, shared library before all 
+    other shared libraries which are linked to an executable get loaded.
+    
+  * VE_ATOMIC_IO
+    When this environment variable is set to 1, atomic I/O is enabled.
+    When VE program invokes one of read/write family system calls and
+    send/recv familiy system calls, a buffer is allocated at VH
+    side. If atomic I/O is enabled, this buffer's size will the
+    request size up to 2GB.
+
+    Enabling atomic I/O has a impact on the below system calls.
+
+      read     write
+      pread    pwrite
+      readv    writev
+      preadv   pwritev
+      send     recv
+      sendto   recvfrom
+
+    If atomic I/O is not enabled, the buffer size is fixed to 64MB.
+    If the requested size is more than 64MB, data will be transferred
+    every 64MB. So, read/write family system calls and send/recv
+    family system calls will not be atomic in this case.
+
+
+- How to run ported commands for VEOS
 
   If you want to execute your target command, such as ps, on VE Node #0:
 
@@ -130,13 +212,19 @@ having VEs.
    vmstat
    w
 
-   - how to debug the VE program
- 
-     You can use gdb:
+  glibc supports the following commands:
 
-     $ export VE_NODE_NUMBER=0
-     $ /opt/nec/ve/bin/gdb ./hello
-     (gdb) run
+   /opt/nec/ve/glibc/sbin/ldconfig
+
+
+- How to debug VE program
+ 
+  You can use gdb:
+
+   $ export VE_NODE_NUMBER=0
+   $ /opt/nec/ve/bin/gdb ./hello
+   (gdb) run
+
 
 - Different points between VEOS and Linux
 
@@ -145,6 +233,7 @@ having VEs.
   - Difference_Point_System_Calls.pdf
   - Difference_Points_GDB.htm
   - Difference_Points_Commands.pdf
+  - Difference_Points_glibc.htm
   - Musl_libc_Supported_Api_Difference_Point.htm
 
 - VEOS high level design
@@ -152,6 +241,7 @@ having VEs.
   Please see the following documents
 
   - VEOS_high_level_desing.pdf
+
 
 - When you face VEOS problems
 
@@ -205,22 +295,3 @@ having VEs.
      $ sudo cp /etc/opt/nec/ve/veos/log4crc.org /etc/opt/nec/ve/veos/log4crc
      $ sudo systemctl restart 've-os-launcher@*'
      $ unset LOG4C_RCPATH
-
-
-- Environment Variables
-
-  These environment variables can control VE program execution.
-
-  * VE_NODE_NUMBER
-    It specifies VE node number on which a program will be executed. 
-
-  * VE_LD_LIBRARY_PATH
-    This environment variable provides a library path for finding dynamic 
-    libraries in colon separated format.
-
-  * VE_LD_PRELOAD
-    This environment variable sets the pre-loading path for dynamic linker 
-    and that allows to load you specified, shared library before all 
-    other shared libraries which are linked to an executable get loaded.
-    
-

@@ -1,6 +1,6 @@
 VEOS:VEプログラムの実行方法
-v1.2.2
-Date:15-Aug-2018
+v2.0
+Date:11-Dec-2018
 
 
 はじめに、対象のVH(VEが接続されるLinux/x86マシン)にログインしてください。
@@ -27,10 +27,12 @@ Date:15-Aug-2018
          VE性能を最大限に引き出せます。これはVEプログラム実行中にコンテキスト
          スイッチが発生しないからです。
 
+
 - VEプログラムの作り方
 
   $ vi hello.c
   $ /opt/nec/ve/bin/ncc hello.c -o hello
+
 
 - VEプログラムの実行方法
 
@@ -64,10 +66,90 @@ Date:15-Aug-2018
 
   その他の環境変数については、「環境変数」の節を参照してください。
 
+
+- 既定のライブラリ検索パスの追加方法
+
+  glibcを使用する場合:
+  規定値として検索パスを追加する場合は、"/etc/opt/nec/ve/ld.so.conf.d"ディレク
+  トリに設定ファイルを追加した後、下記コマンドを実行してください。
+  $ sudo /opt/nec/ve/glibc/sbin/ldconfig
+  設定ファイルは末尾が".conf"の任意のファイル名とし、検索パスを記入します。
+
+  musl-libcを使用する場合:
   規定値として検索パスを追加する場合は、下記の設定ファイルにパスを追加します。
   /etc/opt/nec/ve/musl/ld-musl-ve.path
   詳細は、ドキュメント「Musl-libcの相違点」
   (Musl_libc_Supported_Api_Difference_Point.htm) を参照してください。
+
+
+- 高速I/Oを有効にする方法
+
+  高速I/Oは、VEとVH間で効率的にデータを転送することで、I/O性能を向上す
+  るための機能です。
+
+  以下のread/write系のシステムコールのスループットとレイテンシが改善し
+  ます。
+      read     write
+      pread    pwrite
+      readv    writev
+      preadv   pwritev
+
+  この機能は、Huge Pagesをバッファとして使用し、InfiniBandを通じたデー
+  タ転送を行う際に使われるI/Oパスと同じI/Oパスを使用します。そのため、
+  この機能は、以下の条件が成立するときにのみ、有効にすることができます。
+
+    * カーネルパラメータ"vm.nr_hugepages"がVEあたり256以上に設定されて
+      いること
+      (カーネルパラメータの設定は、sysctl(8) man pageを参照してください)
+    * InfiniBandを介して他のVHに接続されていないこと
+    * ScaTeFSを利用していないこと
+
+  高速I/Oは、 libveaccio が実行時にロードされると有効になります。ロード
+  するためには、環境変数 VE_LD_PRELOAD を設定してください。
+
+   $ export VE_LD_PRELOAD=libveaccio.so.1
+   $ ./hello
+
+  高速I/O有効時、8MB単位でデータが転送されます。そのため、サイズが8MBを
+  超える場合、read/write系システムコールはアトミックではなくなることに
+  注意してください。
+
+
+- 環境変数
+
+  以下の環境変数によって、プログラム実行の制御が可能です。
+
+  * VE_NODE_NUMBER
+    プログラムが実行される VEノード番号を指定します。
+
+  * VE_LD_LIBRARY_PATH
+    プログラム実行時に検索するライブラリパスを指定します。VE_LD_LIBRARY_PATH
+    には、コロンで区切った複数のディレクトリを指定できます。
+
+  * VE_LD_PRELOAD
+    この環境変数は動的リンカにプリロードする共有ライブラリのパスを設定します。
+    実行ファイルにロードされるどの共有ライブラリよりも先に、ユーザが指定する
+    ライブラリをロードする事が可能です。
+
+  * VE_ATOMIC_IO
+    この環境変数を1に設定すると、アトミックI/Oが有効になります。VEプロ
+    グラムがread/write系システムコールやsend/recv系システムコールを呼び
+    出すと、VH側でバッファが確保されます。アトミックI/Oが有効の場合、こ
+    のバッファのサイズは、要求されたサイズと一致し、最大で2GBとなります。
+
+    アトミックI/Oは以下のシステムコールに影響があります。
+
+      read     write
+      pread    pwrite
+      readv    writev
+      preadv   pwritev
+      send     recv
+      sendto   recvfrom
+
+    もし、アトミックI/Oが無効の場合、バッファサイズは64MB固定です。要求
+    されたサイズが64MBを超える場合、64MBごとにデータが転送されます。こ
+    の場合、read/write系システムコールやsend/recv系のシステムコールは、
+    アトミックではなくなります。
 
 
 - VEOSコマンドの実行方法
@@ -123,13 +205,19 @@ Date:15-Aug-2018
    vmstat
    w
 
-   - VEプログラムのデバッグ方法
+  glibcは以下のコマンドをサポートします:
 
-     GDBを使用可能です:
+   /opt/nec/ve/glibc/sbin/ldconfig
+
+
+- VEプログラムのデバッグ方法
+
+  GDBを使用可能です:
  
-     $ export VE_NODE_NUMBER=0
-     $ /opt/nec/ve/bin/gdb ./hello
-     (gdb) run
+   $ export VE_NODE_NUMBER=0
+   $ /opt/nec/ve/bin/gdb ./hello
+   (gdb) run
+
 
 - VEOSとLinuxの違いについて
 
@@ -138,13 +226,16 @@ Date:15-Aug-2018
   - Difference_Point_System_Calls.pdf
   - Difference_Points_GDB.htm
   - Difference_Points_Commands.pdf
+  - Difference_Points_glibc.htm
   - Musl_libc_Supported_Api_Difference_Point.htm
+
 
 - VEOS各種仕様について
 
   以下の情報を参照願います:
 
   - VEOS_high_level_desing.pdf
+
 
 - VEOSの問題発生時の情報採取
 
@@ -195,21 +286,3 @@ Date:15-Aug-2018
      $ sudo cp /etc/opt/nec/ve/veos/log4crc.org /etc/opt/nec/ve/veos/log4crc
      $ sudo systemctl restart 've-os-launcher@*'
      $ unset LOG4C_RCPATH
-
-
-- 環境変数
-
-  以下の環境変数によって、プログラム実行の制御が可能です。
-
-  * VE_NODE_NUMBER
-    プログラムが実行される VEノード番号を指定します。
-
-  * VE_LD_LIBRARY_PATH
-    プログラム実行時に検索するライブラリパスを指定します。VE_LD_LIBRARY_PATH
-    には、コロンで区切った複数のディレクトリを指定できます。
-
-  * VE_LD_PRELOAD
-    この環境変数は動的リンカにプリロードする共有ライブラリのパスを設定します。
-    実行ファイルにロードされるどの共有ライブラリよりも先に、ユーザが指定する
-    ライブラリをロードする事が可能です。
-

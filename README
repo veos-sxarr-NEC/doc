@@ -1,6 +1,6 @@
 VEOS:README 
-v1.2.2
-Date:15-Aug-2018
+v2.0
+Date:13-Dec-2018
 
 - CAUTIONS
 
@@ -33,3 +33,21 @@ Date:15-Aug-2018
 - VEOS doesn't support Linux which works on any virtual machine, such as QEMU
   etc. VEOS can work correctly only on Linux which works directly on the
   physical machine.
+
+- Please do not apply excessive loads on your Linux/x86 machine to make VEOS to
+  be able to provide OS functionality steadily. Excessive loads on Linux/x86
+  machine may cause unexpected performance degrades on VEOS such as long
+  response time.
+
+- Glibc 2.21 version doesn't set the appropriate permissions or mode to a hard 
+  link file created using "linkat" api when its target(oldpath) is a symbolic 
+  link file descriptor returned while opening a file using "openat" API with 
+  flags combination "O_TMPFILE | O_RDWR" and the required mode.
+  Please set the permissions manually to the link file through "chmod" API.
+
+- sched_setaffinity(2) system call and "taskset" command is not supported for 
+  VEOS v2.0.1. In multithreaded application if a task is having more than two 
+  threads and user application tries to change the CPU affinity of thread by 
+  using sched_setaffinity(2) or "taskset" command may leads to segmentation 
+  fault and abnormal termination of VE task.
+
