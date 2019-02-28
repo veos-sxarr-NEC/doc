@@ -1,6 +1,8 @@
-VEOS:README 
-v2.0
-Date:13-Dec-2018
+VEOS:README
+Date:07-Feb-2019
+
+This document describes the information regarding the VEOS version 2.0.3 or 
+later.
 
 - CAUTIONS
 
@@ -39,15 +41,6 @@ Date:13-Dec-2018
   machine may cause unexpected performance degrades on VEOS such as long
   response time.
 
-- Glibc 2.21 version doesn't set the appropriate permissions or mode to a hard 
-  link file created using "linkat" api when its target(oldpath) is a symbolic 
-  link file descriptor returned while opening a file using "openat" API with 
-  flags combination "O_TMPFILE | O_RDWR" and the required mode.
-  Please set the permissions manually to the link file through "chmod" API.
-
-- sched_setaffinity(2) system call and "taskset" command is not supported for 
-  VEOS v2.0.1. In multithreaded application if a task is having more than two 
-  threads and user application tries to change the CPU affinity of thread by 
-  using sched_setaffinity(2) or "taskset" command may leads to segmentation 
-  fault and abnormal termination of VE task.
+- setjmp() is not supported in shared library. If setjmp() is called in shared
+  library, the program can crash unexpectedly.
 

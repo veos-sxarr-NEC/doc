@@ -1,4 +1,55 @@
 
+2.0.3
+This section describes changes between the 2.0.1 and 2.0.3 versions of VEOS.
+
+Summary : Improvement of memory consumption in glibc
+          for APIs which use internal buffer.
+Type    : enhancement
+Detail  : APIs which use internal buffer, like printf(), dprintf()
+          etc, consume only 2MB page irrespective of VE binary's
+          default pagesize. In comparison with previous version, the
+          memory consumption for these APIs is reduced by 62MB in case
+          the default pagesize is 64MB.
+
+Summary	: Improvement of memcpy() performance
+Type	: enhancement
+Detail	: To improve the performance areas where vector memcpy() is used 
+	  internally for copying/transfering of smaller size data. 
+	  Example of some of the  APIs where performance will be enhanced 
+	  are fread() , fwrite() , strcpy() , stpcpy() , strncat() ,
+	  strcat() etc.
+
+Summary	: Improvement of memory consumed by system()
+Type	: enhancement
+Detail	: To overcome the limitation of consuming VE memory during execution of
+          VH program through system(),  request will be served in VH. User can
+          now execute a VH program through system() at VE even with limited
+          memory.
+
+Summary : Support of openat()  version limitation in glibc
+Type    : enhancement
+Detail  : Updated the handling in library to set the permissions to a hard link 
+          file created using 'linkat()' when its target(oldpath) is a symbolic
+          link file descriptor returned while opening a file using 'openat()' 
+          with flags combination 'O_TMPFILE | O_RDWR' and the required mode.
+
+Summary : Fix of the issue where VEOS performance degrades when an attempt
+	  is made to read VE process registers.
+Type    : bugfix
+Detail  : When an attempt is made to read VE process registers using 
+          ve_get_regvals() which is included in libveosinfo then VEOS 
+          proformance degrades significantly.
+
+Summary : Fix the issue where sched_setaffinity() system call or taskset may
+          causes segmentation fault in multithreaded VE environment.
+Type    : bugfix
+Detail  : In multithreaded VE environment when VE task is migrated from one VE
+          core to another VE core either by using sched_setaffinity() system
+          call or by taskset command, memory/address translation related context
+          for VE task are not getting restored properly to the newly migrated VE
+          core, this causes segmentation fault(SIGSEGV) for VE task.
+
+
 2.0.1
 
 Summary : Support of glibc for VE
