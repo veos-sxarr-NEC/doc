@@ -1,0 +1,649 @@
+
+2.0.3
+This section describes changes between the 2.0.1 and 2.0.3 versions of VEOS.
+
+Summary : Improvement of memory consumption in glibc
+          for APIs which use internal buffer.
+Type    : enhancement
+Detail  : APIs which use internal buffer, like printf(), dprintf()
+          etc, consume only 2MB page irrespective of VE binary's
+          default pagesize. In comparison with previous version, the
+          memory consumption for these APIs is reduced by 62MB in case
+          the default pagesize is 64MB.
+
+Summary	: Improvement of memcpy() performance
+Type	: enhancement
+Detail	: To improve the performance areas where vector memcpy() is used 
+	  internally for copying/transfering of smaller size data. 
+	  Example of some of the  APIs where performance will be enhanced 
+	  are fread() , fwrite() , strcpy() , stpcpy() , strncat() ,
+	  strcat() etc.
+
+Summary	: Improvement of memory consumed by system()
+Type	: enhancement
+Detail	: To overcome the limitation of consuming VE memory during execution of
+          VH program through system(),  request will be served in VH. User can
+          now execute a VH program through system() at VE even with limited
+          memory.
+
+Summary : Support of openat()  version limitation in glibc
+Type    : enhancement
+Detail  : Updated the handling in library to set the permissions to a hard link 
+          file created using 'linkat()' when its target(oldpath) is a symbolic
+          link file descriptor returned while opening a file using 'openat()' 
+          with flags combination 'O_TMPFILE | O_RDWR' and the required mode.
+
+Summary : Fix of the issue where VEOS performance degrades when an attempt
+	  is made to read VE process registers.
+Type    : bugfix
+Detail  : When an attempt is made to read VE process registers using 
+          ve_get_regvals() which is included in libveosinfo then VEOS 
+          proformance degrades significantly.
+
+Summary : Fix the issue where sched_setaffinity() system call or taskset may
+          causes segmentation fault in multithreaded VE environment.
+Type    : bugfix
+Detail  : In multithreaded VE environment when VE task is migrated from one VE
+          core to another VE core either by using sched_setaffinity() system
+          call or by taskset command, memory/address translation related context
+          for VE task are not getting restored properly to the newly migrated VE
+          core, this causes segmentation fault(SIGSEGV) for VE task.
+
+
+2.0.1
+
+Summary : Support of glibc for VE
+Type    : enhancement
+Detail  : glibc for VE is available. Please see VEOS document 
+          "How to execute VE program" and "Difference Point for Glibc-libc"
+          for additional information.
+
+Summary : Support of Accelerated I/O
+Type    : enhancement
+Detail  : "Accelerated I/O" improves I/O performance by efficient data transfer 
+          between VE and VH.This feature is implemented in 'libveaccio'.
+          Accelerated I/O is enabled when this library is loaded at runtime.
+          Please see VEOS document "How to execute VE program" for usage.
+
+Summary : Support of NON-ATOMIC-IO on VE architecture
+Type    : enhancement
+Detail  : All read/write family and send/recv family system call handlers 
+          (except send/recv using struct msghdr and mmsghdr) have been enhanced 
+          to support I/O operations in non atomic mode. In non atomic mode I/O
+          if the requested I/O size is greater than 64MB, the I/O operation will
+          be broken into multiple fix I/O each of size 64MB. This non atomic I/O 
+          feature will reduce the memory footprint at VH side.
+
+Summary : Fix of issue where ve_exec may terminate abnormally with SIGSEGV
+Type    : bugfix
+Detail  : When VE process is running in multithreading environment and a VE 
+          thread invokes exit_group(), exit_group() procedure unmaps a memory 
+          region, used for tracing status of VE task in ve_exec process.
+          If at the same time another thread tries to access the mapped region,
+          segmentation fault will occur.
+
+Summary : Fix of the issue where VE process hangs during ve_get_regvals()
+Type    : bugfix
+Detail  : VE task is never scheduled on VE core due to some wrong VE task 
+          handling at VEOS while serving ve_get_regvals(). As a result VE 
+          process seems to be hanged.
+
+Summary : Fix of the issue where redundant entries are added to external
+	  variable "environ" when execve() syscall is invoked.
+Type    : bugfix
+Detail  : When VE program invokes execve() recursively to load VE binary,
+	  redundant entries of some environment variables like LOG4C_RCPATH,
+	  VE_EXEC_PATH etc. gets added to global extern variable "environ".
+	  This may lead to failure of execve() syscall when the total number
+	  of environment variable becomes large.
+
+Summary : Fix the issue where VE 'sadc' command do not exit.
+Type    : bugfix
+Detail  : VE 'sadc' command hangs due to incorrect HW data file parsing.
+	  Therefore, 'sadc' processes executed through cron job at
+	  intervals run indefinitely.
+
+1.3.2
+
+Summary : Performance improvement in write() family syscall.
+Type    : enhancement
+Detail  : Updated the system call handling for reading the data from VE
+	  memory to improve the performance of write() family syscall like
+	  write(), writev(), pwrite() and pwritev().
+
+Summary : Improved VE and VH data transfer performance.
+Type    : enhancement
+Detail  : The management function of VH memory for data transfer which 
+	  VE driver offers is improved. By the improvement which is for
+	  VH memory management list, the performance of data transfer
+	  between VE to VH, like read()/write() system call, is improved.
+
+Summary : Improved log messages of VE AIO.
+Type    : enhancement
+Detail  : Improved log messages. When a process is aborted by a VE AIO error,
+          an error message is printed to standard error (stderr).
+
+Summary : Fix of the issue where VEOS aborted while scheduling vforked
+	  VE process.
+Type    : bugfix
+Details : The VE task struct of vforked VE process is not properly
+	  populated at VEOS. Due to this during scheduling of vforked child
+	  VEOS aborted.
+
+Summary : Fix of the issue where vforked VE process remains in zombie state.
+Type    : bugfix
+Details : VE process remains in zombie state as deadlock occurred in VEOS when
+	  vforked child VE process while exiting tries to wake up already
+	  exiting parent VE process.
+
+Summary : Fix the issue where VE process got hanged when it made an attempt to
+	  execute signal handler on alternate stack in cascaded manner.
+Type    : bugfix
+Details : Due to improper reading of core register VEOS wrongly assumed process
+	  is not executing on alternate stack. This lead to undefined
+	  behaviour.
+
+Summary : Fix the issue where VE process got SIGSEGV while trying to reduce
+          heap below heap start address.
+Type    : bugfix
+Details : Due to wrong handling in brk() syscall TLS area mapped by libraries
+          is unmapped, which results in VE process termination with SIGSEGV.
+
+Summary : Fix the issue where 'freeram' field requested by sysinfo() system
+	  call is not updated properly.
+Type    : bugfix
+Details : VE process gets wrong value of freeram (amount of free memory)
+          because sysinfo() system call returns value which is not updated
+          properly.
+
+Summary : Fix for the issue where VE process cleanup did not occur even if it
+	  has invoked pthread_exit().
+Type    : bugfix
+Detail  : VE process cleanup was not done properly when SIGCONT signal was
+	  delivered to exiting task. So, the resources corresponding to VE
+	  task was not released.
+
+Summary : Fix the issue where VE strace command failed to execute VE process 
+	  correctly when VE process stack is grown.
+Type    : bugfix
+Detail  : VE strace command can not trace grow() system call which performs
+          VE process's stack growing, so VE strace gives undefined behavior.
+
+1.3
+
+Summary : Improved performance of clock_gettime() and gettimeofday()
+	  system calls
+Type    : enhancement
+Detail  : Improved performance of clock_gettime() with 'CLOCK_MONOTONIC' clock 
+          id and gettimeofday() system calls. When a process or thread makes 
+          the request for system time using gettimeofday() or monotonic time 
+          using clock_gettime(), then first request will be served using VH 
+          syscall. On subsequent requests, time will be calculated at VE end 
+          instead of invoking VH syscall for same thread-group.
+
+Summary : Supported function to do Asynchronous I/O for VE(VE AIO)
+Type    : enhancement
+Detail  : Asynchronous I/O operation for VE is supported. 'libsysve' library
+          includes VE AIO APIs. VE programs can do their own tasks while data
+          transfer between VE and VH, and actual I/O are done asynchronously.
+
+Summary : Added print messages to stderr during failure in loading
+	  to help user analyse the cause of failure.
+Type    : enhancement
+Detail  : Additional print messages have been added to stderr in case
+	  of failure during loading. This will provide helpful
+	  information to user regarding failure in loading an executable.
+
+Summary : Fix of issue where VE process may terminate abnormally with SIGBUS
+Type    : bugfix
+Detail  : VE process may terminate abnormally with SIGBUS when user puts a
+          futex variable on bss area of a shared library.
+
+Summary : Fix of issue where VE process may terminate abnormally with SIGFPE
+Type    : bugfix
+Detail  : VE process may terminate abnormally with SIGFPE when user invokes
+          mprotect() system call with NULL address as an argument.
+
+Summary : Fix of issue where a VE Thread may hang indefinitely.
+Type    : bugfix
+Detail  : Thread would hang indefinitely in a scenario wherein the thread
+	  (created using pthread_create) tries to join an already exited parent
+	  process (parent process is a related process created using fork).
+
+Summary : Fix of issue where write() family system calls are sometimes
+          unsuccessful.
+Type    : bugfix
+Detail  : write() family system calls sometimes fail if fork()/vfork()/system()
+          is invoked in parallel by other thread. The system calls mean 
+          write(), writev(), pwrite() and pwritev().
+
+Summary : Fix for the issue where signal mask and pending set of a thread are
+	  not preserved across execve().
+Type    : bugfix
+Detail  : Signal mask of thread is not preserved across execve() i.e. if a
+	  thread has blocked a signal and does execve() then for the newly
+	  loaded process signal will not be masked.
+	  Also the signal pending for VE process at veos are not preserved
+	  across execve().
+
+Summary: Fix of issue where VE process returns wrong information of being
+	 executing over alternate stack, even though it is not executing on
+	 alternate stack.
+Type    : bugfix
+Detail  : The stack information maintained at VEOS is not latest after VE
+          process executing the signal handler over alternate stack does
+	  longjump() to return to normal stack. Due to this sigaltstack()
+	  syscall returned wrong information of still executing over alternate
+	  stack.
+
+Summary : Fix of issue where swprintf() returns wrong value for '%lc'
+	  format specifier
+Type    : bugfix
+Detail  : swprintf() returns -1 instead of number of bytes written when used
+	  with format specifier '%lc'(wide characters).
+
+Summary : Fix of issue where user process consumes 64MB memory instead
+          of 2MB for dynamically loaded data used by musl-libc
+Type    : bugfix
+Detail  : When user uses APIs like localtime() with binary compiled with 64MB
+          alignment, then memory consumed internally by library for zoneinfo
+          data present in path "/usr/share/zoneinfo/*" is 64MB although actual
+          requirement is less than 2MB.
+
+Summary : Fix of issue where timer_create() system call returned incorrect 
+	  values instead of returning -1 for Process/Thread CPU clock id.
+Type    : bugfix
+Detail  : When timer_create() system call is invoked with clock_id obtained from
+	  clock_getcpuclockid()/pthread_getcpuclockid(), it doesn't fail with
+	  errno as EINVAL. (timer_create() for VE doesn't support Process/Thread
+          CPU clock id.)
+
+Summary : Fix of issue where clock_nanosleep() system call may sleep for an
+	  indefinite time instead of returning -1 for Process/Thread CPU
+	  clock id.
+Type    : bugfix
+Detail  : When clock_nanosleep() system call is invoked with clock_id obtained
+	  from clock_getcpuclockid()/pthread_getcpuclockid(), it doesn't fail
+	  with errno as EINVAL. (clock_nanosleep() for VE doesn't support 
+          Process/Thread CPU clock id.)
+
+Summary : Fix of issue where log rotation of accounting file fails if process
+	  accounting for VE has never been enabled.
+Type    : bugfix
+Detail  : When SELinux is enabled, the logrotate invoked by 'cron.daily' failed
+          to rotate VE accounting file (Only if accounting is never enabled) 
+          because of wrong context of directory "/var/opt/nec/ve/account" which
+          should be "acct_data_t" instead of "var_t".
+
+1.2.2
+
+Summary : Increased maximum number of arguments and environment variables
+          allowed during loading and execve system call.
+Type    : enhancement
+Detail  : The maximum number of arguments and environment variables allowed
+	  during loading and execve() system call have been increased from 256
+	  to 512.
+
+Summary : New API of libveosinfo to get user registers
+Type    : enhancement
+Detail  : New API named ve_get_regvals() is added to libveosinfo. This API
+          can be used to get user registers of a VE process from a VH process.
+          'veosinfo-devel' package is required to build your program with
+          libveosinfo.
+
+Summary : Fix of issue where VEOS terminated abnormally when thread creation
+          request failed at VEOS.
+Type	: bugfix
+Detail  : If thread creation request from main process created by ve_exec
+	  fails at VEOS, it may result in abnormal VEOS termination while
+	  cleaning up the partially created VE task as certain uninitialized
+	  fields were being accessed.
+
+Summary : Fix of issue where VE process got killed while executing signal
+	  handler.
+Type    : bugfix
+Detail  : VE process terminates abnormally while executing signal handler
+	  as VEOS sets unaligned memory address for DMA while creating stack
+	  frame of signal handler.
+
+Summary : Fix of issue where /dev/veslotN is removed on update
+Type    : bugfix
+Detail  : A link /dev/veslotN was removed unexpectedly when a "change" action
+	  was triggered. The "change" action is triggered by 'udevadm trigger'
+	  when some RPM packages are updated.
+
+Summary : Fix of issue whare updating 'veos' package gets stuck
+Type    : workaround
+Detail :  Updating 'veos' package got stuck under certain conditions because
+          the old version of 'veos' package restarts 'systemd-binfmt' and it
+          never finishes due to the problem relating to autofs.
+
+Summary : Fix of issue where top/mpstat/pidstat commands show wrong
+	  user and idle percentage.
+Type    : bugfix
+Detail  : 'top' command shows wrong user and idle percentage in %Cpu(s) field
+	  of default view. Also 'mpstat' and 'pidstat' commands display wrong
+	  %user and %idle, if executed without interval/count.
+
+Summary : Fix of issue where 'prtstat' command shows wrong values in some
+	  output fields.
+Type    : bugfix
+Detail  : 'prtstat' command shows incorrect data in pgrp, tty_nr, session,
+	   tpgid, num_threads, exit_signal fields.
+
+Summary : Fix of issue where clock_gettime() system call set incorrect
+          error number.
+Type    : bugfix
+Detail  : clock_gettime() system call failed with errno set to EFAULT instead
+	  of EINVAL when an invalid clock_id is passed.
+	  Also, when clock_id corresponds to INIT process's clock, then
+	  failure is returned with errno set to EINVAL, as VEOS does not have
+	  an executing INIT process.
+
+
+1.2.1
+
+Summary : Load rebalancing feature added to improve the performance of VEOS.
+Type    : enhancement
+Detail  : With load rebalancing feature support, VEOS will relocate a VE task
+	  from a VE core which has two or more VE task to the VE core which
+	  has no task. This will improve the performance of multi-processes
+	  and multi-threads programs including MPI.
+
+Summary : Improved I/O performance
+Type    : enhancement
+Detail  : The I/O performance for simultaneous access from many processes is
+          improved by DMA transfer improvement.
+
+Summary : Fix of issue where VE user cannot run their programs when user
+	  directories mounted with NOSUID
+Type    : bugfix
+Detail  : VEOS cannot execute a program or use a program with execve() if the
+	  underlying filesystem of the executable is mounted with "nosuid"
+	  mount option.
+
+Summary : Fix of issue where clock_gettime() system call filled wrong
+          timespec values in buffer provided.
+Type    : bugfix
+Detail  : clock_gettime() system call will always fill the execution time of
+          the calling process even when the "clock_id" returned by
+          clock_getcpuclockid() corresponded to some other process.
+
+Summary : Fix of issue where parent resumes execution before its vforked child
+          has exited.
+Type    : bugfix
+Detail  : VE program will get undesired result of wait() syscall when parent
+	  resumes execution before its vforked child has exited.
+
+Summary : Fix of issue where VE program having multiple threads terminates
+          abnormally while invoking malloc() and free() in parallel
+Type    : bugfix
+Detail  : VE program having multiple threads which invokes malloc() and
+          free() in parallel terminates abnormally due to protection issue
+          of memory management data maintained by musl-libc.
+
+Summary : Fix of issue where mmap() system call get wrong error codes
+Type    : bugfix
+Detail  : VE program will get wrong error codes in certain failure cases of
+          mmap() system call i.e. if invalid size and invalid fd is passed to
+          mmap() then errno EBADF is to be set but before the fix errno EINVAL
+          was set and if MAP_FIXED flag is passed with NULL address to mmap()
+          then errno EPERM is to be set but before the fix ENOMEM was set.
+
+Summary : Fix of issue where getresgid() system call get wrong error code
+Type    : bugfix
+Detail  : getresgid() return EFAULT unexpectedly because one of the argument
+          from expected argument list was missing while processing syscall
+          on VEOS.
+
+
+1.2
+
+Summary : Improved DMA transfer for NEC system software
+Type    : enhancement
+Detail  : The performance of DMA transfer for NEC system software which
+          is linked to VE programs, such as ScaTeFS library and so on, is
+          improved. It is a dedicated function for NEC system software;
+          therefore, NEC doesn't support any problem when you use this
+          function directly without NEC system software.
+
+Summary : Response improvement of VEOS about memory release request
+          from a VE process.
+Type    : enhancement
+Detail  : The response of releasing memory request is improved because
+          VEOS clears released physical memory asynchronously.
+          When VEOS doesn't have enough cleared physical memory to allocate,
+          VE process is kept waiting for completion of clearing memory.
+
+Summary : Improved data-transfer performance and reduced memory consumption
+Type    : enhancement
+Detail  : The performance of large size data transfer done via system call
+	  (read(), write() and so on) is improved.
+
+Summary : License change of libvepseudo to LGPL
+Type    : enhancement
+Detail  : The license of libvepseudo which is one of components of Pseudo
+          process is changed from GPL to LGPL.
+
+Summary : Fix of issue where VE process terminates abruptly
+Type    : bugfix
+Detail  : VE program execution may terminate abruptly while doing vfork()
+          when the caller has already mapped a file on memory of size zero,
+          which restarts veos unexpectedly and terminates of all the VE
+          processes executing on that VE node.
+
+Summary : Fix of issue where VEOS virtual memory usage keeps on increasing.
+Type    : bugfix
+Detail  : When VE process creates coredump then virtual memory usage of VEOS
+	  increases gradually. However, virtual memory usage is not restored
+	  to original amount even after coredump creation was over.
+
+Summary : VE process did not receive SIGSEGV signal even though the hardware
+	  exception "host missing page exception" occurred on VE.
+Type    : bugfix
+Detail  : VE process will not be terminated with expected signal(SIGSEGV) and
+	  can continue its execution.
+
+Summary : Fix for issue where VE child process creations using fork() fails.
+Type    : bugfix
+Detail  : Once a VE process invokes sched_setaffinity with invalid CPU_SET
+          every subsequent invocation of fork() system call fails.
+
+Summary : Fix of issue where psacct-ve service failed when VH boots.
+Type    : bugfix
+Detail  : VE 'psacct-ve' service depends upon running VEOS but, on VH reboot,
+          this service gets restarted before VEOS restarts
+          (if service is enabled) leading to the failure in restart of
+          'psacct-ve' service.
+
+Summary : Fix the issue where count of VE blocked processes was wrong for
+          vmstat and sar command.
+Type    : bugfix
+Detail  : VE specific "vmstat" and "sar" command were displaying some count of
+          blocked process but VEOS doesn't maintain any such state which can
+          provide count of 'blocked' processes (process waiting specifically
+	  for IO). Therefore, blocked process count should be 0.
+
+
+1.1.1
+
+Summary : Fix of issue where VEOS aborted during execve() processing if the
+	  task is killed by any signal
+Type    : bugfix
+Detail  : During execve() processing, if the task is killed by any signal,
+          VEOS fails to update a task struct flag which lead to removing of
+          already removed task from core. It resulted in veos abort.
+
+Summary : Fix of issue where VEOS aborted when SIGKILL to thread group leader
+	  was sent during execve()
+Type    : bugfix
+Detail  : While VEOS is handling execve() request from a thread and serving
+	  SIGKILL signal for the thread group leader at the same time,
+	  VEOS aborts.
+
+Summary : Fix of issue where VEOS consumes a huge VH memory
+Type    : bugfix
+Detail  : VEOS consumes a huge VH memory when VEOS creates a core dump file
+          of a VE process whose memory segment size is huge.
+
+Summary : Fix of issue where VEOS may show undefined behavior due to loss
+          of synchronisation while updating its data structures.
+Type    : bugfix
+Detail  : VEOS can show undefined behaviour due to loss of synchronisation.
+	  This can occur while, setting of VE process's CPU affinity is
+          ongoing in parallel with some other request ongoing for same VE
+          process at VEOS.
+
+Summary : Fix of issue where DMA descriptor table was wrongly updated for
+          VE process
+Type    : bugfix
+Detail  : VE program which is doing DMA transfer sometimes will get wrong
+          content of DMA descriptor table as migration was not done
+          properly by VEOS.
+
+Summary : Fix of issue where VE program may return fork() failure even if child
+	  process is created successfully
+Type    : bugfix
+Detail  : Due to a race scenario in fork() handling, even if child process
+	  is created successfully, parent may return fork() failure as EAGAIN
+
+Summary : Fix of issue where a VE process may hang indefinitely.
+Type    : bugfix
+Detail  : A VE process may hang indefinitely as it is not being scheduled on
+          core.
+
+Summary : Fix of issue where VE program terminates abnormally
+Type    : bugfix
+Detail  : VE program terminates abnormally while executing signal handlers
+          due to memory corruption done by VEOS while creating stack frame
+          of signal handler.
+
+Summary : Fix of issue where memory is leaked at VH side
+Type    : bugfix
+Details : Memory is leaked at VH side when a VE process creates a child
+          process and the child process terminates. When the parent VE
+          process terminates, leaked memory is freed.
+
+Summary : Fix of issue where VE process execution becomes slow
+Type    : bugfix
+Details : After executing multiple VE process, VEOS skips scheduling decision
+          in some cases due to inconsistent state of its core's data structure.
+          Due to this performance of VE process degrades.
+
+Summary : Fix of issue where GDB backtrace command
+Type    : bugfix
+Detail  : The "backtrace" command of GDB does not display the frame
+          which is interrupted by signal.
+
+Summary : Improved privileged DMA transfer performance
+Type    : enhancement
+Detail  : The performance of privileged DMA transfer for VEOS is improved.
+	  It improves performance of system call(read()/write()) and etc.
+
+Summary : Supported function to improve data-transfer rate of libraries such as
+          MPI etc.
+Type    : enhancement
+Detail  : To improve data-transfer rate of the MPI library or other system
+          libraries, VEOS provides a function which allows VE program to access
+          to System V shared memory on VH. These libraries create System V
+          shared memory using "huge pages". This function is used only by
+          appropriate MPI library or other system libraries. And NEC doesn't
+          support any problem when you use this function directly without these
+          libraries.
+
+Summary : Improved context switch performance
+Type    : enhancement
+Detail  : The performance of a context switch between VE processes/threads is
+          improved.
+
+Summary : Improved VE process core dump
+Type    : enhancement
+Detail  : Improved core dumping performance of VE process. Earlier VE core
+	  dumping was taking longer time in certain scenarios when large I/O
+	  is in progress on VH host. During that duration all the threads of
+	  the thread group remain in uninterruptible sleep. This duration is
+	  reduced now.
+
+Summary : Support of the system activity data collection and store by sar
+Type    : enhancement
+Detail  : The system activity data collection and store by sar is available.
+          Updated VE sysstat service from 've_sysstat' to 've_sysstat@'.
+          (where N is VE node number)
+
+Summary : Display "VEOS RESTART" instead of "LINUX RESTART" in message of
+	  'sar' command
+Type    : enhancement
+Detail  : Whenever VEOS is restarted then output messages from 'sar' command
+	  will show "VEOS RESTART" instead of "LINUX RESTART".
+
+Summary : Porting of 'ipcs and ipcrm'
+Type    : enhancement
+Detail  : Added support of 'ipcs' and 'ipcrm' commands in 'util-linux-ve'
+	  package.
+
+
+1.0.3
+
+Summary : RHEL7.4/x86_64 support
+Type    : enhancement
+Detail  : RHEL7.4/x86_64 is newly supported. Please see README for Supported
+          Platforms and Operating Systems.
+
+Summary : Distribute binfmt configuration file
+Type    : enhancement
+Detail  : A configuration file for VE binary format (ve.conf) is stored
+          to /usr/lib/binfmt.d/. A user can execute a VE program without
+	  specifying ve_exec command. If multiple VE nodes exist, the VE
+	  node which executes VE program is specified by environment
+	  variable (VE_NODE_NUMBER).
+
+1.0.2
+
+Summary : Fix of issue where VE process is killed when a signal handler is
+	  invoked
+Type    : bugfix
+Detail  : A VE process may be killed on executing a signal handler due to
+	  insufficient stack space required for signal handler execution
+          and frame setup
+
+Summary : Fix of issue where VE process is hanged
+Type    : bugfix
+Detail  : VE program execution may stall while executing signal handler.
+          This can happen in  rare race scenario when VE process consume
+	  all of its stack and then signal is generated for the process.
+
+Summary : Fix of issue where VE process terminates abruptly
+Type    : bugfix
+Detail  : VE program execution may terminates abruptly when parallel request
+          of shmdt() and shmctl() system call arrives at veos for the same
+          shared memory segment, which restarts veos unexpectedly and
+          termination of all the VE processes executing on that VE node.
+
+Summary : Fix of issue where pthread_create() fails if large TLS size is used
+	  with user defined thread stack
+Type    : bugfix
+Detail  : With large TLS size and user defined stack area, pthread_create()
+	  fails to set up stack for thread and returns EAGAIN.
+
+Summary	: Fix the issue where "sar -m" with interval producing error
+Type	: bugfix
+Detail	: The "sar" command is showing error while trying to get sensor
+	  information.
+
+Summary : Signal delivery to VE task is not delayed until the execution of
+	  kill(2) series system call.
+Type    : enhancement
+Detail  : When VE task sends signal to itself through kill(2) series system call
+	  like tkill(2),tgkill(2) etc. The signals are immediately  delivered to
+	  VE task.
+
+Summary : Improve log messages of VEOS
+Type    : enhancement
+Detail  : Change log level of VEOS messages to applicable level.
+
+Summary : Change package file name
+Type    : enhancement
+Detail  : TSUBASA standard package name rule are applied to all of
+          VEOS package files.
+
+1.0.1 - initial release
