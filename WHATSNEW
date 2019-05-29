@@ -1,4 +1,181 @@
 
+2.1
+This section describes changes between the 2.0.3 and 2.1 versions of VEOS.
+
+Summary : Supported VE Offloading framework (VEO).
+Type    : enhancement
+Detail  : VEO provides accelerator-style programming on VE. VEO controls the 
+          execution of a VE process from VH main program. VEO enables to develop
+          a program using both VEs and VH computing resources.
+          Please see VEOS document "The tutorial and API reference of 
+          veoffload".
+
+Summary : Improvement VH Call API for passing arguments
+Type    : enhancement
+Detail  : VH Call is a functionality which invokes a shared library function
+          compiled for VH from VE process. This improvement allows user to
+          invoke a function passing any types and any number of arguments.
+          Using the enhanced API, invoking a Fortran library function is
+          available. Please see VEOS document "The tutorial and API reference
+          of libsysve".
+
+Summary : Supported "ldd" command of glibc for VE
+Type    : enhancement
+Detail  : ldd prints the shared libraries required by each
+	  dynamically linked binary for VE architecture.
+
+Summary : Supported Accelerated I/O with Infiniband environment
+Type    : enhancement
+Detail  : Accelerated I/O with Infiniband environment is supported. Please see 
+          VEOS document "How to execute VE program" for usage.
+
+Summary : Modified the functionality of multiple commands to use VE node '0'
+	  when VE_NODE_NUMBER environment variable is not set.
+Type    : enhancement
+Detail  : VE node '0' is used by default when below listed commands are
+	  executed without specifying any node using VE_NODE_NUMBER
+	  environment variable.
+	  - tload, top (irrespective of options)
+	  - iostat, mpstat, pidstat, sadc, sadf, sar, vmstat, free
+ 	    (when executed with 'delay/interval/count’ options)
+	  - accton (when executed with 'filename')
+	  - sa (when executed with '--other-usracct-file/--other-savacct-file/
+	        --other-acct-file' options)
+	  - taskset, prlimit, time, strace (to launch a new process)
+
+Summary : Improved VE and VH data transfer performance. 
+Type 	: enhancement 
+Detail 	: VE driver function which is a part of the data transfer between 
+	  VE and VH is improved. By this enhancement, the performance of data 
+	  transfer, like read()/write() system call, is improved.
+
+Summary : Improvement of the log file name of VEOS to include VE node
+          number
+Type    : enhancement
+Detail  : The log file name of VEOS is changed from veos.log.X to
+	  veosN.log.X (where N is VE node number and X is sequential
+	  number). The directory where log files are
+	  stored is not changed from /var/opt/nec/ve/veos.
+
+Summary : Removed the packages relating to musl-libc
+Type    : enhancement
+Detail  : The packages relating to musl-libc are removed because NEC
+	  ended the support of musl-libc. The removed packages are
+	  below:
+	    musl-libc-ve musl-libc-ve-devel libsysve-musl
+	    libsysve-musl-devel veos-musl-header
+	  If they are installed on your system, please uninstall them.
+
+Summary : Improved execve() system call to always set VE_NODE_NUMBER
+	  environment variable for VE processes.
+Type    : enhancement
+Detail  : Updated execve() system call in order to export VE_NODE_NUMBER
+	  environment variable to the new process even if envp, the third
+	  argument, is passed as NULL in execve() syscall. The VE node
+	  number in which the process is executing can be determined using
+	  VE_NODE_NUMBER environment variable.
+
+Summary : Updated libsysve header files for C++ programs
+Type    : enhancement
+Detail  : The header files, libvhcall.h, veaio.h, vedma.h and vhshm.h are 
+          updated so that C++ user programs includes them.
+
+Summary : Changed I/O buffer allocation in glibc
+Type 	: enhancement 
+Detail 	: File I/O API (fread()/fwrite()/etc.) get I/O buffer from heap instead 
+          of anonymous page. 
+
+Summary : Updated the algorithm to calculate start time, elapse time and
+	  user time for VE process.
+Type    : enhancement
+Detail  : Improved the algorithm to calculate elapse time and user time in
+	  units same as the VH. Also, start time of VE process is now
+	  preserved across execve().
+
+Summary : Updated the functionality of commands for VE to remove difference of 
+  	  PPID value between the commmands output and getppid() system call.
+Type    : enhancement
+Detail  : Commands for VE were showing PPID as 1 for any new VE process executed
+	  with 've_exec'. The commands 'top', 'ps' and 'prtstat' are updated
+	  to display PPID of VE process as the 'PID of shell' which created it.
+	  And the behavior is same for getppid() system call.
+
+Summary : Fix the issue where data in file backed shared memory is not written
+          back to the file.
+Type    : bugfix
+Detail  : Data of file backed memory which is mapped with 'MAP_SHARED' flag
+          and 'PROT_WRITE' permission is not carried through to the underlying
+          file on munmap() if the same area is mapped again with 'MAP_PRIVATE'
+          flag and 'PROT_READ' prior to the munmap() syscall or prior to
+          process exit.
+
+Summary : Fix the issue where msync() syscall may fail for file backed memory
+Type    : bugfix
+Detail  : msync() syscall fails on file backed memory, if the file is
+          mapped by mmap() with the first argument set to the valid address
+          and one of below conditions is true.
+          - The start address of the file backed memory is not 512MB aligned,
+            the file backed memory is beyond 512MB boundary and the page
+            size is 2MB.
+          - The start address of the file backed memory is not 16GB aligned,
+            the file backed memory is beyond 16GB boundary and the page
+            size is 64MB.
+          If the file is mapped by mmap() with the first argument set to NULL,
+          the issue does not occur.
+
+Summary : Fix the issue where mmap() request without MAP_FIXED flag and 
+          at a user specified address may fail.
+Type    : bugfix
+Detail  : Memory mapping using mmap() syscall without MAP_FIXED flag fails if 
+          the user specified address is not 512MB aligned for 2MB page size, or  
+          not 16GB aligned for 64MB page size. 
+
+Summary : Fix the issue where VE core dump file is created with wrong file
+	  name when privileged user tries to create the core file at path "/".
+Type    : bugfix
+Detail  : When a privileged user tries to generate VE core dump file at path
+	  "/" to capture core dump of VE process, VEOS creates the VE core file
+	  with wrong name.
+
+Summary : Fix of issue where program gives segmentation fault when setjmp() is 
+          invoked in shared library.
+Type    : bugfix
+Detail  : If setjmp() is called from shared library, then one of the
+	  VE register got updated unexpectedly due to which program gives
+	  segmentation fault in further processing.
+
+Summary : Fix the issue where "/opt/nec/ve/bin/pidstat -l" command gives
+	  segmentation fault.
+Type    : bugfix
+Detail  : If VE "/opt/nec/ve/bin/pidstat -l" command made an attempt to
+	  display process statistics for a zombie process then the command
+	  terminates with segmentation fault.
+
+Summary : Fix the issue where VE 'time' command fails if the executed VE
+	  program invoked VH binary with execve() system call.
+Type    : bugfix
+Detail  : If a VE process created with VE 'time' command executes a VH
+	  binary using execve() system call, 'time' command fails with
+	  "No such process" error.
+
+Summary : Fix the issue where accounting file shows the presence of a
+	  'Dummy_task' which is not created by user.
+Type    : bugfix
+Detail  : If VE process accounting is enabled and VE 'time' command failed to
+	  execute a new process, a 'Dummy_task' entry is captured in accounting
+	  file although a task in that name was never created.
+
+Summary : Fix the issue where accounting file shows "Dummy_task" entry when
+	  VE 'time' command executes VH binary.
+Type    : bugfix
+Detail  : If VE 'time' command tries to executes a VH binary then it executes
+	  successfully but VE accounting file captures a "Dummy_task" entry.
+	  Hence the similar commands 'taskset', 'prlimit' and 'time' has been 
+	  restricted to execute only VE binaries and VH binaries will not be 
+	  executed directly using these commands.
+
+
+
 2.0.3
 This section describes changes between the 2.0.1 and 2.0.3 versions of VEOS.
 

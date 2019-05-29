@@ -99,7 +99,7 @@ else
   minimum stack size for thread is 4MB. So in VE-glibc the corresponding macro
   value is updated,<br>
     While it is 16KB in glibc for x86 architecture.</td>
-  <td rowspan=2 class=xl103 width=527 style='border-top:none;width:395pt'>Customized
+  <td rowspan=2 class=xl110 width=527 style='border-top:none;width:395pt'>Customized
   for VE architecture.</td>
  </tr>
  <tr height=66 style='mso-height-source:userset;height:49.5pt'>
@@ -169,16 +169,15 @@ else
   <td class=xl85 width=527 style='border-top:none;border-left:none;width:395pt'>Current
   loader implementation in VEOS does not support loading of shared library.</td>
  </tr>
- <tr height=54 style='height:40.5pt'>
-  <td height=54 style='height:40.5pt'></td>
+ <tr height=62 style='mso-height-source:userset;height:46.5pt'>
+  <td height=62 style='height:46.5pt'></td>
   <td class=xl76 style='border-top:none'>6</td>
   <td class=xl86 width=240 style='border-top:none;border-left:none;width:180pt'><span
   style='mso-spacerun:yes'> </span>&quot;ldd&quot; command</td>
-  <td class=xl74 width=512 style='border-top:none;border-left:none;width:384pt'>For
-  VE, &quot;ldd&quot; command is not supported.<br>
-    For VE, The library dependencies can be checked through the
-  &quot;nreadelf&quot; command inspecting DT_NEEDED section instead of
-  &quot;ldd&quot; command.</td>
+  <td class=xl74 width=512 style='border-top:none;border-left:none;width:384pt'>&quot;ldd&quot;
+  for VE displays the dependency list only for binaries and not shared
+  libraries whereas &quot;ldd&quot; for x86_64 displays the dependency list for
+  both.</td>
   <td class=xl85 width=527 style='border-top:none;border-left:none;width:395pt'>This
   internally invokes dynamic linker &quot;ld-linux-ve.so.1&quot; which again is
   not supported in VE (ref #5)</td>
@@ -256,7 +255,7 @@ else
  </tr>
  <tr height=278 style='mso-height-source:userset;height:208.5pt'>
   <td height=278 style='height:208.5pt'></td>
-  <td rowspan=4 class=xl102 style='border-top:none'>8</td>
+  <td rowspan=4 class=xl96 style='border-top:none'>8</td>
   <td rowspan=4 class=xl86 width=240 style='border-top:none;width:180pt'>(VE_)
   prefix in glibc's environment variables<span
   style='mso-spacerun:yes'> </span></td>
@@ -299,7 +298,7 @@ else
  </tr>
  <tr height=546 style='mso-height-source:userset;height:409.5pt'>
   <td height=546 style='height:409.5pt'></td>
-  <td rowspan=2 class=xl104 width=512 style='border-bottom:.5pt solid black;
+  <td rowspan=2 class=xl111 width=512 style='border-bottom:.5pt solid black;
   border-top:none;width:384pt'>c)Other environment variables used by Ve-Glibc
   programs are as under:<br>
     VE_LD_WARN<br>
@@ -341,15 +340,15 @@ else
  <tr height=89 style='mso-height-source:userset;height:66.75pt'>
   <td height=89 style='height:66.75pt'></td>
  </tr>
- <tr height=109 style='height:81.75pt'>
-  <td height=109 style='height:81.75pt'></td>
-  <td class=xl77 style='border-top:none'>9</td>
-  <td class=xl88 width=240 style='border-top:none;border-left:none;width:180pt'>Profiling
+ <tr height=108 style='height:81.0pt'>
+  <td height=108 style='height:81.0pt'></td>
+  <td class=xl96 style='border-top:none'>9</td>
+  <td class=xl86 width=240 style='border-top:none;border-left:none;width:180pt'>Profiling
   for VE</td>
-  <td class=xl78 width=512 style='border-top:none;border-left:none;width:384pt'>1.
+  <td class=xl73 width=512 style='border-top:none;border-left:none;width:384pt'>1.
   Time value is not correct especially when context switch occurs in VE<br>
     2. User cannot use SIGALRM in application along with gprof in VE</td>
-  <td class=xl79 width=527 style='border-top:none;border-left:none;width:395pt'>In
+  <td class=xl85 width=527 style='border-top:none;border-left:none;width:395pt'>In
   glibc(x86_64)<span style='mso-spacerun:yes'>  </span>,&quot;setitimer()&quot;
   uses<span style='mso-spacerun:yes'>  </span>&quot;ITIMER_PROF&quot; flag for
   profiling , but in glibc(VE) , &quot;setitimer()&quot; uses
@@ -359,6 +358,25 @@ else
     #For more details regarding setitimer() please refer &quot;3. Partially
   Supported System Calls &quot; in &quot;Difference Point for system
   calls&quot; document.</td>
+ </tr>
+ <tr height=145 style='height:108.75pt'>
+  <td height=145 style='height:108.75pt'></td>
+  <td class=xl77 style='border-top:none'>10</td>
+  <td class=xl88 width=240 style='border-top:none;border-left:none;width:180pt'>system()
+  API</td>
+  <td class=xl78 width=512 style='border-top:none;border-left:none;width:384pt'>In
+  VE, the environment variable set/unset within the program(VE) are not carried
+  forward to the child program invoked through system() API.<br>
+    Scenario: User exports any environment variable from the command prompt and
+  the same environment variable is unset (using unsetenv) in the main program
+  before calling a child process through system() where the child program
+  intends to use the unset environment variable.<br>
+    In this scenario, the child program see the environment variable exported
+  from the command prompt.</td>
+  <td class=xl79 width=527 style='border-top:none;border-left:none;width:395pt'>For
+  VE process, system() request is executed by VH OS (Linux) instead of VEOS.
+  The child program doesn't carry forward the updated environment variable
+  because the environment variable in VE is not reflected in VH environment.</td>
  </tr>
  <tr height=18 style='height:13.5pt'>
   <td height=18 style='height:13.5pt'></td>

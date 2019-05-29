@@ -1,7 +1,7 @@
 VEOS:How to execute VE program
-Date:07-Feb-2019
+Date:21-May-2019
 
-This document describes the information regarding the VEOS version 2.0.1 or
+This document describes the information regarding the VEOS version 2.1 or
 later.
 
 
@@ -71,22 +71,19 @@ having VEs.
    $ export VE_LD_LIBRARY_PATH=/path/to/usr/lib 
    $ /opt/nec/ve/bin/ve_exec ./hello
 
-  Please see 'Environment variables' section for more variables.
+  Please see 've_exec options' section and 'Environment variables' 
+  section for more variables.
 
 
 - How to add path to the default library search path
-  In case you use glibc:
+
   Please put a configuration file to specify additional search path into
   "/etc/opt/nec/ve/ld.so.conf.d" directory and then run the following command.
-  $ sudo /opt/nec/ve/glibc/sbin/ldconfig
+
+   $ sudo /opt/nec/ve/glibc/sbin/ldconfig
+
   The name of the configuration file should be end with ".conf" and the list of
   additional search path should be written in it.
-
-  In case you use musl-libc:
-  Please add the search path to the following configuration file.
-    /etc/opt/nec/ve/musl/ld-musl-ve.path
-  Please see 'Difference Point for Musl-libc' document 
-  (Musl_libc_Supported_Api_Difference_Point.htm) for detail.
 
 
 - How to enable accelerated I/O
@@ -107,10 +104,12 @@ having VEs.
   this feature can be enabled when the below requirements are met.
 
    * The kernel parameter "vm.nr_hugepages" is more than or equal to
-     256/per VE (Please see sysctl(8) man page to set the kernel
-     parameter)
-   * VH isn't connected to the other VH by InfiniBand
-   * VH doesn't use ScaTeFS
+     256/per VE
+      - Please see sysctl(8) man page to set the kernel parameter
+
+   * VH does't use ScaTeFS
+      - Please enable ScaTeFS direct I/O instead of accelerated I/O
+        when VH use ScaTeFS
 
   "Accelerated I/O" is enabled when 'libveaccio' is loaded at
   runtime. Please set environment variable VE_LD_PRELOAD to load it.
@@ -122,6 +121,21 @@ having VEs.
   enabled. So, read/write family system calls will not be atomic when
   the size is more than 8MB.
 
+
+- ve_exec options
+
+  ve_exec command accepts the following options.
+
+    -V, --version                 output version information and exit
+    -h, --help                    display this help and exit
+    -N node, --node=<node>        where node is the VE Node number
+                                  on which VE program belongs
+    -c core, --core=<core>        where core is the VE core number on
+                                  which VE program to be executed
+                                  Can't specify both '-c' and '--cpunodebind'
+    --                            End of options (Requires if binary name
+                                    starts with ‘-’)
+  
 
 - Environment Variables
 
@@ -217,6 +231,7 @@ having VEs.
   glibc supports the following commands:
 
    /opt/nec/ve/glibc/sbin/ldconfig
+   /opt/nec/ve/glibc/sbin/ldd
 
 
 - How to debug VE program
@@ -236,7 +251,6 @@ having VEs.
   - Difference_Points_GDB.htm
   - Difference_Points_Commands.pdf
   - Difference_Points_glibc.htm
-  - Musl_libc_Supported_Api_Difference_Point.htm
 
 - VEOS high level design
 
@@ -247,53 +261,71 @@ having VEs.
 
 - When you face VEOS problems
 
-  The following files are necessary for NEC to find the problems:
+  Please provide the following information in order to analyze the problem.
 
-   /var/opt/nec/ve/veos/*.log.*
-   /var/opt/nec/ve/veos/core.*
+    1. Version of RPM packages and the kernel
+       Please execute the following command to create list of versions
+       and provide it.
+  
+        $ rpm -qa --qf '%{VENDOR} %{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n' \
+           | grep NEC > version.txt
+        $ uname -r >> version.txt
+   
+    2. Log files
+       Please provide the following files.
+  
+        /var/log/messages*
+        /var/opt/nec/ve/veos/*.log.*
+        /var/opt/nec/ve/veos/core.* (if exists)
+  
+  If your facing problem is like freeze of VE process, please provide
+  the following information, too. "gdb" package is required to get the
+  information.
+
+    3. Core files of VEOS
+       Please execute the following command as root to generate core files.
+       core.xxxxx (xxxxx is pid) will be created and compressed to
+       core.xxxxx.gz. The size of core file will be large though it
+       will be compressed. So, enough space is temporarily required in
+       the current directory.
+       Please provide the compressed core files.
+  
+        $ pgrep veos | while read pid; do gcore $pid; gzip core.$pid; done
+
+
+- How to gather debug log of VEOS
+  If your facing problem is reproducible, the following debug logs 
+  are really helpful to analyze the problem.
+
+  Please edit the configuration file setting log level to "DEBUG" and
+  layout to "ve_debug" for all components as follows. 
+
+   $ sudo cp /etc/opt/nec/ve/veos/log4crc /etc/opt/nec/ve/veos/log4crc.org
+   $ sudo sed -i -e 's/INFO/DEBUG/g' -e 's/CRIT/DEBUG/g' \
+      -e 's/layout="ve"/layout="ve_debug"/g' /etc/opt/nec/ve/veos/log4crc
+
+  And, please reboot VEOS. 
+
+   $ sudo systemctl restart 've-os-launcher@*'
+
+  Please set the following environment variable to specify the directory
+  and enable log output. 
+
+   $ export LOG4C_RCPATH=/etc/opt/nec/ve/veos
+
+  Then, please reproduce the issue again and you'll find log files of
+  ve_exec at the current directory. 
+
+   ./ve_exec.log.*
+
+  Please gather log files for veos at the following path as default. 
+
    /var/log/messages*
+   /var/opt/nec/ve/veos/*.log.*
+   /var/opt/nec/ve/veos/core.* (if exists)
 
-  And please get the version information with the following commands:
+  Last of all, please restore the original log level and reboot VEOS.
 
-   $ uname -r > veos.version
-   $ rpm -qa --qf '%{VENDOR} %{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n' | grep NEC >> veos.version
-
-  If your facing problem is reproducible, everything by the followings
-  are really helpful for NEC VEOS development.
-
-    Please set the following environment variable to specify the directory
-    and enable log output. 
-
-     $ export LOG4C_RCPATH=/etc/opt/nec/ve/veos
-
-    Please edit the configuration file setting log level to "DEBUG" and
-    layout to "ve_debug" for all components as follows. 
-
-     $ sudo cp /etc/opt/nec/ve/veos/log4crc /etc/opt/nec/ve/veos/log4crc.org
-     $ sudo sed -i -e 's/INFO/DEBUG/g' -e 's/CRIT/DEBUG/g' -e 's/layout="ve"/layout="ve_debug"/g' /etc/opt/nec/ve/veos/log4crc
-
-    And, please reboot VEOS. 
-
-     $ sudo systemctl restart 've-os-launcher@*'
-
-    Then, please reproduce the issue again and you'll find log files of
-    ve_exec at the current directory. 
-
-     ./ve_exec.log.*
-
-    Please gather log files for veos at the following path as default. 
-
-     /var/opt/nec/ve/veos/*.log.*
-     /var/opt/nec/ve/veos/core.*
-     /var/log/messages*
-
-    And please get the version information with the following commands:
-
-     $ uname -r > veos.version
-     $ rpm -qa --qf '%{VENDOR} %{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n' | grep NEC >> veos.version
-
-    Last of all, please restore the original log level and reboot VEOS.
-
-     $ sudo cp /etc/opt/nec/ve/veos/log4crc.org /etc/opt/nec/ve/veos/log4crc
-     $ sudo systemctl restart 've-os-launcher@*'
-     $ unset LOG4C_RCPATH
+   $ sudo cp /etc/opt/nec/ve/veos/log4crc.org /etc/opt/nec/ve/veos/log4crc
+   $ sudo systemctl restart 've-os-launcher@*'
+   $ unset LOG4C_RCPATH

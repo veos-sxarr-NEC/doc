@@ -1,4 +1,5 @@
-<html xmlns:o="urn:schemas-microsoft-com:office:office"
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns:x="urn:schemas-microsoft-com:office:excel"
 xmlns="http://www.w3.org/TR/REC-html40">
 
@@ -96,13 +97,13 @@ else
  </tr>
  <tr height=19 style='mso-height-source:userset;height:14.25pt'>
   <td height=19 style='height:14.25pt'></td>
-  <td rowspan=2 class=xl120 width=31 style='border-bottom:1.0pt solid black;
+  <td rowspan=2 class=xl121 width=31 style='border-bottom:1.0pt solid black;
   border-top:none;width:23pt'>2</td>
   <td rowspan=2 class=xl73 width=240 style='border-bottom:1.0pt solid black;
   border-top:none;width:180pt'>スレッドの<ruby>最小<span style='display:none'><rt>サイショウ</rt></span></ruby>スタックサイズ(PTHREAD_STACK_MIN)</td>
-  <td rowspan=2 class=xl123 width=512 style='border-bottom:1.0pt solid black;
+  <td rowspan=2 class=xl124 width=512 style='border-bottom:1.0pt solid black;
   width:384pt'>x86アーキテクチャでの最小スタックサイズが16KBですが、VEの最小スタックサイズは4MBです。</td>
-  <td rowspan=2 class=xl121 width=527 style='border-bottom:1.0pt solid black;
+  <td rowspan=2 class=xl122 width=527 style='border-bottom:1.0pt solid black;
   width:395pt'>　</td>
  </tr>
  <tr height=19 style='mso-height-source:userset;height:14.25pt'>
@@ -197,23 +198,29 @@ else
   <td class=xl74>6</td>
   <td class=xl73 width=240 style='border-top:none;width:180pt'><span
   style='mso-spacerun:yes'> </span>&quot;ldd&quot;コマンド</td>
-  <td class=xl75 width=512 style='border-top:none;border-left:none;width:384pt'>VEでは&quot;ldd&quot;コマンドはサポートされません。ライブラリの<ruby>依存性<span
-  style='display:none'><rt>イゾンセイ</rt></span></ruby>を<ruby>確認<span
-  style='display:none'><rt>カクニン</rt></span></ruby>する<ruby>場合<span
-  style='display:none'><rt>バアイ</rt></span></ruby>は、&quot;nreadelf&quot;を<ruby>実行<span
-  style='display:none'><rt>ジッコウ</rt></span></ruby>し、Dynamic sectionを<ruby>確認<span
-  style='display:none'><rt>カクニン</rt></span></ruby>してください。</td>
+  <td class=xl75 width=512 style='border-top:none;border-left:none;width:384pt'>VE<ruby>用<span
+  style='display:none'><rt>ヨウ</rt></span></ruby> &quot;ldd&quot;コマンドは<ruby>実行<span
+  style='display:none'><rt>ジッコウ</rt></span></ruby>バイナリの<ruby>依存<span
+  style='display:none'><rt>イゾン</rt></span></ruby>リストのみ<ruby>表示<span
+  style='display:none'><rt>ヒョウジ</rt></span></ruby>し、<ruby>共有<span
+  style='display:none'><rt>キョウユウ</rt></span></ruby>ライブラリについては<ruby>表示<span
+  style='display:none'><rt>ヒョウジ</rt></span></ruby>しません。<ruby>対<span
+  style='display:none'><rt>タイ</rt></span></ruby>して、x86_64 の &quot;ldd&quot; は<ruby>両方<span
+  style='display:none'><rt>リョウホウ</rt></span></ruby>の<ruby>依存<span
+  style='display:none'><rt>イゾン</rt></span></ruby>リストを<ruby>表示<span
+  style='display:none'><rt>ヒョウジ</rt></span></ruby>します。</td>
   <td class=xl75 width=527 style='border-top:none;border-left:none;width:395pt'>lddコマンドでは<ruby>内部<span
   style='display:none'><rt>ナイブ</rt></span></ruby>でダイナミックリンカを<ruby>実行<span
   style='display:none'><rt>ジッコウ</rt></span></ruby>していますが、VEではダイナミックリンカの<ruby>直接<span
   style='display:none'><rt>チョクセツ</rt></span></ruby><ruby>実行<span
-  style='display:none'><rt>ジッコウ</rt></span></ruby>はサポートされないため。</td>
+  style='display:none'><rt>ジッコウ</rt></span></ruby>はサポートされないため。(#5 <ruby>参照<span
+  style='display:none'><rt>サンショウ</rt></span></ruby>)</td>
  </tr>
  <tr height=73 style='height:54.75pt'>
   <td height=73 style='height:54.75pt'></td>
-  <td rowspan=4 class=xl112 style='border-bottom:1.0pt solid black;border-top:
+  <td rowspan=4 class=xl113 style='border-bottom:1.0pt solid black;border-top:
   none'>7</td>
-  <td rowspan=4 class=xl123 width=240 style='border-bottom:1.0pt solid black;
+  <td rowspan=4 class=xl124 width=240 style='border-bottom:1.0pt solid black;
   width:180pt'>malloc()によるメモリアロケーションの<ruby>最適化<span style='display:none'><rt>サイテキカ</rt></span></ruby></td>
   <td class=xl80 width=512 style='width:384pt'>a) x86/Linux<ruby>環境<span
   style='display:none'><rt>カンキョウ</rt></span></ruby>ではDEFAULT_MMAP_THRESHOLD_MAXマクロの<ruby>値<span
@@ -314,9 +321,9 @@ else
  </tr>
  <tr height=235 style='height:176.25pt'>
   <td height=235 style='height:176.25pt'></td>
-  <td rowspan=4 class=xl112 style='border-bottom:1.0pt solid black;border-top:
+  <td rowspan=4 class=xl113 style='border-bottom:1.0pt solid black;border-top:
   none'>8</td>
-  <td rowspan=4 class=xl123 width=240 style='border-bottom:1.0pt solid black;
+  <td rowspan=4 class=xl124 width=240 style='border-bottom:1.0pt solid black;
   border-top:none;width:180pt'>システム<ruby>環境<span style='display:none'><rt>カンキョウ</rt></span></ruby><ruby>変数<span
   style='display:none'><rt>ヘンスウ</rt></span></ruby>の<ruby>名前<span
   style='display:none'><rt>ナマエ</rt></span></ruby></td>
@@ -369,7 +376,7 @@ else
  </tr>
  <tr height=322 style='mso-height-source:userset;height:241.5pt'>
   <td height=322 style='height:241.5pt'></td>
-  <td rowspan=2 class=xl117 width=512 style='border-bottom:1.0pt solid black;
+  <td rowspan=2 class=xl118 width=512 style='border-bottom:1.0pt solid black;
   border-top:none;width:384pt'>c) VEでは、<ruby>以下<span style='display:none'><rt>イカ</rt></span></ruby>の環境変数に&quot;VE_&quot;プリフィックスが必要です。<br>
     VE_LD_WARN<br>
     VE_LD_DEBUG<br>
@@ -434,6 +441,49 @@ else
   style='display:none'><rt>カン</rt></span></ruby>しては、”システムコールの<ruby>相違点<span
   style='display:none'><rt>ソウイテン</rt></span></ruby>”ドキュメントを<ruby>参照<span
   style='display:none'><rt>サンショウ</rt></span></ruby>ください。</td>
+ </tr>
+ <tr height=145 style='height:108.75pt'>
+  <td height=145 style='height:108.75pt'></td>
+  <td class=xl88 style='border-top:none'>10</td>
+  <td class=xl71 width=240 style='border-top:none;width:180pt'>system() API</td>
+  <td class=xl89 width=512 style='width:384pt'>VE では、VE プログラムの<ruby>中<span
+  style='display:none'><rt>ナカ</rt></span></ruby>でセット/クリアした<ruby>環境<span
+  style='display:none'><rt>カンキョウ</rt></span></ruby><ruby>変数<span
+  style='display:none'><rt>ヘンスウ</rt></span></ruby>は、system() APIによって<ruby>起動<span
+  style='display:none'><rt>キドウ</rt></span></ruby>された<ruby>子<span
+  style='display:none'><rt>コ</rt></span></ruby>プロセスに<ruby>引<span
+  style='display:none'><rt>ヒ</rt></span></ruby>き<ruby>継<span style='display:
+  none'><rt>ツ</rt></span></ruby>がれません。<br>
+    シナリオ：ユーザがコマンドプロンプトで<ruby>環境<span style='display:none'><rt>カンキョウ</rt></span></ruby><ruby>変数<span
+  style='display:none'><rt>ヘンスウ</rt></span></ruby>を<ruby>設定<span
+  style='display:none'><rt>セッテイ</rt></span></ruby>(export)したとします。system() で<ruby>起動<span
+  style='display:none'><rt>キドウ</rt></span></ruby>した<ruby>子<span
+  style='display:none'><rt>コ</rt></span></ruby>プロセスが<ruby>環境<span
+  style='display:none'><rt>カンキョウ</rt></span></ruby><ruby>変数<span
+  style='display:none'><rt>ヘンスウ</rt></span></ruby><ruby>使<span
+  style='display:none'><rt>ツカ</rt></span></ruby>うことを<ruby>意図<span
+  style='display:none'><rt>イト</rt></span></ruby>して、<ruby>子<span
+  style='display:none'><rt>コ</rt></span></ruby>プロセスをsystem()で<ruby>実行<span
+  style='display:none'><rt>ジッコウ</rt></span></ruby>する前に、メインプログラムがその<ruby>環境<span
+  style='display:none'><rt>カンキョウ</rt></span></ruby><ruby>変数<span
+  style='display:none'><rt>ヘンスウ</rt></span></ruby>を unsetenv を<ruby>用<span
+  style='display:none'><rt>モチ</rt></span></ruby>いてクリアします。<br>
+    このシナリオでは、コマンドプロンプトで設定された環境変数が、子プロセスから<br>
+    見えます。</td>
+  <td class=xl72 width=527 style='border-top:none;width:395pt'>VE プロセスの
+  system()<span style='mso-spacerun:yes'> </span><ruby>要求<span
+  style='display:none'><rt>ヨウキュウ</rt></span></ruby>は VEOS ではなく、VH OS (Linux)
+  によって<ruby>実行<span style='display:none'><rt>ジッコウ</rt></span></ruby>されます。VE <ruby>内<span
+  style='display:none'><rt>ナイ</rt></span></ruby>での<ruby>環境<span
+  style='display:none'><rt>カンキョウ</rt></span></ruby><ruby>変数<span
+  style='display:none'><rt>ヘンスウ</rt></span></ruby>の<ruby>更新<span
+  style='display:none'><rt>コウシン</rt></span></ruby>は VH の<ruby>環境<span
+  style='display:none'><rt>カンキョウ</rt></span></ruby>に<ruby>反映<span
+  style='display:none'><rt>ハンエイ</rt></span></ruby>されていないため、<ruby>子<span
+  style='display:none'><rt>コ</rt></span></ruby>プロセスは<ruby>変更<span
+  style='display:none'><rt>ヘンコウ</rt></span></ruby>を<ruby>引<span
+  style='display:none'><rt>ヒ</rt></span></ruby>き<ruby>継<span style='display:
+  none'><rt>ツ</rt></span></ruby>ぎません。</td>
  </tr>
  <tr height=18 style='height:13.5pt'>
   <td height=18 style='height:13.5pt'></td>

@@ -1,7 +1,7 @@
 VEOS:VEプログラムの実行方法
-Date:07-Feb-2019
+Date:21-May-2019
 
-この文書は VEOS version 2.0.1 以降についての情報を記載しています。
+この文書は VEOS version 2.1 以降についての情報を記載しています。
 
 はじめに、対象のVH(VEが接続されるLinux/x86マシン)にログインしてください。
 
@@ -64,22 +64,18 @@ Date:07-Feb-2019
    $ export VE_LD_LIBRARY_PATH=/path/to/usr/lib
    $ /opt/nec/ve/bin/ve_exec ./hello
 
-  その他の環境変数については、「環境変数」の節を参照してください。
+  その他のオプション・環境変数については、「ve_execオプション」
+  「環境変数」の節を参照してください。
 
 
 - 既定のライブラリ検索パスの追加方法
 
-  glibcを使用する場合:
   規定値として検索パスを追加する場合は、"/etc/opt/nec/ve/ld.so.conf.d"ディレク
   トリに設定ファイルを追加した後、下記コマンドを実行してください。
-  $ sudo /opt/nec/ve/glibc/sbin/ldconfig
-  設定ファイルは末尾が".conf"の任意のファイル名とし、検索パスを記入します。
 
-  musl-libcを使用する場合:
-  規定値として検索パスを追加する場合は、下記の設定ファイルにパスを追加します。
-  /etc/opt/nec/ve/musl/ld-musl-ve.path
-  詳細は、ドキュメント「Musl-libcの相違点」
-  (Musl_libc_Supported_Api_Difference_Point.htm) を参照してください。
+   $ sudo /opt/nec/ve/glibc/sbin/ldconfig
+
+  設定ファイルは末尾が".conf"の任意のファイル名とし、検索パスを記入します。
 
 
 - 高速I/Oを有効にする方法
@@ -100,9 +96,12 @@ Date:07-Feb-2019
 
     * カーネルパラメータ"vm.nr_hugepages"がVEあたり256以上に設定されて
       いること
-      (カーネルパラメータの設定は、sysctl(8) man pageを参照してください)
-    * InfiniBandを介して他のVHに接続されていないこと
+        - カーネルパラメータの設定は、sysctl(8) man pageを参照してくだ
+          さい
+
     * ScaTeFSを利用していないこと
+        - ScaTeFS を利用している場合は、高速I/Oの代わりに、ScaTeFS ダイ
+          レクト I/O を有効にしてください
 
   高速I/Oは、 libveaccio が実行時にロードされると有効になります。ロード
   するためには、環境変数 VE_LD_PRELOAD を設定してください。
@@ -113,6 +112,21 @@ Date:07-Feb-2019
   高速I/O有効時、8MB単位でデータが転送されます。そのため、サイズが8MBを
   超える場合、read/write系システムコールはアトミックではなくなることに
   注意してください。
+
+
+- ve_exec オプション
+
+  ve_exec コマンドは次のオプションを受け付けます。
+
+    -V, --version                 バージョン情報表示
+    -h, --help                    ヘルプ表示
+    -N node, --node=<node>        実行 VE ノード指定
+    -c core, --core=<core>        VEプログラムをどの VE コアで動かすかを
+                                  コア番号で指定
+                                  '-c' と '--cpunodebind' の両方を同時に
+                                  指定することは不可
+    --                            ve_exec オプションの終了 (VEバイナリ名が
+                                  '-' で始まる場合に必要)
 
 
 - 環境変数
@@ -208,6 +222,7 @@ Date:07-Feb-2019
   glibcは以下のコマンドをサポートします:
 
    /opt/nec/ve/glibc/sbin/ldconfig
+   /opt/nec/ve/glibc/sbin/ldd
 
 
 - VEプログラムのデバッグ方法
@@ -227,7 +242,6 @@ Date:07-Feb-2019
   - Difference_Points_GDB.htm
   - Difference_Points_Commands.pdf
   - Difference_Points_glibc.htm
-  - Musl_libc_Supported_Api_Difference_Point.htm
 
 
 - VEOS各種仕様について
@@ -239,50 +253,65 @@ Date:07-Feb-2019
 
 - VEOSの問題発生時の情報採取
 
-  解析には以下の情報が必要です:
+  解析には以下の情報が必要です。
+    1. RPM パッケージとカーネルのバージョン情報
+       以下のコマンドを実行してバージョン情報をファイルに保存して採取し
+       てください。
 
-   /var/opt/nec/ve/veos/*.log.*
-   /var/opt/nec/ve/veos/core.*
+        $ rpm -qa --qf '%{VENDOR} %{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n' \
+           | grep NEC > version.txt
+        $ uname -r >> version.txt
+
+    2. ログファイル
+       以下のログファイルを採取してください。
+
+         /var/log/messages*
+         /var/opt/nec/ve/veos/*.log.*
+         /var/opt/nec/ve/veos/core.* (存在する場合)
+
+  もし、VEプログラムがフリーズするような問題の場合は、次の情報も必要です。
+  情報を採取するためには、gdb パッケージがインストールされている必要が
+  あります。
+
+    3. VEOSのコアファイル
+       root権限で次のコマンドを実行してコアファイルを生成してください。
+       core.xxxxx(xxxxxはpid)が生成されて、core.xxxxx.gzに圧縮されます。
+       圧縮前のコアファイルはサイズは大きいサイズになるため、カレントディ
+       レクトリに十分な空が必要です。
+       圧縮されたコアファイルを採取してください。
+
+        $ pgrep veos | while read pid; do gcore $pid; gzip core.$pid; done
+
+
+- VEOS のデバッグログの採取方法
+  再現可能なVEOSの問題の場合、以下の情報も解析に役立ちます。
+
+  情報採取のレベルをデバッグに変更願います。
+
+   $ sudo cp /etc/opt/nec/ve/veos/log4crc /etc/opt/nec/ve/veos/log4crc.org
+   $ sudo sed -i -e 's/INFO/DEBUG/g' -e 's/CRIT/DEBUG/g' -e 's/layout="ve"/layout="ve_debug"/g' /etc/opt/nec/ve/veos/log4crc
+
+  設定を反映するために、VEOSをリブートしてください。
+
+   $ sudo systemctl restart 've-os-launcher@*'
+
+  情報採取のために、以下の環境変数を設定願います。
+
+   $ export LOG4C_RCPATH=/etc/opt/nec/ve/veos
+
+  次に、問題を再現させてください。この時、ve_execのログファイルがカレ
+  ントディレクトリに作成されます。
+
+   ./ve_exec.log.*
+
+  なお、以下の情報も忘れずにお願いします。
+
    /var/log/messages*
+   /var/opt/nec/ve/veos/*.log.*
+   /var/opt/nec/ve/veos/core.* (存在する場合)
 
-  さらには各種バージョン情報も必要です:
+  最後に、ログレベルを元に戻して、VEOSをリブートしてください。
 
-   $ uname -r > veos.version
-   $ rpm -qa --qf '%{VENDOR} %{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n' | grep NEC >> veos.version
-
-  再現可能なVEOSの問題なら、以下の情報も解析に役立ちます。
-
-    情報採取のために、以下の環境変数を設定願います。
-
-     $ export LOG4C_RCPATH=/etc/opt/nec/ve/veos
-
-    情報採取のレベルをデバッグに変更願います。
-
-     $ sudo cp /etc/opt/nec/ve/veos/log4crc /etc/opt/nec/ve/veos/log4crc.org
-     $ sudo sed -i -e 's/INFO/DEBUG/g' -e 's/CRIT/DEBUG/g' -e 's/layout="ve"/layout="ve_debug"/g' /etc/opt/nec/ve/veos/log4crc
-
-    以上の設定を反映するために、VEOSをリブートしてください。
-
-     $ sudo systemctl restart 've-os-launcher@*'
-
-    ここで、VEOSの問題を再現させてください。この時、ve_execのログファイルが
-    作業ディレクトリに作成されます。
-
-     ./ve_exec.log.*
-
-    なお、以下の情報も忘れずにお願いします。
-
-     /var/opt/nec/ve/veos/*.log.*
-     /var/opt/nec/ve/veos/core.*
-     /var/log/messages*
-
-    さらには各種バージョン情報も必要です:
-
-    $ uname -r > veos.version
-    $ rpm -qa --qf '%{VENDOR} %{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n' | grep NEC >> veos.version
-
-    最後に、ログレベルを元に戻して、VEOSをリブートしてください。
-
-     $ sudo cp /etc/opt/nec/ve/veos/log4crc.org /etc/opt/nec/ve/veos/log4crc
-     $ sudo systemctl restart 've-os-launcher@*'
-     $ unset LOG4C_RCPATH
+   $ sudo cp /etc/opt/nec/ve/veos/log4crc.org /etc/opt/nec/ve/veos/log4crc
+   $ sudo systemctl restart 've-os-launcher@*'
+   $ unset LOG4C_RCPATH

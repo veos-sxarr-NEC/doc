@@ -1,7 +1,7 @@
 VEOS:README
-Date:07-Feb-2019
+Date:21-May-2019
 
-This document describes the information regarding the VEOS version 2.0.3 or 
+This document describes the information regarding the VEOS version 2.1 or 
 later.
 
 - CAUTIONS
@@ -20,6 +20,11 @@ later.
      applications. We disclaim liability for any personal injury and property
      damages caused by such use of this SW.
 
+- About VEOS
+
+  VEOS is the software running on Linux/Vector Host and provides OS 
+  functionality for VE programs running on Vector Engine.
+
 - Supported Platforms and Operating Systems
 
   Operating System         Platform
@@ -36,11 +41,19 @@ later.
   etc. VEOS can work correctly only on Linux which works directly on the
   physical machine.
 
+- The ve_exec command which is a part of VEOS uses over 1TB of VH virtual 
+  address space. VEOS requires that Linux kernel parameter vm.overcommit_memory
+  is not '2' to enable "overcommit".
+
 - Please do not apply excessive loads on your Linux/x86 machine to make VEOS to
   be able to provide OS functionality steadily. Excessive loads on Linux/x86
   machine may cause unexpected performance degrades on VEOS such as long
   response time.
 
-- setjmp() is not supported in shared library. If setjmp() is called in shared
-  library, the program can crash unexpectedly.
+- The number of threads of VE processes which run on VE should be less
+  than or equal to the number of available VE cores, in order to
+  achieve best performance.
+
+- VE strace command doesn't support tracing of execve() system call. If execve()
+  is invoked in traced process, VE strace terminates with "Bad address".
 
