@@ -1,5 +1,5 @@
 VEOS:VEプログラムの実行方法
-Date:21-May-2019
+Date:18-Jun-2019
 
 この文書は VEOS version 2.1 以降についての情報を記載しています。
 
@@ -34,6 +34,20 @@ Date:21-May-2019
   $ /opt/nec/ve/bin/ncc hello.c -o hello
 
 
+- VEOS 動作モードの確認
+
+  VEOS は Normal モードと NUMA モード、２つの動作モードをサポートしています。
+  /opt/nec/ve/bin/venumainfo コマンドでモードをチェックすることができます。
+
+   $ /opt/nec/ve/bin/venumainfo
+
+  Normal モードの場合、venumainfo は "available: 1 nodes(0)" を表示し、
+  VE の情報を "node 0" として表示します。
+
+  NUMA モードの場合、venumainfo は "available: 2 nodes(0-1)" を表示し、
+  "node 0" (NUMA ノード 0) と "node 1" (NUMA ノード 1) の情報を表示します。
+
+
 - VEプログラムの実行方法
 
   VEノード#0でプログラムを実行する場合:
@@ -66,6 +80,38 @@ Date:21-May-2019
 
   その他のオプション・環境変数については、「ve_execオプション」
   「環境変数」の節を参照してください。
+
+
+- VEプログラムの実行方法 (NUMA モード)
+
+  VEOS が NUMA モードで動作している場合、VE を NUMA の様に利用することが
+  できます。
+
+  プログラムを NUMA オプションなしに実行すると、VEOS は負荷の低い NUMA 
+  ノードにそのプログラムのプロセスを生成します。プログラムがメモリ割り当てを
+  要求した場合は、プログラムが動作しているローカル NUMA ノードに属するメモリ
+  (ローカルメモリ) が最初に割り当てられます。ローカルメモリが一杯の場合、
+  反対側の NUMA ノードに属するメモリ (リモートメモリ) が割り当てられます。
+
+   $ /opt/nec/ve/bin/ve_exec ./hello
+
+  使用する NUMA ノードやメモリポリシを指定するオプションを使う事ができます。
+
+   $ /opt/nec/ve/bin/ve_exec --cpunodebind=0 --localmembind ./hello
+
+  また、オプション指定のために NUMA 用の環境変数 VE_NUMA_OPT も利用できます。
+
+   $ export VE_NUMA_OPT="--cpunodebind=0 --localmembind"
+   $ /opt/nec/ve/bin/ve_exec ./hello
+
+  注:
+  デフォルトでは、VEOS はまずローカルメモリを割り当て、もしローカルメモリが
+  一杯の場合はリモートメモリを割り当てます。VEOS はこのポリシを MPOL_DEFAULT
+  と定義します。'--localmembind' が指定された場合は、VEOS はローカルメモリ
+  のみを割り当てます。VEOS はこのポリシを MPOL_BIND と定義します。
+
+  オプション・環境変数の詳細は、「ve_execオプション」「環境変数」の節を
+  参照してください。
 
 
 - 既定のライブラリ検索パスの追加方法
@@ -128,6 +174,11 @@ Date:21-May-2019
     --                            ve_exec オプションの終了 (VEバイナリ名が
                                   '-' で始まる場合に必要)
 
+  NUMA mode のみ:
+    --cpunodebind=<NUMA node ID>  VE プログラムを実行する NUMA ノード番号
+                                  <NUMA node ID> を指定する
+    --localmembind                ローカルメモリのみ割り当てる (MPOL_BIND)
+
 
 - 環境変数
 
@@ -164,6 +215,11 @@ Date:21-May-2019
     されたサイズが64MBを超える場合、64MBごとにデータが転送されます。こ
     の場合、read/write系システムコールやsend/recv系のシステムコールは、
     アトミックではなくなります。
+
+  * VE_NUMA_OPT
+    これは NUMA オプション "--cpunodebind" と "--localmembind" を指定します。
+    VE_NUMA_OPT とコマンドライン引き数の両方で NUMA オプションが指定され
+    ている場合、VEOS はコマンドライン引き数で指定された値を使用します。
 
 
 - VEOSコマンドの実行方法
@@ -216,6 +272,7 @@ Date:21-May-2019
    top
    uptime
    ve_exec
+   venumainfo
    vmstat
    w
 

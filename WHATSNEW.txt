@@ -2,6 +2,13 @@
 2.1
 This section describes changes between the 2.0.3 and 2.1 versions of VEOS.
 
+Summary : Supported NUMA mode
+Type    : enhancement
+Detail  : The partitioning mode of VE card (HW) is available, so VEOS supports 
+          VEOS NUMA mode to control the partitioning mode. In the partitioning 
+          mode, user can use VE card like NUMA.  Please see VEOS document 
+          "How to execute VE program" for usage.
+
 Summary : Supported VE Offloading framework (VEO).
 Type    : enhancement
 Detail  : VEO provides accelerator-style programming on VE. VEO controls the 

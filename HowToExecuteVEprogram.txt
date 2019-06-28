@@ -1,5 +1,5 @@
 VEOS:How to execute VE program
-Date:21-May-2019
+Date:18-Jun-2019
 
 This document describes the information regarding the VEOS version 2.1 or
 later.
@@ -30,6 +30,20 @@ having VEs.
          whose number of threads/processes is less than or equal to the number
          of the VE CPU cores because there is no context switching while
          executing the VE program.
+
+
+- How to check VEOS mode
+
+  VEOS supports 2 operation modes, Normal mode and NUMA mode.
+  You can check the mode by /opt/nec/ve/bin/venumainfo command. 
+
+   $ /opt/nec/ve/bin/venumainfo
+
+  In case of Normal mode, venumainfo displays "available: 1 nodes(0)" and
+  it displays information of VE as "node 0". 
+
+  In case of NUMA mode, venumainfo displays "available: 2 nodes(0-1)" and
+  it displays information of "node 0" (NUMA node 0) and "node 1" (NUMA node 1).
 
 
 - How to make a VE program
@@ -73,6 +87,38 @@ having VEs.
 
   Please see 've_exec options' section and 'Environment variables' 
   section for more variables.
+
+
+- How to run a VE program (NUMA mode)
+
+  When VEOS is running as NUMA mode, you can use VE like NUMA. 
+
+  You execute a program without any NUMA options, then VEOS creates a process 
+  for the program on a NUMA node whose load is lower. When the process requests
+  memory allocation, memory belonging a local NUMA node on which the process is
+  running (local memory) is allocated first. If the local memory is full, memory
+  belonging an opposite NUMA node (remote memory) is allocated. 
+
+   $ /opt/nec/ve/bin/ve_exec ./hello
+  
+  You can use options to specify using NUMA node and memory policy.
+
+   $ /opt/nec/ve/bin/ve_exec --cpunodebind=0 --localmembind ./hello
+
+  You can also use an environment variable for NUMA, VE_NUMA_OPT, to specify
+  the options.
+
+   $ export VE_NUMA_OPT="--cpunodebind=0 --localmembind"
+   $ /opt/nec/ve/bin/ve_exec ./hello
+
+  Note:
+  By default, VEOS allocates local memory first, then it allocates remote
+  memory if local memory is full. VEOS defines the policy as MPOL_DEFAULT. 
+  When '--localmembind' is specified, VEOS allocates local memory only. VEOS 
+  defines the policy as MPOL_BIND.
+
+  Please see 've_exec options' section and 'Environment variables' 
+  section for detail.
 
 
 - How to add path to the default library search path
@@ -136,6 +182,12 @@ having VEs.
     --                            End of options (Requires if binary name
                                     starts with ‘-’)
   
+  NUMA mode only:
+    --cpunodebind=<NUMA node ID>  Specify NUMA node ID on which VE program
+                                  to be executed
+    --localmembind                Only local memory can be allocated.
+                                  (MPOL_BIND)
+    
 
 - Environment Variables
 
@@ -173,6 +225,12 @@ having VEs.
     If the requested size is more than 64MB, data will be transferred
     every 64MB. So, read/write family system calls and send/recv
     family system calls will not be atomic in this case.
+
+  * VE_NUMA_OPT
+    It specifies NUMA options, "--cpunodebind" and "--localmembind".
+    If NUMA options specified by both of VE_NUMA_OPT and a command line 
+    argument are specified, VEOS uses a value specified by a command line 
+    argument.
 
 
 - How to run ported commands for VEOS
@@ -225,6 +283,7 @@ having VEs.
    top
    uptime
    ve_exec
+   venumainfo
    vmstat
    w
 
