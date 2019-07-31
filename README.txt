@@ -1,7 +1,7 @@
 VEOS:README
-Date:21-May-2019
+Date:July-2019
 
-This document describes the information regarding the VEOS version 2.1 or 
+This document describes the information regarding the VEOS version 2.1.3 or 
 later.
 
 - CAUTIONS
@@ -53,7 +53,3 @@ later.
 - The number of threads of VE processes which run on VE should be less
   than or equal to the number of available VE cores, in order to
   achieve best performance.
-
-- VE strace command doesn't support tracing of execve() system call. If execve()
-  is invoked in traced process, VE strace terminates with "Bad address".
-

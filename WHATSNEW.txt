@@ -1,4 +1,154 @@
 
+2.1.3
+This section describes changes between the 2.1 and 2.1.3 versions of VEOS.
+          
+Summary : Supported performance improvement of gettimeofday() when 'timezone' 
+          argument is specified
+Type    : enhancement
+Detail  : The API gettimeofday() invokes the system call on very first 
+          call and invokes the function call which returns timezone in VE 
+          side, on subsequent callings when 'timezone' argument is specified
+          as an argument. That improves performance of gettimeofday().
+
+Summary : Supported to call VEO API from a child thread on VH side.
+Type    : enhancement
+Detail  : VEO supports to call VEO API from a child thread on VH side
+          and create a VE process. When a VE process is created from a child 
+          thread on VH, VE DMA or VH-VE SHM is not supported.
+
+Summary : Supported new VEO APIs which can set 16 bit and 8 bit signed and
+          unsigned integer arguments.
+Type    : enhancement
+Detail  : VEO supports new VEO APIs which can set 16 bit integer/unsigned
+          integer, 8 bit integer/unsigned integer.
+          Because user can set veo_args to the integer types by using
+          the VEO APIs, user can pass the four integer types to VE process.
+
+Summary : Supported to use VE program written in Fortran(VEO).
+Type    : enhancement
+Detail  : VEO supports a library implemented in Fortran except a quadruple
+          precision real number or a variable length character string as
+          an argument or a return value.
+
+Summary : Supported linking static libraries without exporting symbols (VEO)
+Type    : enhancement
+Detail  : Users can link static libraries without exporting symbols on
+          creating a static veorun by the new '--link-nosym' option of
+          'mk_veorun_static'. This enhancement reduces the memory consumption,
+          and speeds up the starting and the symbol search of a program
+          dependent on large libraries such as BLAS.
+
+Summary : Improved VE process loading performance.
+Type    : enhancement
+Detail  : VE process loading functionality is optimized for faster loading.
+	  Also updated VE process scheduling functionality to execute process
+	  immediately if the assigned core is idle.
+
+Summary : Updated PPID value in process accounting file to display PPID of a
+	  new VE process as the 'PID of process' which created it.
+Type    : enhancement
+Detail  : The dump-acct command displays PPID as 'PID of process' which created
+	  it instead of '1' for any new VE process which is executed with 
+	  've_exec' or with any commands for VE (like taskset, prlimit, time
+	  and strace for VE).
+
+Summary : Fix the issue in system() API where the memory of the VE process is
+	  not freed until the VH process created by system() is exited.
+Type    : bugfix
+Detail  : When VE process invokes system() API to execute a VH process in
+	  background e.g. 'system("/bin/sleep 180 &")', the memory resources
+	  of the VE process is not freed even after its exit, untill the
+	  VH process created with system() exits.
+
+Summary : Fix the issue in system() API when an input string represented by
+          'command' argument may get corrupted.
+Type    : bugfix
+Detail  : When VE program invokes 'system(command)' then extra characters may
+	  get appended in the string literal represented by 'command' which
+	  leads to unexpected behaviour of given command.
+
+Summary : Fix the issue in gettimeofday() when this API returns incorrect 
+          'timeval' structure values if it is invoked after 1 hour of it's 
+          previous call.
+Type    : bugfix
+Detail  : When VE program invokes gettimeofday() and subsequently invokes
+          gettimeofday() again after the time frame of 1 hour is elapsed,
+          the results in the 'timeval' structure returns garbage.
+
+Summary : Fix the issue in delivering SIGALARM when timer expire happens during
+          disabling the timer through setitimer() system call.
+Type    : bugfix
+Detail  : When VE process invokes setitimer() system call to disable the
+          registered timer and at the same time timer also expires.
+          In this case SIGALARM signal delivers to the VE process
+          after returning from setitimer() system call. 
+          This changes SIGALARM delivering so that it is delivered during 
+          setitimer() system call.
+
+Summary : Fix the issue of changing data which is read by VE AIO
+Type    : bugfix
+Detail  : When multiple ve_aio_read() is called at a time under one of following
+          condition, some read data may be changed unexpectedly.
+          - Starting address of buffer on VE is not multiple of 8
+          - Size of buffer on VE is not multiple of 8
+
+Summary : Fix of the issue where VEO programs with libveosinfo may terminate abnormally
+Type    : bugfix
+Detail  : VEO programs linked with 'libveosinfo', a library to get VE and VEOS
+          information, may terminate abnormally due to a symbol conflict
+          between 'libveosinfo' and 'libvepseudo', a library composing a
+          pseudo process, used by VEO. To avoid such a conflict, symbols of
+          internal functions and variables of 'libvepseudo' are now hidden.
+
+Summary : Fix of issue where VEO user can not run veorun statically linked 
+	  when user directories mounted with NOSUID.
+Type    : bugfix
+Detail  : VEO user can not execute a program with statically linked veorun 
+	  if the underlying filesystem of the executable is mounted with 
+	  "nosuid" mount option.
+
+Summary : Fix the issue of stalling VEO request.
+Type    : bugfix
+Detail  : When the function called using VEO API made an exception occur,
+          the context can't continue to execute functions any more.
+          But, when race condition occurred in VEO library, calling the
+          function using asynchronous VEO API, the context which made an
+          exception occur may accept a new request.
+          In that case, when you wait for a result using the request ID
+          returned by the request, VEO API seems to be hanged
+          because the new request which is accepted by the context
+          isn't executed.
+
+Summary : Fix the issue where permission of VE process stack mapping is set to
+	  'PROT_WRITE'.
+Type    : bugfix
+Detail  : VE 'pmap' command shows the stack mapping permission of VE process as
+	  'PROT_WRITE' instead of 'PROT_WRITE|PROT_READ'.
+
+Summary : Fix the issue where process tracing using VE 'strace' command failed 
+	  if execve() system call is called from traced process.
+Type    : bugfix
+Detail  : If execve() system call or any exec() family of functions are called 
+          from traced VE process then 'strace' command failed with error as 
+          "Bad address".
+
+Summary : Fix the issue of compilation error while including header file 
+          'strings.h' in the user program when compiling through 'nc++' 
+          compiler with compilation
+          option '-U__GNUC_MINOR__'.
+Type    : bugfix
+Detail  : When the header file strings.h is included in the user program and the
+          program is compiled through nc++ compiler with compilation option
+	  -U__GNUC_MINOR__ ,the compiler prompts error.
+
+Summary : Fix the issue of warning or error occurring when program using VH Call
+          is compiled.
+Type    : bugfix
+          When program using vh_call_args_alloc() is compiled as C program,
+          warning is occurred. In case of specifying -std=c11 option or compiling
+          as C++ program, error is occurred.
+
+
 2.1
 This section describes changes between the 2.0.3 and 2.1 versions of VEOS.
 

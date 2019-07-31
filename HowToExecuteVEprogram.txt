@@ -1,7 +1,7 @@
 VEOS:How to execute VE program
-Date:18-Jun-2019
+Date:July-2019
 
-This document describes the information regarding the VEOS version 2.1 or
+This document describes the information regarding the VEOS version 2.1.3 or
 later.
 
 
@@ -145,17 +145,16 @@ having VEs.
       readv    writev
       preadv   pwritev
 
-  This feature uses huge pages as buffers, and the same I/O path which
-  is used when data is transferred via InfiniBand. Because of this,
-  this feature can be enabled when the below requirements are met.
+  This feature can be enabled when the below requirements are met.
+
+   * ScaTeFS is not installed
+      - Please enable ScaTeFS direct I/O instead of accelerated I/O
+        when ScaTeFS is installed
 
    * The kernel parameter "vm.nr_hugepages" is more than or equal to
      256/per VE
+      - Accelerated I/O uses huge pages as a buffer
       - Please see sysctl(8) man page to set the kernel parameter
-
-   * VH does't use ScaTeFS
-      - Please enable ScaTeFS direct I/O instead of accelerated I/O
-        when VH use ScaTeFS
 
   "Accelerated I/O" is enabled when 'libveaccio' is loaded at
   runtime. Please set environment variable VE_LD_PRELOAD to load it.
@@ -195,6 +194,8 @@ having VEs.
 
   * VE_NODE_NUMBER
     It specifies VE node number on which a program will be executed. 
+    When you execute a VE program without VE_NODE_NUMBER and -N option of
+    ve_exec command, the VE program will be executed on VE Node #0.
 
   * VE_LD_LIBRARY_PATH
     This environment variable provides a library path for finding dynamic 
