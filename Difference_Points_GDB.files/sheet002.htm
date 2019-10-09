@@ -1,5 +1,4 @@
-<html xmlns:v="urn:schemas-microsoft-com:vml"
-xmlns:o="urn:schemas-microsoft-com:office:office"
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns:x="urn:schemas-microsoft-com:office:excel"
 xmlns="http://www.w3.org/TR/REC-html40">
 
@@ -181,39 +180,6 @@ else
   <td height=25 class=xl66 style='height:18.75pt'></td>
   <td class=xl66></td>
   <td class=xl97>2.</td>
-  <td class=xl66 colspan=6 style='mso-ignore:colspan'>A executable binary needs
-  to be specified explicitly when you attach GDB to VE process.<span
-  style='mso-spacerun:yes'> </span></td>
-  <td class=xl66></td>
- </tr>
- <tr height=25 style='height:18.75pt'>
-  <td height=25 class=xl66 style='height:18.75pt'></td>
-  <td class=xl66></td>
-  <td class=xl97></td>
-  <td class=xl66 colspan=2 style='mso-ignore:colspan'>Otherwise, a error
-  occurs.</td>
-  <td class=xl66></td>
-  <td class=xl66></td>
-  <td class=xl66></td>
-  <td class=xl66></td>
-  <td class=xl66></td>
- </tr>
- <tr height=25 style='height:18.75pt'>
-  <td height=25 class=xl66 style='height:18.75pt'></td>
-  <td class=xl66></td>
-  <td class=xl97></td>
-  <td class=xl66></td>
-  <td class=xl66></td>
-  <td class=xl66></td>
-  <td class=xl66></td>
-  <td class=xl66></td>
-  <td class=xl66></td>
-  <td class=xl66></td>
- </tr>
- <tr height=25 style='height:18.75pt'>
-  <td height=25 class=xl66 style='height:18.75pt'></td>
-  <td class=xl66></td>
-  <td class=xl97>3.</td>
   <td class=xl66 colspan=6 style='mso-ignore:colspan'>VE_NODE_NUMBER
   environment variable can be used to specify VE node to execute VE program.</td>
   <td class=xl66></td>
@@ -242,7 +208,7 @@ else
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl66 style='height:18.75pt'></td>
   <td class=xl66></td>
-  <td class=xl97>4.</td>
+  <td class=xl97>3.</td>
   <td class=xl67 colspan=6 style='mso-ignore:colspan'>Only local debugging is
   supported. Remote debugging using GDB server or GDB stub is not supported.</td>
   <td class=xl66></td>
@@ -262,7 +228,7 @@ else
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl66 style='height:18.75pt'></td>
   <td class=xl66></td>
-  <td class=xl76>5.</td>
+  <td class=xl76>4.</td>
   <td class=xl97 colspan=6 style='mso-ignore:colspan'>The directory where
   separate debug symbols are searched for is &quot;/opt/nec/ve/lib/debug&quot;.</td>
   <td class=xl66></td>
@@ -282,7 +248,7 @@ else
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl66 style='height:18.75pt'></td>
   <td class=xl66></td>
-  <td class=xl97>6.</td>
+  <td class=xl97>5.</td>
   <td class=xl66 colspan=6 style='mso-ignore:colspan'>GDB can not deals with
   thread-local variables correctly, because DWARF information about them is
   invalid.</td>
@@ -303,7 +269,7 @@ else
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl66 style='height:18.75pt'></td>
   <td class=xl66></td>
-  <td class=xl76>7.</td>
+  <td class=xl76>6.</td>
   <td class=xl97 colspan=7 style='mso-ignore:colspan'>The following commands
   don't show information for VE side but show for VH(Vector Host) side using
   procfs of it.</td>
@@ -419,7 +385,7 @@ else
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl66 style='height:18.75pt'></td>
   <td class=xl66></td>
-  <td class=xl97>8.</td>
+  <td class=xl97>7.</td>
   <td class=xl66 colspan=5 style='mso-ignore:colspan'>&quot;info auxv&quot;
   command is available only in debugging with core file.</td>
   <td class=xl66></td>
@@ -440,7 +406,7 @@ else
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl66 style='height:18.75pt'></td>
   <td class=xl66></td>
-  <td class=xl97>9.</td>
+  <td class=xl97>8.</td>
   <td class=xl66 colspan=6 style='mso-ignore:colspan'>GDB and VEOS does not
   handle invocation of execve() system call from a VE program properly.</td>
   <td class=xl66></td>
@@ -496,7 +462,7 @@ else
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl66 style='height:18.75pt'></td>
   <td class=xl66></td>
-  <td class=xl97>10.</td>
+  <td class=xl97>9.</td>
   <td class=xl66 colspan=6 style='mso-ignore:colspan'>&quot;call&quot; command
   can be used to invoke a function of a VE program. But, if stack area beyond
   page boundary</td>
@@ -527,7 +493,7 @@ else
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl66 style='height:18.75pt'></td>
   <td class=xl66></td>
-  <td class=xl98>11.</td>
+  <td class=xl98>10.</td>
   <td class=xl66 colspan=3 style='mso-ignore:colspan'>VE specific commands are
   added.</td>
   <td class=xl66></td>
@@ -561,7 +527,7 @@ else
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl66 style='height:18.75pt'></td>
   <td class=xl66></td>
-  <td class=xl97>12.</td>
+  <td class=xl97>11.</td>
   <td class=xl66 colspan=3 style='mso-ignore:colspan'>Some of commands are not
   supported.<span style='mso-spacerun:yes'> </span></td>
   <td class=xl66></td>
@@ -594,7 +560,7 @@ else
  <tr height=25 style='height:18.75pt'>
   <td height=25 class=xl66 style='height:18.75pt'></td>
   <td class=xl66></td>
-  <td class=xl97>13.</td>
+  <td class=xl97>12.</td>
   <td class=xl66 colspan=6 style='mso-ignore:colspan'>Instruction Counter (IC)
   will be far from the address which causes a HW exception when the program is</td>
   <td class=xl66></td>

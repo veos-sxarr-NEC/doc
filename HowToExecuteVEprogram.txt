@@ -1,7 +1,7 @@
 VEOS:How to execute VE program
-Date:July-2019
+Date:September-2019
 
-This document describes the information regarding the VEOS version 2.1.3 or
+This document describes the information regarding the VEOS version 2.2 or
 later.
 
 
@@ -68,36 +68,35 @@ having VEs.
    $ export VE_NODE_NUMBER=1
    $ /opt/nec/ve/bin/ve_exec ./hello
 
-  When you install VEOS, binfmt for VE is configured. It is possible to
-  execute VE programs without ve_exec. If multiple VE nodes exist, the VE 
-  node which executes VE program is specified by environment variable 
+  When you install VEOS, binfmt for VE is configured. It is possible to execute
+  VE programs without ve_exec. If multiple VE nodes exist, the VE node which
+  executes VE program is specified by environment variable
   (VE_NODE_NUMBER), such as:
 
    $ export VE_NODE_NUMBER=1
    $ ./hello
 
-  When you want to change the path which the linker should
-  look in to while linking dynamic libraries/shared libraries,
-  you can use VE_LD_LIBRARY_PATH which is the predefined environment
-  variable in VEOS. For example, if you want to set it to
-  "/path/to/user/lib":
+  When you want to change the path which the linker should look in to while
+  linking dynamic libraries/shared libraries, you can use VE_LD_LIBRARY_PATH
+  which is the predefined environment variable in VEOS. For example, if you
+  want to set it to "/path/to/user/lib":
 
    $ export VE_LD_LIBRARY_PATH=/path/to/usr/lib 
    $ /opt/nec/ve/bin/ve_exec ./hello
 
-  Please see 've_exec options' section and 'Environment variables' 
-  section for more variables.
+  Please see 've_exec options' section and 'Environment variables' section for
+  more variables.
 
 
 - How to run a VE program (NUMA mode)
 
   When VEOS is running as NUMA mode, you can use VE like NUMA. 
 
-  You execute a program without any NUMA options, then VEOS creates a process 
+  You execute a program without any NUMA options, then VEOS creates a process
   for the program on a NUMA node whose load is lower. When the process requests
   memory allocation, memory belonging a local NUMA node on which the process is
-  running (local memory) is allocated first. If the local memory is full, memory
-  belonging an opposite NUMA node (remote memory) is allocated. 
+  running (local memory) is allocated first. If the local memory is full,
+  memory belonging an opposite NUMA node (remote memory) is allocated.
 
    $ /opt/nec/ve/bin/ve_exec ./hello
   
@@ -111,10 +110,10 @@ having VEs.
    $ export VE_NUMA_OPT="--cpunodebind=0 --localmembind"
    $ /opt/nec/ve/bin/ve_exec ./hello
 
-  Note:
+  (Note)
   By default, VEOS allocates local memory first, then it allocates remote
-  memory if local memory is full. VEOS defines the policy as MPOL_DEFAULT. 
-  When '--localmembind' is specified, VEOS allocates local memory only. VEOS 
+  memory if local memory is full. VEOS defines the policy as MPOL_DEFAULT.
+  When '--localmembind' is specified, VEOS allocates local memory only. VEOS
   defines the policy as MPOL_BIND.
 
   Please see 've_exec options' section and 'Environment variables' 
@@ -134,11 +133,11 @@ having VEs.
 
 - How to enable accelerated I/O
 
-  "Accelerated I/O" is a feature which improves I/O performance by
-  efficient data transfer between VE and VH.
+  "Accelerated I/O" is a feature which improves I/O performance by efficient
+  data transfer between VE and VH.
 
-  The throughput and the latency of the below read/write family system
-  calls will be improved.
+  The throughput and the latency of the below read/write family system calls
+  will be improved.
 
       read     write
       pread    pwrite
@@ -148,23 +147,22 @@ having VEs.
   This feature can be enabled when the below requirements are met.
 
    * ScaTeFS is not installed
-      - Please enable ScaTeFS direct I/O instead of accelerated I/O
-        when ScaTeFS is installed
+      - Please enable ScaTeFS direct I/O instead of accelerated I/O when
+        ScaTeFS is installed
 
-   * The kernel parameter "vm.nr_hugepages" is more than or equal to
-     256/per VE
+   * The kernel parameter "vm.nr_hugepages" is more than or equal to 256/per VE
       - Accelerated I/O uses huge pages as a buffer
       - Please see sysctl(8) man page to set the kernel parameter
 
-  "Accelerated I/O" is enabled when 'libveaccio' is loaded at
-  runtime. Please set environment variable VE_LD_PRELOAD to load it.
+  "Accelerated I/O" is enabled when 'libveaccio' is loaded at runtime. Please
+  set environment variable VE_LD_PRELOAD to load it.
 
    $ export VE_LD_PRELOAD=libveaccio.so.1
    $ ./hello
 
   Please note data is transferred every 8MB when "Accelerated I/O" is
-  enabled. So, read/write family system calls will not be atomic when
-  the size is more than 8MB.
+  enabled. So, read/write family system calls will not be atomic when the size
+  is more than 8MB.
 
 
 - ve_exec options
@@ -207,11 +205,10 @@ having VEs.
     other shared libraries which are linked to an executable get loaded.
     
   * VE_ATOMIC_IO
-    When this environment variable is set to 1, atomic I/O is enabled.
-    When VE program invokes one of read/write family system calls and
-    send/recv familiy system calls, a buffer is allocated at VH
-    side. If atomic I/O is enabled, this buffer's size will the
-    request size up to 2GB.
+    When this environment variable is set to 1, atomic I/O is enabled. When VE
+    program invokes one of read/write family system calls and send/recv familiy
+    system calls, a buffer is allocated at VH side. If atomic I/O is enabled,
+    this buffer's size will the request size up to 2GB.
 
     Enabling atomic I/O has a impact on the below system calls.
 
@@ -222,19 +219,18 @@ having VEs.
       send     recv
       sendto   recvfrom
 
-    If atomic I/O is not enabled, the buffer size is fixed to 64MB.
-    If the requested size is more than 64MB, data will be transferred
-    every 64MB. So, read/write family system calls and send/recv
-    family system calls will not be atomic in this case.
+    If atomic I/O is not enabled, the buffer size is fixed to 64MB.  If the
+    requested size is more than 64MB, data will be transferred every 64MB. So,
+    read/write family system calls and send/recv family system calls will not
+    be atomic in this case.
 
   * VE_NUMA_OPT
-    It specifies NUMA options, "--cpunodebind" and "--localmembind".
-    If NUMA options specified by both of VE_NUMA_OPT and a command line 
-    argument are specified, VEOS uses a value specified by a command line 
-    argument.
+    It specifies NUMA options, "--cpunodebind" and "--localmembind".  If NUMA
+    options specified by both of VE_NUMA_OPT and a command line argument are
+    specified, VEOS uses a value specified by a command line argument.
 
 
-- How to run ported commands for VEOS
+- How to run commands for VEOS
 
   If you want to execute your target command, such as ps, on VE Node #0:
 
@@ -245,7 +241,7 @@ having VEs.
 
    $ export VE_NODE_NUMBER=1
    $ /opt/nec/ve/bin/ps
-  
+
   VEOS supports the following commands which stored in /opt/nec/ve/bin:
 
    aclocal
@@ -283,7 +279,9 @@ having VEs.
    tload
    top
    uptime
+   ve-libc-check
    ve_exec
+   ve_validate_binary
    venumainfo
    vmstat
    w
@@ -303,20 +301,64 @@ having VEs.
    (gdb) run
 
 
-- Different points between VEOS and Linux
+- Validating executables or shared libraries
 
-  Please see the following documents:
+  More than or equal to 1024 bytes gap is required between the text section and
+  the data section of an executable or a shared library to load it and
+  execute its functions. If the size of the gap is less than 1024 bytes,
+  loading it fails.
 
-  - Difference_Point_System_Calls.pdf
-  - Difference_Points_GDB.htm
-  - Difference_Points_Commands.pdf
-  - Difference_Points_glibc.htm
+  The below command checks whether the size of the gap are more than or equal
+  to 1024 bytes.
 
-- VEOS high level design
+    $ /opt/nec/ve/bin/ve_validate_binary
 
-  Please see the following documents
+  Without options, the command search executables and shared libraries
+  in the current directory. The following options are available.
 
-  - VEOS_high_level_desing.pdf
+    -f,	--file       Specify the file to validate
+    -d, --directory  Specify the directory to search executables and
+                     shared libraries
+
+  If the sizes of the gaps of all executables and shared libraries are
+  more then or equal to 1024 bytes, the command prints the below message.
+
+    ***ALL VE BINARY/SHARED LIBRARIES ARE VALIDATED SUCCESSFULLY!!***
+
+  If the size of the gap of a executable or a shared library is less
+  than 1024 bytes, the command prints the below message.
+
+    DATA/TEXT gap is less
+
+  If the above message is printed, please re-link the executable or
+  the shared library.
+
+
+- Checking the C library used for a binary
+
+  There is no interoperability between binaries that is compiled with glibc and
+  that is compiled with musl-libc. If you need to distinguish which C library
+  is linked for a binary, you can use "ve-libc-check" script as follows. The
+  script supports any kind of VE binaries, such as "a.out", ".o", ".a", ".so".
+
+    $ /opt/nec/ve/bin/ve-libc-check ./a.out
+    This is compiled with musl-libc: /home/userxxx/a.out
+
+  In the case above, it is indicated that your "a.out" is compiled with
+  musl-libc. If no message is printed, the binary does not require musl-libc,
+  that is compiled with glibc.
+
+  (Note)
+  * musl-libc is obsoleted at the end of March 2019. SX-Aurora TSUBASA software
+    doesn’t support musl-libc anymore.
+  * "ve-libc-check" does not support an object files that is created from ".s"
+    files. Please be very careful not to mix binaries compiled with musl-libc
+    and binaries compiled with glibc when you have “.s” source code.
+  * "ve-libc-check" does not support checking a library dynamically linked
+    with a program, i.e. if a program compiled and linked with glibc loads or
+    links a library compiled and linked with musl-libc dynamically,
+    "ve-libc-check" cannot check it. Please do not forget to re-make all of
+    your libraries with glibc.
 
 
 - When you face VEOS problems

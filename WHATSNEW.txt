@@ -1,4 +1,122 @@
 
+2.2
+This section describes changes between the 2.1.3 and 2.2 versions of VEOS.
+
+Summary : Improved instruction cache performance
+Type    : enhancement
+Detail  : Memory layout of VE processes is modified in order to improve 
+	  instruction cache performance of VE core. It leads to better 
+          performance of VE program.
+          New memory layout needs more than or equal to 1024 bytes gap between 
+          text section and data section which are defined in an executable or 
+          a shared library. If the size of the gap is less than 1024 bytes, 
+          loading fails with an error message, "Failed to validate the gap 
+          between text/data".  In this case, please re-link the executable or 
+          the shared library.  've_validate_binary' command can check the gap
+          size. Please see the next topic for more information.
+
+Summary : New command 've_validate_binary'
+Type    : enhancement
+Detail  : New command /opt/nec/ve/bin/ve_validate_binary is added.
+          This command checks the size of the gap between text section
+          and data section of an executable or a shared library.
+          If the gap is less than 1024 byte, it shows a message, "DATA/TEXT 
+          gap is less: <size>". 
+
+Summary : Updated the value of si_code set during the invocation of signal
+          handler routine corresponding to some of the HW exceptions.
+Type    : enhancement
+Detail  : si_code present in siginfo_t structure passed as an argument
+          during the invocation of signal handler routine has been
+          updated. Below is the updated list of si_code set corresponding 
+          to HW exceptions :
+
+          HW exceptions                         si_code
+          Missing page exception                'SEGV_MAPERR'
+          Memory access exception               'BUS_ADRALN'
+          Host missing page exception           'SEGV_MAPERR'
+          Host missing space exception          'SEGV_MAPERR'
+          I/O access exception                  'BUS_ADRERR'
+          Illegal instruction format exception  'ILL_ILLOPC'
+
+Summary : The enhancement of VEO APIs not to specify VE node number explicitly
+Type    : enhancement
+          Users can specify -1 as the VE node number to veo_proc_create() or
+          veo_proc_create_static(). If -1 is specified, a VE process is created
+          on the default VE node (VE node '0'). If -1 is specified and
+          environment variable VE_NODE_NUMBER is set, a VE process is
+          created on the VE node specified by VE_NODE_NUMBER.
+
+Summary : The enhancement of VEO APIs for the job scheduler
+Type    : enhancement
+Detail  : If a user executes a program which uses VEO APIs through the job
+          scheduler, the VE node number specified by the program is treated as
+          a logical number. It is translated into physical VE node number
+          assigned by the job scheduler. For example, if the VE node number
+          specified by the program is 0, and the job scheduler assigns VE
+          node #4, #5 and #6, the VE process will be created on VE node #4.
+
+Summary : Functional enhancements of GDB
+Type    : enhancement
+Detail  : There are following functional enhancements.
+          - GDB can attach a VE process without the path of an executable
+            binary.
+          - GDB supports "target" and "target core" command.
+          - GDB can use input/output redirection.
+
+Summary : Checking the assignment of VE nodes by the job scheduler
+Type    : enhancement
+Detail :  VEOS checks the assignment of VE nodes by the job scheduler. If the
+          job scheduler does not assign any VE node, execution of the VE
+          program fails. If a user directly executes VE program without the job
+          scheduler, it will be executed without checking the assignment.
+
+Summary : Fix the issue where a new request is put in request queue 
+          after exception occurs.
+Type    : bugfix
+Detail  : When the function called using VEO API made an exception occur, 
+          the context can't continue to execute functions any more.
+          After exception occurs, a new request issued is put 
+          in request queue. If user wait the result of the request, 
+          VEO API seems to be hanged because the new request 
+          which is accepted by the context isn't executed.
+
+Summary : Fix the issue where VE memory for exited orphan process is not
+	  cleaned up if the parent VE process was executed by VE 'time'
+	  command.
+Type    : bugfix
+Detail  : VE memory for exited child process is not cleaned up if the
+	  parent VE process, executed by VE 'time' command, exits
+	  before the child process.
+
+Summary : Fix the issue where API related to locale returns error
+	  when referring to the native environment.
+Type    : bugfix
+Detail  : The VE process using API related to locale doesn't recognize locale
+	  correctly and returns error ENOENT when referring to the native
+	  environment which is specified through LANG environment variable.
+	  (eg. LANG=en_GB.UTF-8, LANG=en_US.UTF-8
+
+Summary : Fix the issue that GDB can not show functions of glibc by 
+          "backtrace" command
+Type    : bugfix
+Detail  : GDB can not show functions of glibc library correctly by
+          "backtrace" command.
+
+Summary : Fix the issue that GDB gets an incorrect vector register.
+Type    : bugfix
+Detail  : GDB shows an invalid value when GDB prints vector register, It is 
+          because GDB does not deal with the value of the vector register
+          correctly.
+
+Summary : Fix the issue where usage of macro __FE_DENORM leads to
+	  unexpected result.
+Type    : bugfix
+Detail  : Use of macro __FE_DENORM is causing unexpected result because
+	  VE does not support denormal number. So, removing the support
+	  of __FE_DENORM macro.
+
+
 2.1.3
 This section describes changes between the 2.1 and 2.1.3 versions of VEOS.
           
