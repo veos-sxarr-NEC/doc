@@ -1,5 +1,5 @@
 VEOS:VEプログラムの実行方法
-Date:2019/09
+Date:2019/11
 
 この文書は VEOS version 2.2 以降についての情報を記載しています。
 
@@ -360,8 +360,8 @@ Date:2019/09
        てください。
 
         $ rpm -qa --qf '%{VENDOR} %{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n' \
-           | grep NEC > version.txt
-        $ uname -r >> version.txt
+           | grep NEC > nec-version.txt
+        $ uname -r > knl-version.txt
 
     2. ログファイル
        以下のログファイルを採取してください。

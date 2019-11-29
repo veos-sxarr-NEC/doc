@@ -1,4 +1,36 @@
 
+2.2.2
+This section describes changes between the 2.2 and 2.2.2 versions of VEOS.
+
+Summary : Load Balancing of a VEO OpenMP program
+Type    : enhancement
+Detail  : VEO sets a thread affinity of a context thread automatically to
+          avoid conflicts with an OpenMP thread when threads more than the
+          number of VE cores are created. If you use a statically-linked
+          veorun binary, please re-create the veorun by mk_veorun_static.
+
+Summary : Supported VH function call on a VEO context thread
+Type    : enhancement
+Detail  : VEO now supports a new API function veo_call_async_vh() to execute
+          a VH function on a VEO context thread.
+
+Summary : Fix the issue where fork() system call in a multi-threaded VE
+	  process hangs.
+Type    : bugfix
+Detail  : When a multi-threaded VE process invokes fork() system call and
+	  simultaneously other threads are performing I/O using read() system
+	  call where starting address or size of the VE buffer is not 8 byte
+	  aligned, then fork() system call hangs.
+
+Summary : Fix the issue that a VE function call with arguments narrower
+          than 64 bit by VEO leads to undefined behavior.
+Type    : bugfix
+Detail  : The upper bits of integer arguments narrower than 64 bit is
+          undefined because VEO passes integer arguments without signed
+          or zero extension. A VE function call with such integer arguments
+          leads to undefined behavior due to the undefined upper bits.
+
+
 2.2
 This section describes changes between the 2.1.3 and 2.2 versions of VEOS.
 

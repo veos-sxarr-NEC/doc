@@ -1,5 +1,5 @@
 VEOS:How to execute VE program
-Date:September-2019
+Date:November-2019
 
 This document describes the information regarding the VEOS version 2.2 or
 later.
@@ -370,8 +370,8 @@ having VEs.
        and provide it.
   
         $ rpm -qa --qf '%{VENDOR} %{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n' \
-           | grep NEC > version.txt
-        $ uname -r >> version.txt
+           | grep NEC > nec-version.txt
+        $ uname -r > knl-version.txt
    
     2. Log files
        Please provide the following files.
