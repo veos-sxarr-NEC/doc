@@ -11,4 +11,4 @@ VEOS technical documents
 * [Difference Point for GDB](https://veos-sxarr-nec.github.io/doc/Difference_Points_GDB.htm) ([Japanese](https://veos-sxarr-nec.github.io/doc/Japanese/Difference_Points_GDB.htm))
 * [The tutorial and API reference of veoffload](https://veos-sxarr-nec.github.io/veoffload/index.html)
 * [The tutorial and API reference of libsysve](https://veos-sxarr-nec.github.io/libsysve/index.html)
-
+* [VEOS Partial Process Swapping Reference](https://veos-sxarr-nec.github.io/doc/VEOS_Partial_Process_Swapping_Reference.txt) ([Japanese](https://veos-sxarr-nec.github.io/doc/Japanese/VEOS_Partial_Process_Swapping_Reference.txt))
