@@ -1,5 +1,4 @@
-<html xmlns:v="urn:schemas-microsoft-com:vml"
-xmlns:o="urn:schemas-microsoft-com:office:office"
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns:x="urn:schemas-microsoft-com:office:excel"
 xmlns="http://www.w3.org/TR/REC-html40">
 
@@ -99,7 +98,7 @@ else
   minimum stack size for thread is 4MB. So in VE-glibc the corresponding macro
   value is updated,<br>
     While it is 16KB in glibc for x86 architecture.</td>
-  <td rowspan=2 class=xl110 width=527 style='border-top:none;width:395pt'>Customized
+  <td rowspan=2 class=xl112 width=527 style='border-top:none;width:395pt'>Customized
   for VE architecture.</td>
  </tr>
  <tr height=66 style='mso-height-source:userset;height:49.5pt'>
@@ -298,7 +297,7 @@ else
  </tr>
  <tr height=546 style='mso-height-source:userset;height:409.5pt'>
   <td height=546 style='height:409.5pt'></td>
-  <td rowspan=2 class=xl111 width=512 style='border-bottom:.5pt solid black;
+  <td rowspan=2 class=xl113 width=512 style='border-bottom:.5pt solid black;
   border-top:none;width:384pt'>c)Other environment variables used by Ve-Glibc
   programs are as under:<br>
     VE_LD_WARN<br>
@@ -377,6 +376,24 @@ else
   VE process, system() request is executed by VH OS (Linux) instead of VEOS.
   The child program doesn't carry forward the updated environment variable
   because the environment variable in VE is not reflected in VH environment.</td>
+ </tr>
+ <tr height=145 style='height:108.75pt'>
+  <td height=145 style='height:108.75pt'></td>
+  <td class=xl77>11</td>
+  <td class=xl88 width=240 style='border-left:none;width:180pt'>system() API</td>
+  <td class=xl78 width=512 style='border-left:none;width:384pt'>In VE
+  architecture when a VE process invokes system() API for loading and executing
+  a new VE program. All the signal handlers<span style='mso-spacerun:yes'> 
+  </span>for the newly created VE task will be reset to SIG_DFL.</td>
+  <td class=xl79 width=527 style='border-left:none;width:395pt'>system() API
+  implementation for VE creates a new VH process. This newly created VH process
+  will further load new VE binary by invoking VH execve() with VE binary as an
+  argument. This will ultimately invoke ve_exec for loading new VE
+  binary.<br>
+    The ve_exec request to VEOS will create completely new VE process which
+  doesn’t have parent child relation with VE process which has invoked the
+  system () API. Hence all the signal handler routine of the newly created
+  process will be reset to SIG_DFL.</td>
  </tr>
  <tr height=18 style='height:13.5pt'>
   <td height=18 style='height:13.5pt'></td>

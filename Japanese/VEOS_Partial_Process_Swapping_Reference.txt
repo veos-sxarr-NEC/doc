@@ -1,0 +1,165 @@
+VEOS Partial Process Swapping リファレンス
+Date:2020/01
+
+1　はじめに
+Partial Process Swapping機能(PPS)は停止状態のVEプロセスのメモリの一時解放と
+復元機能を提供します。
+VE上で実行中の１つ以上のプログラムを一時停止させ、停止中VEプロセスのメモリの
+一部をVH側のメモリに退避(swap out) させることで、VE メモリを解放します。別の
+プログラムはこの解放されたVEメモリを利用することが可能になります。 新たに実行
+したプログラム終了後、VHメモリに退避したメモリをVEメモリ上に復元(swap in)し、
+元のプログラムの実行が再開可能になります。
+
+1.1　用語定義
+この章では、この文書で使用する用語を定義します。
+
+1) PPSバッファ：VEメモリをVHメモリに退避する時の退避先(VH 上のバッファ)です。
+2) swap out：VEプロセスのメモリの一部をPPSバッファに保存し、VE メモリを解放す
+   ることです。
+3) swap in：PPSバッファに保存したメモリをVEメモリ上に復元し、プログラムの実行
+   が再開可能になることです。
+4) ステータス：VEプロセスの実行状態を示します。状態は「ps」コマンドと同じ記号
+   で表示されます。
+5) サブステータス：VEプロセスの状態を表示するものです。
+   swap out/swap in処理の進行状況を示すため、PPSの独自定義です。
+   各サブステータスの定義は下記の通りです。
+   a     swap out されていない, 従来の停止状態と同等
+   o     swap out 進行中
+   s     swap out 済み 
+   i     swap in 進行中
+
+2　設定
+この章では、Partial process swapping 機能を利用するために必要な設定について説
+明します。
+
+2.1　VH の HugePages
+PPSのバッファはVH の HugePagesを使用します。 HugePagesの数を変更するには、次
+のコマンドを実行します。
+------
+$ sudo sysctl -w vm.nr_hugepages=<VH の HugePages の数>
+------
+一つ HugePages のサイズは 2MBですので、40GBのPPSバッファを割り当てる場合は、
+「20480」の"HugePages"を指定する必要があります。
+VH の HugePagesの設定についての詳細は、「SX-Aurora TSUBASA インストレーション
+ガイド」をご参照ください。
+
+2.2　veswap.options
+VEあたりの swap out できるVEメモリの最大サイズを設定します。
+
+-　全VEノードで共通の値を設定する場合
+/etc/opt/nec/ve/veos/ve-os-launcher.d/veswap.options
+-　各VEノードを個別に設定する場合
+/etc/opt/nec/ve/veos/ve-os-launcher.d/<N>/veswap.options
+ <N> は VE ノード番号
+
+veswap.optionsファイルを次のように変更してください。
+------
+#The maximum size of memory that can be swapped out per VE node.
+ve-os-launcher@*=--ve-swap-mem-max=<サイズ(MB単位)>
+------
+
+veswap.options の値を有効にするには VEOS を再起動してください。
+------
+$ sudo systemctl restart ve-os-launcher@<N>
+------
+* <N> は VE ノード番号
+
+3  veswap コマンド
+この章では、PPSのコマンド 「/opt/nec/ve/bin/veswap」について説明します。
+
+3.1  構文
+       /opt/nec/ve/bin/veswap <pid>...
+       /opt/nec/ve/bin/veswap [-o|-i] <pid>...
+       /opt/nec/ve/bin/veswap [-H] -m <pid>...
+       /opt/nec/ve/bin/veswap [-H] -s
+
+3.2  説明
+1)  オプション無し
+指定されたVEプロセスのステータス(S)とサブステータス(SUB-S)を表示します。
+表示例：
+------
+$ /opt/nec/ve/bin/veswap 24280 24281 24282 24283 24284
+S   SUB-S    PID
+R      -     24280 
+T      o     24281 
+T      s     24282 
+T      i     24283 
+T      a     24284 
+------
+
+2)  オプションの詳細
+-o               指定されたVEプロセスのVEメモリをPPSバッファに swap out
+                 します。
+                 ステータスが「T」でサブステータスが「a」であるVEプロセス
+                 のVEメモリが swap out できます。
+-i               指定されたVEプロセスのVEメモリをPPSバッファから復元 swap 
+                 in します。
+                 ステータスが「T」でサブステータスが「s」であるVEプロセス
+                 のVEメモリが swap in できます。
+-m               指定されたVEプロセスのVEメモリサイズ情報を表示します。
+                 swap out 可能なVEメモリのサイズ(SWAPPABLE)と
+                 swap out されたVEメモリのサイズ(SWAPPED)を表示します。
+-s               swap out されたVEメモリのサイズをVE単位で表示します。
+-H               ヘッダーを非表示にします。
+-h, --help       ヘルプを表示して終了します。
+-V, --version    バージョンを表示して終了します。
+
+3)  パラメータの詳細
+pid              VEプロセスのIDを指定します。
+
+4  使用例
+この章では、実行中のVEプログラムAのプロセス(VEプロセスA)のVEメモリを
+swap out し、VEプログラムBを実行する例を示します。
+使用例の「pid-A」はVEプログラムAのプロセス(VEプロセスA)のIDとします。
+-----
+1)「SIGSTOP」でVEプロセスAを停止します。
+  $ kill -s SIGSTOP pid-A
+
+2) VEプロセスAのステータス(S)が「T」かつサブステータス(SUB-S)が「a」であること
+   を確認します。
+  $ /opt/nec/ve/bin/veswap pid-A
+  S   SUB-S     PID
+  T     a      pid-A
+
+3) VEプロセスAのステータス(S)が「T」かつサブステータス(SUB-S)が「a」になった後
+   にVEメモリを swap out します。
+  $ /opt/nec/ve/bin/veswap -o pid-A
+
+4) VEプロセスAのステータス(S)が「T」かつサブステータス(SUB-S)が「s」であること
+   を確認します。
+  $ /opt/nec/ve/bin/veswap pid-A
+  S   SUB-S     PID
+  T     s      pid-A
+
+5) VEプロセスAのステータス(S)が「T」かつサブステータス(SUB-S)が「s」になった
+   後、空きVEメモリサイズを確認します。
+   補足：VEプログラムを実行するための空きVEメモリサイズが十分でない場合は、よ
+   り多くのメモリを解放してください。
+  $ /opt/nec/ve/bin/free
+
+6) 普通のVEプログラムの実行と同じ起動方法でVEプログラムBを実行します。
+
+7) VEプログラムBの完了を待ちます。
+
+8) 退避したVEプロセスAのVEメモリを swap in します。
+  $ /opt/nec/ve/bin/veswap -i pid-A
+
+9) VEプロセスAのステータス(S)が「T」かつサブステータス(SUB-S)が「a」であること
+   を確認します。
+   このステータス(S)とサブステータス(SUB-S)になると、 swap out したVEメモリが
+   swap in され、VEプロセスAはVEメモリを swap out する前の状態に戻ったを示
+   します。
+  $ /opt/nec/ve/bin/veswap pid-A
+  S   SUB-S     PID
+  T     a      pid-A
+
+10)「SIGCONT」でVEプロセスAを再開します。
+  $ kill -s SIGCONT pid-A
+-----
+
+5　注意事項
+1) VEメモリ swap in 処理においてVEメモリ不足により処理を継続できなくなった場
+   合、VEメモリが解放されるまで swap in 処理は待ち状態になります。その結果、
+   swap in 処理に想定以上の時間がかかってしまう可能性があります。
+   swap out/swap in 要求は並行で処理されず、一つ一つ処理されるため、後続
+   の swap out/swap inの開始も遅れます。

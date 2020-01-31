@@ -1,7 +1,7 @@
 VEOS:How to execute VE program
-Date:November-2019
+Date:January-2020
 
-This document describes the information regarding the VEOS version 2.2 or
+This document describes the information regarding the VEOS version 2.3 or
 later.
 
 
@@ -154,15 +154,72 @@ having VEs.
       - Accelerated I/O uses huge pages as a buffer
       - Please see sysctl(8) man page to set the kernel parameter
 
-  "Accelerated I/O" is enabled when 'libveaccio' is loaded at runtime. Please
-  set environment variable VE_LD_PRELOAD to load it.
+  Please set environment variable VE_ACC_IO to 1 to enable "Accelerated I/O".
 
-   $ export VE_LD_PRELOAD=libveaccio.so.1
+   $ export VE_ACC_IO=1
    $ ./hello
 
   Please note data is transferred every 8MB when "Accelerated I/O" is
   enabled. So, read/write family system calls will not be atomic when the size
   is more than 8MB.
+
+
+- How to limit the resource of VE process
+  Please set environment variable VE_LIMIT_OPT for resource limitation
+  of VE process.
+
+   $ export VE_LIMIT_OPT="-c 10240 --softm 1234 --hardm 2345 -t 10"
+
+  The set of resources supported by VE_LIMIT_OPT environment variable
+  are as follows.
+    -v : virtual memory            RLIMIT_AS
+    -c : core file size            RLIMIT_CORE
+    -t : cpu time                  RLIMIT_CPU
+    -d : data seg size             RLIMIT_DATA
+    -m : max memory size           RLIMIT_RSS
+    -i : pending signals           RLIMIT_SIGPENDING
+    -s : stack size                RLIMIT_STACK
+
+  With above listed short options, both the soft and hard limits
+  are set for a VE process. User can also set the above resource’s soft
+  and hard limits individually through VE_LIMIT_OPT environment variable
+  using below listed long options.
+
+    --softv: RLIMIT_AS soft limit         --hardv: RLIMIT_AS hard limit
+    --softc: RLIMIT_CORE soft limit       --hardc: RLIMIT_CORE hard limit
+    --softt: RLIMIT_CPU soft limit        --hardt: RLIMIT_CPU hard limit
+    --softd: RLIMIT_DATA soft limit       --hardd: RLIMIT_DATA hard limit
+    --softm: RLIMIT_RSS soft limit        --hardm: RLIMIT_RSS hard limit
+    --softi: RLIMIT_SIGPENDING soft limit --hardi: RLIMIT_SIGPENDING hard limit
+    --softs: RLIMIT_STACK soft limit      --hards: RLIMIT_STACK hard limit
+
+  If any of the above (either or both of hard and soft limits) is not provided
+  in the environment variable, the limit is inherited from ‘ulimit’ values. 
+
+  Other resource limits, which are not supported by VE_LIMIT_OPT,
+  are inherited from VH ulimit. If stack size resource is defined in
+  both VE_STACK_LIMIT and VE_LIMIT_OPT, the value specified in ‘-s’ in
+  VE_LIMIT_OPT takes precedence and is applied to VE process.
+
+  These resource limits are applicable to VE processes only,
+  and the same limits of corresponding pseudo process are
+  inherited from VH ulimit.
+
+
+- How to show the resource limitation of VE process
+  When "--show-limit" is specified as command line argument
+  to ve_exec then it will display applicable soft and hard limits
+  of all the VE_LIMIT_OPT supported resources in respectively
+  3rd and 4th column of its output.
+  
+   $ /opt/nec/ve/veos/bin/ve_exec --show-limit	
+    core file size     (blocks, -c)    10240	    10240
+    data seg size      (kbytes, -d)    unlimited    unlimited
+    pending signals    (-i)            79349        79349
+    max memory size    (kbytes, -m)    1234         2345
+    stack size         (kbytes, -s)    unlimited    unlimited
+    cpu time           (seconds, -t)   10           10
+    virtual memory     (kbytes, -v)    unlimited    unlimited
 
 
 - ve_exec options
@@ -178,6 +235,9 @@ having VEs.
                                   Can't specify both '-c' and '--cpunodebind'
     --                            End of options (Requires if binary name
                                     starts with ‘-’)
+    --show-limit                  display the applicable soft and hard
+                                  resource limits of VE process supported by
+                                  VE_LIMIT_OPT environment variable
   
   NUMA mode only:
     --cpunodebind=<NUMA node ID>  Specify NUMA node ID on which VE program
@@ -203,10 +263,14 @@ having VEs.
     This environment variable sets the pre-loading path for dynamic linker 
     and that allows to load you specified, shared library before all 
     other shared libraries which are linked to an executable get loaded.
+
+  * VE_ACC_IO
+    When this environment variable is set to 1, accelerated I/O is enabled.
+    Refer to "How to enable accelerated I/O" in this document for more detail.
     
   * VE_ATOMIC_IO
     When this environment variable is set to 1, atomic I/O is enabled. When VE
-    program invokes one of read/write family system calls and send/recv familiy
+    program invokes one of read/write family system calls and send/recv family
     system calls, a buffer is allocated at VH side. If atomic I/O is enabled,
     this buffer's size will the request size up to 2GB.
 
@@ -228,6 +292,11 @@ having VEs.
     It specifies NUMA options, "--cpunodebind" and "--localmembind".  If NUMA
     options specified by both of VE_NUMA_OPT and a command line argument are
     specified, VEOS uses a value specified by a command line argument.
+
+  * VE_LIMIT_OPT
+    This environment variable is used to set the resource limits, both hard and 
+    soft, of a VE process. Please reference "How to limit the resource
+    of VE process" for detail.
 
 
 - How to run commands for VEOS
@@ -283,6 +352,7 @@ having VEs.
    ve_exec
    ve_validate_binary
    venumainfo
+   veswap
    vmstat
    w
 
@@ -353,7 +423,7 @@ having VEs.
     doesn’t support musl-libc anymore.
   * "ve-libc-check" does not support an object files that is created from ".s"
     files. Please be very careful not to mix binaries compiled with musl-libc
-    and binaries compiled with glibc when you have “.s” source code.
+    and binaries compiled with glibc when you have ".s" source code.
   * "ve-libc-check" does not support checking a library dynamically linked
     with a program, i.e. if a program compiled and linked with glibc loads or
     links a library compiled and linked with musl-libc dynamically,

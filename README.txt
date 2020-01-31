@@ -1,7 +1,7 @@
 VEOS:README
-Date:September-2019
+Date:January-2020
 
-This document describes the information regarding the VEOS version 2.2 or 
+This document describes the information regarding the VEOS version 2.3 or 
 later.
 
 - CAUTIONS
@@ -30,6 +30,7 @@ later.
   Operating System         Platform
   RHEL7.5                  x86_64
   RHEL7.6                  x86_64
+  RHEL7.7                  x86_64
 
 - VEOS doesn't support Linux suspend and resume. Please do not suspend and
   resume your Linux/x86 machine where VEs are installed. When you suspend and

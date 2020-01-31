@@ -1,4 +1,87 @@
 
+2.3
+This section describes changes between the 2.2.2 and 2.3 versions of VEOS.
+
+Summary : Changed RSS calculation algorithm of shared memory
+Type    : enhancement
+          When VE memory is shared between VE processes, VEOS divides the
+          size of the shared memory between sharing processes. The divided
+          values is counted to RSS(resident set size) of each process.
+
+Summary : Added new environment variable VE_LIMIT_OPT to set resource limit
+Type    : enhancement
+          The environment variable VE_LIMIT_OPT can be used to set resource
+          limits of VE processes. Please see VEOS document "How to execute
+          VE program" for detail.
+
+Summary : Support of Partial Process Swapping
+Type    : enhancement
+Detail  : It provides a function that swapped out a part of the memory
+          of a stopped VE process into HugePages reserved on the VH
+          side and frees the VE memory.
+          The freed VE memory is able to use from another program.
+          It also provides a function that restores the memory swapped
+          out to the VH side to the VE memory and returns the VE
+          process to the state before the memory was swapped out.
+          Please see VEOS document "VEOS Partial Process Swapping 
+          Reference" for usage.
+
+Summary : Functional enhancements of GDB
+Type    : enhancement
+Detail  : There are following functional enhancements.
+          - The version of GDB is updated 7.12.1 from 7.11.1.
+          - Some commands are added.
+            Please see VEOS document "Difference Points for GDB".
+
+Summary : Supported an environment variable, VE_ACC_IO
+Type    : enhancement
+Detail  : Users can change the IO-offloading-method of a process to
+          Accelerated I/O by setting VE_ACC_IO=1. Users can also disable 
+          Accelerated I/O when VE_ACC_IO is undefined or set to zero.
+
+Summary : Added support to show VE process and its statistics created by
+          VEO API using commands.
+Type    : enhancement
+Detail  : The command 'ps', 'top', 'pidstat', 'prtstat' and 'pmap' are
+          modified to display VE processes which are executed using VEO API 
+          called by a child thread.
+
+Summary : Supported new data transfer APIs for VH Call
+Type    : enhancement
+Detail  : A VH thread spawned by a function which is executed by VH call can
+          send/receive data to/from a memory of a VE thread which has invoked
+          the function on VH side.
+
+Summary : Fix the issue where VE GDB shows the main thread in execution
+          instead of child thread during core file debugging.
+Type    : bugfix
+Detail  : During core file debugging in the VE GDB, the main thread
+          information is displayed even when the child thread has caused
+          process termination. It is because the VEOS always marks the
+          parent thread information as the current thread in execution.
+
+Summary : Fix the issue where child threads state is not changing to STOP('T')
+          when main thread is in Zombie('Z') state and SIGSTOP signal is 
+          delivered to main thread.
+Type    : bugfix
+Detail  : Child threads state in a thread group are not updated to STOP('T') 
+          state when main thread is in Zombie('Z') state and SIGSTOP signal is 
+          delivered to the main thread. 
+
+Summary : Fix the issue that all signals were not delivered to a program
+          using VEO
+Type    : bugfix
+Detail  : No signals were delivered to a program using VEO because all
+          signals were masked after veo_proc_create().
+
+Summary : Fix the issue that SIGCONT did not resume execution of a program
+          executed by VEO.
+Type    : bugfix
+Detail  : VEOS is required to be notified of SIGCONT to resume execution from
+          SIGSTOP. However, SIGCONT did not resume VE part in a program using
+          VEO since libveo did not notify VEOS of SIGCONT.
+
+
 2.2.2
 This section describes changes between the 2.2 and 2.2.2 versions of VEOS.
 

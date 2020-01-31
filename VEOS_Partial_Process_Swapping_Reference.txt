@@ -1,0 +1,171 @@
+VEOS Partial Process Swapping Reference
+Date:January-2020
+
+1 Introduction
+The Partial Process Swapping function (PPS) provides the function that save 
+and restore the VE memory of suspended VE process.
+Releases VE memory by saving a part of the memory of one or more temporarily 
+stopped VE processes to VH side memory (swap out). Another program can use the 
+released VE memory. After the new program finished, restore the memory saved in
+the VH memory to the VE memory (swap in), and the execution of the original 
+program can be resumed.
+
+1.1 Term definition
+This chapter defines the terms used in this document.
+1) PPS buffer: The saving destination (buffer on VH) when saving VE memory to 
+   VH memory.
+2) swap out: Saves a part of the memory of VE processes to PPS buffer, and 
+   release VE memory.
+3) swap in: Restores the memory saved in PPS buffer to VE memory, and the 
+   execution of program can be resumed.
+4) status: Indicates the execution state of the VE process. The status is 
+   displayed with the same symbol as the "ps" command.
+5) sub-status: Indicates the state of the VE process.
+   It is a PPS original definition to indicate the progress of 
+   swap out/swap in processing.
+   The definition of each sub status is as follows.
+   a     swap out is not performed, the same as conventional stop state
+   o     swap out is processing
+   s     swap out is finished
+   i     swap in is processing
+
+2 Preset
+This chapter describes the settings required to use the Partial Process 
+Swapping function.
+
+2.1 About HugePages of VH
+PPS buffer uses HugePages. To change the number of HugePages, execute following 
+command.
+------
+$ sysctl -w vm.nr_hugepages=<the number of VH's HugePages>
+------
+The size of one HugePages is 2MB. 
+If you want to allocate 40GB buffer, you should specify "20480" to above " the
+number of VH's HugePages".
+Please see more details in "SX-Aurora TSUBASA Installation Guide".
+
+2.2 About veswap.options
+You can set per VE node to the maximum size of memory that can be swapped out.
+
+- When setting a common value for all VE nodes
+/etc/opt/nec/ve/veos/ve-os-launcher.d/veswap.options
+- When setting each VE node individually
+/etc/opt/nec/ve/veos/ve-os-launcher.d/<N>/veswap.options
+<N> is VE node number
+
+Please modify "veswap.options" as follows.
+------
+#The maximum size of memory that can be swapped out per VE node.
+ve-os-launcher@*=--ve-swap-mem-max=<size(MB unit)>
+------
+
+Then, please restart VEOS as follows.
+------
+$ systemctl restart ve-os-launcher@<N>
+------
+<N> is VE node number
+
+3 veswap command
+This chapter describes the PPS command "/opt/nec/ve/bin/veswap".
+
+3.1 Synopsis
+       /opt/nec/ve/bin/veswap <pid>...
+       /opt/nec/ve/bin/veswap [-o|-i] <pid>...
+       /opt/nec/ve/bin/veswap [-H] -m <pid>...
+       /opt/nec/ve/bin/veswap [-H] -s
+
+3.2 Description
+1) No options
+Displays the status(S) and sub-status(SUB-S) of the specified VE process.
+Display exampleF
+------
+$ /opt/nec/ve/bin/veswap 24280 24281 24282 24283 24284
+S   SUB-S    PID
+R      -     24280 
+T      o     24281 
+T      s     24282 
+T      i     24283 
+T      a     24284 
+------
+
+2) Details of options
+-o                        Swaps out the VE memory of specified VE process to 
+                          PPS buffer.
+                          VE memory whose status is "T" and whose sub-status 
+                          is "a" is able to swap out.
+-i                        Swaps in the VE memory of specified VE process from 
+                          PPS buffer.
+                          VE memory whose status is "T" and whose sub-status
+                          is "s" is able to swap in.
+-m                        Displays the VE memory size information of the 
+                          specified VE processes.
+                          Displays the size of swappable VE memory (SWAPPABLE) 
+                          and the size of VE memory swapped out (SWAPPED).
+-s                        Displays the swapped out VE memory size in VE units.
+-H                        Not display the header.
+-h, --help                Displays the help and exit.
+-V, --version             Displays version information and exit.
+
+3) Details of parameters
+pid                       Specifies the ID of VE process.
+
+4 Example of using
+This chapter shows an example of swapping out the VE memory of the process
+(VE process A) of VE program A and executing the VE program B.
+"Pid-A" in the example is the process ID of the process(VE process A) of 
+VE program A.
+-----
+1) Stop the VE process A with "SIGSTOP".
+  $ kill -s SIGSTOP pid-A
+
+2) Make sure that the status(S) of the VE process A is "T", and the sub-status
+  (SUB-S) of the VE process A is "a".
+  $ /opt/nec/ve/bin/veswap pid-A
+  S   SUB-S     PID
+  T     a      pid-A
+
+3) Swap out the VE memory after the status(S) of the VE process A becomes "T"
+   and the sub-status(SUB-S) of VE becomes "a".
+  $ /opt/nec/ve/bin/veswap -o pid-A
+
+4) Make sure that the status(S) of the VE process A is "T", and the sub-status
+  (SUB-S) of the VE process A is "s".
+  $ /opt/nec/ve/bin/veswap pid-A
+  S   SUB-S     PID
+  T     s      pid-A
+
+5) After the status(S) of the VE process A becomes "T" and the sub-status
+   (SUB-S) of the VE process A becomes "s", Please check the free VE memory 
+   size.
+   Supplement:If there is not enough free VE memory for executing the VE 
+   program, please release more memories.
+  $ /opt/nec/ve/bin/free
+
+6) Execute the VE program B with the same executing method as executing a 
+   normal VE program.
+
+7) Wait for the completion of the VE program B.
+
+8) Swap in the saved VE memory of the VE process A.
+  $ /opt/nec/ve/bin/veswap -i pid-A
+
+9) Make sure that the status(S) of the VE process A is "T", and the sub-status
+  (SUB-S) of the VE process A is "a".
+  When this status(S) and sub-status(SUB-S) is reached, the swapped out VE 
+  memory is swapped in, and the VE process A has returned to the state before
+  swapping out the VE memory.
+  $ /opt/nec/ve/bin/veswap pid-A
+  S   SUB-S     PID
+  T     a      pid-A
+
+10) Resume the VE process A with "SIGCONT".
+  $ kill -s SIGCONT pid-A
+-----
+
+5 Precautions
+1) In the swap in, if the processing cannot be continued due to lack of VE 
+   memory, the swap in processing will wait until the VE memory is released.
+   As a result, the swap in process may take more time than expected. 
+   swap out/swap in requests are not processed in parallel and are 
+   processed one by one, so the start of subsequent swap out/swap in is 
+   also delayed.
