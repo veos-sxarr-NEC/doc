@@ -1,4 +1,16 @@
 
+2.4
+This section describes changes between the 2.3 and 2.4 versions of VEOS.
+
+Summary : Supported VH Call API for VE Fortran program
+Type    : enhancement
+          VH Call is a functionality which invokes a shared library function
+          compiled for VH from VE process. User can invoke a function or
+          subroutine in VH Fortran library or module by using the VH Call API.
+          Please see VEOS document "The tutorial and API reference of
+          libvhcall-fortran".
+
+
 2.3
 This section describes changes between the 2.2.2 and 2.3 versions of VEOS.
 

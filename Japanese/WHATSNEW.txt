@@ -1,3 +1,15 @@
+2.4
+この節は VEOS version 2.3 から 2.4 の変更を記載しています。
+
+概要   : VEのFortranプログラム向けVH Call APIのサポート
+タイプ : 機能拡張
+詳細   : VH Call は VE プロセスから VH 用にコンパイルされた共有ライブ
+         ラリ関数を呼び出すための機能です。ユーザはこのAPIを使ってVHの
+         Fortranライブラリの関数、サブルーチンを呼び出すことができます。
+         詳細は VEOS のドキュメント "The tutorial and API reference of
+         libvhcall-fortran" を参照してください。
+
+
 2.3
 この節は VEOS version 2.2.2 から 2.3 の変更を記載しています。
 
