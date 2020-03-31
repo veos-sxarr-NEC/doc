@@ -1,5 +1,5 @@
 VEOS Partial Process Swapping Reference
-Date:January-2020
+Date:March-2020
 
 1 Introduction
 The Partial Process Swapping function (PPS) provides the function that save 
@@ -34,10 +34,16 @@ This chapter describes the settings required to use the Partial Process
 Swapping function.
 
 2.1 About HugePages of VH
-PPS buffer uses HugePages. To change the number of HugePages, execute following 
-command.
+PPS buffer uses HugePages. If the value of the parameter vm.nr_hugepages 
+is already set in the file "/etc/sysctl.conf", update the value.
+Otherwise, add the line vm.nr_hugepages to the file to specify the value.
 ------
-$ sysctl -w vm.nr_hugepages=<the number of VH's HugePages>
+# vi /etc/sysctl.conf
+vm.nr_hugepages = <a number of VH's HugePages>
+------
+Apply the setting with the sysctl command.
+------
+# sysctl --system
 ------
 The size of one HugePages is 2MB. 
 If you want to allocate 40GB buffer, you should specify "20480" to above " the

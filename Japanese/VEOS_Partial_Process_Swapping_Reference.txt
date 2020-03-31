@@ -1,5 +1,5 @@
 VEOS Partial Process Swapping リファレンス
-Date:2020/01
+Date:2020/03
 
 1　はじめに
 Partial Process Swapping機能(PPS)は停止状態のVEプロセスのメモリの一時解放と
@@ -33,10 +33,16 @@ VE上で実行中の１つ以上のプログラムを一時停止させ、停止
 明します。
 
 2.1　VH の HugePages
-PPSのバッファはVH の HugePagesを使用します。 HugePagesの数を変更するには、次
-のコマンドを実行します。
+PPSのバッファはVH の HugePagesを使用します。 ファイル/etc/sysctl.confに
+vm.nr_hugepages行を追加し、ページ数を設定します。
+すでにvm.nr_hugepages行がある場合、値を更新します。
 ------
-$ sudo sysctl -w vm.nr_hugepages=<VH の HugePages の数>
+# vi /etc/sysctl.conf
+vm.nr_hugepages = <VH の HugePages の数>
+------
+以下のコマンドで設定を反映します。
+------
+# sysctl --system
 ------
 一つ HugePages のサイズは 2MBですので、40GBのPPSバッファを割り当てる場合は、
 「20480」の"HugePages"を指定する必要があります。
