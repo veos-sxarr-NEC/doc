@@ -1,3 +1,14 @@
+2.4.3
+This section describes changes between the 2.4.1 and 2.4.3 versions of VEOS.
+
+Summary : Fixed an abort issue of VEOS during system call handling
+Type    : bugfix
+Detail  : VEOS may detects unintended timeout and aborts, when it tries
+          to start a VE core after it handles a system call request
+          from VE program. When VEOS aborts, running VE processes also
+          terminate abnormally.
+
+
 2.4.1
 This section describes changes between the 2.4 and 2.4.1 versions of VEOS.
 

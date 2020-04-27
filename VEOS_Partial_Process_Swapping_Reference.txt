@@ -1,5 +1,5 @@
 VEOS Partial Process Swapping Reference
-Date:March-2020
+Date:April-2020
 
 1 Introduction
 The Partial Process Swapping function (PPS) provides the function that save 
@@ -83,7 +83,7 @@ This chapter describes the PPS command "/opt/nec/ve/bin/veswap".
 3.2 Description
 1) No options
 Displays the status(S) and sub-status(SUB-S) of the specified VE process.
-Display exampleF
+Display example:
 ------
 $ /opt/nec/ve/bin/veswap 24280 24281 24282 24283 24284
 S   SUB-S    PID
@@ -107,7 +107,9 @@ T      a     24284
                           specified VE processes.
                           Displays the size of swappable VE memory (SWAPPABLE) 
                           and the size of VE memory swapped out (SWAPPED).
--s                        Displays the swapped out VE memory size in VE units.
+                          The sizes are displayed in KB.
+-s                        Displays the swapped out VE memory sizes in VE nodes.
+                          The sizes are displayed in KB.
 -H                        Not display the header.
 -h, --help                Displays the help and exit.
 -V, --version             Displays version information and exit.

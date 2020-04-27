@@ -1,5 +1,5 @@
 VEOS Partial Process Swapping リファレンス
-Date:2020/03
+Date:2020/04
 
 1　はじめに
 Partial Process Swapping機能(PPS)は停止状態のVEプロセスのメモリの一時解放と
@@ -105,7 +105,9 @@ T      a     24284
 -m               指定されたVEプロセスのVEメモリサイズ情報を表示します。
                  swap out 可能なVEメモリのサイズ(SWAPPABLE)と
                  swap out されたVEメモリのサイズ(SWAPPED)を表示します。
--s               swap out されたVEメモリのサイズをVE単位で表示します。
+                 サイズはキロバイト(KB)で表示されます。
+-s               swap out されたVEメモリのサイズをVEノードごとに表示します。
+                 サイズはキロバイト(KB)で表示されます。
 -H               ヘッダーを非表示にします。
 -h, --help       ヘルプを表示して終了します。
 -V, --version    バージョンを表示して終了します。
