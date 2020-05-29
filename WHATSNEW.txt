@@ -1,3 +1,75 @@
+2.5
+This section describes changes between the 2.4.3 and 2.5 versions of VEOS.
+
+Summary : RHEL8.1/x86_64 support
+Type    : enhancement
+Detail  : RHEL8.1/x86_64 is newly supported. Please see README for Supported
+          Platforms and Operating Systems.
+
+Summary : Unnecessary archive files and libtool archives for VH programs
+          are removed
+Type    : enhancement
+Detail  : Archive files (.a) and libtool archives (.la) for VH programs
+          are removed from development packages. These files are
+          unnecessary because VH programs are dynamically linked with
+          libraries.
+          Archive files and libtool archives for VE programs are provided
+          as before.
+
+Summary : Changed the limit of VEOS core file size to 1GB.
+Type    : enhancement
+Detail  : Changed the limit of VEOS core file size from no-limit to 1GB.
+
+Summary : Improved log messages of VEO.
+Type    : enhancement
+Detail  : VEO records the failure cause of veo_load_library() in a log file
+          of VEO.
+
+Summary : Fix the issue where VE thread is getting abort after activation of
+          the new context.
+Type    : bugfix
+Detail  : VE thread is getting abort, after activation of the new context 
+          by using swapcontext() if the new context is earlier modified
+          with API makecontext().
+
+Summary : Fix of issue where VE program performance may degrade
+          if processes which are swapped out exist.
+Type    : bugfix
+Detail  : When processes which are swapped out by "Partial Process Swapping"
+          exist at the time of creation of a process or a thread, two running
+          threads may be assigned the same core due to inadequate process
+          creation algorithm.
+          In this case, VE program performance degrades.
+          User can check which core the thread is executed on by pidstat
+          command.
+
+Summary : Fix of issue where load rebalancing feature does not work
+          when some processes are swapped out.
+Type    : bugfix
+Detail  : When threads more than the number of cores are running on VE,
+          the performance of VE program is decreased remarkably.
+          At this time, even if the number of running threads is decreased
+          less than the number of cores by swap-out of "Partial Process
+          Swapping", load rebalancing feature does not work and performance
+          of VE program is not improved.
+
+Summary : Fix of issue where clock_gettime() fails if errno is already set
+Type    : bugfix
+Detail  : When a program which is compiled with '-no-proginf' option invokes
+          the first clock_gettime() with non-zero errno, the clock_gettime() 
+          will fail.
+
+Summary : Fix the issue where VEO may fail to load a shared library.
+Type    : bugfix
+Detail  : veo_load_library() fails to load a shared library if never
+          referenced symbol cannot be resolved.
+
+Summary : Fix of issue where memory is leaked at VH side
+Type    : bugfix
+Details : Small memory may be leaked at VH side when a VE MPI process 
+          transfer data between processes on other VE nodes.
+
+
 2.4.3
 This section describes changes between the 2.4.1 and 2.4.3 versions of VEOS.
 
@@ -109,11 +181,13 @@ Type    : enhancement
           size of the shared memory between sharing processes. The divided
           values is counted to RSS(resident set size) of each process.
 
-Summary : Added new environment variable VE_LIMIT_OPT to set resource limit
+Summary : Added new environment variable VE_LIMIT_OPT to set resource limit 
+          and support RSS limit 
 Type    : enhancement
           The environment variable VE_LIMIT_OPT can be used to set resource
           limits of VE processes. Please see VEOS document "How to execute
           VE program" for detail.
+          Memory allocation fails if a process exceeds RSS limit. 
 
 Summary : Support of Partial Process Swapping
 Type    : enhancement

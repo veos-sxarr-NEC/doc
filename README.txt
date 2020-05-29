@@ -1,7 +1,7 @@
 VEOS:README
-Date:January-2020
+Date:May-2020
 
-This document describes the information regarding the VEOS version 2.3 or 
+This document describes the information regarding the VEOS version 2.5 or 
 later.
 
 - CAUTIONS
@@ -28,9 +28,9 @@ later.
 - Supported Platforms and Operating Systems
 
   Operating System         Platform
-  RHEL7.5                  x86_64
   RHEL7.6                  x86_64
   RHEL7.7                  x86_64
+  RHEL8.1                  x86_64
 
 - VEOS doesn't support Linux suspend and resume. Please do not suspend and
   resume your Linux/x86 machine where VEs are installed. When you suspend and
@@ -53,3 +53,13 @@ later.
 - The number of threads of VE processes which run on VE should be less
   than or equal to the number of available VE cores, in order to
   achieve best performance.
+
+- getaddrinfo() in VE glibc fails if a program invokes getaddrinfo() in 
+  a docker container which disabled IPv6 support. Please enable IPv6 support
+  of docker environment.
+
+- VEO process is showing wrong PPID value (as -1) in process accounting.
+  This will be fixed during the next update.
+
+- On RHEL8 environment, VE 'sar -w' command adds an extra newline after
+  each entry in output statistics. This will be fixed during the next update.
