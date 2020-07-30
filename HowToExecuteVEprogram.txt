@@ -1,7 +1,7 @@
 VEOS:How to execute VE program
-Date:January-2020
+Date:July-2020
 
-This document describes the information regarding the VEOS version 2.3 or
+This document describes the information regarding the VEOS version 2.6.2 or
 later.
 
 
@@ -154,7 +154,8 @@ having VEs.
       - Accelerated I/O uses huge pages as a buffer
       - Please see sysctl(8) man page to set the kernel parameter
 
-  Please set environment variable VE_ACC_IO to 1 to enable "Accelerated I/O".
+  Please set environment variable VE_ACC_IO to 1 to enable "Accelerated I/O" 
+  with huge pages whose size is default value.
 
    $ export VE_ACC_IO=1
    $ ./hello
@@ -265,7 +266,11 @@ having VEs.
     other shared libraries which are linked to an executable get loaded.
 
   * VE_ACC_IO
-    When this environment variable is set to 1, accelerated I/O is enabled.
+    When this environment variable is set to 1, accelerated I/O is enabled
+    and uses 64MB of Hugepages memory. The 64MB is default size.
+    When this environment variable is set to 2, accelerated I/O is enabled
+    and uses (8MB * the number of VE cores) of Hugepages memory. 
+
     Refer to "How to enable accelerated I/O" in this document for more detail.
     
   * VE_ATOMIC_IO
@@ -449,6 +454,9 @@ having VEs.
         /var/log/messages*
         /var/opt/nec/ve/veos/*.log.*
         /var/opt/nec/ve/veos/core.* (if exists)
+        /var/lib/systemd/coredump/core.veos.* (if exists)
+        /var/lib/systemd/coredump/core.ived.* (if exists)
+        /var/lib/systemd/coredump/core.vemmd.* (if exists)
   
   If your facing problem is like freeze of VE process, please provide
   the following information, too. "gdb" package is required to get the
@@ -495,6 +503,9 @@ having VEs.
    /var/log/messages*
    /var/opt/nec/ve/veos/*.log.*
    /var/opt/nec/ve/veos/core.* (if exists)
+   /var/lib/systemd/coredump/core.veos.* (if exists)
+   /var/lib/systemd/coredump/core.ived.* (if exists)
+   /var/lib/systemd/coredump/core.vemmd.* (if exists)
 
   Last of all, please restore the original log level and reboot VEOS.
 

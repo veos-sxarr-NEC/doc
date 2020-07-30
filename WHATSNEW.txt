@@ -1,3 +1,142 @@
+2.6.2
+This section describes changes between the 2.5 and 2.6.2 versions of VEOS.
+
+
+Summary : Enhancements of Partial Process Swapping
+Type    : enhancement
+Detail  : The following functions are supported.
+         - Swap out VE memory to a file.
+         - Swap out when swap in does not proceed due to no enough memory.
+         - Swap out zombie processes.
+
+Summary : Enhancements of environment variable VE_ACC_IO
+Type    : enhancement
+Detail  : Users can change the value of VE_ACC_IO to change huge pages usage 
+          of accelerated IO.
+          When this environment variable is set to 1, accelerated I/O is 
+          enabled, with huge pages whose size is default value.
+          Default value is 64MB.
+          When this environment variable is set to 2, accelerated I/O is 
+          enabled, with huge pages whose size is
+          8MB * the number of cores of VE.
+
+Summary : Improved load rebalancing feature
+Type    : enhancement
+Detail  : Load rebalancing feature is improved to take into account the status
+          of VE tasks.
+          VEOS will relocate a VE task from a VE core which has more than one
+          VE tasks, which are running or sleeping, to the VE core which meets
+          following conditions.
+          - There is no VE task which is running.
+          - There is no VE task which is sleeping.
+
+Summary : Improved VE task creation algorithm
+Type    : enhancement
+Detail  : VE task creation algorithm is improved to take into account the
+          status of existing VE tasks.
+          VEOS creates a new VE task for NUMA node which has the fewest VE
+          tasks running or sleeping. It also assigns its VE task to the VE core
+          which has the fewest VE tasks which are running or sleeping.
+
+Summary : Supporting times() function/system call
+Type    : enhancement
+Detail  : times(2) system call is newly supported.
+
+Summary : Improved VE process system call latency.
+Type    : enhancement
+Detail  : The algorithm for searching a VE task in VEOS is improved which
+	  in turn improves the overall latency of system calls.
+
+Summary : Added information to VE process accounting information
+Type    : enhancement
+Detail  : VE Process accounting information is updated. The additional
+          information is showed by --ve-info option of dump-acct command. 
+          lastcomm command is supported. The additional information is also
+          showed by --ve-info option of lastcomm command.
+
+Summary : For converting VE process accounting file, new command
+          'convert-acct' is supported.
+Type    : enhancement
+Detail  : The new tool convert-acct is supported. It is the tool needed by the
+          #1679 enhancement. When reading the VE process accounting file which
+          has multi version VE process accounting data with dump-acct or 
+          lastcomm command, this tool converts it to a readable form.
+
+Summary : Added suspend/resume functionality to VE process accounting based
+	  on available space in root filesystem
+Type    : enhancement
+Detail  : When VE process accounting is enabled, it will be suspended if
+	  available space in root file system is less than or equal to 2%
+	  and again it will be resumed automatically if the available space
+	  grows to 4% or more.
+
+Summary : Fix of issue where data updated may be invisible, when VE processes
+          are resumed after Swap-in.
+Type    : bugfix
+Detail  : Data updated by a VE thread is invisible from other VE threads or VE
+          processes due to cache coherency problem between NUMA nodes, when VE
+          processes are resumed after Swap-in. This leads to a hung of MPI
+          program or data corruption.
+          This issue is reproduced only in the following cases.
+          - When VE processes, which uses VE memory on other NUMA node that are
+            different from the one running on, are resumed after swap-in.
+          - When VE proccesses, which execute MPI program on A100-1 series,
+            are resumed after swap-in.
+
+Summary : Fix the issue where RLIMIT_CPU resource limit doesn't come to
+	  effect correctly in a multi-threaded program
+Type    : bugfix
+Detail  : When a multi-threaded program is executed with RLIMIT_CPU 
+	  resource limit (inherited from ulimit or set using setrlimit(2)
+	  or prlimit command or VE_LIMIT_OPT), it doesn’t get SIGXCPU
+	  signal after the CPU execution time for the thread group
+	  reaches soft limit.
+
+Summary : Fix the issue where VE process accounting data of few processes may
+	  not be captured if accounting is enabled twice in succession
+Type    : bugfix
+Detail  : When VE process accounting is already enabled and user again enables
+	  it, accounting data of one or more processes terminating at the same
+	  time may not be captured. This can occur during log rotation also.
+
+Summary : Fix the issue where VE 'sar -w' command adds an extra newline.
+Type    : bugfix
+Detail  : On RHEL8 environment, VE 'sar -w' command adds an extra newline
+	  after each entry in output statistics.
+
+Summary : Fix the issue where 'restart_ve_psacct' doesn't start
+	  'psacct-ve' service at veos restart.
+Type    : bugfix
+Detail  : On RHEL8 environment, 'restart_ve_psacct' script is not able to
+	  start 'psacct-ve' service at veos restart, if the service was
+	  enabled at veos restart.
+
+Summary : Fix the issue where process accounting continue to be written
+	  in renamed old file after log rotation.
+Type    : bugfix
+Detail  : When log rotation for VE psacct was executing by cron job and
+	  'psacct-ve' service was active then VEOS was writing the process
+	  accounting information to the renamed old file after log rotation
+	  instead of writing in the newly created file.
+ 
+Summary : Fix the issue where 'vmstat' and 'mpstat' commands get abort
+	  when VE node 0 is offline.
+Type    : bugfix
+Detail  : On RHEL8 environment, both 'vmstat' and 'mpstat' command is aborted
+	  when VE node 0 is either offline or does not exist. And 'vmstat'
+	  command is aborted on RHEL7 environment also when VE node 0 is
+	  offline or doesn't exist.
+
+Summary : Improve log messages of VEOS about VE memory mapping.
+Type    : enhancement
+Detail  : Change log level of VEOS messages about VE memory mapping to
+          applicable level
+
+Summary : Improved performance of VE memory mapping daemon
+Type    : enhancement
+Detail  : Improve a response of VE memory mapping daemon(vemmd) for a request
+          from IB HCA driver. That leads to improve MPI performance.
+
 2.5
 This section describes changes between the 2.4.3 and 2.5 versions of VEOS.
 
@@ -17,6 +156,7 @@ Detail  : Archive files (.a) and libtool archives (.la) for VH programs
           as before.
 
 Summary : Changed the limit of VEOS core file size to 1GB.
+A
 Type    : enhancement
 Detail  : Changed the limit of VEOS core file size from no-limit to 1GB.
 

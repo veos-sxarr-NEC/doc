@@ -1,7 +1,7 @@
 VEOS:README
-Date:May-2020
+Date:July-2020
 
-This document describes the information regarding the VEOS version 2.5 or 
+This document describes the information regarding the VEOS version 2.6.2 or 
 later.
 
 - CAUTIONS
@@ -60,6 +60,3 @@ later.
 
 - VEO process is showing wrong PPID value (as -1) in process accounting.
   This will be fixed during the next update.
-
-- On RHEL8 environment, VE 'sar -w' command adds an extra newline after
-  each entry in output statistics. This will be fixed during the next update.

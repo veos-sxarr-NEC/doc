@@ -1,7 +1,7 @@
 VEOS:VEプログラムの実行方法
-Date:2020/01
+Date:2020/07
 
-この文書は VEOS version 2.3 以降についての情報を記載しています。
+この文書は VEOS version 2.6.2 以降についての情報を記載しています。
 
 
 はじめに、対象のVH(VEが接続されるLinux/x86マシン)にログインしてください。
@@ -148,7 +148,8 @@ Date:2020/01
         - 高速I/Oは、huge pages をバッファとして使います
         - カーネルパラメータの設定は、sysctl(8) man pageを参照してください
 
-  高速I/Oを有効にするためには、環境変数 VE_ACC_IO を 1 に設定してください。
+  デフォルトサイズのhuge pagesを使用して高速I/Oを有効にするためには、
+  環境変数 VE_ACC_IO を 1 に設定してください。
 
    $ export VE_ACC_IO=1
    $ ./hello
@@ -254,8 +255,12 @@ Date:2020/01
     ライブラリをロードする事が可能です。
 
   * VE_ACC_IO
-    この環境変数を1に設定すると、高速I/Oが有効になります。詳細は、この文書の
-　  「高速I/Oを有効にする方法」を参照してください。
+    この環境変数を 1 に設定すると、高速I/Oが有効になり、64MB の Hugepages
+    メモリを使用します。64MB はデフォルト値です。
+    この環境変数を 2 に設定すると、高速I/Oが有効になり、(8MB * VEのコア数) の
+    Hugepages メモリを使用します。
+    
+    詳細は、この文書の「高速I/Oを有効にする方法」を参照してください。
 
   * VE_ATOMIC_IO
     この環境変数を1に設定すると、アトミックI/Oが有効になります。VEプログラムが
@@ -435,6 +440,9 @@ Date:2020/01
          /var/log/messages*
          /var/opt/nec/ve/veos/*.log.*
          /var/opt/nec/ve/veos/core.* (存在する場合)
+         /var/lib/systemd/coredump/core.veos.* (存在する場合)
+         /var/lib/systemd/coredump/core.ived.* (存在する場合)
+         /var/lib/systemd/coredump/core.vemmd.* (存在する場合)
 
   もし、VEプログラムがフリーズするような問題の場合は、次の情報も必要です。
   情報を採取するためには、gdb パッケージがインストールされている必要が
@@ -476,6 +484,9 @@ Date:2020/01
    /var/log/messages*
    /var/opt/nec/ve/veos/*.log.*
    /var/opt/nec/ve/veos/core.* (存在する場合)
+   /var/lib/systemd/coredump/core.veos.* (存在する場合)
+   /var/lib/systemd/coredump/core.ived.* (存在する場合)
+   /var/lib/systemd/coredump/core.vemmd.* (存在する場合)
 
   最後に、ログレベルを元に戻して、VEOSをリブートしてください。
 
