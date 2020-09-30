@@ -1,7 +1,7 @@
 VEOS:README
-Date:July-2020
+Date:Sep-2020
 
-This document describes the information regarding the VEOS version 2.6.2 or 
+This document describes the information regarding the VEOS version 2.7 or 
 later.
 
 - CAUTIONS
@@ -58,5 +58,13 @@ later.
   a docker container which disabled IPv6 support. Please enable IPv6 support
   of docker environment.
 
-- VEO process is showing wrong PPID value (as -1) in process accounting.
-  This will be fixed during the next update.
+- The VEO implementation has changed to Alternative VE Offload(AVEO).
+  It is a faster and much lower latency replacement to the previous
+  VEO implementation which brings multi-VE support, simultaneous
+  debugging of VE and VH side, API extensions. 
+  You can migrate to AVEO from the previous VEO implementation by
+  installing the AVEO's packages and re-linking your program with AVEO
+  without modification of makefiles.
+  NEC supports the previous VEO implementation until the end of Mar. 2021.
+  Please see VEOS document "The Tutorial and API Reference of
+  Alternative VE Offloading" for VEO migration and AVEO installation.

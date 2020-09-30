@@ -1,5 +1,5 @@
-VEOS:How to execute VE program
-Date:July-2020
+VEOS:How to Execute VE Program
+Date:Sep-2020
 
 This document describes the information regarding the VEOS version 2.6.2 or
 later.

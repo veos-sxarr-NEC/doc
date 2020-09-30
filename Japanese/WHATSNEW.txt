@@ -1,3 +1,31 @@
+2.7
+この節は VEOS version 2.6.2 から 2.7 の変更を記載しています。
+
+概要   : AVEO のサポート
+タイプ : 機能改善
+詳細   : VEO の実装が AVEO に変更されました。これは、従来の VEO の実装よ
+         り高速で低遅延で、VEO を置き換えることができます。複数 VE をサ
+         ポートし、VE 側と VH 側を同時にデバッグすることが可能で、拡張
+         された API を利用できます。
+         NECは、2021年3月末まで 従来の VEO の実装をサポートする予定です。
+         VEO の移行とAVEO のインストールについては、VEOS ドキュメント
+         "The Tutorial and API Reference of Alternative VE Offloading" 
+         を参照してください。
+
+概要   : INTEGER配列を渡すための Fortan 向け VH Call API をサポート
+タイプ : 機能拡張
+詳細   : ユーザはlibvhcall-fortranのAPIを使う事により、VH側で呼び出される関数・
+         サブルーチンにINTEGER型配列を渡すことができます。VEOSのドキュメント
+         "The Tutorial and API Reference of VH Call Fortran API" を参照して
+         ください。
+
+概要   : プロセスアカウントにおいて、VEO プロセスの PPID が不正な値になる
+         問題の修正
+タイプ : バグ修正
+詳細   : ユーザが、 VEO API を使用して VE プロセスを生成した場合、プロセ
+         スアカウントに記録される PPID が -1 になります。
+
+
 2.6.2
 この節は VEOS version 2.5 から 2.6.2 の変更を記載しています。
 

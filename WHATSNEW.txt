@@ -1,3 +1,30 @@
+2.7
+This section describes changes between the 2.6.2 and 2.7 versions of VEOS.
+
+Summary : Supported Alternative VE Offload
+Type    : enhancement
+Detail  : The VEO implementation has changed to Alternative VE Offload(AVEO).
+          It is a faster and much lower latency replacement to the previous
+          VEO implementation which brings multi-VE support, simultaneous
+          debugging of VE and VH side, API extensions.
+          NEC supports the previous VEO implementation until the end
+          of Mar. 2021.
+          Please see VEOS document "The Tutorial and API Reference of
+          Alternative VE Offloading" for VEO migration and AVEO installation.
+
+Summary : Supported new VH Call for Fortran APIs to pass an INTEGER array
+Type    : enhancement
+Detail  : User can pass an INTEGER array to function or subroutine invoked
+          on VH side by using libvhcall-fortran APIs. See VEOS document
+          "The Tutorial and API Reference of VH Call Fortran API".
+
+Summary : Fix the issue where PPID of VEO process is wrong value in process 
+          accounting
+Type    : bugfix
+Detail  : When a user creates a VE process using VEO API, PPID recorded 
+          in process account is -1.
+
+
 2.6.2
 This section describes changes between the 2.5 and 2.6.2 versions of VEOS.
 
