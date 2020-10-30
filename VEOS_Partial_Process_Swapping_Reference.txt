@@ -1,5 +1,5 @@
 VEOS Partial Process Swapping Reference
-Date:July-2020
+Date: Oct-2020
 
 1 Introduction
 Partial process swapping (PPS) is the feature which saves and restores
@@ -150,6 +150,9 @@ Z	a	1009
                           Displays the size of swappable VE memory (SWAPPABLE) 
                           and the size of VE memory swapped out (SWAPPED).
                           The sizes are displayed in KB.
+-n                        Displays the sizes of non-swappable VE memory
+                          (NON-SWAPPABLE).
+                          The size is displayed in KB.
 -s                        Displays the swapped out VE memory sizes in VE nodes.
                           The sizes are displayed in KB.
 -H                        Not display the header.

@@ -1,3 +1,87 @@
+2.7.2
+This section describes changes between the 2.7 and 2.7.2 versions of VEOS.
+
+Summary : Supported features to get the size of memory which cannot be
+          swapped out by "Partial Process Swapping"
+Type    : enhancement
+Detail  : 'veswap -n' shows the size of non-swappable VE memory which a
+          VE process has used.
+          And 've_get_nonswappable' of libsysve gets the maximum size of
+          non-swappable VE memory which caller VE process has used.
+          Please see VEOS document "VEOS Partial Process Swapping Reference"
+          or "The Tutorial and API Reference of libsysve" for detail.
+
+Summary : Improvement in "load average" implementation.
+Type    : enhancement
+Detail  : Load average implementation was updated to display load average
+          as sum of active tasks on all the cores in a VE node
+
+Summary : Disabled generation of core files for VH binary 've_exec' if VE
+	  program terminated with hardware exception.
+Type    : enhancement
+Detail  : Two core files are generated such as 'core.<pid>.ve' (for VE binary
+	  './ve_a.out') and 'core.<pid>' (for VH program 've_exec') when a VE
+	  program causes any hardware exception. The VH side core file in this
+	  case is unnecessary and hence are disable now.
+
+Summary : Fixed the issue where VEOS may hang or terminate abnormally after
+	  fork()/clone() failed due to VE process's PID duplication in VEOS
+Type	: bugfix
+Detail  : VEOS may stop responding or terminate abnormally after it rejects
+          creation of new task because of PID duplication due to improper
+          cleanup of task in VEOS.
+
+Summary : Fix the issue where VE process is getting hanged on polling for all
+          the file descriptors of a set.
+Type	: bugfix
+Detail	: VE process gets hanged in poll(2), when it is polling for all the
+          file descriptors of a set of to become ready and set contains multiple
+          file descriptors.
+
+Summary : Fix of issue where program fails to store the signal mask of a context
+          after swapcontext() is called.
+Type    : bugfix
+Detail  : If a signal is masked before storing the context using getcontext() API
+          then after the call of swapcontext() , the program loses the saved
+          signal mask context.
+
+Summary : Fix of issue where program gives 'segmentation fault' when setcontext()
+          or swapcontext() is called.
+Type    : bugfix
+Detail  : If a signal is pending in the sigpending list and the corresponding
+          signal handler is invoked at the time of restoring/switching of context
+          with setcontext()/swapcontext() APIs , then the program crashes with
+          'segmentation fault'.
+
+Summary : Fix the issue where VE process is getting blocked on fcntl(2).
+Type    : bugfix
+Detail  : VE process gets blocked in fcntl(2) with F_SETLKW command, when 
+          conflicting lock is held on the file and the call is interrupted by signal.
+
+Summary : Fix the issue where VE 'sa1' command creates dummy file of size 0
+          and VE 'sa2' command failed to process that dummy file.
+Type    : bugfix
+Detail  : On RHEL7 environment, VE 'sa1' command creates dummy/erroneous 
+          "saDD_*" file of size 0 when value of macro 'HISTORY' is configured
+          with value greater than 28 in '/etc/sysconfig/ve_sysstat' file and
+          current date file does not exist in '/var/opt/nec/ve/log/sa/' 
+          directory. In such case, VE 'sa2' command failed while processing 
+          this dummy "saDD_*" file to create "sarDD_*" file.
+
+Summary : Fix the issue where VE_NODE_NUMBER environment variable does not 
+          come to effect correctly for VE 'sa1' and VE 'sa2' commands. 
+Type    : bugfix
+Detail  : On RHEL7 environment, if VE_NODE_NUMBER environment variable is set
+          and value of macro 'HISTORY' is configured with value greater than 
+          28 in '/etc/sysconfig/ve_sysstat' file.
+          In this case,
+          - VE 'sa2' command creates "sarDD_node" files for all node's current
+            date "saDD_Node" files exist at path "/var/opt/nec/ve/log/sa/" 
+            instead of "sarDD_node" file for only specified VE node.
+          - VE 'sa1' command creates symbolic links for all node's current date
+            "saDD_Node" files exist at path "/var/opt/nec/ve/log/sa/" instead
+             of "saDD_Node" file's link for only specified VE node.
+
 2.7
 This section describes changes between the 2.6.2 and 2.7 versions of VEOS.
 

@@ -1,7 +1,7 @@
 VEOS:README
-Date:Sep-2020
+Date:Oct-2020
 
-This document describes the information regarding the VEOS version 2.7 or 
+This document describes the information regarding the VEOS version 2.7.2 or 
 later.
 
 - CAUTIONS
@@ -30,6 +30,7 @@ later.
   Operating System         Platform
   RHEL7.6                  x86_64
   RHEL7.7                  x86_64
+  RHEL7.8                  x86_64
   RHEL8.1                  x86_64
 
 - VEOS doesn't support Linux suspend and resume. Please do not suspend and
@@ -54,9 +55,25 @@ later.
   than or equal to the number of available VE cores, in order to
   achieve best performance.
 
-- getaddrinfo() in VE glibc fails if a program invokes getaddrinfo() in 
-  a docker container which disabled IPv6 support. Please enable IPv6 support
-  of docker environment.
+- The getaddrinfo() function in VE glibc fails if a program invokes it
+  in a docker container which disabled IPv6 support. Please enable
+  IPv6 support of docker environment.
+
+- MPIPROGINF/PROGINF and some commands such as "ps" and "veswap" show
+  the VE memory usage and non-swappable VE memory usage which are
+  obtained from VEOS. The getrusage() function also obtains VE memory
+  usage from VEOS. These value includes pinned VE memory to be
+  transferred by MPI API, even if it is already unmapped from a
+  virtual address space of a VE process. But, there is a restriction
+  that these values do not include pinned memory if the type of memory
+  is one of the following types, and if it is already unmapped from a
+  virtual address space of a VE process.
+
+    Private filebacked memory (mmap() with MAP_PRIVATE)
+    Shared filebacked memory  (mmap() with MAP_SHARED)
+    Shared anonymous memory   (mmap() with MAP_SHARED and MAP_ANONYMOUS)
+    System V shared memory    (shmat())
+    POSIX shared memory       (shm_open())
 
 - The VEO implementation has changed to Alternative VE Offload(AVEO).
   It is a faster and much lower latency replacement to the previous
