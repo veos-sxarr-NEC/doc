@@ -1,5 +1,5 @@
 VEOS:How to Execute VE Program
-Date:Sep-2020
+Date:Dec-2020
 
 This document describes the information regarding the VEOS version 2.6.2 or
 later.
@@ -131,7 +131,7 @@ having VEs.
   additional search path should be written in it.
 
 
-- How to enable accelerated I/O
+- How to enable Accelerated I/O
 
   "Accelerated I/O" is a feature which improves I/O performance by efficient
   data transfer between VE and VH.
@@ -144,25 +144,22 @@ having VEs.
       readv    writev
       preadv   pwritev
 
-  This feature can be enabled when the below requirements are met.
+  A system administrator needs to reserve huge pages for Accelerated
+  I/O through the kernel parameter "vm.nr_hugepages" following
+  instructions in "SX-Aurora TSUBASA Installation Guide".
 
-   * ScaTeFS is not installed
-      - Please enable ScaTeFS direct I/O instead of accelerated I/O when
-        ScaTeFS is installed
-
-   * The kernel parameter "vm.nr_hugepages" is more than or equal to 256/per VE
-      - Accelerated I/O uses huge pages as a buffer
-      - Please see sysctl(8) man page to set the kernel parameter
-
-  Please set environment variable VE_ACC_IO to 1 to enable "Accelerated I/O" 
+  Please set environment variable VE_ACC_IO to 1 to enable Accelerated I/O
   with huge pages whose size is default value.
 
    $ export VE_ACC_IO=1
    $ ./hello
 
-  Please note data is transferred every 8MB when "Accelerated I/O" is
-  enabled. So, read/write family system calls will not be atomic when the size
-  is more than 8MB.
+  Please note the below information:
+  
+    * A VE process use 32 huge pages (64MB huge pages memory) by
+      default, when Accelerated I/O is enabled.
+    * Accelerated I/O transfers data every 8MB. So, read/write family
+      system calls will not be atomic when the size is more than 8MB.
 
 
 - How to limit the resource of VE process
@@ -266,12 +263,12 @@ having VEs.
     other shared libraries which are linked to an executable get loaded.
 
   * VE_ACC_IO
-    When this environment variable is set to 1, accelerated I/O is enabled
-    and uses 64MB of Hugepages memory. The 64MB is default size.
-    When this environment variable is set to 2, accelerated I/O is enabled
-    and uses (8MB * the number of VE cores) of Hugepages memory. 
+    When this environment variable is set to 1, Accelerated I/O is enabled
+    and uses 64MB of huge pages memory. The 64MB is default size.
+    When this environment variable is set to 2, Accelerated I/O is enabled
+    and uses (8MB * the number of VE cores) of huge pages memory. 
 
-    Refer to "How to enable accelerated I/O" in this document for more detail.
+    Refer to "How to enable Accelerated I/O" in this document for more detail.
     
   * VE_ATOMIC_IO
     When this environment variable is set to 1, atomic I/O is enabled. When VE
@@ -453,24 +450,42 @@ having VEs.
   
         /var/log/messages*
         /var/opt/nec/ve/veos/*.log.*
+        /var/opt/nec/ve/log/sa/saDD_* (DD is the day when issue occurs)
         /var/opt/nec/ve/veos/core.* (if exists)
         /var/lib/systemd/coredump/core.veos.* (if exists)
         /var/lib/systemd/coredump/core.ived.* (if exists)
         /var/lib/systemd/coredump/core.vemmd.* (if exists)
+
+    3. Process accouting file
+       If process accouting is enabled, please provide the process
+       accounting files of the day when the issue occurs and the next
+       day.
+       The below is the paths of process accouting file.
+
+        /var/opt/nec/ve/account/pacct_?
+            The latest file.
+        /var/opt/nec/ve/account/pacct_?-YYYYMMDD
+            The file rotated on the day indicated by YYYYMMDD.
+        /var/opt/nec/ve/account/pacct_?-YYYYMMDD.gz
+            The compressed file rotated on the day indicated by YYYYMMDD.
+
+       Please note the process information might be stored into the
+       file of the next day because the process accounting file is
+       rotated around 3 o'clock.
   
   If your facing problem is like freeze of VE process, please provide
   the following information, too. "gdb" package is required to get the
   information.
 
-    3. Core files of VEOS
-       Please execute the following command as root to generate core files.
-       core.xxxxx (xxxxx is pid) will be created and compressed to
-       core.xxxxx.gz. The size of core file will be large though it
-       will be compressed. So, enough space is temporarily required in
-       the current directory.
-       Please provide the compressed core files.
+    4. Stack traces of VEOS and ve_exec (pseudo process)
+       Please execute the following command as root to get stack
+       traces of VEOS and ve_exec. Please provide generated pstack-*
+       files.
   
-        $ pgrep veos | while read pid; do gcore $pid; gzip core.$pid; done
+        # for i in `seq 3`; do \
+          pgrep veos | while read pid; do pstack $pid > pstack-veos.$pid.$i; done; \
+          pgrep ve_exec | while read pid; do pstack $pid > pstack-ve_exec.$pid.$i; done; \
+          sleep 10; done
 
 
 - How to gather debug log of VEOS

@@ -1,5 +1,8 @@
 VEOS Partial Process Swapping Reference
-Date: Oct-2020
+Date: Dec-2020
+
+This document describes the information regarding the VEOS version 2.7.4 or
+later.
 
 1 Introduction
 Partial process swapping (PPS) is the feature which saves and restores
@@ -84,17 +87,25 @@ Please see more details in "SX-Aurora TSUBASA Installation Guide".
 You can set the maximum size of swappable VE memory per VE node and the
 absolute path of swap file. For file mode, VH's host name and VE node number 
 are added to the file path.
+If you do not specify the owner of the swap file, the owner will be "root".
+If you do not specify the group of the swap file, the group will be "root".
+If you specify the owner of the swap file, you need the write permission of 
+the specified user in the directory of the file path.
 Please modify "veswap.options" as follows.
 
   [memory mode]
     ve-os-launcher@*=--ve-swap-mem-max=<size(MB unit)>
   [file mode]
     ve-os-launcher@*=--ve-swap-file-path=<Absolute path of swap file>
-    ve-os-launcher@*=---ve-swap-file-max=<size(MB unit)>
+    ve-os-launcher@*=--ve-swap-file-max=<size(MB unit)>
+    ve-os-launcher@*=--ve-swap-file-user=<user name>
+    ve-os-launcher@*=--ve-swap-file-group=<group name>
   [mix mode]
     ve-os-launcher@*=--ve-swap-mem-max=<size(MB unit)>
     ve-os-launcher@*=--ve-swap-file-path=<Absolute path of swap file>
     ve-os-launcher@*=--ve-swap-file-max=<size(MB unit)>
+    ve-os-launcher@*=--ve-swap-file-user=<user name>
+    ve-os-launcher@*=--ve-swap-file-group=<group name>
 
 3) Load the configuration
 Restart VEOS as follows in order to load the configuration.

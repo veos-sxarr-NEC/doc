@@ -1,3 +1,91 @@
+2.7.4
+This section describes changes between the 2.7.2 and 2.7.4 versions of VEOS.
+
+Summary : Supported Singularity for VE application execution
+Type    : enhancement
+Detail  : Users can execute VE applications in containers using Singularity.
+          A Singularity recipe file to build a image is available on github.
+            https://github.com/veos-sxarr-NEC/singularity
+
+Summary : Supported AVEO with PROGINF.
+Type    : enhancement
+Detail  : AVEO analysis information is available in PROGINF.
+          To get the information, specify YES or DETAIL in the environment
+          variable VE_PROGINF when executing the AVEO program.
+
+Summary : Supported features to set owner and group of swap file of 
+          "Partial Process Swapping"
+Type    : enhancement
+Detail  : When swapping out VE memory to a file, enable to set owner and group
+	  of swap file by "veswap.options".  Please see VEOS document "VEOS
+	  Partial Process Swapping Reference" for more information on
+          "veswap.options".
+
+Summary : Balancing the load of interrupts from VEs
+Type    : enhancement
+Detail  : "vesysinit" package installs the scripts which balances the
+          load of interrupts from VEs for stable execution of software
+          on VH.
+          It also installs the irqbalance policy script to avoid
+          irqbalance from changing the destination of interrupts from
+          VEs.
+
+Summary : Updated the VE driver to improve interrupt performance.
+Type    : enhancement
+Detail  : VE driver is updated to improve interrupt performance.
+
+Summary : Updated the behaviour to disable the core dump of VH when stack limit
+          is exhausted.
+Type    : enhancement
+Detail  : VEOS is updated to disable the core dump of VH when VE process is
+          aborted on exhausting its stack limit.
+
+Summary : Fix of issue where the VEOS may terminate abnormally when MPI 
+          process exits.
+Type    : bugfix
+Detail  : If MPI process transfers data on System V shared memory and exits
+          without detaching the shared memory, VEOS may terminate abnormally.
+
+Summary : Fix of issue where the status of the VEs may not become ONLINE
+          after installation of "ve-devel" package group.
+Type    : bugfix
+Detail  : The status of the VEs may not become ONLINE after installation of
+          "ve-devel" package group in the RHEL8.1 or CentOS8.1 environment.
+
+Summary : Fixed an issue where VH process aborts when it calls 
+          veo_get_context() with an invalid index.
+Type    : bugfix
+Detail  : If the user passes an invalid argument to the second argument of 
+          veo_get_context(), the non-existent element of the vector type 
+          variable is accessed. As a result, an out_of_range exception is 
+          thrown, then the VH process aborts because the AVEO library does 
+          not catch the exception.
+
+Summary : Fix of issue where VE process state is temporarily updated to WAIT
+          state after STOP state.
+Type    : bugfix
+Detail  : If a VE binary executed with execve() system call or using VE commands
+          (like time, taskset, prlimit and strace) is stopped by SIGSTOP signal
+          immediately after starting its execution, sometimes the process's 
+          state is temporarily changed to WAIT state after STOP state. The state
+          will be STOP state again after the temporary WAIT state.
+
+Summary : Fix of issue where pthread_mutex_init() does not fail with
+          ENOTSUP if mutex attributes is 'PTHREAD_PRIO_INHERIT'.
+Type    : bugfix
+Detail  : When 'PTHREAD_PRIO_INHERIT' attribute is set using 
+          pthread_mutexattr_setprotocol() then at the time of initialization
+          using pthread_mutex_init(), glibc does not check if 
+          'PTHREAD_PRIO_INHERIT' is supported in VEOS or not and returns success
+          instead of ENOTSUP.
+
+Summary : Fix the issue where clock_gettime() returns incorrect value for
+	  clock id CLOCK_THREAD_CPUTIME_ID.
+Type    : bugfix
+Detail  : clock_gettime() returns incorrect value for thread-specific 
+          CPU-time clock.
+
+
 2.7.2
 This section describes changes between the 2.7 and 2.7.2 versions of VEOS.
 
@@ -425,6 +513,12 @@ Type    : enhancement
 
 2.3
 This section describes changes between the 2.2.2 and 2.3 versions of VEOS.
+
+Summary : Supported Docker for VE application execution
+Type    : enhancement
+Detail  : Users can execute VE applications in containers using Docker.
+          A Dockerfile to build a image is available on github.
+            https://github.com/veos-sxarr-NEC/docker_container
 
 Summary : Changed RSS calculation algorithm of shared memory
 Type    : enhancement

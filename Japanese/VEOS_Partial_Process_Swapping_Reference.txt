@@ -1,5 +1,7 @@
 VEOS Partial Process Swapping リファレンス
-Date:2020/10
+Date:2020/12
+
+この文書は VEOS version 2.7.4 以降についての情報を記載しています。
 
 1　はじめに
 Partial Process Swapping機能(PPS)は停止状態のVEプロセスのメモリの一時解放と
@@ -78,8 +80,12 @@ VH の HugePagesの設定についての詳細は、「SX-Aurora TSUBASA イン�
 2) veswap.optionsの内容
 
    VE ノード当たりのスワップ可能な VE メモリの最大サイズと、スワップファイルの
-   絶対パスを指定できます。 file mode 時、VH のホスト名と VE ノード番号が
-   ファイルパスに付加されます。
+   絶対パス、所有者、グループを指定できます。 file mode 時、VH のホスト名と
+   VE ノード番号がファイルパスに付加されます。
+   スワップファイルの所有者を指定しない場合、所有者は「root」になります。
+   スワップファイルのグループを指定しない場合、グループは「root」になります。
+   スワップファイルの所有者を指定した場合はファイルパスのディレクトリに指定した
+   ユーザの書き込み権が必要です。
 
    [memory mode]
     ve-os-launcher@*=--ve-swap-mem-max=<サイズ(MB単位)>
@@ -87,11 +93,15 @@ VH の HugePagesの設定についての詳細は、「SX-Aurora TSUBASA イン�
    [file mode]
     ve-os-launcher@*=--ve-swap-file-path=<スワップファイルの絶対パス>
     ve-os-launcher@*=--ve-swap-file-max=<サイズ(MB単位)>
+    ve-os-launcher@*=--ve-swap-file-user=<ユーザ名>
+    ve-os-launcher@*=--ve-swap-file-group=<グループ名>
     を設定します。
    [mix mode]
     ve-os-launcher@*=--ve-swap-mem-max=<サイズ(MB単位)>
     ve-os-launcher@*=--ve-swap-file-path=<スワップファイルの絶対パス>
     ve-os-launcher@*=--ve-swap-file-max=<サイズ(MB単位)>
+    ve-os-launcher@*=--ve-swap-file-user=<ユーザ名>
+    ve-os-launcher@*=--ve-swap-file-group=<グループ名>
     を設定します。
 
 3) veswap.optionsの値を有効にする

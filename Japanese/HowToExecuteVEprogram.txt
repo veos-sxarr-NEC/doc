@@ -1,5 +1,5 @@
 VEOS:VEプログラムの実行方法
-Date:2020/07
+Date:2020/12
 
 この文書は VEOS version 2.6.2 以降についての情報を記載しています。
 
@@ -137,26 +137,22 @@ Date:2020/07
       readv    writev
       preadv   pwritev
 
-  この機能は、以下の条件が成立するときにのみ、有効にすることができます。
+  システム管理者は、「SX-Aurora TSUBASA インストールガイド」の指示に従
+  い、カーネルパラメータ"vm.nr_hugepages"を使用して、高速I/O用に Huge
+  Pages を予約する必要があります。
 
-    * ScaTeFS をインストールしていないこと
-        - ScaTeFS をインストールしている場合は、高速I/Oの代わりに、ScaTeFS ダイ
-          レクト I/O を有効にしてください
-
-    * カーネルパラメータ"vm.nr_hugepages"がVEあたり256以上に設定されて
-      いること
-        - 高速I/Oは、huge pages をバッファとして使います
-        - カーネルパラメータの設定は、sysctl(8) man pageを参照してください
-
-  デフォルトサイズのhuge pagesを使用して高速I/Oを有効にするためには、
+  デフォルトサイズのHuge Pagesを使用して高速I/Oを有効にするためには、
   環境変数 VE_ACC_IO を 1 に設定してください。
 
    $ export VE_ACC_IO=1
    $ ./hello
 
-  高速I/O有効時、8MB単位でデータが転送されます。そのため、サイズが8MBを超える場
-  合、read/write系システムコールはアトミックではなくなることに注意してくださ
-  い。
+  次の点に注意をお願いします。
+
+    * 高速I/O有効時、デフォルトで、1つの VE プロセスあたり、32 の Huge
+      Pages (64MB Huge Pages メモリ) を使います。
+    * 高速I/Oは、8MB単位でデータを転送します。そのため、サイズが8MBを超
+　　  える場合、read/write系システムコールはアトミックではなくなります。
 
 
 - VEプロセスの資源制限方法
@@ -255,10 +251,10 @@ Date:2020/07
     ライブラリをロードする事が可能です。
 
   * VE_ACC_IO
-    この環境変数を 1 に設定すると、高速I/Oが有効になり、64MB の Hugepages
+    この環境変数を 1 に設定すると、高速I/Oが有効になり、64MB の Huge Pages
     メモリを使用します。64MB はデフォルト値です。
     この環境変数を 2 に設定すると、高速I/Oが有効になり、(8MB * VEのコア数) の
-    Hugepages メモリを使用します。
+    Huge Pages メモリを使用します。
     
     詳細は、この文書の「高速I/Oを有効にする方法」を参照してください。
 
@@ -439,23 +435,40 @@ Date:2020/07
 
          /var/log/messages*
          /var/opt/nec/ve/veos/*.log.*
+         /var/opt/nec/ve/log/sa/saDD_* (DD は問題が発生した日)
          /var/opt/nec/ve/veos/core.* (存在する場合)
          /var/lib/systemd/coredump/core.veos.* (存在する場合)
          /var/lib/systemd/coredump/core.ived.* (存在する場合)
          /var/lib/systemd/coredump/core.vemmd.* (存在する場合)
 
+    3. プロセスアカウティングファイル
+       プロセスアカウンティングが有効な場合、問題が発生した日と、その翌日の
+       プロセスアカウンティングファイルを採取してください。
+       プロセスアカウンティングファイルのパスは以下の通りです。
+
+         /var/opt/nec/ve/account/pacct_?
+             最新のファイル
+         /var/opt/nec/ve/account/pacct_?-YYYYMMDD
+             YYYYMMDD が示す年月日にローテーションされたファイル
+         /var/opt/nec/ve/account/pacct_?-YYYYMMDD.gz
+             YYYYMMDD が示す年月日にローテーションされ、圧縮されたファイル
+
+       プロセスアカウンティングファイルのローテーションが3時ごろに行わ
+       れるため、プロセスの情報が翌日のファイルに記録される可能性がある
+       ことに注意してください。
+
   もし、VEプログラムがフリーズするような問題の場合は、次の情報も必要です。
   情報を採取するためには、gdb パッケージがインストールされている必要が
   あります。
 
-    3. VEOSのコアファイル
-       root権限で次のコマンドを実行してコアファイルを生成してください。
-       core.xxxxx(xxxxxはpid)が生成されて、core.xxxxx.gzに圧縮されます。
-       圧縮前のコアファイルはサイズは大きいサイズになるため、カレントディ
-       レクトリに十分な空が必要です。
-       圧縮されたコアファイルを採取してください。
+    4. VEOS と ve_exec のスタックトレース
+       root権限で次のコマンドを実行して、VEOS と ve_exec のスタックトレース
+       を取得してください。生成された pstack-* ファイルを採取してください。
 
-        $ pgrep veos | while read pid; do gcore $pid; gzip core.$pid; done
+        # for i in `seq 3`; do \
+          pgrep veos | while read pid; do pstack $pid > pstack-veos.$pid.$i; done; \
+          pgrep ve_exec | while read pid; do pstack $pid > pstack-ve_exec.$pid.$i; done; \
+          sleep 10; done
 
 
 - VEOS のデバッグログの採取方法

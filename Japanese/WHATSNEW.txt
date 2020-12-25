@@ -1,3 +1,86 @@
+2.7.4
+この節は VEOS version 2.7.2 から 2.7.4 の変更を記載しています。
+
+概要   : Singularity を VE アプリケーションの実行用にサポート
+タイプ : 機能拡張
+詳細   : ユーザは、 Singularity を使用して、コンテナ内でVE アプリケーションを
+         実行できます。イメージをビルドするための Singularity レシピファイル
+         は github で入手可能です。
+           https://github.com/veos-sxarr-NEC/singularity
+
+概要   : PROGINF がAVEO に対応しました
+タイプ : 機能拡張
+詳細   : PROGINF でAVEO の解析情報を採取できるようになりました。解析情報を
+         採取するためAVEO プログラム実行時に環境変数VE_PROGINFにYES または
+         DETAIL を指定してください。
+
+概要   : Partial Process Swappingの Swap out するファイルの所有者・グループ
+         を設定できるようにしました。
+タイプ : 機能拡張
+詳細   : VEメモリをファイルへ Swap out する場合、ファイルの所有者・グループを
+	 veswap.options で設定できるようにしました。 詳しい veswap.options
+	 の設定方法については VEOS のドキュメント "VEOS Partial Process
+         Swapping リファレンス"を参照してください。
+
+概要   : VE からの割り込みの負荷を分散
+タイプ : 機能拡張
+詳細   : VH 上のソフトウェアを安定動作させるために、VE からの割り込みの負荷
+         を分散させるスクリプトが "vesysinit" パッケージによってインストール
+         されます。
+         また、VE からの割り込みの宛先を irqbalance が変更しないようするた
+         めの irqbalance ポリシースクリプトもインストールされます。
+
+概要   : VEドライバの割り込み性能の改善
+タイプ : 機能拡張
+詳細   : VEドライバの割り込み性能を改善しました。
+
+概要   : スタックリミット超過時に VH のコアダンプを生成しないように動作を変更
+タイプ : 機能拡張
+詳細   : VE プロセスがスタックリミットを超過し異常終了した時、VEOS は VH の
+         コアダンプを生成しないようにしました。
+
+概要   : MPIプロセス終了時にVEOSが異常終了することがある問題の修正
+タイプ : バグ修正
+詳細   : MPIプロセスがSystem V 共有メモリ上の領域を転送し、共有メモリをデタッチ
+         することなく終了させた場合、VEOSが異常終了することがあります。
+
+概要   : ve-devel パッケージグループインストール後に VE カードが ONLINE に
+         ならない場合がある問題の修正
+タイプ : バグ修正
+詳細   : RHEL8.1 又は CentOS8.1 に ve-devel パッケージグループをインストール
+         しても、VE カードが ONLINE にならない場合があります。
+
+概要   : veo_get_context() に不正な引数に渡すとVH プロセスが異常終了する
+         問題を修正
+タイプ : バグ修正
+詳細   : ユーザがveo_get_context() の第二引数に不正な要素番号を渡すと、
+         vector型変数の、存在しない要素にアクセスします。そのため、
+         out_of_range 例外が発生しますが例外をAVEO ライブラリがキャッチ
+         しないため、VH プロセスが異常終了します。
+
+概要   : VE プロセスの状態が STOP のあと一時的に WAIT に更新される問題を修正
+タイプ : バグ修正
+詳細   : execve() システムコール、または time、taskset、prlimit、strace の
+         ような VE コマンドで実行した VE バイナリを、実行開始直後に SIGSTOP 
+	 などで停止させた場合、時々、プロセス状態が STOP 状態のあとに一時的
+	 に WAIT 状態に変わることがあります。状態は一時的な WAIT 状態のあと、
+	 再び STOP 状態になります。
+
+概要   : mutex の属性が 'PTHREAD_PRIO_INHERIT' の時、pthread_mutex_init() が
+         ENOTSUP で失敗しない問題を修正
+タイプ : バグ修正
+詳細   : pthread_mutexattr_setprotocol() で属性を 'PTHREAD_PRIO_INHERIT' に
+         設定し、pthread_mutex_init() で初期化した時、glibc は VEOS が
+	 'PTHREAD_PRIO_INHERIT' をサポートしているかどうかを確認せず、
+	 ENOTSUP ではなく成功を返します。
+
+概要   : クロックID が CLOCK_THREAD_CPUTIME_ID の場合、clock_gettime() が
+         誤った値を返す問題を修正
+タイプ : バグ修正
+詳細   : スレッド固有の CPU タイムクロックを指定した clock_gettime() が
+         誤った値を返します。
+
+
 2.7.2
 この節は VEOS version 2.7 から 2.7.2 の変更を記載しています。
 
@@ -418,6 +501,13 @@ Detail : VE memory mappingに関するVEOSのログについて、ログレベ�
 
 2.3
 この節は VEOS version 2.2.2 から 2.3 の変更を記載しています。
+
+概要   : Docker を VE アプリケーションの実行用にサポート
+タイプ : 機能拡張
+詳細   : ユーザは、 Docker を使用して、コンテナ内でVE アプリケーションを実
+         行できます。イメージをビルドするための Dockerfileは github で
+         入手可能です。
+           https://github.com/veos-sxarr-NEC/docker_container
 
 概要   : 共有メモリのRSS値の計算アルゴリズムの変更
 タイプ : 機能拡張
